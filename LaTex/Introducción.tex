@@ -1,0 +1,77 @@
+sudo \chapter*{Introducción}
+\addcontentsline{toc}{chapter}{Introducción} % Para añadirla al índice a pesar de que no esté numerada
+\markboth{INTRODUCCIÓN}{} % Para arreglar el encabezado
+
+\lettrine{L}{a historia y} la psicología ya han probado que el ser humano, especie extremadamente sensible al cambio, es incapaz de aceptar la genialidad cuando esta se le presenta y prefiere, en contrapartida, adoptar la cómoda postura de rechazarla. Por ello, no son pocas las veces que, en su origen, una nueva área dentro de las matemáticas ha sido menospreciada y condenada al escepticismo, por una notable cantidad de personas, debido a una escasa solidez en su formalización, a pesar de su más que innegable utilidad. Así ocurrió, por ejemplo, con la teoría de conjuntos, hoy en día base de toda teoría matemática; el cálculo infinitesimal, base de una enorme parte de la física moderna; o la geometría no euclidiana, también de enorme utilidad dentro de la física para formular la Teoría de la Relatividad. Lo que hoy se conoce como \textit{cálculo umbral} (o también \textit{cálculo simbólico}) es solo uno más de estos ejemplos.
+
+Esta rama tiene sus orígenes más primitivos entre mediados y finales del siglo XIX. A pesar de que ciertas fuentes se lo atribuyan a Édouard Lucas o a James Silvester (este último, el inventor del término \textit{cálculo umbral}), lo cierto es que John Blissard fue el primero en explorar las ideas fundacionales de esta disciplina. Blissard publica el primero de varios artículos en 1861 \cite{blissard}, mientras que los trabajos de Lucas se publican 15 años después. En justo en este artículo donde Blissard introduce la noción de \textit{notación representativa} para referirse a unas cantidades, mediante lo cual acaba deduciendo ciertas igualdades. Por desgracia, todos estos trabajos escaseaban una buena fundación teórica puesto que ciertos aspectos permanecían sin dilucidarse, lo que los dotaba de un aspecto casi mágico que desde luego no favoreció su acogida. No sería hasta que Rota y Roman publicaran una serie de artículos (quizás el más importante \cite{roman2}), medio siglo después, que se daría una presentación verdaderamente rigurosa de estas teorías, reviviendo de esta forma las ideas que Blissard, Lucas y Sylvester, entre otros, tuvieron en un comienzo. Posteriormente, ya en 1984, Roman escribiría \cite{roman1}, el cual se considera un clásico de la materia y la base de todo el cálculo umbral actual. 
+
+En sus orígenes, la idea fundamental sobre la que giraba todo el cálculo umbral era la de ``intercambiar`` subíndices con exponentes, para obtener así, de una forma relativamente sencilla y mediante manipulaciones algebraicas, una serie de relaciones de suma utilidad. Para ver con una mayor claridad a lo que nos referimos con esto, conviene que nos centremos en el ejemplo más clásico dentro de la materia: los \textit{números de Bernoulli}.
+
+Recordamos que estos números, $B_n$, se definen mediante el desarrollo en serie de Taylor de la función generadora:
+\begin{equation*}
+    \frac{x}{e^x-1} = \sum_{n=0}^\infty B_n\frac{x^n}{n!}
+\end{equation*}
+Una vez dada su definición, es habitual comenzar a deducir propiedades que los números de Bernoulli deben satisfacer. Una de la más fundamentales, y la única que debemos saber para lo que prosigue, es que verifican la ecuación genérica:
+
+\begin{equation}\label{generic}
+    B_0 = 1 \hspace{1cm} \sum_{r=0}^{n-1}\binom{n}{r}B_r = 0 \hspace{0.25cm} (n>1)
+\end{equation} 
+No es complicado advertir aquí que esta relación se asemeja sobremanera al teorema binomial usual, con la única salvedad de que en este caso contamos con una cantidad $B_r$ y no $B^r$, sea lo que fuera esa cantidad $B$. Es justo aquí donde el cálculo umbral entra en juego. Para poder hacer este cambio, se considera lo que se conoce como una ''cantidad representativa`` $B$ tal que $B_n$ sea ``equivalente`` a $B^n$, lo cual poría expresarse en términos simbólicos como $B_n \equiv B^n$ (aquí, el subíndice $n$ se piensa como la sombra, en latín ``umbra``, de donde proviene el nombre). Notése que las comillas aquí son importantes; este proceso carece de todo el rigor necesario e incluso estamos hablando de una supuesta relación de equivalencia que no hemos definido correctamente. 
+
+En cualquier caso, si nos dejamos guiar por esta intución y hacemos la vista larga a la rigurosidad podríamos reescribir esta relación de la forma siguiente:
+\begin{equation*}
+    \sum_{r=0}^{n-1}\binom{n}{r}B_r \equiv \sum_{r=0}^{n-1}\binom{n}{r}B^r\equiv (B+1)^n-B^n = 0 \hspace{0.5cm} (n>1)
+\end{equation*}
+
+O lo que es lo mismo:
+\begin{equation*}
+    (B+1)^n = B^n \hspace{0.5em} (n>1)
+\end{equation*}
+
+No entraremos en muchos detalles pero, a la hora de la verdad, la cantidad representativa $B$ es lo que se conoce como un \textit{umbrae} y la equivalencia antes citada es la \textit{equivalencia umbral}.\footnote{El ``intercambio`` de exponentes con subíndices se corresponde entonces con lo que se denomina una \textit{evaluación} definida en un cierto anillo $\mathcal{D}[\mathcal{A}]$. Si se desea más información, consultar el desarrollo en \cite{rota}}. Para lo que aquí nos interesa, conviene saber que no todas las manipulaciones algebraicas habituales dan resultados correctos y se debe tener cierto cuidado a la hora de operar con los \textit{umbrae}. Ahora bien, esto no impide que, respetando ciertas reglas de las que aquí tampoco hablaremos, esta metodología no propicie resultados tan útiles como ciertos. Veámoslo, pues, para con los números de Bernoulli.
+
+En primer lugar, por la serie de Taylor de la exponencial se llega a que:
+\begin{equation*}
+e^{Bx} \equiv \sum_{n=0}^\infty B^n\frac{x^n}{n!} \equiv \sum_{n=0}^\infty B_n\frac{x^n}{n!} \implies e^{Bx} \equiv \frac{x}{e^x-1}
+\end{equation*}
+Haciendo uso de esta relación y de las propiedades de la exponencial:
+\begin{equation*}
+e^{(B+1)x} - e^{Bx} \equiv x
+\end{equation*}
+de donde se recupera la ecuación \eqref{generic}.
+Sustituyendo $x$ por $-x$ en la relación anterior se obtiene:
+\begin{equation*}
+e^{-Bx} \equiv \frac{-x}{e^{-x}-1} = \frac{xe^x}{e^x-1} \equiv e^{(B+1)x}
+\end{equation*}
+e igualando coeficientes:
+\begin{equation*}
+(B+1)^n \equiv (-B)^n
+\end{equation*}
+la cual, utilizando de nuevo la ecuación \eqref{generic} implica que:
+\begin{equation*}
+B_1 = -\frac{1}{2} \hspace{1cm} B_3 = B_5 = \dots = B_{2n+1} = 0 \hspace{0.2cm} (n>1)
+\end{equation*}
+Es más, este procedimiento nos permite obtener propiedades para los, más generales, \textit{polinomios de Bernoulli}. Como es bien sabido, estos se definen con la función generadora:
+\begin{equation*}
+    \frac{te^{xt}}{e^t-1} = \sum_{n\geq0}\frac{B_n(x)}{n!}t^n
+\end{equation*}
+Por ejemplo, rápidamente vemos que el miembro de la izquierda es equivalente a $e^{(B+x)t}$ y por tanto:
+\begin{equation*}
+    B_n(x) \equiv (B+x)^n \equiv \sum_{k=0}^n \binom{n}{k}B_{k}x^{n-k}
+\end{equation*}
+De aquí deducimos además:
+\begin{equation*}
+    B_n(0) \equiv B^n \equiv B_n \quad B_n'(x) \equiv n(B+x)^{n-1} \equiv nB_{n-1}(x)
+\end{equation*}
+y si seguimos este proceso podríamos obtener igualdades que llegan incluso hasta la conocida fórmula de sumación de Euler-McLaurin.
+\bigbreak
+
+Como se ha podido ver, esta es una metodología poderosa que  puede ser aprovechada por muchas de las conocidas sucesiones de polinomios: los propios polinomios de Bernoulli, de Hermite, de Euler o de Laguerre son solo unos pocos ejemplos. Así pues, como poco, el cálculo umbral podría sernos útil para la resolución de problemas orientados a diversas áreas de las matemáticas, dentro de los cuales estos polinomios aparezcan. No obstante, la realidad es que es mucho más versátil. En la actualidad, se conocen aplicaciones del cálculo umbral tan diversas que van desde la combinatoria, pasando por la probabilidad, la estadística, la teoría de grafos o la topología algebraica, hasta incluso la física. \footnote{Todas estas pueden consultarse en \cite{bucchianico}}
+
+En la práctica, el cálculo umbral clásico se centra en el estudio específico de las sucesiones de Sheffer, empleando para ello la teoría de operadores y funcionales lineales sobre el espacio de polinomios junto a las series formales, es decir, no se preocupa por la convergencia de series o sucesiones. Esta es la forma en la que Roman lo hace en \cite{roman2} y la que se seguirá en el presente trabajo. La intención del mismo es exponer esta teoría traduciéndola a un lenguaje algebraico que nos resulte más familiar y dando un enfoque que combine, pues, el análisis junto con el álgebra. En este sentido, el trabajo se puede dividir en dos partes principalmente: 
+
+\begin{itemize}
+    \item En la primera de ellas se desarrolla toda la teoría del cálculo umbral.
+    \item En la segunda se dan aplicaciones varias de esta teoría. Aquí se da la forma de obtener las principales propiedades de los polinomios de Bernoulli mediante técnicas umbrales, aclarando así lo expuesto antes, así como otras tantas sucesiones de polinomios conocidas.
+\end{itemize}

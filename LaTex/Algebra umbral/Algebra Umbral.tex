@@ -1,0 +1,494 @@
+\chapter{La conexión umbral}
+
+Antes de comenzar, hemos tanto como aclarar parte de la notación como fijar las convenciones que utilizaremos a lo largo del trabajo. En lo que sigue:
+\begin{itemize}
+    \item $\field$ será un cuerpo de característica cero cualquiera (podemos suponer que es $\C$) y este será el cuerpo base donde trabajaremos. \footnote{También se han dado generalizaciones de la teoría clásica del cálculo umbral cuando $\field$ no es de característica cero. Un ejemplo de esto es \cite{verdoodt}}
+    \item $\F = \formal$ será el anillo de series formales en la variable formal $T$. Además, supondremos conocidas tanto la teoría básica como los principales resultados que a esta conciernen, aunque damos el apéndice \ref{series formales} donde se puede consultar parte de esta información.
+    \item Utilizaremos $\poly$ para referirnos a la $\field$-álgebra de polinomios (con la estructura de álgebra usual) en una variable, es decir, $\field[x]$.
+    \item $\gr(p(x))$ simbolizará el grado del polinomio $p(x)$ y $p^`(x)$ simbolizará la derivada, en el sentido usual, del polinomio $p(x)$. En el caso de las derivadas sucesivas, estas se escribirán como $p^{(k)}(x)$.
+    \item $\delta_{n,k}$ será la delta de Dirac, es decir:
+    \begin{equation*}
+        \delta_{n,k} (x) = \begin{dcases}
+            1 & k=n\\
+            0 & k \neq n
+        \end{dcases}
+    \end{equation*}
+    \item $(x)_n$ simboliza al factorial descendente. Esto es:
+    \begin{equation*}
+        (x)_n = x(x-1) \dots (x-n+1)
+    \end{equation*}
+\end{itemize}
+
+%: EL ÁLGEBRA UMBRAL
+\section{El álgebra umbral}
+\begin{definicion}
+    Dado un espacio vectorial $V$, llamaremos \textbf{funcional lineal} a todo elemento $L \in V^*$, donde $V^*$ es el espacio dual de $V$.
+\end{definicion}
+
+Tal y como indica el título de la sección, nos centraremos en el estudio de los funcionales lineales sobre el espacio de polinomios $\poly$; es decir, las aplicaciones $L$:
+\begin{align*}
+    L &\colon \poly \longrightarrow \field\\
+     & p(x) \mapsto \langle L | p(x) \rangle
+\end{align*}
+tales que:
+\begin{equation*}
+    \langle L | p(x) + \lambda q(x) \rangle = \langle L | p(x) \rangle + \lambda \langle  L | q(x) \rangle
+\end{equation*}
+
+Nótese que hemos fijado la notación $\langle L | p(x) \rangle$ para simbolizar la acción de $L$ sobre $p(x)$, típica de la física. Más tarde se esclarecerá con detalle el motivo de esta elección. 
+
+\begin{obs}
+    \begin{itemize}
+        \item Por ahorro del lenguaje y sin que cause confusión, llamaremos a los funcionales lineales de $\poly$ simplemente \textit{\textbf{funcionales}}.
+        \item El espacio vectorial de funcionales posee también estructura de $\field$-álgebra de forma natural, con el producto de funcionales
+        \begin{align*}
+            \mathbf{\cdot} \colon & \poly^* \times \poly^* \longrightarrow \poly^*\\
+            & (L, M) \mapsto L \cdot M
+        \end{align*}
+        dado por $\langle L \cdot M | p(x) \rangle = \langle L | p(x) \rangle \cdot \langle M | p(x) \rangle$
+    \end{itemize}
+\end{obs}
+
+El primer resultado importante que usaremos continuamente proviene del álgebra lineal.
+\begin{teorema}
+    Si $\{p_n(x)\}_{n\geq0}$ es una sucesión de polinomios tal que $\gr(p_n) = n$ para todo $n$, entonces dos funcionales $L$ y $M$ son iguales si y solo si $\langle L | p_n(x) \rangle = \langle  M | p_n(x) \rangle$ para todo $n$. En particular, $p_n(x) = x^n$ cumple el teorema.
+\end{teorema}
+\begin{demo}
+    Basta con ver que los polinomios $p_n(x)$ así definidos forman una base de Hamel de $\poly$. Que son generadores está claro por ser cada polinomio $p_n(x)$ de grado $n$. Veamos que cada subconjunto finito de estos son linealmente independientes. Sean pues $p_{n_1}(x), \cdots , p_{n_r}(x)$ un subconjunto finito de $\{p_n\}_{n\geq0}$, que, sin pérdida de generalidad, podemos suponer ordenado con $\gr(p_{n_1}(x)) < \dots < \gr(p_{n_r}(x))$, y $\lambda_{n_1}, \dots , \lambda_{n_r} \in \field$ escalares tales que:
+    \begin{equation*}
+        \lambda_{n_1}p_{n_1}(x) + \cdots + \lambda_{n_r}p_{n_r}(x) = 0
+    \end{equation*}
+    Si escribimos cada polinomio $p_{n_l}(x)$ como $p_{n_l}(x) = \sum_{k=0}^{n_l}a_{k,n_l}x^k$, igualando coeficientes y teniendo en cuenta que $\gr(p_{n_1}(x)) < \dots < \gr(p_{n_r}(x))$ y que $a_{n_k,n_k} \neq 0$ para todo $k$, obtenemos las ecuaciones:
+    \begin{align*}
+        \lambda_{n_r}a_{n_r,n_r} = 0 &\implies \lambda_{n_r} = 0\\
+        \lambda_{n_{r-1}}a_{n_{r-1},n_{r-1}} + \lambda_{n_r}a_{n_{r-1},n_r} = 0 &\implies \lambda_{n_{r-1}} = 0\\
+        \dots\\
+        \sum_{k=0}^r\lambda_{n_k}a_{0,n_k} = 0 &\implies \lambda_{n_1} = 0
+    \end{align*}
+    Y, por tanto, son linealmente independientes con lo que se concluye.
+\end{demo}
+\begin{corolario}\label{spanning argument}
+    Dada $\{p_n(x)\}_{n\geq0}$ sucesión de polinomios tal que $\gr(p_n(x)) = n$ para todo $n$, un funcional está completamente determinado por las constantes $\langle L | p_n(x) \rangle$. En particular:
+    \begin{enumerate}
+        \item Un funcional $L$ está completamente determinado por las constantes $\langle L | x^n \rangle$
+        \item Si $\langle L | p_n(x) \rangle = 0$ para todo $n$, entonces $L = 0$.
+    \end{enumerate}
+\end{corolario}
+Este teorema nos es de suma utilidad, ya que nos permite definir un funcional de una forma tan sencilla como dar tan solo su valor sobre los polinomios $x^n$. Lo aprovechamos ahora para obtener uno de los teoremas fundamentales del cálculo umbral, el cual nos permitirá interpretar cada serie formal como un funcional concreto.
+
+Sea $T^k \in \F$ la serie formal con único término el factor $T^k$. En virtud de \ref{spanning argument}, esta serie nos permite definir el funcional $\omega_{T^k}$ que viene dado por:
+\begin{equation}\label{omegaT^k}
+    \langle \omega_{T^k} | x^n \rangle = n! \delta_{n,k}
+\end{equation}
+Es más que natural extender esta definición usando la linealidad a una serie formal genérica. Así pues, si $F(T) \in \F$ es una serie formal cualquiera, esta definirá el funcional $\omega_F$ que viene dado por:
+\begin{equation} \label{omegaF}
+    \langle \omega_F | x^n \rangle = n![F]_n
+\end{equation}
+Recíprocamente, si consideramos un funcional $L \in \poly^*$, este define la serie formal:
+\begin{equation}\label{F_L}
+    F_L(T) = \sum_{n=0}^\infty \frac{ \langle L | x^n \rangle}{n!} T^n 
+\end{equation}
+Esta correspondencia entre funcionales y series formales es la que nos permite formular y demostrar el siguiente teorema, base de todo el cálculo umbral.
+
+\begin{teorema} \textbf{(isomorfismo umbral)} La aplicación $\phi$ dada por
+    \begin{align*}
+        \phi \colon & \poly^* \xrightarrow{\sim} \F\\
+        & L \mapsto F_L(T) = \sum_{n=0}^\infty \frac{ \langle L | x^n \rangle}{n!} T^n \\
+        & \omega_F \mapsfrom F(T)
+    \end{align*}
+    donde el funcional $\omega_F$ viene dado por $\langle \omega_F | x^n \rangle = n! [F]_n$ es un isomorfismo lineal. A este morfismo $\phi$ lo llamaremos el \textbf{isomorfismo canónico umbral}.
+\end{teorema}
+\begin{demo}
+    \begin{itemize}
+        \item \textit{Biyectividad:}
+        \begin{equation*}
+            F(T) \longrightarrow \omega_F \longrightarrow F_{\omega_F}(T) = F(T)
+        \end{equation*}
+        puesto que $\langle \omega_F | x^n \rangle = n! \cdot a_n$
+        \begin{equation*}
+            L \longrightarrow F_L(T) \longrightarrow \omega_{F_L} = L
+        \end{equation*}
+        ya que, por \ref{spanning argument}, $L = \omega_{F_L} \iff \langle L | x^n \rangle = \langle \omega_{F_L} | x^n \rangle$, lo cual es cierto.
+        \item \textit{Linealidad:}
+        \begin{align*}
+            \phi (L+cM) & = F_{L+M} (T) = \sum_{n=0} ^\infty \frac{\langle L + cM | p(x) \rangle}{n!}T^n = \sum_{n=0} ^\infty \frac{\langle L | p(x) \rangle}{n!}T^n + c\sum_{n=0} ^\infty \frac{\langle M | p(x) \rangle}{n!}T^n \\ &= F_L(T) + c\cdot F_M(T) = \phi (L) + c \cdot \phi (M)
+        \end{align*}
+    \end{itemize}
+\end{demo}
+
+Una vez probado que $\phi$ es un isomorfismo lineal entre el espacio de funcionales $\poly^*$ y el espacio de series formales $\F$, es natural que a uno le surja ahora la siguiente pregunta: ¿es, además, un isomorfismo de álgebras? La respuesta es que, con la estructura usual de $\field$-álgebra de $\poly^*$, no tiene por qué serlo. Es fácil comprobar esto, ya que:
+\begin{equation*}
+    \phi(LM) = F_{LM}(T) = \sum_{n\geq0} \frac{ \langle LM | x^n \rangle}{n!} T^n = \sum_{n\geq0} \frac{ \langle L | x^n \rangle \langle M | x^n \rangle}{n!} T^n
+\end{equation*}
+y es evidente que, en lo general:
+\begin{equation*}
+    \sum_{n\geq0} \frac{ \langle L | x^n \rangle \langle M | x^n \rangle}{n!} T^n \neq (\sum_{n\geq0} \frac{ \langle L | x^n \rangle}{n!} T^n) (\sum_{n\geq0} \frac{ \langle L | x^n \rangle}{n!} T^n) = \phi(L) \cdot \phi(M)
+\end{equation*}
+Ahora bien, también es cierto que este isomorfismo induce una estructura de $\field$-álgebra en $\poly^*$ distinta de la que un principio teníamos y para la cual $\phi$ sí será un isomorfismo de álgebras de forma evidente. Esta es la que llamaremos \textit{álgebra umbral}.
+
+\begin{definicion}
+    Llamaremos \textbf{álgebra umbral} al espacio vectorial $\poly^*$ dotado de la estructura de $\field$-álgebra definida por:
+    \begin{equation}\label{producto funcionales}
+        \langle LM | x^n \rangle = \sum_{k=0}^n\binom{n}{k}\langle L | x^k \rangle \langle M | x^{n-k} \rangle
+    \end{equation}
+\end{definicion}
+Es una mera comprobación ver que, en efecto, esto nos da una estructura de $\field$-álgebra y en forma de resumen de lo dicho hasta ahora, llegamos al siguiente resultado.
+
+\begin{corolario}
+    El isomorfismo canónico umbral $\phi$ es un isomorfismo entre el álgebra umbral y el álgebra de series formales.
+\end{corolario}
+
+En particular, el álgebra umbral cumple las siguientes dos propiedades.
+\begin{proposicion}
+    El funcional $e^{0T} = 1$ es la identidad para el producto del álgebra umbral.
+\end{proposicion}
+\begin{demo}
+    Basta con usar el apartado 1 de \ref{spanning argument}.
+\end{demo}
+
+\begin{proposicion}\label{producto multiples funcionales}
+    Sean $L_1, \dots , L_r \in \poly^*$ funcionales. Entonces,
+    \begin{equation*}
+        \langle L_1 \cdots L_m | x^n \rangle = \sum_{|i|=n}\binom{n}{i_1, \dots , i_m} \langle L_1| x^{i_1} \rangle \dots  \langle L_m | x^{i_m} \rangle
+    \end{equation*}
+    donde $|i| = i_1 + \dots +i_m$ y $\binom{n}{i_1, \dots , i_m} = \frac{n!}{k_1! \cdots k_m!}$
+\end{proposicion}
+\begin{demo}
+    Se ve aplicando inducción a \eqref{producto funcionales}
+\end{demo}
+
+\begin{obs}
+    Este último resultado se puede generalizar aún más, pues es válido para todas las sucesiones de polinomios que son de \textit{\textbf{tipo binomial}}. Más tarde las definiremos correctamente y veremos que $p_n(x) = x^n$ es una de estas sucesiones. No obstante, de momento nos es suficiente con conocerlo para $x^n$, tal y como se ha formulado en \ref{producto multiples funcionales}.
+\end{obs}
+
+Por otro lado, de la definición \ref{omegaF} dada es fácil ver la propiedad:
+
+\begin{proposicion}
+    Sean $F(T), G(T) \in \F$ dos series formales. Entonces, $F(T) = G(T) $ si y solo si $\omega_F = \omega_G$.
+\end{proposicion}
+
+De esta forma, podemos pensar cada serie formal $F(T)$ como el funcional $\omega_F$ y escribir indistintamente $\F$ o $\poly^*$ para referirnos a ambos conjuntos. Haciendo abuso de la notación, escribiremos $F(T)$ para denotar tanto a la serie formal como al funcional asociado: cómo esta se comporta dependerá del contexto en el que aparezca y no debe generar confusión alguna. Para cerrar la sección, damos algunos ejemplos básicos de funcionales que nos serán de enorme utilidad. 
+
+\begin{ej}
+\begin{enumerate}
+    \item El \textbf{funcional derivada $k$-ésima} $T^k$ viene dado directamente por \ref{omegaT^k}:
+    \begin{equation*}
+        \langle T^k| x^n \rangle = n!\delta_{n,k} = \begin{dcases}
+            n! & k=n\\
+            0 & k \neq n
+        \end{dcases}
+        \quad =  (x^n)^{(k)}(0)
+    \end{equation*}
+    Y si tomamos un polinomio $p(x)$ cualquiera:
+    \begin{equation}\label{funcional derivada}
+        \langle T^k| p(x) \rangle = p^{(k)}(0)
+    \end{equation}
+    \item El \textbf{funcional evaluación} $e^{\lambda T}$ está dado por:
+    \begin{equation*}
+        \langle e^{ \lambda T} | x^n \rangle = \langle \sum_{n\geq0} \frac{\lambda^n}{n!}T^n | x^n \rangle = \lambda^n 
+    \end{equation*}
+    Y, por tanto:
+    \begin{equation}\label{funcional evaluacion}
+        \langle e^{\lambda T} | p(x) \rangle = p(\lambda)
+    \end{equation}
+    Simbolizaremos a este funcional por $\varepsilon_\lambda \equiv e^{\lambda T}$ y en caso de que $\lambda = 0$, se dice que $\varepsilon_0$ es el \textbf{funcional aumento}. 
+    \item El \textbf{funcional diferencia} $e^{ \lambda T} -1$ está dado por:
+    \begin{equation}\label{funcional diferencia}
+        \langle e^{\lambda T}-1 | p(x) \rangle = p(\lambda)-p(0)
+    \end{equation}
+    \item El \textbf{funcional de Abel} $Te^{\lambda T}$ viene dado por:
+    \begin{equation*}
+        \langle Te^{\lambda T} | x^n \rangle = \langle \sum_{n\geq0} \frac{\lambda^n}{n!}T^{n+1} | x^n \rangle = nx^{n-1}
+    \end{equation*}
+    Con lo que:
+    \begin{equation}\label{funcional de abel}
+        \langle Te^{\lambda T} | p(x) \rangle = p^`(\lambda)
+    \end{equation} 
+\end{enumerate}
+\end{ej}
+
+
+%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%
+
+%: PROPIEDADES DE LOS FUNCIONALES
+\section{Propiedades de los funcionales}
+Mostramos aquí las propiedades fundamentales de los funcionales lineales sobre $\poly$, consecuencias todas ellas, más o menos directas, de su interpretación como series formales.
+
+A partir de las definiciones dadas y de las igualdades \ref{funcional derivada} y \ref{omegaF} se obtiene un análogo del teorema de Taylor clásico para las series formales (o funcionales), así como una reescritura del mismo en términos de los funcionales $T^n$.
+
+\begin{proposicion}
+    Sea $F(T) \in \F$ y $p(x) \in \poly$. Entonces:
+    \begin{enumerate}
+        \item $\begin{aligned}[t]
+            F(T) = \sum_{n \geq 0} \frac{ \langle F(T) | x^n \rangle}{n!}T^n
+        \end{aligned}$ 
+        \item $\begin{aligned}
+            p(x) = \sum_{n \geq 0} \frac{ \langle T^n| p(x) \rangle}{n!}x^n
+        \end{aligned}$
+    \end{enumerate}
+\end{proposicion}
+
+\begin{proposicion} \label{orden mayor que grado}
+    Sean $F(T) \in \F$ y $p(x) \in \poly$. Si $\ord(F(T)) > \gr(p(x))$, entonces $\langle F(T)| p(x) \rangle = 0$
+\end{proposicion}
+\begin{demo}
+    Esto es consecuencia de la definición \ref{omegaF}, pues $$\langle F(T)| x^n\rangle = n! [F]_n \implies \langle F(T)| p(x)\rangle = \sum_{n}n![F]_n[p]_n$$ y como $\ord(F(T)) > \gr(p(x))$, o bien $[F]_n = 0$ o bien $[p]_n = 0$.    
+\end{demo}
+
+\begin{proposicion}
+    Sea $F(T) \in \F$, $p(x) \in \poly^*$ y $\lambda \in \field$ cualesquiera. Se verifica que
+    \begin{equation*}
+        \langle F(T)| p(\lambda x)\rangle = \langle F(\lambda T) | p(x)\rangle
+    \end{equation*}
+\end{proposicion}
+\begin{demo}
+    \begin{equation*}
+        \langle T^n| (\lambda x)^k \rangle = \lambda^k n! \delta_{n,k} = \lambda^n n! \delta_{n,k} = \langle (\lambda T)^n| x^k\rangle
+    \end{equation*}
+    Por la proposición anterior y la linealidad, siendo $m = \gr(p(x))$:
+    \begin{equation*}
+        \langle F(T) | p(\lambda x) \rangle = \sum_{k=0}^m \sum_{n=0}^m [p]_k[F]_k \langle T^n| (\lambda x)^k\rangle = \sum_{k=0}^m \sum_{n=0}^m [p]_k[F]_k \langle (\lambda T)^n| x^k\rangle = \langle F(\lambda T) | p(x)\rangle
+    \end{equation*}
+\end{demo}
+\begin{proposicion}
+    Sea $\{ F_k(T) \}_{k\geq0}$ sucesión de series formales tal que $\ord(F_k) \rightarrow \infty$ cuando $k\rightarrow \infty$. Entonces $\sum_{k}a_kF_k(T)$ converge en la topología formal y además se verifica que:
+    \begin{equation*}
+        \langle \sum_k a_kF_k(T)| p(x)\rangle =  \sum_k a_k\langle F_k(T)| p(x)\rangle
+    \end{equation*}
+    para todo $p(x) \in \poly$. En particular, se cumple cuando $\ord(F_k(T)) = k$
+\end{proposicion}
+\begin{demo}
+Sea $m$ tal que $\ord(F_k) > \gr(p(x))$ para todo $k > m$. De nuevo, por la proposición \ref{orden mayor que grado} tenemos que
+    \begin{align*}
+        \langle \sum_{k=0}^\infty a_kF_k(T) | p(x) \rangle & = \langle \sum_{k \leq m} a_kF_k(T) + \sum_{k > m} a_kF_k(T)| p(x) \rangle \\& = \langle \sum_{k \leq m} a_kF_k(T)| p(x) \rangle = \sum_{k \leq m} a_k\langle F_k(T)| p(x)\rangle = \sum_{k=0}^\infty a_k\langle F_k(T)| p(x)\rangle
+    \end{align*}
+    donde la segunda suma es finita ya que $\langle F_k(x) | p(x) \rangle = 0$ para todo $k > m$.
+\end{demo}
+
+\begin{proposicion}
+    Sea $\{ F_k(T) \}_{k\geq0}$ sucesión de series formales tal que $\ord(F_k(T)) = k$. Entonces la aplicación
+    \begin{align*}
+        \langle F(T) \rangle \colon & \poly \longrightarrow \field^\infty\\
+        &p(x) \mapsto \{  \langle F_k(T) | p(x) \rangle \}_{k \geq 0}
+    \end{align*}
+    es inyectiva.
+\end{proposicion}
+\begin{demo}
+    Ya que $\ord(F_k(T)) = k$, sabemos que las series formales $F_k(T)$ forman una pseudobase de $\F$. En particular, existen $a_{n,k} \in \field$ tales que $T^n = \sum_{k} a_{n,k}F_k(T)$. Por tanto, por la proposición anterior:
+    \begin{equation*}
+        p^{(n)}(0) = \langle T^n | p(x) \rangle = \langle \sum_{k} a_{n,k}F_k(T) | p(x) \rangle = \sum_{k} a_{n,k} \langle F_k(T) | p(x) \rangle
+    \end{equation*}
+    Con lo que:
+    \begin{equation*}
+        \langle F(T) \rangle(p(x)) =\{  \langle F_k(T) | p(x) \rangle \}_{k \geq 0} = 0 \implies \sum_{k} a_{n,k} \langle F_k(T) | p(x) \rangle = 0 \implies p^{(n)}(0) =0 \quad \forall n 
+    \end{equation*}
+    Luego, $p(x) = 0$ necesariamente y se concluye.
+\end{demo}
+
+\begin{proposicion}
+    Sea $\{p_k(x)\}_{k \geq 0}$ familia de polinomios tal que genera $\poly$. Entonces, la aplicación:
+    \begin{align*}
+        \langle p(x) \rangle \colon & \poly^* \longrightarrow \field^\infty\\
+        &F(T) \mapsto \{  \langle F(T) | p_k(x) \rangle \}_{k \geq 0}
+    \end{align*}
+    es inyectiva. En particular, el resultado se verifica para los $p_k(x)$ tales que $\gr(p_k(x)) = k$. 
+\end{proposicion}
+\begin{demo}
+    Análoga a la anterior, escribiendo $x^n$ como combinación lineal de los $p_k(x)$. 
+\end{demo}
+
+\begin{proposicion}
+    Sea $F(T) \in \F$ y $p(x) \in \poly$ cualesquiera. Entonces, se dan las igualdades:
+    \begin{enumerate}
+        \item $\begin{aligned}
+            \langle \partial F(T) | p(x) \rangle = \langle F(T) | x \cdot p(x)\rangle
+        \end{aligned}$
+        \item  $\begin{aligned}
+            \langle F(T) | p'(x)\rangle = \langle T\cdot F(T)| p(x)\rangle
+       \end{aligned}$
+    \end{enumerate}
+\end{proposicion}
+
+\begin{demo}
+    $F(T) = \sum_k a_kT^k$. Por la linealidad, basta verlo para $p(x) = x^n$
+    \begin{enumerate}
+        \item Tenemos que: 
+            $$\begin{aligned}
+            \langle \partial F(T)| x^n\rangle & = \sum_{k=1}^\infty ka_k\langle T^{k-1}| x^n\rangle = \sum_{k=0}^\infty (k+1)a_{k+1}\langle T^{k}| x^n\rangle \\
+            & = \sum_{k=0}^\infty (k+1)a_{k+1}k! \delta_{n,k} = (n+1)!a_{n+1} = \langle F(T)| x^{n+1}\rangle \\
+            &= \langle F(T)| x\cdot x^n\rangle
+        \end{aligned}$$
+        \item $T \cdot F(T) = \sum_{n=0}^\infty a_nT^{n+1} = \sum_{n=1}^\infty a_{n-1}T^n$. Similar a lo hecho antes:
+        \begin{align*}
+            \langle F(T) | (x^n)' \rangle & = \langle F(T) | nx^{n-1} \rangle = n\langle F(T) | x^{n-1} \rangle \\
+            & = n(n-1)!a_{n-1} = n! a_{n-1} \\
+            & = n![T \cdot F(T)]_n = \langle T \cdot F(T) | x^{n} \rangle
+        \end{align*}
+    \end{enumerate}
+\end{demo}
+    
+\begin{corolario}
+    Dados $F(T) \in \F$ y $p(x) \in \poly$ cualesquiera, se verifica:
+    \begin{equation*}
+        \langle F(T) | p(x)\rangle = \langle T\cdot F(T)| \int p(x)\rangle
+    \end{equation*}
+\end{corolario}
+
+\begin{proposicion}
+    Si $F(T) \in \F$ es una serie formal tal que $\ord(F(T)) \geq 1$, entonces:
+    \begin{equation*}
+        \langle \frac{F(T)}{T} | p(x) \rangle = \langle F(T) | \int p(x) \rangle
+    \end{equation*}
+\end{proposicion}
+
+\begin{demo}
+    Si $F(T) = \sum_{k\geq1} a_kT^k$ tenemos que
+    \begin{align*}
+        \langle \frac{F(T)}{T} | x^n \rangle & = \langle \sum_{k=1}^\infty a_kT^{k-1}| x^n \rangle = \sum_{k=0}^\infty a_{k+1} \langle T^{k}| x^n \rangle\\ 
+        & = n! a_{n+1} = (n+1)!\frac{a_{n+1}}{(n+1)} = \langle F(T) | \int x^n \rangle
+    \end{align*}
+    Extendiéndolo a todo $p(x) \in \poly$ por linealidad se concluye.
+\end{demo}
+    
+Dos familias de funcionales son de especial importancia: estos son los \textit{funcionales delta} y los \textit{funcionales invertibles}. Concluimos la sección dando tanto sus definiciones como su caracterización.
+
+\begin{definicion}
+    Dada $F(T) \in \F$, diremos que $F(T)$ es una \textbf{serie delta} (o \textbf{$\delta$-serie}) si $F(T) \in \maximal$ y $F(T) \not \in \maximal^2$. Escribimos $\F^\delta$ para simbolizar el conjunto de funcionales delta.
+\end{definicion}
+
+\begin{definicion}
+    Dada un funcional $L \in \poly^*$, diremos que $L$ es un \textbf{funcional delta} (o \textbf{$\delta$-funcional}) si al pensarlo como una serie (es decir, $\phi(L)$) es una serie delta. Escribimos Análogamente, diremos que $L$ es un \textbf{funcional invertible} si al pensar $L$ como una serie formal esta es una serie invertible.
+\end{definicion}
+
+\begin{proposicion}
+    Sea $F(T) \in \F$. Entonces:
+    \begin{enumerate}
+        \item $F(T)$ es un funcional delta si y solo si $\langle F(T)| 1\rangle = 0$ y $\langle F(T)| x \rangle \neq 0$
+        \item $F(T)$ es un funcional invertible si y solo si $\langle F(T)|1 \rangle \neq 0$
+    \end{enumerate}
+\end{proposicion}
+
+\begin{demo}
+    Se sigue de las definiciones y de las propiedades para series formales.
+\end{demo}
+
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+
+%: OPERADORES LINEALES
+\section{Series como operadores lineales}
+
+\begin{definicion}
+    Sea $V$ un espacio vectorial cualquiera. Llamamos \textbf{operador lineal} de $V$ a todo elemento $\Lambda$ de $\End(V)$.
+\end{definicion}
+
+\begin{obs}
+    De forma similar a lo que hacíamos con los funcionales, a los operadores lineales de $\End(\poly)$ los llamaremos simplemente \textbf{operadores}.
+\end{obs}
+
+Previamente hemos identificado el espacio de series formales, $\F$, con el espacio de funcionales, $\poly^*$, y como consecuencia hemos dotado a $\poly^*$ de una estructura de álgebra, inducida por el álgebra de las series formales. Una nueva interpretación de las series formales nos permite ahora dotar a $\poly$ de una estructura de $\F$-módulo.
+
+Para ello, consideramos la identificación
+\begin{align} \label{T como derivada}
+    & \F \longrightarrow \End(\poly) \nonumber \\
+    & T^k \longleftrightarrow \partial^k
+\end{align}
+donde es importante recordar que $\partial^k$ actúa como:
+\begin{align*}
+    \partial^kx^n = \begin{dcases}
+        (n)_kx^{n-k} & k \leq n\\
+        0 & k > n
+    \end{dcases}
+\end{align*}
+Ahora podemos extender esta asignación por linealidad a la aplicación $\varphi$ definida por
+\begin{align*}
+    \varphi \colon & \F \longrightarrow \End(\poly)\\
+    & \sum_{n\geq0} \frac{a_n}{n!}T^n \mapsto \sum_{n \geq 0} \frac{a_n}{n!}\partial^n
+\end{align*}
+de tal forma que obtenemos el operador:
+\begin{align*}
+    F(\partial)x^n =\sum_{k \geq 0} \binom{n}{k}a_kx^{n-k}
+\end{align*}
+Hemos de hacer dos aclaraciones importantes respecto a lo dicho hasta ahora. Primero que todo, se puede observar que hemos escrito los elementos de $\F$ en notación exponencial (es decir, con un factor $\frac{1}{k!}$). Esto es así puesto que nos resultará más conveniente lidiar con los coeficientes binomiales que con los factoriales descendentes, y en lo que sigue esta será la convención que utilizaremos. Por otro lado, del razonamiento seguido se puede inferir también que la convención seguida para simbolizar la acción de un operador $\Lambda$ sobre un polinomio $p(x)$ es la de escribir la yuxtaposición del símbolo del operador con el del polinomio: $\Lambda p(x)$. Esto no debe causar confusión con el producto de operadores y, además, es el motivo principal por el que escogimos la notación $\langle F(T)| p(x)\rangle$ para la acción de los funcionales.
+
+De forma similar a lo que hacíamos con los funcionales, utilizaremos el símbolo $T$ para hablar tanto de la variable formal como del operador $\partial$, con lo que escribiremos siempre $F(T)$ en lugar de $F(\partial)$. En caso de no indicarlo, simplemente el contexto ha de servir para diferenciar como se está considerando.
+
+En resumen, dada $F(T)$ la escribiremos como $F(T) = \sum_k \frac{a_k}{k!}T^k$ y esta actúa sobre $\poly$ como
+\begin{equation} \label{serie como operador}
+    F(T)x^n = \sum_k \binom{n}{k}a_kx^{n-k}
+\end{equation}
+
+Con todo, podemos ya enunciar y probar el resultado principal de la sección.
+
+\begin{teorema}
+    La acción definida por
+    \begin{align*}
+        \cdot \colon & \F \times \poly \longrightarrow \poly\\
+        & (F(T), p(x)) \mapsto F(T) \cdot p(x) \equiv F(T) p(x)
+    \end{align*}
+    siendo $F(T) p(x)$ la acción definida por \eqref{serie como operador}, dota a $\poly$ de una estructura de $\F$-módulo. Además, es un $\F$-módulo fiel.
+\end{teorema}
+\begin{demo}
+    A partir de la definición de $\cdot$ es claro que
+    \begin{align*}
+        (F(T) + G(T))\cdot p(x) & = F(T) \cdot p(x) + G(T) \cdot p(x)\\
+        F(T)\cdot (p(x) + q(x)) & = F(T) \cdot p(x) + F(T) \cdot q(x)\\
+        1 \cdot p(x) & = p(x)
+    \end{align*}
+    Para ver que $F(T) \cdot (G(T) \cdot p(x)) = (F(T)G(T))\cdot p(x)$ basta con tener en cuenta que
+    \begin{align*}
+        T^k T^j \cdot p(x) = T^{k+j} \cdot p(x) = \partial^{k+j} \cdot p(x) = \partial^k(\partial^j p(x)) = T^k \cdot (T^j \cdot p(x)) 
+    \end{align*}
+    y por la linealidad se concluye que es en efecto un $\F$-módulo.
+
+    Queda probar que el módulo es fiel. Esto es que
+    \begin{equation*}
+        \text{Ann}(\poly) = \{ F(T) \in \F : F(T) \cdot p(x) = 0, \forall p(x) \in \poly\} = \{0\}
+    \end{equation*}
+    Sea, pues, $F(T) = \sum_k \frac{a_k}{k!}T^k \in \text{Ann}(\poly)$. Aplicándola a cada $x^n$ obtenemos que
+    \begin{align*}
+        F(T) \cdot x^0 & = a_0 = 0\\
+        F(T) \cdot x^1 & = a_0x + a_1 = 0\\
+        F(T) \cdot x^2 & = a_0x^2 + 2a_1x + a_2 = 0\\
+        \vdots
+    \end{align*}
+    de donde vemos que $a_0 = a_1 = \dots = a_n = \dots = 0$ y se concluye.
+\end{demo}
+Si bien la asignación \eqref{T como derivada} es biunívoca de forma trivial, a diferencia de lo que ocurría con el isomorfismo canónico umbral, la aplicación $\varphi$ \underline{\textbf{no}} es una aplicación biyectiva; es decir, existen operadores que no provienen de ninguna serie formal. Esto es consecuencia de que, como $\gr(\partial p(x)) \leq \gr(p(x))$, por linealidad, se tiene que
+\begin{equation*}
+    \gr(F(T)p(x)) \leq \gr(p(x))
+\end{equation*}
+es decir, que todos los operadores que son series formales actúan bajando o manteniendo el grado. Así pues, el operador multiplicación por $x$
+\begin{equation*}
+    p(x) \mapsto xp(x)
+\end{equation*}
+es un ejemplo de un operador que no proviene de ninguna serie formal. Queda así probada la siguiente proposición.
+
+\begin{proposicion}
+    La aplicación $\varphi \colon \F \hookrightarrow \End(\poly)$ es un homomorfismo de anillos inyectivo pero no epiyectivo, con imagen
+    \begin{equation*}
+        \text{Im}(\varphi) = \{ \Lambda \in \End(\poly) : \exists F(T) \in \F \text{ con } \Lambda p(x) = F(T)p(x), \forall p(x) \in \poly \}
+    \end{equation*}
+\end{proposicion}
+
+Así pues, nos interesa ahora dar una caracterización de la imagen del morfismo $\varphi$.
+
+\begin{definicion}
+    Diremos que un operador $L \in \End(\poly)$ tiene \textbf{forma de serie formal} si $L \in \text{Im}(\varphi)$.
+\end{definicion}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%

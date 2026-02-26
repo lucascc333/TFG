@@ -1,0 +1,306 @@
+%!TEX encoding = UTF-8 Unicode
+\documentclass[a4paper,12pt,centertags,intlimits,twoside]{report}
+
+%: PAQUETES DE LATEX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%: Paquetes básicos
+\usepackage[utf8]{inputenc} % Para la codificación unicode
+\usepackage[T1]{fontenc} %Para la codificación unicode
+\usepackage[spanish]{babel} % Para trabajar en castellano
+\usepackage{enumitem} % Para enumerar casos
+\usepackage{graphicx} % Para insertar imágenes
+\usepackage{index} % Para el índice
+\usepackage{csquotes} % Para las citas de la bibliografía
+\usepackage{pdfpages} % Para cargar pdf's
+\usepackage{parskip} % Para eliminar la sangría
+
+
+%: Paquetes de estilo
+\usepackage[left=2.5cm,right=2.5cm,top=3.1cm,bottom=3.1cm]{geometry} % Para definir los márgenes y el tipo de papel
+\usepackage{ragged2e} % Para alinear texto
+\usepackage{titlesec} % Para cambiar el estilo de los títulos
+\usepackage[x11names,dvipsnames,svgnames]{xcolor}% Para utilizar colores
+\usepackage{fancyhdr} % Para el estilo del encabezado
+\usepackage{hyperref} % Para poder clickar links
+\hypersetup{
+    colorlinks = true, linkcolor = {DarkRed}, urlcolor={Cyan}, citecolor = {DarkRed}
+} 
+\usepackage{lettrine} % Para añadir letras grandes al comienzo de un párrafo
+
+%: Paquetes matemáticos
+\usepackage{amsfonts} % Añade letras góticas, negritas... etc
+\usepackage{amsmath, amssymb, amsthm} % Para alinear fórmulas y ecuaciones, añadir símbolos básicos, escribir teoremas y demos...
+    % Esto nos deja decir \begin{demo} en vez de \begin{proof}
+    \let\demo\proof
+    \let\enddemo\endproof
+\usepackage{mathtools} % Para facilitar la escritura de matemáticas
+\usepackage{mathrsfs} % Añade estilos para escribir símbolos
+\usepackage{stmaryrd} % Añade más símbolos
+\usepackage{cases} % Para distinguir casos al definir una función
+\usepackage{framed} % Para recuadrar fórmulas y texto
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%: COMANDOS PERSONALIZADOS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%: Redefinición de estilo de secciones
+\titleformat{\section}
+  {\normalfont\LARGE\bfseries}
+  {\thesection.}{1em}{}
+
+%: Redefinición de estilo de subsecciones
+\titleformat{\subsection}
+  {\normalfont\large}
+  {\thesubsection}{1em}{}
+
+%: Colores
+% Comandos para resaltar con colores
+\newcommand{\contrastcolor}{Blue3}
+\newcommand{\headingscolor}{Blue1}
+% Texto en color
+\newcommand{\red}[1]{\textcolor{red}{\hspace{0pt}#1}}
+\newcommand{\green}[1]{\textcolor{Green3}{\hspace{0pt}#1}}
+\newcommand{\blue}[1]{\textcolor{SteelBlue3}{\hspace{0pt}#1}}
+\newcommand{\garnet}[1]{\textcolor{DarkRed}{\hspace{0pt}#1}}
+% En español
+\let\rojo\red
+\let\verde\green
+\let\azul\blue
+\let\granate\garnet
+
+%: Estilo teoremas, lemas, definiciones...
+\newtheorem{teorema}{Teorema}[section] % Teorema
+\newtheorem{corolario}[teorema]{Corolario} % Corolario
+\newtheorem{lema}[teorema]{Lema} % Lema
+\newtheorem{proposicion}[teorema]{Proposición} % Proposición
+\newtheorem{definicion}{Definición}[section] % Definición
+
+\theoremstyle{definition}
+\newtheorem*{obs}{Observación} % Observación
+
+\theoremstyle{definition}
+\newtheorem*{ej}{Ejemplo}
+\def\eqref#1{\textcolor{DarkRed}{{(\ref{#1})}}} % Redefine el estilo de las referencias a ecuaciones
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%: MACROS PERSONALIZADAS 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%: ABREVIATURAS BÁSICAS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%: Conjuntos y estructuras
+\newcommand{\N}{\mathbb{N}} % Naturales
+\newcommand{\Z}{\mathbb{Z}} % Enteros
+\newcommand{\Q}{\mathbb{Q}} % Racionales
+\newcommand{\R}{\mathbb{R}} % Reales
+\newcommand{\C}{\mathbb{C}} % Complejos
+\renewcommand{\O}{\mathcal{O}} % Anillo de funciones o de enteros
+\newcommand{\F}{\mathscr{F}} % Anillo de series formales
+\newcommand{\poly}{\mathbb{P}} % Anillo de polinomios
+\newcommand{\field}{\mathbb{K}} % Cuerpo genérico
+\newcommand{\formal}{\field \llbracket T \rrbracket} % Anillo de series formales
+\newcommand{\maximal}{\mathfrak{m}}
+
+%: Operadores
+% \ker ya viene definido
+\DeclareMathOperator*{\coker}{coker} % Coker
+% \dim ya viene definido
+\DeclareMathOperator*{\codim}{codim} % Codimensión
+\DeclareMathOperator*{\rg}{rg} % Rango
+\DeclareMathOperator{\gr}{gr} % Grado
+\DeclareMathOperator{\mcd}{mcd} % Máximo común divisor
+\DeclareMathOperator{\mcm}{mcm} % Mínimo común múltiplo
+\DeclareMathOperator{\sop}{sop} % Soporte
+\DeclareMathOperator*{\Hom}{Hom} % Morfismos
+\DeclareMathOperator*{\End}{End} % Endomorfismos
+\DeclareMathOperator*{\Aut}{Aut} % Automorfismos
+\DeclareMathOperator*{\spec}{Spec} % Espectro
+\DeclareMathOperator*{\ord}{ord} % Orden
+\DeclareMathOperator*{\res}{res} % Residuo
+\DeclareMathOperator{\Arg}{Arg} % Argumento
+\DeclareMathOperator{\Log}{Log} % Logaritmo principal
+\DeclareMathOperator{\dlog}{dlog} % Derivada logarítmica
+\renewcommand\Re{\operatorname{Re}} % Parte real
+\renewcommand\Im{\operatorname{Im}} % Parte imaginaria
+
+%: Lógica
+\newcommand{\ssi}{\Leftrightarrow} % Si y solo si
+\providecommand{\implied}{\impliedby} % Implica, implicado por
+
+\providecommand{\contradiction}{\ensuremath{\mathbin{\color{\proofcolor}\Rightarrow\Leftarrow}}}
+\let\contradiccion\contradiction % Símbolo contradicción
+
+\newlength{\eqheight}
+\settoheight{\eqheight}{$=$}
+\newcommand{\eqdef}{\mathrel{\raisebox{0pt}[\eqheight][0pt]{$\overset{\text{\tiny\upshape def}}{=}$}}} % Símbolo para definir
+
+\renewcommand{\qedsymbol}{$\blacksquare$} % Símbolo q.e.d
+
+%: ENCABEZADO
+\pagestyle{fancy}
+\fancyhead[R]{\bfseries \textsc{\rightmark}}
+\fancyhead[L]{\bfseries \textsc{\leftmark}}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+
+%: FIN DE MACROS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeindex
+
+\begin{document}
+\thispagestyle{empty}
+
+\definecolor{granate}{RGB}{79, 3, 3}
+\pagecolor{granate}
+
+%: Portada
+\begin{center}
+
+\includegraphics[scale=0.15]{usal logo.png}
+
+\vspace{1cm}
+
+\color{white}
+{\large \textbf{Facultad de Ciencias}}\\[0.2cm]
+{\large \textsc{Grado en Matemáticas}}
+
+\vspace{2cm}
+
+--------------------------------------------------------------------------------------------------------
+\vspace{0.5cm}
+
+{\LARGE \textbf{INTRODUCCIÓN AL CÁLCULO UMBRAL }}\\[0.3cm]
+
+
+\vspace{0.5cm}
+
+{\large \textsc{Trabajo Fin de Grado}}
+
+\vspace{0.5cm}
+
+--------------------------------------------------------------------------------------------------------
+
+\vspace{1.5cm}
+
+    {\textsc{Autor:}} \\[0.25cm] \textsc{\large{Lucas Cuerva Cuenca }} \\ [1cm] {\textsc{Tutor:}} \\[0.25cm] \textsc{\large{Luis Manuel Navas Vicente}} 
+
+\vfill
+
+\LARGE{Curso 2025/2026}
+
+\end{center}
+%: Fin de portada
+
+%: Página vacía
+\newpage
+\nopagecolor
+\color{black}
+\hfill
+\thispagestyle{empty} % Eliminar numeración de la página
+
+%: Página con cita
+\newpage
+\thispagestyle{empty} % Eliminar numeración de la página
+\begin{flushright}
+    \vspace*{9cm}
+    \small\textit{¡Oh santas matemáticas, ojalá pudieraris, \\con vuestro perpetuo trato, consolar el resto de mis días \\de la maldad del hombre y de la injusticia del Gran Todo!}
+    \\[1em]\textsc{Conde de Lautremont}
+\end{flushright}
+
+%: Página vacía
+\newpage
+\hfill
+\thispagestyle{empty} % Eliminar numeración de la página
+
+%: Índice
+\newpage
+\renewcommand{\contentsname}{\LARGE Índice de contenidos}
+{
+    \hypersetup{linkcolor = .}
+    \tableofcontents 
+}
+
+\thispagestyle{empty} % Eliminar numeración del índice
+
+%: Página vacía
+\newpage
+\hfill
+\thispagestyle{empty} % Eliminar numeración de la página
+
+\setcounter{page}{0} % La enumeración comienza con la introducción
+\include{Introducción}
+
+%: Página vacía
+\newpage
+\hfill
+\thispagestyle{empty} % Eliminar numeración de la página
+
+\include{Algebra umbral/Algebra Umbral}
+
+%: Página vacía
+\newpage
+\hfill
+\thispagestyle{empty} % Eliminar numeración de la página
+
+\include{Operadores en dual/Operadores en dual}
+
+%: Página vacía
+\newpage
+\hfill
+\thispagestyle{empty} % Eliminar numeración de la página
+
+\include{Sucesiones de Sheffer/Sucesiones de Sheffer}
+
+%: Página vacía
+\newpage
+\hfill
+\thispagestyle{empty} % Eliminar numeración de la página
+
+\include{Aplicaciones/Aplicaciones}
+
+%: Apéndices
+\include{Apéndices/Series formales}
+
+\include{Bibliografía}
+
+\end{document}
