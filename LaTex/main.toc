@@ -1,0 +1,11 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {chapter}{Introducción}{1}{chapter*.2}%
+\contentsline {chapter}{\numberline {1}La conexión umbral}{6}{chapter.1}%
+\contentsline {section}{\numberline {1.1}El álgebra umbral}{6}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Propiedades de los funcionales}{11}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Series como operadores lineales}{14}{section.1.3}%
+\contentsline {chapter}{\numberline {2}Sucesiones de Sheffer}{21}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Operadores en el espacio dual de polinomios}{23}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Aplicaciones del cálculo umbral}{25}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Polinomios de Bernoulli}{25}{section.4.1}%
+\contentsline {chapter}{\numberline {A}Series formales}{26}{appendix.Alph1}%

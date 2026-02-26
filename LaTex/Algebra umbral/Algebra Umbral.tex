@@ -220,7 +220,7 @@ Mostramos aquí las propiedades fundamentales de los funcionales lineales sobre 
 
 A partir de las definiciones dadas y de las igualdades \ref{funcional derivada} y \ref{omegaF} se obtiene un análogo del teorema de Taylor clásico para las series formales (o funcionales), así como una reescritura del mismo en términos de los funcionales $T^n$.
 
-\begin{proposicion}
+\begin{proposicion}\label{taylor analogo}
     Sea $F(T) \in \F$ y $p(x) \in \poly$. Entonces:
     \begin{enumerate}
         \item $\begin{aligned}[t]
@@ -301,43 +301,22 @@ Sea $m$ tal que $\ord(F_k) > \gr(p(x))$ para todo $k > m$. De nuevo, por la prop
     Análoga a la anterior, escribiendo $x^n$ como combinación lineal de los $p_k(x)$. 
 \end{demo}
 
-\begin{proposicion}
-    Sea $F(T) \in \F$ y $p(x) \in \poly$ cualesquiera. Entonces, se dan las igualdades:
-    \begin{enumerate}
-        \item $\begin{aligned}
+\begin{proposicion}\label{adjuncion M}
+    Sea $F(T) \in \F$ y $p(x) \in \poly$ cualesquiera. Entonces, se verifica que
+        $$\begin{aligned}
             \langle \partial F(T) | p(x) \rangle = \langle F(T) | x \cdot p(x)\rangle
-        \end{aligned}$
-        \item  $\begin{aligned}
-            \langle F(T) | p'(x)\rangle = \langle T\cdot F(T)| p(x)\rangle
-       \end{aligned}$
-    \end{enumerate}
+        \end{aligned}$$
 \end{proposicion}
 
 \begin{demo}
-    $F(T) = \sum_k a_kT^k$. Por la linealidad, basta verlo para $p(x) = x^n$
-    \begin{enumerate}
-        \item Tenemos que: 
-            $$\begin{aligned}
+    $F(T) = \sum_k a_kT^k$. Por la linealidad, basta verlo para $p(x) = x^n$. Tenemos que: 
+        $$\begin{aligned}
             \langle \partial F(T)| x^n\rangle & = \sum_{k=1}^\infty ka_k\langle T^{k-1}| x^n\rangle = \sum_{k=0}^\infty (k+1)a_{k+1}\langle T^{k}| x^n\rangle \\
             & = \sum_{k=0}^\infty (k+1)a_{k+1}k! \delta_{n,k} = (n+1)!a_{n+1} = \langle F(T)| x^{n+1}\rangle \\
             &= \langle F(T)| x\cdot x^n\rangle
         \end{aligned}$$
-        \item $T \cdot F(T) = \sum_{n=0}^\infty a_nT^{n+1} = \sum_{n=1}^\infty a_{n-1}T^n$. Similar a lo hecho antes:
-        \begin{align*}
-            \langle F(T) | (x^n)' \rangle & = \langle F(T) | nx^{n-1} \rangle = n\langle F(T) | x^{n-1} \rangle \\
-            & = n(n-1)!a_{n-1} = n! a_{n-1} \\
-            & = n![T \cdot F(T)]_n = \langle T \cdot F(T) | x^{n} \rangle
-        \end{align*}
-    \end{enumerate}
 \end{demo}
     
-\begin{corolario}
-    Dados $F(T) \in \F$ y $p(x) \in \poly$ cualesquiera, se verifica:
-    \begin{equation*}
-        \langle F(T) | p(x)\rangle = \langle T\cdot F(T)| \int p(x)\rangle
-    \end{equation*}
-\end{corolario}
-
 \begin{proposicion}
     Si $F(T) \in \F$ es una serie formal tal que $\ord(F(T)) \geq 1$, entonces:
     \begin{equation*}
@@ -357,7 +336,7 @@ Sea $m$ tal que $\ord(F_k) > \gr(p(x))$ para todo $k > m$. De nuevo, por la prop
 Dos familias de funcionales son de especial importancia: estos son los \textit{funcionales delta} y los \textit{funcionales invertibles}. Concluimos la sección dando tanto sus definiciones como su caracterización.
 
 \begin{definicion}
-    Dada $F(T) \in \F$, diremos que $F(T)$ es una \textbf{serie delta} (o \textbf{$\delta$-serie}) si $F(T) \in \maximal$ y $F(T) \not \in \maximal^2$. Escribimos $\F^\delta$ para simbolizar el conjunto de funcionales delta.
+    Dada $F(T) \in \F$, diremos que $F(T)$ es una \textbf{serie delta} (o \textbf{$\delta$-serie}) si $F(T) \in \maximal$ y $F(T) \not \in \maximal^2$; es decir, cuando $F(T)$ es un invertible respecto de la composición. Escribimos $\F^\delta$ para simbolizar el conjunto de funcionales delta.
 \end{definicion}
 
 \begin{definicion}
@@ -367,8 +346,8 @@ Dos familias de funcionales son de especial importancia: estos son los \textit{f
 \begin{proposicion}
     Sea $F(T) \in \F$. Entonces:
     \begin{enumerate}
-        \item $F(T)$ es un funcional delta si y solo si $\langle F(T)| 1\rangle = 0$ y $\langle F(T)| x \rangle \neq 0$
-        \item $F(T)$ es un funcional invertible si y solo si $\langle F(T)|1 \rangle \neq 0$
+        \item $F(T) \in \F^{\delta} \iff \langle F(T)| 1\rangle = 0, \langle F(T)| x \rangle \neq 0$
+        \item $F(T) \in \F^* \iff \langle F(T)|1 \rangle \neq 0$
     \end{enumerate}
 \end{proposicion}
 
@@ -421,14 +400,15 @@ Hemos de hacer dos aclaraciones importantes respecto a lo dicho hasta ahora. Pri
 De forma similar a lo que hacíamos con los funcionales, utilizaremos el símbolo $T$ para hablar tanto de la variable formal como del operador $\partial$, con lo que escribiremos siempre $F(T)$ en lugar de $F(\partial)$. En caso de no indicarlo, simplemente el contexto ha de servir para diferenciar como se está considerando.
 
 En resumen, dada $F(T)$ la escribiremos como $F(T) = \sum_k \frac{a_k}{k!}T^k$ y esta actúa sobre $\poly$ como
-\begin{equation} \label{serie como operador}
-    F(T)x^n = \sum_k \binom{n}{k}a_kx^{n-k}
-\end{equation}
+\begin{align}\label{serie como operador}
+    F(T) \colon & \poly \longrightarrow \poly \nonumber \\
+    & x^n \mapsto F(T)x^n = \sum_k \binom{n}{k}a_kx^{n-k}
+\end{align}
 
 Con todo, podemos ya enunciar y probar el resultado principal de la sección.
 
 \begin{teorema}
-    La acción definida por
+    El producto definido por
     \begin{align*}
         \cdot \colon & \F \times \poly \longrightarrow \poly\\
         & (F(T), p(x)) \mapsto F(T) \cdot p(x) \equiv F(T) p(x)
@@ -461,6 +441,80 @@ Con todo, podemos ya enunciar y probar el resultado principal de la sección.
     \end{align*}
     de donde vemos que $a_0 = a_1 = \dots = a_n = \dots = 0$ y se concluye.
 \end{demo}
+
+Los operadores lineales $F(T)$ satisfarán propiedades análogas a la de los funcionales. Listamos algunas de estas aunque no damos su demostración puesto que son muy similares a las dadas para los funcionales.
+
+\begin{proposicion}
+    Si $\ord(F) > \gr(p)$, entonces $F(T)p(x) = 0$.
+\end{proposicion}
+
+\begin{proposicion}
+    Si $\{F_k(T)\}_{k \geq 0}$ es una sucesión de series formales tal que $\ord(F_k) \rightarrow \infty$, entonces
+    \begin{equation*}
+        (\sum_{k=0}^\infty a_kF_k(T))p(x) = \sum_{k=0}^\infty a_k(F_k(T)p(x))
+    \end{equation*}
+    para todo polinomio $p(x) \in \poly$
+\end{proposicion}
+
+
+\begin{proposicion}
+    Si $\{ F_k(T) \}_{k \geq 0}$ es un sistema de generadores topológico para $\F$, entonces 
+    \begin{equation*}
+        F_k(T)p(x) = 0, \forall k \iff p(x) = 0
+    \end{equation*}
+    para todo $p(x) \in \poly$
+\end{proposicion}
+
+\begin{proposicion}
+    Si $\{ p_k(x) \}_{k \geq 0}$ es un sistema de generadores algebraico para $\poly$, entonces 
+    \begin{equation*}
+        F(T)p_k(x) = 0, \forall k \iff F(T) = 0
+    \end{equation*}
+    para toda $F(T) \in \F$
+\end{proposicion}
+
+Uno de los resultados claves en lo que a estas operadores concierne es el de la relación de adjunción que guardan respecto al producto formal.
+\begin{teorema} \label{adjuncion serie operador y multiplicacion}
+    Sean $F(T), G(T) \in \F$. Para todo $p(x) \in \poly$ se verifica
+    \begin{equation*}
+        \langle F(T)G(T) | p(x) \rangle = \langle F(T) | G(T)p(x) \rangle
+    \end{equation*}
+\end{teorema}
+
+\begin{demo}
+    Por la linealidad, esto se reduce a ver que $\langle T^k T^j | p(x) \rangle = \langle T^k | T^j p(x) \rangle$. En efecto:
+    \begin{align*}
+        \langle T^k T^j | p(x) \rangle & = \langle T^{k+j} | p(x) \rangle = p^{(k+j)}(0)\\
+        & = (\partial^j p)^{(k)}(0) = (T^j p)^{(k)}(0) = \langle T^k | T^j p(x) \rangle
+    \end{align*}
+\end{demo}
+
+\begin{corolario}
+    Sea $F(T) \in \F$ y $p(x) \in \poly$ cualesquiera. Entonces, se verifica que
+        $$\begin{aligned}
+            \langle F(T) | p'(x)\rangle = \langle T\cdot F(T)| p(x)\rangle
+       \end{aligned}$$
+    Equivalentemente, se verifica que
+    \begin{equation*}
+        \langle F(T) | p(x)\rangle = \langle T\cdot F(T)| \int p(x)\rangle
+    \end{equation*}
+\end{corolario}
+
+\begin{corolario}
+    Dada $F(T) \in \F$ y $p(x) \in \poly$ se tiene que
+    \begin{equation*}
+        \langle  F(T) | p(x) \rangle = (F(T)p(x))(0)
+    \end{equation*}
+    Es decir, se verifica que el diagrama
+    \[\begin{tikzcd}
+	{\poly} & {\poly}\\
+	& {\field}
+	\arrow["{F(T)}", from=1-1, to=1-2]
+	\arrow["{\langle F(T) | \quad \rangle}"', from=1-1, to=2-2]
+	\arrow["{\varepsilon_0}", from=1-2, to=2-2]
+    \end{tikzcd}\]
+    es conmutativo.
+\end{corolario}
 Si bien la asignación \eqref{T como derivada} es biunívoca de forma trivial, a diferencia de lo que ocurría con el isomorfismo canónico umbral, la aplicación $\varphi$ \underline{\textbf{no}} es una aplicación biyectiva; es decir, existen operadores que no provienen de ninguna serie formal. Esto es consecuencia de que, como $\gr(\partial p(x)) \leq \gr(p(x))$, por linealidad, se tiene que
 \begin{equation*}
     \gr(F(T)p(x)) \leq \gr(p(x))
@@ -469,7 +523,16 @@ es decir, que todos los operadores que son series formales actúan bajando o man
 \begin{equation*}
     p(x) \mapsto xp(x)
 \end{equation*}
-es un ejemplo de un operador que no proviene de ninguna serie formal. Queda así probada la siguiente proposición.
+es un ejemplo de un operador que no proviene de ninguna serie formal.
+
+\begin{obs}
+    El operador \textit{multiplicación por $x$} nos aparecerá en repetidas ocasiones. En lo que sigue, lo escribiremos abreviadamente como $M$. Hacemos esto con el objetivo de evitar la posible confusión que podría crearse con la multiplicación de series formales o polinomios. En particular, con esta notación, la proposicón \ref{adjuncion M} se reescribe como
+    \begin{equation*}
+        \langle \partial F(T) | p(x) \rangle = \langle F(T) | M p(x)\rangle
+    \end{equation*}
+\end{obs}
+
+Mediante lo ya dicho, se ha probado la siguiente proposición.
 
 \begin{proposicion}
     La aplicación $\varphi \colon \F \hookrightarrow \End(\poly)$ es un homomorfismo de anillos inyectivo pero no epiyectivo, con imagen
@@ -484,9 +547,108 @@ Así pues, nos interesa ahora dar una caracterización de la imagen del morfismo
     Diremos que un operador $L \in \End(\poly)$ tiene \textbf{forma de serie formal} si $L \in \text{Im}(\varphi)$.
 \end{definicion}
 
+\begin{ej}
+    \begin{enumerate}
+        \item El \textbf{operador traslación} $e^{\lambda T}$ el cual cumple que
+        \begin{equation*}
+            e^{\lambda T} x^n = \sum_{k=0}^\infty \frac{\lambda^k}{k!}x^n = \sum_{k=0}^\infty \binom{n}{k}y^k x^{n-k} = (x+ \lambda )^n
+        \end{equation*} 
+        Con lo que, para un polinomio genérico $p(x)$
+        \begin{equation} \label{operador traslacion}
+            e^{\lambda T} p(x) = p(x+\lambda)
+        \end{equation}
+        \item El \textbf{operador diferencia} $e^{\lambda T} -1$ en este caso será
+        \begin{equation}\label{operador diferencia}
+            (e^{\lambda T} -1) p(x) = p(x+ \lambda) - p(x)
+        \end{equation}
+        \item El \textbf{operador de Abel} $Te^{\lambda T}$ será
+        \begin{equation}\label{operador de Abel}
+            Te^{\lambda T}p(x) = p'(x+ \lambda)
+        \end{equation}
+        \item El operador $\frac{e^{\lambda T} - 1}{T}$ (bien definido ya que $\ord(e^{\lambda T} - 1) = 1$) nos aparecerá posteriormente al tratar con los polinomios de Bernoulli. Este verifica que
+        \begin{align*}
+            \frac{e^{\lambda T} - 1}{T}x^n & = (\sum_{k=0}^\infty \frac{\lambda^{k+1}}{(k+1)!}T^k )x^n = \sum_{k=0}^n \binom{n+1}{k+1} \frac{\lambda^{k+1}}{(n+1)}x^{n-k}\\
+            & = \frac{1}{n+1}\sum_{k=1}^{n+1} \binom{n+1}{k} \lambda^k x^{n+1-k} = \frac{1}{n+1}((x+ \lambda )^{n+1} - x^{n+1}) = \int\limits_{x}^{x+ \lambda} u^n \, du
+        \end{align*}
+        Por tanto, para un polinomio genérico $p(x)$
+        \begin{equation}\label{operador integral media}
+            \frac{e^{\lambda T} - 1}{T}p(x) = \int\limits_{x}^{x+ \lambda} p(u) \, du
+        \end{equation}
+    \end{enumerate}
+\end{ej}
 
+\begin{definicion}
+    Diremos que un operador $F(T) \in \text{Im}(\varphi)$ es un \textbf{operador delta} (o \textbf{$\delta$-operador}) si como serie formal $F(T)$ es una serie delta. Análogamente, diremos $F(T)$ es un \textbf{operador invertible} si como serie formal $F(T)$ es una serie invertible. 
+\end{definicion}
 
+\begin{lema}
+    Si $F(T)$ es un operador delta y $\Lambda \in \End(\poly)$ conmuta con F, entonces $\gr(\Lambda p(x)) \leq \gr(p(x))$ para todo $p(x) \in \poly$
+\end{lema}
+\begin{demo}
+    Como venimos haciendo, por linealidad, basta con probarlo para los polinomios $x^n$. Por contradicción, supongamos que existe un número natural $m$ tal que $\gr(\Lambda x^n) \geq m+1$. Como $\ord(F(T)) = 1$ tenemos que, siendo $F(T) = \sum_{k \geq 1} \frac{a_k}{k!}T^k$
+    \begin{align*}
+        F(T)x^n & = \sum_{k=1}^n \binom{n}{k}a_k T^k = n a_1 x^{n-1} + \dots + a_n, \quad \forall n \geq 1\\
+        F(T)x^{0} & = 0
+    \end{align*} 
+    Por tanto, $\gr(F(T)p(x)) = \gr(p(x)) - 1$ si $\gr(p(x)) \geq 1$. Luego, como $\ord(F^{m+1}(T)) = m+1$ se tendrá que $F^{m+1}(T)x^m = 0$ y en consecuencia
+    \begin{equation*}
+        F^{m+1}(T) (\Lambda x^m) = \Lambda (F^{m+1}(T)x^m) = 0 
+    \end{equation*} 
+    Pero $\gr(\Lambda x^n) \geq m+1 \implies \gr(F^{m+1}(T) (\Lambda x^m)) \geq 0 \implies F^{m+1}(T) (\Lambda x^m) \neq 0$, lo cual es imposible. Con lo que $\gr(\Lambda x^n) \leq \gr(x^n)$ y se concluye.
+\end{demo}
 
+\begin{teorema}\textbf{(caracterización Im($\varphi$))}
+    Un operador $\Lambda \in \End(\poly)$ tiene forma de la serie formal $F(T)$ si y solo si conmuta con el operador derivada (i.e: $T \circ \Lambda = \Lambda \circ T$).
+\end{teorema}
+
+\begin{demo}
+    Es claro que los elementos de $\text{Im}(\varphi)$ conmutan con $T$, puesto que conmutan con todas las series formales, luego en particular lo hacen con $T$. Recíprocamente, si $\Lambda$ conmuta con $T$ se verifica que $\Lambda$ tiene la forma de $F(T)$ para la serie formal $F(T)$ definida como:
+    \begin{equation*}
+        F(T) = \sum_{k=0}^\infty \frac{\langle 1| \Lambda x^k\rangle}{k!}T^k
+    \end{equation*}
+    En efecto, ya que $\gr(\Lambda x^n) \leq n$, por el lema previo y la proposición \ref{taylor analogo} tenemos que
+    \begin{equation*}
+        \Lambda x^n = \sum_{k=0}^n \frac{\langle T^k| \Lambda x^n\rangle}{k!}x^k
+    \end{equation*}
+    Y utilizando las propiedades demostradas previamente junto a la hipótesis de conmutación con $T$, vemos que
+    \begin{equation*}
+        \langle T^k| \Lambda x^n\rangle = \langle 1| T^k\Lambda x^n\rangle = \langle 1| \Lambda T^k x^n\rangle = \langle 1| \Lambda (n)_k x^{n-k}\rangle
+    \end{equation*}
+    Por tanto, podemos reescribir $\Lambda x^n$ como
+    \begin{equation*}
+        \Lambda x^n = \sum_{k=0}^n \binom{n}{k}\langle 1| \Lambda x^{n-k}\rangle x^k = \sum_{k=0}^n \binom{n}{k}\langle 1| \Lambda x^{k}\rangle x^{n-k} = F(T)x^n 
+    \end{equation*}
+    donde en la segunda igualdad hemos usado que $\binom{n}{k} = \binom{n}{n-k}$, y con esto se concluye 
+\end{demo}
+
+\begin{corolario}
+    Dado un operador delta $G(T)$, $\Lambda \in \End(\poly)$ tiene la forma de la serie formal $F(T)$ si y solo si conmuta con $G(T)$
+\end{corolario}
+
+\begin{obs}
+    El operador delta $G(T)$ escogido puede ser cualquiera. Esta condición afirma que \underline{\textbf{tan solo es necesario}} comprobar que $\Lambda$ conmuta con este operador $G(T)$.
+\end{obs}
+
+\begin{demo}
+    Si $\Lambda$ tiene forma de serie formal entonces conmuta con toda serie formal, en particular con $G(T)$. Recíprocamente, si $\Lambda \circ G(T) = G(T) \circ \Lambda$, como $G(T)$ es un operador delta, las series formales $G^k(T)$ forman una pseudobase de $\F$. En concreto, existen escalares $a_k \in \F$ tales que
+    \begin{equation*}
+        T = \sum_{k = 0}^\infty a_k G^k(T)
+    \end{equation*}
+    Por lo tanto, la conmutatividad implica que
+    \begin{align*}
+        \Lambda T x^n & = \Lambda(\sum_{k=0}^\infty a_k G^k(T) x^n) = \Lambda (\sum_{k=0}^n a_k G^k(T) x^n) = \sum_{k=0}^n a_k \Lambda G^k(T) x^n\\
+        & = \sum_{k=0}^n a_k G^k(T) \Lambda x^n = \sum_{k=0}^\infty a_k G^k(T) \Lambda x^n = T \Lambda x^n
+    \end{align*}  
+    donde la penúltima igualdad se debe a que $\gr(\Lambda x^n) \leq n$ por el lema previo.
+\end{demo}
+
+\begin{corolario}
+    $\Lambda \in \End(\poly)$ tiene forma de serie formal si y solo si conmuta con el operador de traslación $e^{\lambda T} \quad (\lambda \neq 0)$
+\end{corolario}
+
+\begin{demo}
+    $\Lambda$ conmuta con $e^{\lambda T} \iff \Lambda$ conmuta con el operador diferencia $e^{\lambda T} - 1$. Como el operador diferencia es un operador delta siempre que $\lambda \neq 0$, por el corolario anterior se concluye.   
+\end{demo}
 %%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%
