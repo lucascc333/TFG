@@ -163,7 +163,7 @@ En particular, el álgebra umbral cumple las siguientes dos propiedades.
 \end{obs}
 
 El espacio de funcionales también puede tener una estructura de espacio topológico. Para ello, escogemos la topología siguiente, con la cual $\phi$ será continua.
-\begin{definicion}
+\begin{definicion}\label{topologia de estabilizacion}
     Dados dos espacios vectoriales $V$ y $W$, se define la \textbf{topología de estabilización de} $\Hom(V,W)$ como aquella dada por la siguiente condición de convergencia: una sucesión de homomorfismos $\{f_n\}_n \subset \Hom(V,W)$ converge a un homomorfismo $f$ si, dado un elemento $v \in V$, existe un número natural $n_0$ tal que si $n \geq n_0$ entonces $f_n(v) = f(v)$, es decir, cuando $\{f_n(v)\}_{n}$ converge en la topología discreta de $W$.
 \end{definicion}
 
@@ -210,9 +210,9 @@ El espacio de funcionales también puede tener una estructura de espacio topoló
     \end{itemize}
 \end{demo}
 
-\begin{proposicion}
+\begin{teorema}\label{topologia formal equivalente a topologia de estabilizacion}
     La topología de estabilización de $\End(\poly)$ coincide con la topología inicial del i.c.u $\phi$.
-\end{proposicion}
+\end{teorema}
 
 Por otro lado, de la definición \ref{omegaF} dada es fácil ver la propiedad siguiente. 
 
@@ -244,7 +244,7 @@ De esta forma, podemos pensar cada serie formal $F(T)$ como el funcional $\omega
     \begin{equation}\label{funcional evaluacion}
         \langle e^{\lambda T} | p(x) \rangle = p(\lambda)
     \end{equation}
-    Simbolizaremos a este funcional por $\varepsilon_\lambda \equiv e^{\lambda T}$ y en caso de que $\lambda = 0$, se dice que $\varepsilon_0$ es el \textbf{funcional aumento}. Con esta notación, la proposición \ref{identidad algebra umbral} se reformula diciendo que el funcional aumento es la identidad para el producto del álgebra umbral.
+    Siguiendo la notación formal, simbolizaremos a este funcional por $E_\lambda (T) \equiv e^{\lambda T}$ y en caso de que $\lambda = 0$, se dice que $E_0$ es el \textbf{funcional aumento}. Con esta notación, la proposición \ref{identidad algebra umbral} se reformula diciendo que el funcional aumento es la identidad para el producto del álgebra umbral.
     \item El \textbf{funcional diferencia} $e^{ \lambda T} -1$ está dado por:
     \begin{equation}\label{funcional diferencia}
         \langle e^{\lambda T}-1 | p(x) \rangle = p(\lambda)-p(0)
@@ -292,7 +292,7 @@ A partir de las definiciones dadas y de las igualdades \ref{funcional derivada} 
     Esto es consecuencia de la definición \ref{omegaF}, pues $$\langle F(T)| x^n\rangle = n! [F]_n \implies \langle F(T)| p(x)\rangle = \sum_{n}n![F]_n[p]_n$$ y como $\ord(F(T)) > \gr(p(x))$, o bien $[F]_n = 0$ o bien $[p]_n = 0$.    
 \end{demo}
 
-\begin{proposicion}
+\begin{proposicion}\label{producto escalares}
     Sea $F(T) \in \F$, $p(x) \in \poly^*$ y $\lambda \in \field$ cualesquiera. Se verifica que
     \begin{equation*}
         \langle F(T)| p(\lambda x)\rangle = \langle F(\lambda T) | p(x)\rangle
@@ -323,7 +323,7 @@ Sea $m$ tal que $\ord(F_k) > \gr(p(x))$ para todo $k > m$. De nuevo, por la prop
     donde la segunda suma es finita ya que $\langle F_k(x) | p(x) \rangle = 0$ para todo $k > m$.
 \end{demo}
 
-\begin{proposicion}
+\begin{proposicion}\label{inyectividad sucesion F_k}
     Sea $\{ F_k(T) \}_{k\geq0}$ sucesión de series formales tal que $\ord(F_k(T)) = k$. Entonces la aplicación
     \begin{align*}
         \langle F(T) \rangle \colon & \poly \longrightarrow \field^\infty\\
@@ -662,7 +662,7 @@ Así pues, nos interesa ahora dar una caracterización de la imagen del morfismo
     donde en la segunda igualdad hemos usado que $\binom{n}{k} = \binom{n}{n-k}$
 \end{demo}
 
-\begin{corolario}
+\begin{corolario}\label{conmutacion G(T)}
     Dado un operador delta $G(T)$, $\Lambda \in \End(\poly)$ tiene la forma de la serie formal $F(T)$ si y solo si conmuta con $G(T)$
 \end{corolario}
 
@@ -684,11 +684,11 @@ Así pues, nos interesa ahora dar una caracterización de la imagen del morfismo
 \end{demo}
 
 \begin{corolario}
-    $\Lambda \in \End(\poly)$ tiene forma de serie formal si y solo si conmuta con el operador de traslación $e^{\lambda T} \quad (\lambda \neq 0)$
+    $\Lambda \in \End(\poly)$ tiene forma de serie formal si y solo si conmuta con el operador de traslación $E_{\lambda}(T) \quad (\lambda \neq 0)$
 \end{corolario}
 
 \begin{demo}
-    $\Lambda$ conmuta con $e^{\lambda T} \iff \Lambda$ conmuta con el operador diferencia $e^{\lambda T} - 1$. Como el operador diferencia es un operador delta siempre que $\lambda \neq 0$, por el corolario anterior se concluye.   
+    $\Lambda$ conmuta con $E_{\lambda}(T) \iff \Lambda$ conmuta con el operador diferencia $e^{\lambda T} - 1$. Como el operador diferencia es un operador delta siempre que $\lambda \neq 0$, por el corolario anterior se concluye.   
 \end{demo}
 
 Por otro lado, conviene que dotemos al espacio de operadores de una estructura, además, de espacio topológico que haga que la aplicación $\varphi$ sea continua, también de una forma similar a como lo hacíamos con los funcionales. Esta topología se corresponde nuevamente con la topología de estabilización. La demostraciones son casi idénticas y quedan omitidas.

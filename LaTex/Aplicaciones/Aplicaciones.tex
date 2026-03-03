@@ -1,4 +1,38 @@
 \chapter{Aplicaciones del cálculo umbral}
 
-%: BERNOULLI
-\section{Polinomios de Bernoulli}
+%: EJEMPLOS SUCESIONES POLINOMIOS
+\section{Sucesiones de polinomios conocidas}
+\subsection{Polinomios de Bernoulli}
+
+%: CONEXIÓN CONSTANTES
+\section{Problemas de conexión de constantes}
+
+%: INTERPOLACIÓN
+\section{Interpolación lineal}
+
+\begin{lema}
+    \textbf{(de Peano)}. Sea $\Lambda$ un operador definido sobre el anillo de funciones continuas en un intervalo $[a,b]$ tal que $\Lambda p(x) = 0$ para todo $p(x) \in \poly$ con $\gr(p(x)) \leq n$. Entonces, para toda $f \in \mathcal{C}^{n+1}[a,b]$
+    \begin{equation*}
+        \Lambda f(x) = \int_{a}^{b} f^{(n+1)}(t)K(t) dt
+    \end{equation*}
+    donde
+    \begin{equation*}
+        K(t) = \frac{1}{n!}\Lambda_x [(x-t)_{+}^n]
+    \end{equation*}
+    siendo
+    \begin{equation*}
+        (x-t)_{+}^n = \begin{dcases}
+            (x-t)^n & x \geq t \\
+            0 & x < t
+        \end{dcases}
+    \end{equation*}
+    y donde $\Lambda_x$ indica que se piensa a $\Lambda$ como una función de $x$.
+\end{lema}
+%: RECURSIÓN
+\section{Problemas de recursión}
+
+%: RELACIONES INVERSAS
+\section{Relaciones inversas}
+
+%: EC. DIFERENCIAL
+\section{Solución a ec. diferenciales}

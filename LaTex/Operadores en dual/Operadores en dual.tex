@@ -1,1 +1,67 @@
-\chapter{Operadores en el espacio dual de polinomios}
+\chapter{Operadores en el dual}
+
+Si bien ya hemos visto que las sucesiones de Sheffer se pueden definir de multitud de formas distintas, todas ellas equivalentes, aún no hemos dado ninguna forma de calcularlas ni hemos analizado la estructura algebraica que el conjunto de estas sucesiones puede poseer, asi como los casos concretos de las sucesiones de Appell y las sucesiones asociadas. En este capítulo, daremos respuesta a estas dos cuestiones. Además, aprovecharemos también para obtener otras tantas propiedades características de las sucesiones de Sheffer. 
+
+Para ello, tendremos que estudiar a los operadores lineales sobre $\poly^*$. Es conveniente que pensemos en estos momentos a este como el álgebra umbral, aunque escribiremos $\poly^*$ para hacer hincapie en que los objetos que estamos manipulando son funcionales. 
+
+\section{Automorfismos y derivaciones}
+Comenzamos recordando que $\poly^*$ es un espacio topológico con la topología de estabilización \ref{topologia de estabilizacion} y que esta coinicde con la topología formal, en virtud del teorema \ref{topologia formal equivalente a topologia de estabilizacion}. Esto nos permite enunciar y probar el siguiente teorema.
+
+\begin{teorema}
+    Un operador lineal $\Lambda \in \End(\poly^*)$ es continuo si y solo si verifica que para todas las sucesiones de funcionales $F_n(T)$ convergentes en la topología formal, la suma $\sum_{k=0}^\infty a_k\Lambda F_k(T)$ es convergente y además
+    \begin{equation*}
+        \Lambda \sum_{k=0}^\infty a_k F_k(T) = \sum_{k=0}^\infty a_k\Lambda F_k(T)
+    \end{equation*} 
+    
+\end{teorema}
+\begin{demo}
+    $\boxed{\implies}$ Si $\Lambda$ es continuo, entonces sabemos, por ser la topología formal, que $\ord(\Lambda F_n(T)) \longrightarrow \infty$ siempre que $\ord(F_n(T)) \longrightarrow \infty$. Por tanto, $\sum_{k=0}^\infty a_k\Lambda F_k(T)$ existirá y obtenemos por linealidad la igualdad.
+
+    $\boxed{\impliedby}$ Sea $p(x) \in \poly$ y $m \geq 0$. En este caso
+    \begin{equation*}
+        \langle \Lambda \sum_{k=0}^\infty a_k F_k(T) | p(x) \rangle = \langle \Lambda \sum_{k=0}^m a_k F_k(T) | p(x) \rangle + \langle \Lambda \sum_{k=m+1}^\infty a_k F_k(T) | p(x) \rangle
+    \end{equation*}
+    Ahora, como la sucesión formada por las $F_n(T)$ es convergente se tiene que la sucesión $\{\sum_{k=m+1}^\infty a_k F_k(T)\}_{m \geq 0}$ también es convergente. Luego, por la hipótesis sabemos que $\{ \Lambda \sum_{k=m+1}^\infty a_k F_k(T)\}_{m \geq 0}$ es convergente y, por tanto, podemos tomar $m$ lo suficentemente grande como para que el segundo término se anule y $\ord(\Lambda F_k(T)) > \gr(p(x))$ para $k > m$. Así pues, obtenemos
+    \begin{align*}
+        \langle \Lambda \sum_{k=0}^\infty a_k F_k(T) | p(x) \rangle = \langle \Lambda \sum_{k=0}^m a_k F_k(T) | p(x) \rangle & = \langle \sum_{k=0}^m a_k \Lambda F_k(T) | p(x) \rangle \\
+        & = \langle \sum_{k=0}^\infty a_k \Lambda F_k(T) | p(x) \rangle
+    \end{align*}
+    que es la igualdad que buscábamos.
+\end{demo}
+
+\begin{definicion}
+    Dado un funcional $F(T)$, se define el \textbf{operador multiplicación asociado a $F(T)$} como el operador lineal $M(F) \in \End(\poly^*)$ dado por
+    \begin{align*}
+        M(F) \colon & \poly^* \longrightarrow \poly^* \\
+        & G(T)  \mapsto F(T) \cdot G(T) 
+    \end{align*}
+\end{definicion}
+Esto nos permite dar la asignación
+\begin{equation}\label{funcional a operador multiplicacion}
+    F(T) \mapsto M(F)
+\end{equation}
+
+\begin{teorema}
+    La asignación \eqref{funcional a operador multiplicacion} es un monomorfismo de algebras continuo.
+\end{teorema}
+
+\begin{teorema}
+    Si $\Lambda \in \End(\poly^*)$ es un automorfismo (i.e: morfismo de algebras biyectivo), entonces
+    \begin{equation*}
+        \ord(\Lambda F(T)) = \ord(F(T))
+    \end{equation*}
+    para toda $F(T) \in \poly^*$
+\end{teorema}
+
+\begin{corolario}
+    Todo automorfismo de $\poly^*$ es continuo.
+\end{corolario}
+
+\begin{ej}
+    El operador multiplicación asociado a un funcional $F(T)$ que sea invertible es continuo, puesto que será un morfismo de álgerbas trivialmente y su inversa $M(F)^{-1}$ será
+    \begin{align*}
+        M(F)^{-1} \colon & \poly^* \longrightarrow \poly^* \\
+        & G(T)  \mapsto \frac{1}{F(T)} \cdot G(T) 
+    \end{align*}
+    Es decir, $M(F)^{-1} = M(1/F)$
+\end{ej}
