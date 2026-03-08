@@ -9,13 +9,15 @@
 \contentsline {section}{\numberline {2.2}Propiedades}{31}{section.2.2}%
 \contentsline {section}{\numberline {2.3}La sucesión de factoriales descendentes}{33}{section.2.3}%
 \contentsline {chapter}{\numberline {3}Operadores en el dual}{37}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Automorfismos y derivaciones}{37}{section.3.1}%
-\contentsline {chapter}{\numberline {4}Aplicaciones del cálculo umbral}{40}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Sucesiones de polinomios conocidas}{40}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Polinomios de Bernoulli}{40}{subsection.4.1.1}%
-\contentsline {section}{\numberline {4.2}Problemas de conexión de constantes}{40}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Interpolación lineal}{40}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Problemas de recursión}{41}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Relaciones inversas}{41}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Solución a ec. diferenciales}{41}{section.4.6}%
-\contentsline {chapter}{\numberline {A}Series formales}{42}{appendix.Alph1}%
+\contentsline {section}{\numberline {3.1}Automorfismos y derivaciones}{38}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Operadores adjuntos}{40}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Operadores de Sheffer}{42}{section.3.3}%
+\contentsline {chapter}{\numberline {4}Aplicaciones del cálculo umbral}{46}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Sucesiones de polinomios conocidas}{46}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Polinomios de Bernoulli}{46}{subsection.4.1.1}%
+\contentsline {section}{\numberline {4.2}Problemas de conexión de constantes}{46}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Interpolación lineal}{46}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Problemas de recursión}{47}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Relaciones inversas}{47}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Solución a ec. diferenciales}{47}{section.4.6}%
+\contentsline {chapter}{\numberline {A}Series formales}{48}{appendix.Alph1}%
