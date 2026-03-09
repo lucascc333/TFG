@@ -40,12 +40,7 @@ Nótese que hemos fijado la notación $\langle L | p(x) \rangle$ para simbolizar
 \begin{obs}
     \begin{itemize}
         \item Por ahorro del lenguaje y sin que cause confusión, llamaremos a los funcionales lineales de $\poly$ simplemente \textit{\textbf{funcionales}}.
-        \item El espacio vectorial de funcionales posee también estructura de $\field$-álgebra de forma natural, con el producto de funcionales
-        \begin{align*}
-            \mathbf{\cdot} \colon & \poly^* \times \poly^* \longrightarrow \poly^*\\
-            & (L, M) \mapsto L \cdot M
-        \end{align*}
-        dado por $\langle L \cdot M | p(x) \rangle = \langle L | p(x) \rangle \cdot \langle M | p(x) \rangle$
+        \item El espacio vectorial de funcionales posee también estructura de $\field$-álgebra de forma natural, con el producto de funcionales usual. No obstante, como veremos en breve, no la utilizaremos.
     \end{itemize}
 \end{obs}
 
@@ -54,7 +49,7 @@ El primer resultado importante que usaremos continuamente proviene del álgebra 
     Si $\{p_n(x)\}_{n\geq0}$ es una sucesión de polinomios tal que $\gr(p_n) = n$ para todo $n$, entonces dos funcionales $L$ y $M$ son iguales si y solo si $\langle L | p_n(x) \rangle = \langle  M | p_n(x) \rangle$ para todo $n$. En particular, $p_n(x) = x^n$ cumple el teorema.
 \end{teorema}
 \begin{demo}
-    Basta con ver que los polinomios $p_n(x)$ así definidos forman una base de Hamel de $\poly$. Que son generadores está claro por ser cada polinomio $p_n(x)$ de grado $n$. Veamos que cada subconjunto finito de estos son linealmente independientes. Sean pues $p_{n_1}(x), \cdots , p_{n_r}(x)$ un subconjunto finito de $\{p_n\}_{n\geq0}$, que, sin pérdida de generalidad, podemos suponer ordenado con $\gr(p_{n_1}(x)) < \dots < \gr(p_{n_r}(x))$, y $\lambda_{n_1}, \dots , \lambda_{n_r} \in \field$ escalares tales que:
+    Basta con ver que los polinomios $p_n(x)$ así definidos forman una base (de Hamel) de $\poly$. Que son generadores está claro por ser cada polinomio $p_n(x)$ de grado $n$. Veamos que cada subconjunto finito de estos son linealmente independientes. Sean pues $p_{n_1}(x), \cdots , p_{n_r}(x)$ un subconjunto finito de $\{p_n\}_{n\geq0}$, que, sin pérdida de generalidad, podemos suponer ordenado con $\gr(p_{n_1}(x)) < \dots < \gr(p_{n_r}(x))$, y $\lambda_{n_1}, \dots , \lambda_{n_r} \in \field$ escalares tales que:
     \begin{equation*}
         \lambda_{n_1}p_{n_1}(x) + \cdots + \lambda_{n_r}p_{n_r}(x) = 0
     \end{equation*}
@@ -188,7 +183,7 @@ El espacio de funcionales también puede tener una estructura de espacio topoló
 \end{demo}
 
 \begin{proposicion}
-    Con la topología de estabilización de $\End(\poly)$ y la topología formal, el i.c.u $\phi$ es un homeomorfismo.
+    Con la topología de estabilización de $\poly^*$ y la topología formal, el i.c.u $\phi$ es un homeomorfismo.
 \end{proposicion}
 
 \begin{demo}
@@ -211,7 +206,7 @@ El espacio de funcionales también puede tener una estructura de espacio topoló
 \end{demo}
 
 \begin{teorema}\label{topologia formal equivalente a topologia de estabilizacion}
-    La topología de estabilización de $\End(\poly)$ coincide con la topología inicial del i.c.u $\phi$.
+    La topología de estabilización de $\poly^*$ se corresponde con la topología inicial del i.c.u $\phi$.
 \end{teorema}
 
 Por otro lado, de la definición \ref{omegaF} dada es fácil ver la propiedad siguiente. 
@@ -220,7 +215,7 @@ Por otro lado, de la definición \ref{omegaF} dada es fácil ver la propiedad si
     Sean $F(T), G(T) \in \F$ dos series formales. Entonces, $F(T) = G(T) $ si y solo si $\omega_F = \omega_G$.
 \end{proposicion}
 
-De esta forma, podemos pensar cada serie formal $F(T)$ como el funcional $\omega_F$ y escribir indistintamente $\F$ o $\poly^*$ para referirnos a ambos conjuntos. Haciendo abuso de la notación, escribiremos $F(T)$ para denotar tanto a la serie formal como al funcional asociado $\omega_F$; cómo esta se comporta dependerá del contexto en el que aparezca y no debe generar confusión alguna. Para cerrar la sección, damos algunos ejemplos básicos de funcionales que nos serán de enorme utilidad. 
+De esta forma, podemos pensar cada serie formal $F(T)$ como el funcional $\omega_F$ y escribir indistintamente $\F$ o $\poly^*$ para referirnos a ambos conjuntos. Haciendo abuso de la notación, escribiremos $F(T)$ para denotar tanto a la serie formal como al funcional asociado $\omega_F$; cómo esta se comporta dependerá del contexto en el que aparezca y no debe generar confusión alguna. No obstante, trataremos de referirnos a los conjuntos en función de como estemos interpretando las series formales en ese momento. Para cerrar la sección, damos algunos ejemplos básicos de funcionales que nos serán de enorme utilidad. 
 
 \begin{ej}
 \begin{enumerate}
@@ -244,7 +239,9 @@ De esta forma, podemos pensar cada serie formal $F(T)$ como el funcional $\omega
     \begin{equation}\label{funcional evaluacion}
         \langle e^{\lambda T} | p(x) \rangle = p(\lambda)
     \end{equation}
-    Siguiendo la notación formal, simbolizaremos a este funcional por $E_\lambda (T) \equiv e^{\lambda T}$ y en caso de que $\lambda = 0$, se dice que $E_0$ es el \textbf{funcional aumento}. Con esta notación, la proposición \ref{identidad algebra umbral} se reformula diciendo que el funcional aumento es la identidad para el producto del álgebra umbral.
+    Siguiendo la notación formal, simbolizaremos a este funcional por $E_\lambda (T) \equiv e^{\lambda T}$ y en caso de que $\lambda = 0$, se dice que $E_0$ es el \textbf{funcional aumento}. 
+    
+    Dicho esto, la proposición \ref{identidad algebra umbral} se puede reformular diciendo que el funcional aumento $E_0$ es la identidad para el producto del álgebra umbral.
     \item El \textbf{funcional diferencia} $e^{ \lambda T} -1$ está dado por:
     \begin{equation}\label{funcional diferencia}
         \langle e^{\lambda T}-1 | p(x) \rangle = p(\lambda)-p(0)
@@ -289,7 +286,10 @@ A partir de las definiciones dadas y de las igualdades \ref{funcional derivada} 
     Sean $F(T) \in \F$ y $p(x) \in \poly$. Si $\ord(F(T)) > \gr(p(x))$, entonces $\langle F(T)| p(x) \rangle = 0$
 \end{proposicion}
 \begin{demo}
-    Esto es consecuencia de la definición \ref{omegaF}, pues $$\langle F(T)| x^n\rangle = n! [F]_n \implies \langle F(T)| p(x)\rangle = \sum_{n}n![F]_n[p]_n$$ y como $\ord(F(T)) > \gr(p(x))$, o bien $[F]_n = 0$ o bien $[p]_n = 0$.    
+    Esto es consecuencia de la definición \ref{omegaF}, pues \begin{equation*}
+    \langle F(T)| x^n\rangle = n! [F]_n \implies \langle F(T)| p(x)\rangle = \sum_{n}n![F]_n[p]_n 
+    \end{equation*}
+    y como $\ord(F(T)) > \gr(p(x))$, o bien $[F]_n = 0$ o bien $[p]_n = 0$.   
 \end{demo}
 
 \begin{proposicion}\label{producto escalares}
@@ -309,7 +309,7 @@ A partir de las definiciones dadas y de las igualdades \ref{funcional derivada} 
     \end{equation*}
 \end{demo}
 \begin{proposicion}
-    Sea $\{ F_k(T) \}_{k\geq0}$ sucesión de series formales tal que $\ord(F_k) \rightarrow \infty$ cuando $k\rightarrow \infty$. Entonces $\sum_{k}a_kF_k(T)$ converge en la topología formal y además se verifica que:
+    Sea $\{ F_k(T) \}_{k\geq0}$ sucesión de series formales tal que $\ord(F_k) \rightarrow \infty$ cuando $k\rightarrow \infty$. Entonces $\sum_{k}a_kF_k(T)$ converge en la topología formal y además se verifica que
     \begin{equation*}
         \langle \sum_k a_kF_k(T)| p(x)\rangle =  \sum_k a_k\langle F_k(T)| p(x)\rangle
     \end{equation*}
@@ -363,7 +363,7 @@ Sea $m$ tal que $\ord(F_k) > \gr(p(x))$ para todo $k > m$. De nuevo, por la prop
 \end{proposicion}
 
 \begin{demo}
-    $F(T) = \sum_k a_kT^k$. Por la linealidad, basta verlo para $p(x) = x^n$. Tenemos que: 
+    $F(T) = \sum_k a_kT^k$. Por la linealidad, basta verlo para $p(x) = x^n$. En efecto 
         $$\begin{aligned}
             \langle \partial F(T)| x^n\rangle & = \sum_{k=1}^\infty ka_k\langle T^{k-1}| x^n\rangle = \sum_{k=0}^\infty (k+1)a_{k+1}\langle T^{k}| x^n\rangle \\
             & = \sum_{k=0}^\infty (k+1)a_{k+1}k! \delta_{n,k} = (n+1)!a_{n+1} = \langle F(T)| x^{n+1}\rangle \\
@@ -372,7 +372,7 @@ Sea $m$ tal que $\ord(F_k) > \gr(p(x))$ para todo $k > m$. De nuevo, por la prop
 \end{demo}
     
 \begin{proposicion}\label{adjuncion operador integral}
-    Si $F(T) \in \F$ es una serie formal tal que $\ord(F(T)) \geq 1$, entonces:
+    Si $F(T) \in \F$ es una serie formal tal que $\ord(F(T)) \geq 1$, entonces
     \begin{equation*}
         \langle \frac{F(T)}{T} | p(x) \rangle = \langle F(T) | \int p(x) \rangle
     \end{equation*}
@@ -466,7 +466,7 @@ Ahora podemos extender esta asignación por linealidad a la aplicación $\varphi
     \varphi \colon & \F \longrightarrow \End(\poly)\\
     & \sum_{k\geq0} \frac{a_k}{k!}T^k \mapsto \sum_{k \geq 0} \frac{a_k}{k!}\partial^k
 \end{align*}
-de tal forma que obtenemos el operador:
+de tal forma que, para cada $F(T) \in \F$, obtenemos el operador
 \begin{align*}
     F(\partial)x^n =\sum_{k \geq 0} \binom{n}{k}a_kx^{n-k}
 \end{align*}
@@ -501,7 +501,7 @@ Con todo, podemos ya enunciar y probar el resultado principal de la sección.
     \begin{align*}
         T^k T^j \cdot p(x) = T^{k+j} \cdot p(x) = \partial^{k+j} \cdot p(x) = \partial^k(\partial^j p(x)) = T^k \cdot (T^j \cdot p(x)) 
     \end{align*}
-    y por la linealidad se concluye que es en efecto un $\F$-módulo.
+    y por la linealidad se concluye que es, efectivamente, un $\F$-módulo.
 
     Queda probar que el módulo es fiel. Esto es que
     \begin{equation*}
@@ -517,7 +517,7 @@ Con todo, podemos ya enunciar y probar el resultado principal de la sección.
     de donde vemos que $a_0 = a_1 = \dots = a_n = \dots = 0$ y se concluye.
 \end{demo}
 
-Los operadores lineales $F(T)$ cumplirán propiedades análogas a la de los funcionales. Listamos algunas de estas aunque no damos su demostración puesto que son muy similares a las dadas para estos útlimos.
+Los operadores lineales $F(T)$ cumplirán propiedades análogas a la de los funcionales. Listamos algunas de estas, aunque no damos su demostración puesto que son muy similares a las dadas para estos útlimos.
 
 \begin{proposicion}
     Si $\ord(F) > \gr(p)$, entonces $F(T)p(x) = 0$.
@@ -528,7 +528,7 @@ Los operadores lineales $F(T)$ cumplirán propiedades análogas a la de los func
     \begin{equation*}
         (\sum_{k=0}^\infty a_kF_k(T))p(x) = \sum_{k=0}^\infty a_k(F_k(T)p(x))
     \end{equation*}
-    para todo polinomio $p(x) \in \poly$. En particular, un operador está completmaente determinado por su acción sobre los elementos de una pseudobase de $\F$.
+    para todo polinomio $p(x) \in \poly$. En particular, un operador está completamente determinado por su acción sobre los elementos de una pseudobase de $\F$.
 \end{proposicion}
 
 
@@ -581,7 +581,7 @@ Uno de los resultados claves en lo que a estos operadores respecta es el de la r
 	& {\field}
 	\arrow["{F(T)}", from=1-1, to=1-2]
 	\arrow["{\langle F(T) | \quad \rangle}"', from=1-1, to=2-2]
-	\arrow["{\varepsilon_0}", from=1-2, to=2-2]
+	\arrow["{E_0}", from=1-2, to=2-2]
     \end{tikzcd}\]
     es un diagrama conmutativo.
 \end{corolario}
@@ -596,7 +596,7 @@ es decir, que todos los operadores que son series formales actúan bajando o man
 es un ejemplo de un operador que no proviene de ninguna serie formal.
 
 \begin{obs}\label{multiplicacion por x operador}
-    El operador \textit{multiplicación por $x$} nos aparecerá en repetidas ocasiones. En lo que sigue, lo escribiremos abreviadamente como $M$. Hacemos esto con el objetivo de evitar la posible confusión que podría crearse con la multiplicación de series formales y polinomios. En particular, con esta notación, la proposicón \ref{adjuncion M} se reescribe como
+    El operador \textit{multiplicación por $x$} nos aparecerá posteriormente. En lo que sigue, lo escribiremos abreviadamente como $M$. Hacemos esto con el objetivo de evitar la posible confusión que podría crearse con la multiplicación de series formales y polinomios. En particular, con esta notación, la proposicón \ref{adjuncion M} se reescribe como
     \begin{equation}\label{adjuncion multiplicar x}
         \langle \partial F(T) | p(x) \rangle = \langle F(T) | M p(x)\rangle
     \end{equation}

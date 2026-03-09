@@ -146,7 +146,7 @@ Y de forma similar a lo que vimos con los automorfismos, queda probado la contin
 \begin{teorema}\label{derivaciones epi implica continuo}
     Toda derivación epiyectiva de $\poly^*$ es continua, es decir
     \begin{center}
-        $\Der_{epi}(\poly^*) \subset \End(\poly^*)$
+        $\Der_{epi}(\poly^*) \subset \End_{\mathcal{C}}(\poly^*)$
     \end{center}
 \end{teorema}
 
@@ -216,7 +216,7 @@ Y de forma similar a lo que vimos con los automorfismos, queda probado la contin
     \end{enumerate}
 \end{ej}
 
-Podemos ahora construir la apicación que mande cada operador a su operador adjunto. 
+Podemos ahora construir la aplicación que mande cada operador a su operador adjunto. 
 \begin{definicion}\label{aplicacion adjunta}
     Se llama \textbf{aplicación adjunta} al morfismo $\mu$ dado por
     \begin{align*}
@@ -251,7 +251,7 @@ Más especifícamente, nos interesará la correspondecia existente entre un subc
     \end{itemize}
 \end{demo}
 
-Una vez visto que la aplicación adjunta restringida $\mu_{\mathcal{C}}$ es un isomorfismo, junto a los resultados \ref{auto implica continuo} y \ref{derivaciones epi implica continuo}, nos interesaría conocer la antiimagen tanto de $\Aut(\poly^*)$ como de $\Der_{epi}(\poly^*)$. Lo cierto es que estos dos conjuntos se corresponden con dos nuevas clases de operadores en $\poly^*$: estos son los \textit{operadores umbrales} y las \textit{traslaciones umbrales}, respectivamente. A su vez, estos no son más que dos subfamilias de dos clases de operadores más generales: los \textit{operadores de Sheffer} y las \textit{traslaciones de Sheffer}. De hecho, estas identificaciones mediante la aplicación adjunta caracterizaran a estas familias de operadores. Comenzamos estudiando y viendo este hecho para los primeros. 
+Una vez visto que la aplicación adjunta restringida $\mu_{\mathcal{C}}$ es un isomorfismo, junto a los resultados \ref{auto implica continuo} y \ref{derivaciones epi implica continuo}, nos interesaría conocer la antiimagen tanto de $\Aut(\poly^*)$ como de $\Der_{epi}(\poly^*)$. Lo cierto es que estos dos conjuntos se corresponden con dos nuevas clases de operadores en $\poly^*$: estos son los \textit{operadores umbrales} y las \textit{traslaciones umbrales}, respectivamente. A su vez, estos no son más que dos subfamilias de dos clases de operadores más generales: los \textit{operadores de Sheffer} y las \textit{traslaciones de Sheffer}. Es más, estas identificaciones mediante la aplicación adjunta caracterizan a estas familias de operadores. Comenzamos estudiando y viendo este hecho para los primeros. 
 
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -259,7 +259,7 @@ Una vez visto que la aplicación adjunta restringida $\mu_{\mathcal{C}}$ es un i
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
 
-%: COMPOSICIÓN UMBRAL
+%: OPERADORES DE SHEFFER
 \section{Operadores de Sheffer}
 
 \begin{definicion}
@@ -364,7 +364,7 @@ Por tanto, $\mu_{\mathcal{C}}^{-1}(\alpha) x^n = p_n(x)$ y, en consecuencia, $\m
 
 De esta manera vemos que si estudiamos el comportamineto de los operadores umbrales, estudiaremos como consecuencia también a los operadores de Sheffer y viceversa. Es decir, basta con estudiar pues a uno de los dos. En este caso, optaremos por estudiar a los operadores umbrales en detalle puesto que su manipulación resultará más sencilla y obtendremos como corolario una teoría para los operadores de Sheffer, aunque insistimos en que este proceso podría realizarse de forma inversa. 
 
-Podemos ya dar una estructura algebraica tanto a los conjuntos de estos operadores como a la de las sucesiones de Sheffer. 
+Podemos ya dar una estructura algebraica tanto a los conjuntos de estos operadores como al de las sucesiones de Sheffer. 
 
 \begin{teorema}
     $\End_{Umb}(\poly)$ es un grupo bajo la ley de grupo, $\circ$, dada por la composición de aplicaciones. De hecho
@@ -372,3 +372,333 @@ Podemos ya dar una estructura algebraica tanto a los conjuntos de estos operador
         \Lambda_F \circ \Lambda_G = \Lambda_{G \circ F} \quad \Lambda_F^{-1} = \Lambda_{F^{-1}}
     \end{equation*}
 \end{teorema}
+
+\begin{demo}
+    Sean $\Lambda_F, \Lambda_G \in \End_{Umb}(\poly)$ dos operadores umbrales.Por su caracterización vemos que
+    \begin{equation*}
+        (\Lambda_F \circ \Lambda_G)^* = \Lambda_G^* \circ \Lambda_F^* \in \Aut(\poly^*)
+    \end{equation*}
+    ya que $\Lambda_F^*, \Lambda_G^* \in \Aut(\poly^*)$. Luego, $\Lambda_F \circ \Lambda_G \in \End_{Umb}(\poly^*)$ y queda así probado que es un grupo. En particular
+    \begin{equation*}
+        (\Lambda_F \circ \Lambda_G)^*H(T) = \Lambda_G H(F^{-1}(T)) = H(F^{-1}(G^{-1}(T))) = H((G \circ F)^{-1}(T)) = \Lambda_{G \circ F}^*H(T)
+    \end{equation*}
+    de donde se ve que $(\Lambda_F \circ \Lambda_G)^* = \Lambda_{G \circ F}^* \implies \Lambda_F \circ \Lambda_G = \Lambda_{G \circ F}$. Análogamente se ve para el inverso.
+\end{demo}
+
+\begin{corolario}
+    $\End_{Sh}(\poly)$ es un grupo bajo la ley de grupo, $\circ$, dada por la composición de aplicaciones. De hecho
+    \begin{equation*}
+        \Lambda_{G,F} \circ \Lambda_{H,L} = \Lambda_{G \cdot H \circ F, L \circ F} \quad \Lambda_{G, F}^{-1} = \Lambda_{G \circ F^{-1}, F^{-1}}
+    \end{equation*}
+\end{corolario}
+
+\begin{proposicion}
+    \begin{enumerate}
+        \item Los operadores umbrales mandan sucesiones asociadas a sucesiones asociadas
+        \item El operador $\Lambda: p_n(x) \mapsto q_n(x)$, siendo $p_n(x), q_n(x)$ las sucesiones asociadas a $F(T)$ y $G(T)$ respectivamente, es un operador umbral.
+    \end{enumerate}
+\end{proposicion}
+
+\begin{demo}
+    \begin{enumerate}
+        \item Sea $\Lambda_F \in \End_{Umb}(\poly)$ y $p_n(x)$ la sucesión asociada a una serie $G(T)$. Entonces, 
+        \begin{equation*}
+            \Lambda_F p_n(x) = \Lambda_F \circ \Lambda_G x^n = \Lambda_{G \circ F}x^n
+        \end{equation*}
+        y como $\Lambda_{G \circ F}$ es un operador umbral se tiene que $\Lambda_F p_n(x)$ es una sucesión asociada.
+        \item Se debe a que $\Lambda = \Lambda_F \circ \Lambda_{G^{-1}}$. 
+    \end{enumerate}
+\end{demo}
+
+\begin{corolario}
+    \begin{enumerate}
+        \item Los operadores de Sheffer mandan sucesiones de Sheffer a sucesiones de Sheffer
+        \item El operador $\Lambda: s_n(x) \mapsto r_n(x)$, siendo $s_n(x)$ y $r_n(x)$ sucesiones de Sheffer, es un operador de Sheffer.
+    \end{enumerate}
+\end{corolario}
+
+\begin{definicion}
+    Sean $s_n(x) \sim (G(T), F(T))$ y $r_n(x) \sim (H(T), L(T))$ dos sucesiones de Sheffer. Se define la $\textbf{composición umbral}$ de $r_n(x)$ con $s_n(x)$ como el polinomio
+    \begin{equation*}
+        r_n(\mathbf{s(x)}) = \sum_{k=0}^n r_{n,k}s_k(x)
+    \end{equation*} 
+    siendo $r_n(x) = \sum_{k=0}^n r_{n,k}x^k$
+\end{definicion}
+
+\begin{obs}
+    La composiicón umbral se puede escribir en términos de operadores de Sheffer, pues
+    \begin{equation*}
+        \Lambda_{G,F}r_n(x) = \Lambda_{G,F}[\sum_{k=0}^n r_{n,k}x^k] = \sum_{k=0}^n r_{n,k}s_k(x)
+    \end{equation*}
+    Y esto es
+    \begin{equation}\label{composicion umbral con operador}
+        r_n(\mathbf{s(x)}) = \Lambda_{G,F}r_n(x)
+    \end{equation}
+\end{obs}
+
+\begin{teorema}
+    \textbf{(estructura algebraica de las sucesiones asociadas)}. $\Umb$ es un grupo \underline{no abeliano} con la ley de grupo dada por la composición umbral. En particular
+    \begin{enumerate}
+        \item $p_n(x) \sim F(T), q_n(x) \sim G(T) \implies q_n(\mathbf{p(x)}) \sim G(F(T))$ 
+        \item $x^n$ es la identidad
+        \item $p_n(x) \sim F(T) \implies p_n^{-1}(x) = q_n(x), q_n(x) \sim F^{-1}(T)$
+    \end{enumerate}
+\end{teorema}
+
+\begin{demo}
+    \begin{enumerate}
+        \item Usando \eqref{composicion umbral con operador} vemos que $\Lambda_{G \circ F} x^n = q_n(\mathbf{p(x)})$ de donde se concluye.
+        \item Tenemos que si $p_n(x) = x^n$
+        \begin{equation*}
+            q_n(\mathbf{p(x)}) = \sum_{k=0}^{n} q_{n,k} p_k(x) = \sum_{k=0}^{n} q_{n,k} x^k = q_n(x)
+        \end{equation*}
+        Y, recíprocamente, si $q_n(x) = x^n$
+        \begin{equation*}
+            q_n(\mathbf{p(x)}) = \sum_{k=0}^n q_{n,k} p_k(x) = p_n(x)
+        \end{equation*}
+
+        \item Dada $p_n(x)$, por el primer apartado
+        \begin{equation*}
+            x^n = \Lambda_{F^{-1} \circ F}x^n = q_n(\mathbf{p(x)}) 
+        \end{equation*}
+        de donde se ve que $q_n(x) = \Lambda_{F^{-1}}x^n$ es la inversa de $p_n(x)$ y esta es la sucesión asociada a $F^{-1}(T)$.
+    \end{enumerate}
+\end{demo}
+
+\begin{corolario}
+    \textbf{(estructura algebraica de las sucesiones de Sheffer)}. $\Sh$ es un grupo \underline{no abeliano} con la ley de grupo dada por la composición umbral. En particular
+    \begin{enumerate}
+        \item $s_n(x) \sim (G(T), F(T)), r_n(x) \sim (H(T), L(T)) \implies r_n(\mathbf{s(x)}) \sim (G(T)H(F(T)), L(F(T)))$ 
+        \item $x^n$ es la identidad
+        \item $s_n(x) \sim (G(T), F(T)) \implies s_n^{-1}(x) = q_n(x), q_n(x) \sim (G(F^{-1}(T)), F^{-1}(T))$
+    \end{enumerate}
+\end{corolario}
+
+\begin{corolario}
+    $\App$ es es un grupo \underline{abeliano} con la ley de grupo dada por la composición umbral.
+\end{corolario}
+
+\begin{demo}
+    La conmutatividad de la composición umbral es consecuencia del apartado primero del corolario anterior, ya que
+    \begin{align*}
+        s_n(x) \sim (G(T), T), r_n(x) \sim (H(T), T) & \implies \begin{dcases}
+            r_n(\mathbf{s(x)}) \sim (G(T)H(T), T)\\
+            s_n(\mathbf{r(x)}) \sim (H(T)G(T), T)
+        \end{dcases}
+        \\ \implies r_n(\mathbf{s(x)}) = s_n(\mathbf{r(x)})
+    \end{align*}
+\end{demo}
+
+\begin{teorema}
+    Para todo operador umbral $\Lambda_F \in \End_{Umb}(\poly)$ y toda serie formal $G(T) \in \F$ se tiene que
+    \begin{equation*}
+        \Lambda_F^* G(T) = \Lambda_{F^{-1}} \circ G(T) \circ \Lambda_F
+    \end{equation*}
+    donde la igualdad se debe intepretar como una igualdad de operadores.
+\end{teorema}
+
+\begin{corolario}\label{conmutacion composicion operador umbral}
+    Para todo operador umbral $\Lambda_F \in \End_{Umb}(\poly)$ y toda serie formal $G(T) \in \F$ se tiene que
+    \begin{equation*}
+        \Lambda_F \circ G(F^{-1}(T)) = G(T) \circ \Lambda_F
+    \end{equation*}
+\end{corolario}
+
+\begin{demo}
+    Sean $F(T) \in \F$ y $p(x) \in \poly$. Tenemos que
+    \begin{align*}
+        \langle F(T) | (\Lambda_F^* G(T)) p(x) \rangle = \langle F(T) (\Lambda_F^* G(T)) |  p(x) \rangle & = \langle \Lambda_F^* [G(T) (\Lambda_F^*)^{-1} F(T)] |  p(x) \rangle\\
+        & = \langle F(T) | \Lambda_F^{-1} G(T) \Lambda_F p(x) \rangle
+    \end{align*}
+    de donde se obtiene la igualdad
+\end{demo}
+
+\begin{teorema}
+    Si $p_n(x) \sim F(T)$, entonces para todo $q(x) \in \poly$ y toda $H(T) \in \F$ se tiene que
+    \begin{equation*}
+        \langle H(T) | q(\mathbf{p(x)}) \rangle = \langle H(F^{-1}(T)) | q(x) \rangle 
+    \end{equation*}
+    En particular
+    \begin{equation*}
+        \langle H(T) | p_n(x) \rangle = \langle H(F^{-1}(T)) | x^n \rangle 
+    \end{equation*}
+\end{teorema}
+
+\begin{demo}
+    Usando \eqref{composicion umbral con operador} vemos que
+    \begin{equation*}
+        \langle H(T) | q(\mathbf{p(x)}) \rangle = \langle H(T) |  \Lambda_{F}(q(x)) \rangle =  \langle \Lambda_{F}^*H(T) |  q(x) \rangle = \langle H(F^{-1}(T))| q(x) \rangle
+    \end{equation*}
+    La segundad igualdad se deduce tomando $q(x) = x^n$
+\end{demo}
+
+
+\begin{corolario}
+    Si $s_n(x) \sim (G(T), F(T))$, entonces para todo $q(x) \in \poly$ y toda serie formal $H(T) \in \F$ se tiene que
+    \begin{equation*}
+        \langle H(T) | q(\mathbf{s(x)}) \rangle = \langle \frac{1}{G(F^{-1}(T))}H(F^{-1}(T)) | q(x) \rangle 
+    \end{equation*}
+    En particular
+    \begin{equation*}
+        \langle H(T) | s_n(x) \rangle = \langle \frac{1}{G(F^{-1}(T))}H(F^{-1}(T)) | x^n \rangle 
+    \end{equation*}
+\end{corolario}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%: TRASLACIONES DE SHEFFER
+\section{Traslaciones de Sheffer}
+
+Una vez vistos los operadores de Sheffer, nos interesa ahora estudiar a las traslaciones de Sheffer. El desarrollo de la teoría de esta clase de operadores es muy similar a la de los operadores de Sheffer. En consecuencia la mayoría de las demostraciones se han excluido.
+
+\begin{definicion}
+    Dada $s_n(x) \sim (G(T), F(T))$, se llama \textbf{traslación de Sheffer asociada a $s_n(x)$ o a $(G(T), F(T))$} al operador $\theta_{G,F} \in \End(\poly)$ dado por
+    \begin{equation*}
+        \theta_{G,F} s_n(x) = s_{n+1}(x)
+    \end{equation*}
+    En el caso de que $p_n(x)$ sea la sucesión asociada a $F(T)$ decimos que $\theta_{1, F} \equiv \theta_{F}$ es simplemnte la \textbf{traslación umbral asociada a $p_n(x) $ o a $F(T)$}. Simbolizaremos a ambos conjuntos por $\TrasSh$ y $\TrasUmb$, respectivamente.
+\end{definicion}
+
+\begin{proposicion}
+    Las traslaciones de Sheffer son biyecciones.
+\end{proposicion}
+
+\begin{teorema}
+    \textbf{(caracterización de los operadores umbrales)}. Se tiene la igualdad de conjuntos $\mu_{\mathcal{C}}^{-1}(\Der_{epi}(\poly^*)) = \TrasUmb$, es decir, un operador es una traslación umbral si y solo si su operador adjunto es un derivación epiyectiva de $\poly^*$. Además, para toda traslación umbral $\theta_F \in \TrasUmb$ se verifica que $\theta_F^* = \partial_F$, es decir, es el operador de $\poly^*$ dado por
+    \begin{equation*}
+        \theta_F^*F^k(T) = kF^{k-1}(T)
+    \end{equation*}
+\end{teorema}
+
+\begin{proposicion}
+    Dada $\theta_{G,F} \in \TrasSh$ se verifica que
+    \begin{equation*}
+        \theta_{G,F} = M^*(1/G) \circ \theta_F \circ G(T)
+    \end{equation*}
+\end{proposicion}
+
+\begin{teorema}
+    \textbf{(regla de la cadena)}. Dados $\theta_F, \theta_G \in \TrasUmb$ se verifica que
+    \begin{equation*}
+        \theta_F = \theta_G \circ (\partial_F G(T))
+    \end{equation*}
+\end{teorema}
+
+\begin{teorema}
+    \textbf{(fórmulas de recurrencia)}. Sea $p_n(x) \sim F(T)$. Se verifican
+    \begin{enumerate}
+        \item $p_{n+1}(x) = M \circ \frac{1}{F'(T)}p_n(x)$
+        \item $p_{n+1}(x) = M \circ \Lambda_F \circ (F^{-1}(T))' x^n$
+    \end{enumerate}
+\end{teorema}
+
+\begin{demo}
+    \begin{enumerate}
+        \item Si tomamos $G(T) = T$ se tiene que $\theta_G x^n = x^{n+1} \implies \theta_G = M$. Por el teorema anterior
+        \begin{equation*}
+            \theta_F = M \circ (\partial_F T) = M \circ \frac{1}{\partial_T F(T)} = M \circ \frac{1}{F'(T)} 
+        \end{equation*}
+        Aplicándolo a $p_n(x)$ se obtiene la fórmula primera.
+
+        \item Se ve usando \ref{conmutacion composicion operador umbral} y el apartado anterior
+        \begin{align*}
+            p_{n+1}(x) = M \circ \frac{1}{F'(T)} \circ \Lambda_F x^n & = M \circ \frac{1}{F'(F^{-1}(T))} \circ \Lambda_F x^n \\
+            & = M \circ \Lambda_F \circ \frac{1}{F'(F^{-1}(T))} x^n \\
+            & = M \circ \Lambda_F \circ (F^{-1}(T))' x^n
+        \end{align*}
+    \end{enumerate}
+\end{demo}
+
+\begin{teorema}
+    \textbf{(fórmula de derivación)} Dado $\theta_F \in \TrasUmb$, para todo $G(T) \in \End(\poly)$ se verifica
+    \begin{equation*}
+        \theta_F^* G(T) = G(T) \circ \theta_F - \theta_F \circ G(T)
+    \end{equation*}
+    En particular, se verifica que
+    \begin{equation*}
+        G'(T) = G(T) \circ M - M \circ G(T)
+    \end{equation*}
+    El lado derecho de esta igualdad se le conoce como \textbf{derivada de Pincherle}.
+\end{teorema}
+
+\begin{teorema}
+    \textbf{(fórmula de recurrencia para sucesiones de Sheffer)} Dado $\theta_{G,F} \in \TrasSh$, se verifica
+    \begin{equation*}
+        \theta_{G,F} = (M - \frac{G'(T)}{G(T)}) \circ \frac{1}{F'(T)}
+    \end{equation*}
+    En consecuencia, si $s_n(x) \sim (G(T), F(T))$ se tiene que
+    \begin{equation*}
+        s_{n+1}(x) = (M - \frac{G'(T)}{G(T)}) \circ \frac{1}{F'(T)}s_n(x)
+    \end{equation*}
+\end{teorema}
+
+El siguiente teorema nos proporciona dos formas operacionales y directas de calcular la sucesión asociada a una serie formal $F(T)$.
+
+\begin{teorema}
+    \textbf{(fórmulas de transferencia)}. Sea $p_n(x) \sim F(T)$. Se tiene
+    \begin{enumerate}
+        \item $p_n(x) = F'(T)(\frac{T}{F(T)})^{n+1} x^n$
+        \item $p_n(x) = M \circ (\frac{T}{F(T)})^{n} x^{n-1}$
+    \end{enumerate}
+\end{teorema}
+
+\begin{demo}
+    Sea $G(T) = \frac{F(T)}{T}$. Veamos primero que ambas fórmulas coinciden.
+    \begin{align*}
+        F'(T)G^{-n-1}(T)x^n = (TG(T))'G^{-n-1}(T)x^n & = G^{-n}(T)x^n + G'(T)G^{-n-1}(T)Tx^n\\
+        & = G^{-n}(T)x^n + nG'(T)G^{-n-1}(T)x^{n-1}\\
+        & = G^{-n}(T)x^n - (G^{-n}(T))'x^{n-1}\\
+        & = G^{-n}(T)x^n - (G^{-n}(T) \circ M - M \circ G^{-n}(T)) x^{n-1}\\
+        & = M \circ G^{-n}(T) x^{n-1}
+    \end{align*}
+    donde la penúltima igualdad viene de utilizar la derivada de Pincherle sobre $G^{-n}(T)$. Basta entonces con probar que se tiene la primera de estas fórmulas. Para ello, hemos de comprobar que $q_n(x) = F'(T)G^{-n-1} (T)x^n $ cumple las condiciones de ser la sucesión asociada a $F(T)$. Usamos la caracterización \ref{sucesion asociada caracterizacion operador}.
+
+    Sea $n \geq 1$. Usando las igualdades anteriores, vemos que
+    \begin{align*}
+        \langle 1| F'(T)G^{-n-1} (T)x^n \rangle = \langle 1 | G^{-n}(T) x^n - (G^{-n}(T))'x^{n-1} \rangle & = \langle 1 | G^{-n}(T) x^n \rangle - \langle 1 | \partial G^{-n}(T)x^{n-1} \rangle \\
+        & = \langle G^{-n}(T) | x^n \rangle - \langle \partial G^{-n}(T) | x^{n-1} \rangle \\
+        & = \langle G^{-n}(T) | x^n \rangle - \langle G^{-n}(T) | x^{n} \rangle = 0
+    \end{align*}
+    donde hemos usado que el operador adjunto de $\partial$ es $M$. Si $n = 0$, entonces $\langle 1| q_0(x) \rangle = 0$ de forma evidente. Con lo que $\langle 1| q_n(x) \rangle = \delta_{n,0} $ y la primera condición se cumple. Por otro lado
+    \begin{align*}
+        F(T)F'(T)G^{-n-1} (T)x^n = TG(T)F'(T)G^{-n-1} (T)x^n & = G(T)F'(T)G^{-n-1} (T) T x^n \\
+        & = nF'(T)G(T)^{-n}x^{n-1} \\ 
+        & = nq_{n-1}(x)
+    \end{align*} 
+    y la segunda condición también se cumple. Luego, $q_n(x) = p_n(x)$ como buscábamos ver.
+\end{demo}
+
+Cerramos este capítulo mostrando como las fórmulas de transferencia pueden aprovecharse para obtener una fórmula con la que calcular la serie inversa, respecto a la composición, de una serie delta. Son varias las formas en las que esta fórmula puede presentarse, pero damos aquí solo una de ellas.
+
+\begin{teorema}
+    \textbf{(fórmula de inversión de Lagrange)}. Sean $F(T) \in \F^\delta$ y $G(T) \in \F^*$. Se verifica que
+    \begin{equation*}
+        \langle G(F^{-1}(T)) | x^n \rangle = \langle G'(T)(\frac{T}{F(T)})^{n}| x^{n-1}\rangle
+    \end{equation*} 
+    En particular, para $G(T) = T$ se tiene que
+    \begin{equation*}
+        \langle F^{-1}(T) | x^n \rangle = \langle (\frac{T}{F(T)})^{n}| x^{n-1}\rangle
+    \end{equation*}
+\end{teorema}
+
+\begin{demo}
+    Utilizando la segunda fórmula de transferencia obtenemos el resultado pues
+    \begin{align*}
+        \langle G(F^{-1}(T)) | x^n \rangle = \langle \Lambda_F^*G(T) | x^n \rangle & = \langle G(T) | \Lambda_F x^n \rangle \\
+        & = \langle G(T) | p_n(x) \rangle \\
+        & = \langle G(T) | M \circ (\frac{T}{F(T)})^{n} x^{n-1} \rangle \\
+        & = \langle G'(T) (\frac{T}{F(T)})^{n}| x^{n-1} \rangle
+    \end{align*}
+    donde hemos usado nuevamente que el operador adjunto de $M$ es $\partial$.
+\end{demo}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%

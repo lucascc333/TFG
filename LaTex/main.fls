@@ -433,9 +433,6 @@ INPUT .\Algebra umbral\Algebra Umbral.tex
 INPUT .\Algebra umbral\Algebra Umbral.tex
 INPUT Algebra umbral\Algebra Umbral.tex
 INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecbi1200.tfm
-INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
-INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx8.tfm
-INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx6.tfm
 INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecti0800.tfm
 INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecbi0800.tfm
 INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecti0600.tfm
@@ -453,9 +450,6 @@ OUTPUT Sucesiones de Sheffer\Sucesiones de Sheffer.aux
 INPUT .\Sucesiones de Sheffer\Sucesiones de Sheffer.tex
 INPUT .\Sucesiones de Sheffer\Sucesiones de Sheffer.tex
 INPUT Sucesiones de Sheffer\Sucesiones de Sheffer.tex
-INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm
-INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx7.tfm
-INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx5.tfm
 INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\euler\eufm10.tfm
 INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\euler\eufm7.tfm
 INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\euler\eufm5.tfm
@@ -465,6 +459,9 @@ OUTPUT Operadores en dual\Operadores en dual.aux
 INPUT .\Operadores en dual\Operadores en dual.tex
 INPUT .\Operadores en dual\Operadores en dual.tex
 INPUT Operadores en dual\Operadores en dual.tex
+INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
+INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx8.tfm
+INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx6.tfm
 INPUT .\Aplicaciones\Aplicaciones.tex
 INPUT .\Aplicaciones\Aplicaciones.tex
 OUTPUT Aplicaciones\Aplicaciones.aux
@@ -548,6 +545,8 @@ INPUT C:\Users\lucas\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecc
 INPUT C:\Users\lucas\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\eccc1440.pk
 INPUT C:\Users\lucas\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1440.pk
 INPUT C:\Users\lucas\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1440.pk
+INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
+INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
 INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
 INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
 INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi12.pfb

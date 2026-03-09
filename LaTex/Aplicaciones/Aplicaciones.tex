@@ -10,6 +10,8 @@
 %: INTERPOLACIÓN
 \section{Interpolación lineal}
 
+El cálculo umbral nos proporciona distintas fórmulas de interpolación para obtener polinomios que aproximen a una función definida en un intervalo $[a,b]$. A continuación damos alguna de estas, aunque para un extenso desarrollo de esta teoría, junto con varios ejemplos, se puede consultar \cite{costabile}.
+
 \begin{lema}
     \textbf{(de Peano)}. Sea $\Lambda$ un operador definido sobre el anillo de funciones continuas en un intervalo $[a,b]$ tal que $\Lambda p(x) = 0$ para todo $p(x) \in \poly$ con $\gr(p(x)) \leq n$. Entonces, para toda $f \in \mathcal{C}^{n+1}[a,b]$
     \begin{equation*}
@@ -26,8 +28,60 @@
             0 & x < t
         \end{dcases}
     \end{equation*}
-    y donde $\Lambda_x$ indica que se piensa a $\Lambda$ como una función de $x$.
+    y donde $\Lambda_x$ indica que se piensa a $\Lambda$ como una función de $x$. 
 \end{lema}
+
+\begin{teorema}
+    \textbf{(de interpolación binomial)}. Sea $G(T) \in \F^\delta$ un operador delta con sucesión asociada $p_n(x)$ y $f \in \mathcal{C}^{n+1}[a,b]G(T)$. El polinomio
+    \begin{equation*}
+        B_n[f](x) = \sum_{k=0}^n \frac{(G^k(T)f(x))(0)}{k!} p_k(x)
+    \end{equation*}
+    verifica que
+    \begin{equation*}
+        (G^m(T)B_n[f](x))(0) = (G^m(T)f(x))(0) \text{ y } f(x) = B_n[f](x) + R_n[f](x)
+    \end{equation*}
+    donde $0 \leq m \leq n$ y el resto $R_n[f](x)$ está dado por
+    \begin{align*}
+        R_n[f](x) & = \int_{a}^{b} f^{(n+1)}(t)K_n(x,t) dt\\
+        K_n(x,t) & = \frac{1}{n!}[(x-t)_{+}^n - \sum_{k=0}^n \frac{[G^k(T)(x-t)_{+}^n](0)}{k!} p_k(x)]
+    \end{align*}
+\end{teorema}
+
+\begin{demo}
+    Tenemos que
+    \begin{equation*}
+        G^m(T)B_n[f](x) = \sum_{k=0}^n \frac{(G^k(T)f(x))(0)}{k!} G^m(T)p_k(x) = \sum_{k=0}^m \frac{(G^k(T)f(x))(0)}{k!} (k)_m p_{k-m}(x)
+    \end{equation*}
+    de donde obtenemos
+    \begin{equation*}
+        (G^m(T)B_n[f](x))(0) = \sum_{k=0}^m \frac{(G^k(T)f(x))(0)}{k!} (k)_m p_{k-m}(0) = (G^m(T)f(x))(0)
+    \end{equation*}
+    Por otro lado, $R_n g(x) \equiv R_n[g](x) = g(x) - B_n[g](x)$ cumple las condiciones del lema de Peano y de ahí obtenemos la segunda igualdad. 
+\end{demo}
+
+\begin{obs}
+    Cuando $G(T) = T$ y $p_n(x) = x^n$ obtenemos el clásico teorema de Taylor. Esto es, por tanto, una generalización del mismo. 
+\end{obs}
+
+\begin{ej}
+    En el caso de los factoriales descendentes, $p_n(x) = (x)_n$, estos están asociados a $G(T) = e^T -1$ (puesto que $(e^T -1)(x)_n = n(x)_{n-1}$). Mediante inducción, uno puede probar que
+    \begin{equation*}
+        G^n(T)f(x) = \sum_{k=0}^n \binom{n}{k}(-1)^k f(x+n-k)
+    \end{equation*}
+    para toda función $f$ y todo entero $n \geq 0$. De tal forma, que se tiene que
+    \begin{equation*}
+        (G^n(T)f(x))(0) = \sum_{k=0}^n \binom{n}{k}(-1)^k f(n-k)
+    \end{equation*}
+    Y, por tanto, el polinomio de interpolación es
+    \begin{equation*}
+        B_n[f](x) = \sum_{k=0}^n \sum_{m=0}^k \frac{(-1)^m f(k-m)}{m! (k-m)!} (x)_k
+    \end{equation*}
+    que, expandiendo el factorial descendente, resulta en
+    \begin{equation}
+        \boxed{B_n[f](x) = \sum_{k=0}^n \sum_{m=0}^k \frac{(-1)^m f(k-m)}{m! (k-m)!} x(x-1) \cdots (x-k+1)}
+    \end{equation}
+\end{ej}
+
 %: RECURSIÓN
 \section{Problemas de recursión}
 
