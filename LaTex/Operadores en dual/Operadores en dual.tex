@@ -1,6 +1,6 @@
 \chapter{Operadores en el dual}
 
-Si bien ya hemos visto que las sucesiones de Sheffer se pueden definir de multitud de formas distintas, todas ellas equivalentes, aún no hemos dado ninguna forma de calcularlas ni hemos analizado la estructura algebraica que el conjunto de estas sucesiones puede poseer, asi como los casos concretos de las sucesiones de Appell y las sucesiones asociadas. En este capítulo, daremos respuesta a estas dos cuestiones. Además, aprovecharemos también para obtener otras tantas propiedades características de las sucesiones de Sheffer. Para ello, tendremos que estudiar a los operadores lineales sobre $\poly^*$. Es conveniente que pensemos en estos momentos a este como el álgebra umbral, aunque escribiremos $\poly^*$ para hacer hincapie en que los objetos que estamos manipulando son funcionales. 
+Si bien ya hemos visto que las sucesiones de Sheffer se pueden definir de multitud de formas distintas, todas ellas equivalentes, aún no hemos dado ninguna forma de calcularlas ni hemos analizado la estructura algebraica que el conjunto de estas sucesiones puede poseer, asi como los casos concretos de las sucesiones de Appell y las sucesiones asociadas. En este capítulo daremos respuesta a estas dos cuestiones. Además, aprovecharemos también para obtener otras tantas propiedades características de las sucesiones de Sheffer. Para ello, tendremos que estudiar a los operadores lineales sobre $\poly^*$. Es conveniente que pensemos en estos momentos a este como el álgebra umbral, aunque escribiremos $\poly^*$ para hacer hincapie en que los objetos que estamos manipulando son funcionales. 
 
 Comenzamos recordando que $\poly^*$ es un espacio topológico con la topología de estabilización \ref{topologia de estabilizacion} y que esta coincicde con la topología formal, en virtud del teorema \ref{topologia formal equivalente a topologia de estabilizacion}. Esto nos permite enunciar y probar el siguiente teorema.
 
@@ -91,7 +91,7 @@ Otra clase de operadores lineales sobre $\poly^*$ son de especial relevancia: es
     para todo $a,b \in A$. Simbolizaremos por $\Der(A)$ al conjunto de las derivaciones de $A$.
 \end{definicion}
 
-En particular, prestaremos una atención particular a las derivaciones epiyectivas, cuyo conjunto lo escribiremos como $\Der_{epi}(A)$. De forma similar a lo que ocurre los automorfismos, su propiedad más importante es que todas son continuas. Para verlo, hemos de probar primero algunas de sus propiedades. 
+En particular, prestaremos una atención particular a las derivaciones epiyectivas, cuyo conjunto lo escribiremos como $\Der_{epi}(A)$. De forma similar a lo que ocurre con los automorfismos, su propiedad más importante es que todas son continuas. Para verlo, hemos de probar primero algunas de sus propiedades. 
 
 \begin{proposicion}\label{derivaciones nulas sobre k}
     Si $\delta \in \Der(A)$, entonces $\delta (\field) = 0$
@@ -362,12 +362,12 @@ Por tanto, $\mu_{\mathcal{C}}^{-1}(\alpha) x^n = p_n(x)$ y, en consecuencia, $\m
     de donde se llega a que $\Lambda = \Lambda_{G,F}$ usando que $\mu_{\mathcal{C}}$ es inyectiva. 
 \end{demo}
 
-De esta manera vemos que si estudiamos el comportamineto de los operadores umbrales, estudiaremos como consecuencia también a los operadores de Sheffer y viceversa. Es decir, basta con estudiar pues a uno de los dos. En este caso, optaremos por estudiar a los operadores umbrales en detalle puesto que su manipulación resultará más sencilla y obtendremos como corolario una teoría para los operadores de Sheffer, aunque insistimos en que este proceso podría realizarse de forma inversa. 
+De esta manera vemos que si estudiamos el comportamineto de los operadores umbrales, estudiaremos como consecuencia también a los operadores de Sheffer y viceversa. Es decir, basta con estudiar a uno de los dos. En este caso, optaremos por estudiar a los operadores umbrales en detalle, puesto que su manipulación resultará más sencilla y obtendremos como corolario una teoría para los operadores de Sheffer, aunque insistimos en que este proceso podría realizarse de forma inversa. 
 
 Podemos ya dar una estructura algebraica tanto a los conjuntos de estos operadores como al de las sucesiones de Sheffer. 
 
 \begin{teorema}
-    $\End_{Umb}(\poly)$ es un grupo bajo la ley de grupo, $\circ$, dada por la composición de aplicaciones. De hecho
+    $\End_{Umb}(\poly)$ es un grupo bajo la ley de grupo, $\circ$, dada por la composición de aplicaciones. Concretamente
     \begin{equation*}
         \Lambda_F \circ \Lambda_G = \Lambda_{G \circ F} \quad \Lambda_F^{-1} = \Lambda_{F^{-1}}
     \end{equation*}
@@ -386,9 +386,9 @@ Podemos ya dar una estructura algebraica tanto a los conjuntos de estos operador
 \end{demo}
 
 \begin{corolario}
-    $\End_{Sh}(\poly)$ es un grupo bajo la ley de grupo, $\circ$, dada por la composición de aplicaciones. De hecho
+    $\End_{Sh}(\poly)$ es un grupo bajo la ley de grupo, $\circ$, dada por la composición de aplicaciones. Concretamente
     \begin{equation*}
-        \Lambda_{G,F} \circ \Lambda_{H,L} = \Lambda_{G \cdot H \circ F, L \circ F} \quad \Lambda_{G, F}^{-1} = \Lambda_{G \circ F^{-1}, F^{-1}}
+        \Lambda_{G,F} \circ \Lambda_{H,L} = \Lambda_{G \cdot H \circ F, L \circ F} \quad \Lambda_{G, F}^{-1} = \Lambda_{\frac{1}{G \circ F^{-1}}, F^{-1}}
     \end{equation*}
 \end{corolario}
 
@@ -417,6 +417,8 @@ Podemos ya dar una estructura algebraica tanto a los conjuntos de estos operador
     \end{enumerate}
 \end{corolario}
 
+Aprovechando lo hecho para los operadores de Sheffer, podemos definir una operación que dota al conjunto de sucesiones de Sheffer de una estructura de grupo.
+
 \begin{definicion}
     Sean $s_n(x) \sim (G(T), F(T))$ y $r_n(x) \sim (H(T), L(T))$ dos sucesiones de Sheffer. Se define la $\textbf{composición umbral}$ de $r_n(x)$ con $s_n(x)$ como el polinomio
     \begin{equation*}
@@ -426,7 +428,7 @@ Podemos ya dar una estructura algebraica tanto a los conjuntos de estos operador
 \end{definicion}
 
 \begin{obs}
-    La composiicón umbral se puede escribir en términos de operadores de Sheffer, pues
+    La composición umbral se puede escribir en términos de operadores de Sheffer, pues
     \begin{equation*}
         \Lambda_{G,F}r_n(x) = \Lambda_{G,F}[\sum_{k=0}^n r_{n,k}x^k] = \sum_{k=0}^n r_{n,k}s_k(x)
     \end{equation*}
@@ -561,7 +563,7 @@ Una vez vistos los operadores de Sheffer, nos interesa ahora estudiar a las tras
     \begin{equation*}
         \theta_{G,F} s_n(x) = s_{n+1}(x)
     \end{equation*}
-    En el caso de que $p_n(x)$ sea la sucesión asociada a $F(T)$ decimos que $\theta_{1, F} \equiv \theta_{F}$ es simplemnte la \textbf{traslación umbral asociada a $p_n(x) $ o a $F(T)$}. Simbolizaremos a ambos conjuntos por $\TrasSh$ y $\TrasUmb$, respectivamente.
+    En el caso de que $p_n(x)$ sea la sucesión asociada a $F(T)$ decimos que $\theta_{1, F} \equiv \theta_{F}$ es simplemente la \textbf{traslación umbral asociada a $p_n(x) $ o a $F(T)$}. Simbolizaremos a ambos conjuntos por $\TrasSh$ y $\TrasUmb$, respectivamente.
 \end{definicion}
 
 \begin{proposicion}
@@ -673,7 +675,7 @@ El siguiente teorema nos proporciona dos formas operacionales y directas de calc
     y la segunda condición también se cumple. Luego, $q_n(x) = p_n(x)$ como buscábamos ver.
 \end{demo}
 
-Cerramos este capítulo mostrando como las fórmulas de transferencia pueden aprovecharse para obtener una fórmula con la que calcular la serie inversa, respecto a la composición, de una serie delta. Son varias las formas en las que esta fórmula puede presentarse, pero damos aquí solo una de ellas.
+Cerramos este capítulo mostrando como las fórmulas de transferencia pueden aprovecharse para obtener una fórmula con la que calcular la serie inversa, respecto a la composición, de una serie delta. Son varias las formas en las que esta fórmula puede presentarse. Damos aquí tan solo una de ellas.
 
 \begin{teorema}
     \textbf{(fórmula de inversión de Lagrange)}. Sean $F(T) \in \F^\delta$ y $G(T) \in \F^*$. Se verifica que

@@ -219,7 +219,7 @@ De esta forma, podemos pensar cada serie formal $F(T)$ como el funcional $\omega
 
 \begin{ej}
 \begin{enumerate}
-    \item El \textbf{funcional derivada $k$-ésima} $T^k$ viene dado directamente por \ref{omegaT^k}:
+    \item El \textbf{funcional derivada $k$-ésima} $T^k$ viene dado directamente por \ref{omegaT^k}
     \begin{equation*}
         \langle T^k| x^n \rangle = n!\delta_{n,k} = \begin{dcases}
             n! & k=n\\
@@ -227,30 +227,31 @@ De esta forma, podemos pensar cada serie formal $F(T)$ como el funcional $\omega
         \end{dcases}
         \quad =  (x^n)^{(k)}(0)
     \end{equation*}
-    Y si tomamos un polinomio $p(x)$ cualquiera:
+    Y si tomamos un polinomio $p(x)$ cualquiera
     \begin{equation}\label{funcional derivada}
         \langle T^k| p(x) \rangle = p^{(k)}(0)
     \end{equation}
-    \item El \textbf{funcional evaluación} $e^{\lambda T}$ está dado por:
+    \item El \textbf{funcional evaluación} $e^{\lambda T}$ está dado por
     \begin{equation*}
         \langle e^{ \lambda T} | x^n \rangle = \langle \sum_{n\geq0} \frac{\lambda^n}{n!}T^n | x^n \rangle = \lambda^n 
     \end{equation*}
-    Y, por tanto:
+    Y, por tanto
     \begin{equation}\label{funcional evaluacion}
         \langle e^{\lambda T} | p(x) \rangle = p(\lambda)
     \end{equation}
-    Siguiendo la notación formal, simbolizaremos a este funcional por $E_\lambda (T) \equiv e^{\lambda T}$ y en caso de que $\lambda = 0$, se dice que $E_0$ es el \textbf{funcional aumento}. 
+    Siguiendo la notación formal, simbolizaremos a esta serie por $E_\lambda (T) \equiv e^{\lambda T}$ y en caso de que $\lambda = 0$, se dice que $E_0$ es el \textbf{funcional aumento}. 
     
     Dicho esto, la proposición \ref{identidad algebra umbral} se puede reformular diciendo que el funcional aumento $E_0$ es la identidad para el producto del álgebra umbral.
-    \item El \textbf{funcional diferencia} $e^{ \lambda T} -1$ está dado por:
+    \item El \textbf{funcional diferencia} $e^{ \lambda T} -1$ está dado por
     \begin{equation}\label{funcional diferencia}
         \langle e^{\lambda T}-1 | p(x) \rangle = p(\lambda)-p(0)
     \end{equation}
-    \item El \textbf{funcional de Abel} $Te^{\lambda T}$ viene dado por:
+    Simbolizaremos a esta serie por $\Delta_\lambda \equiv e^{\lambda T} - 1$. En particular, para $\lambda = 1$ escribiremos simplemente $\Delta$.
+    \item El \textbf{funcional de Abel} $Te^{\lambda T}$ viene dado por
     \begin{equation*}
         \langle Te^{\lambda T} | x^n \rangle = \langle \sum_{n\geq0} \frac{\lambda^n}{n!}T^{n+1} | x^n \rangle = nx^{n-1}
     \end{equation*}
-    Con lo que:
+    Con lo que
     \begin{equation}\label{funcional de abel}
         \langle Te^{\lambda T} | p(x) \rangle = p^`(\lambda)
     \end{equation}
@@ -388,13 +389,13 @@ Sea $m$ tal que $\ord(F_k) > \gr(p(x))$ para todo $k > m$. De nuevo, por la prop
 \end{demo}
     
 \begin{ej}
-    El funcional $\frac{e^{\lambda T} -1}{T}$ (bien definido ya que $\ord(e^{\lambda T} - 1) = 1$) será aquel con
+    El funcional $\frac{e^{\lambda T} -1}{T} = \frac{\Delta_\lambda}{T}$ (bien definido ya que $\ord(e^{\lambda T} - 1) = 1$) será aquel con
     \begin{equation*}
-        \langle \frac{e^{\lambda T} -1}{T} | p(x) \rangle = \langle e^{\lambda T} -1 | \int p(x) \rangle = (\int p(x))(\lambda) - (\int p(x))(0) = (\int p(x))(\lambda)
+        \langle \frac{\Delta_{\lambda}}{T} | p(x) \rangle = \langle \Delta_\lambda | \int p(x) \rangle = (\int p(x))(\lambda) - (\int p(x))(0) = (\int p(x))(\lambda)
     \end{equation*}
     En el caso de que $\field = \C, \R$ entonces
     \begin{equation} \label{funcional Bernoulli}
-        \langle \frac{e^{\lambda T} -1}{T} | p(x) \rangle = \int_{0}^{\lambda} p(u), du
+        \langle \frac{e^{\lambda T} -1}{T} | p(x) \rangle = \langle \frac{\Delta_\lambda}{T} | p(x) \rangle = \int_{0}^{\lambda} p(u), du
     \end{equation}
     Este funcional nos aparecerá cuando estudiemos los polinomios de Bernoulli y allí lo analizaremos con detenimiento. No obstante, de momento basta con observar que para $\lambda = 1$ el funcional inverso $\frac{T}{e^{T} -1}$ cumple que
     \begin{equation*}
@@ -688,7 +689,7 @@ Así pues, nos interesa ahora dar una caracterización de la imagen del morfismo
 \end{corolario}
 
 \begin{demo}
-    $\Lambda$ conmuta con $E_{\lambda}(T) \iff \Lambda$ conmuta con el operador diferencia $e^{\lambda T} - 1$. Como el operador diferencia es un operador delta siempre que $\lambda \neq 0$, por el corolario anterior se concluye.   
+    $\Lambda$ conmuta con $E_{\lambda}(T) \iff \Lambda$ conmuta con el operador diferencia $\Delta_{\lambda}$. Como el operador diferencia es un operador delta siempre que $\lambda \neq 0$, por el corolario anterior se concluye.   
 \end{demo}
 
 Por otro lado, conviene que dotemos al espacio de operadores de una estructura, además, de espacio topológico que haga que la aplicación $\varphi$ sea continua, también de una forma similar a como lo hacíamos con los funcionales. Esta topología se corresponde nuevamente con la topología de estabilización. La demostraciones son casi idénticas y quedan omitidas.
@@ -713,17 +714,17 @@ Recuperamos ahora los ejemplos de funcionales dados con anterioridad con el obje
         \begin{equation} \label{operador derivada}
             T^k p(x) = p^{(k)}(x)
         \end{equation}
-        \item El \textbf{operador traslación} $e^{\lambda T}$ cumple que
+        \item El \textbf{operador traslación} $E_\lambda$ cumple que
         \begin{equation*}
-            e^{\lambda T} x^n = \sum_{k=0}^\infty \frac{\lambda^k}{k!}x^n = \sum_{k=0}^n \binom{n}{k}\lambda^k x^{n-k} = (x+ \lambda )^n
+            E_{\lambda} x^n = \sum_{k=0}^\infty \frac{\lambda^k}{k!}x^n = \sum_{k=0}^n \binom{n}{k}\lambda^k x^{n-k} = (x+ \lambda )^n
         \end{equation*} 
         Con lo que, para un polinomio genérico $p(x)$
         \begin{equation} \label{operador traslacion}
-            e^{\lambda T} p(x) = p(x+\lambda)
+            E_{\lambda} p(x) = p(x+\lambda)
         \end{equation}
-        \item El \textbf{operador diferencia} $e^{\lambda T} -1$ en este caso será
+        \item El \textbf{operador diferencia} $\Delta_{\lambda}$ en este caso será
         \begin{equation}\label{operador diferencia}
-            (e^{\lambda T} -1) p(x) = p(x+ \lambda) - p(x)
+            \Delta_{\lambda} p(x) = p(x+ \lambda) - p(x)
         \end{equation}
         \item El \textbf{operador de Abel} $Te^{\lambda T}$ será, por el producto formal
         \begin{equation}\label{operador de Abel}

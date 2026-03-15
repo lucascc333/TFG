@@ -1,16 +1,406 @@
-\chapter{Aplicaciones del cálculo umbral}
+\chapter{Aplicaciones y ejemplos}
 
 %: EJEMPLOS SUCESIONES POLINOMIOS
 \section{Sucesiones de polinomios conocidas}
+
 \subsection{Polinomios de Bernoulli}
+
+\begin{definicion}
+    Se llaman \textbf{polinomios de Bernoulli de orden $r$} a los polinomios $B_n^{(r)}(x)$ tales que forman las sucesión de Appell para
+    \begin{equation*}
+        G(T) \equiv (\frac{e^T - 1}{T})^r \equiv (\frac{\Delta}{T})^r \quad (r \neq 0)
+    \end{equation*}
+    es decir, $B_n^{(r)}(x) \sim (T, (\frac{e^T - 1}{T})^r)$. En el caso de que $r = 1$, se llaman simplemente \textbf{polinomios de Bernoulli} y se escriben como $B_n(x)$.
+\end{definicion}
+
+\begin{definicion}
+    Se llaman \textbf{números de Bernoulli de orden $r$} a los escalares $B_n^{(r)}(0)$ y se simbolizan como $B_n^{(r)}$. Si $r=1$, se llaman simplemente \textbf{números de Bernoulli} y se escriben como $B_n$.
+\end{definicion}
+
+Con esta definición, la caracterización \ref{caracterizacion diferencial} y el teorema \ref{funcion generadora appell y asociada} para sucesiones de Appell, nos proporcionan su caracterización diferencial y su función generadora, respectivamente, de forma trivial. 
+
+\begin{proposicion}\label{recurrencia bernoulli}
+    \textbf{(ecuación diferencial)}. Los polinomios de Bernoulli de orden $r$ cumplen
+    \begin{equation*}
+    T B_n^{(r)}(x)= B_n^{(r)}(x)' = n B_{n-1}^{(r)}(x)
+    \end{equation*}
+\end{proposicion}
+
+\begin{proposicion}\label{generadora polinomios bernoulli}
+    \textbf{(función generadora)}. Los polinomios de Bernoulli de orden $r$ tienen la función generadora
+    \begin{equation*}
+    \sum_{k=0}^\infty \frac{B_k^{(r)}(x)}{k!} T^k = (\frac{T}{e^T - 1})^r e^{x T}
+    \end{equation*}
+\end{proposicion}
+
+\begin{corolario}\label{generadora numeros bernoulli}
+    Los números de Bernoulli de orden $r$ tienen la función generadora
+    \begin{equation*}
+    \sum_{k=0}^\infty \frac{B_k^{(r)}}{k!} T^k = (\frac{T}{e^T - 1})^r
+    \end{equation*}
+\end{corolario}
+
+\begin{proposicion}\label{bernoulli orden r en funcion de bernoullis}
+    Los números de Bernoulli de orden $r$ verifican
+    \begin{equation*}
+    B_n^{(r)} = \sum_{l_1 + \cdots l_r = n}^n \binom{n}{l_1, \dots, l_r} B_{l_1} \cdots B_{l_r}
+    \end{equation*}
+\end{proposicion}
+
+\begin{demo}
+    Reescribiendo el lado derecho del corolario anterior, tenemos que
+    \begin{equation*}
+    (\frac{T}{e^T - 1})^r = \prod_{m=0}^r(\frac{T}{e^T - 1}) = \prod_{m=0}^r(\sum_{k=0}^\infty \frac{B_k}{k!} T^k) = \sum_{k=0}^\infty (\sum_{l_1 + \cdots l_r = n}^n \binom{n}{l_1, \dots, l_r} B_{l_1} \cdots B_{l_r})T^k
+    \end{equation*}
+    e igualando con el lado izquierdo se llega al resultado.
+\end{demo}
+
+\begin{proposicion}\label{polinomio bernoulli operador sobre x^n}
+    Los polinomios de Bernoulli de orden $r$ vienen dados por
+    \begin{equation*}
+    B_n^{(r)}(x) = (\frac{T}{e^T - 1})^r x^n 
+    \end{equation*}
+\end{proposicion}
+
+\begin{demo}
+    Basta con usar \ref{relacion appell y asociada}.
+\end{demo}
+
+\begin{proposicion}\label{bernoulli r+s en terminos de bernoulli r}
+    Para todo $r$ y $s$ se verifica
+    \begin{equation*}
+    B_n^{(r+s)}(x) = (\frac{T}{e^T - 1})^s B_n^{(r)}
+    \end{equation*}
+\end{proposicion}
+
+\begin{demo}
+    A partir de la proposición anterior llegamos a que
+    \begin{equation*}
+    B_n^{(r+s)}(x) = (\frac{T}{e^T - 1})^{(r+s)} x^n = (\frac{T}{e^T - 1})^s (\frac{T}{e^T - 1})^r x^n = (\frac{T}{e^T - 1})^s (\frac{T}{e^T - 1})^s B_n^{(r)}
+    \end{equation*}
+    como queríamos ver.
+\end{demo}
+
+\begin{proposicion} \label{ecuacion recurrencia bernoulli}
+    \textbf{(ecuación de recurrencia)}. Para todo $r \neq 1$, los polinomios de Bernoulli vienen dados por la ecuación de recurrencia
+    \begin{equation*}
+        B_n^{(r)}(x +1) = B_n^{(r)}(x) + nB_{n-1}^{(r-1)}(x)
+    \end{equation*}
+    y para $r = 1$ vienen dados por
+    \begin{equation*}
+        B_n(x+1) = B_n(x) + nx^{n-1}
+    \end{equation*}
+\end{proposicion}
+
+\begin{demo}
+    Utilizando \ref{recurrencia bernoulli} y \ref{polinomio bernoulli operador sobre x^n} obtenemos el resultado pues
+    \begin{equation*}
+        B_n^{(r)}(x+1) - B_n^{(r)}(x) = \Delta B_n^{(r)}(x) = \Delta \frac{T}{\Delta}^r x^n = \frac{T}{\Delta}^{r-1} T x^n = nB_{n-1}^{(r-1)}(x)
+    \end{equation*}
+\end{demo}
+
+\begin{corolario}
+    Se tiene la igualdad
+    \begin{equation*}
+        \sum_{k=0}^n k^p =  \frac{B_{p+1}(n+1) - B_{p+1}}{p+1}
+    \end{equation*}
+    para todo $p \neq 0$.
+\end{corolario}
+
+\begin{demo}
+    El corolario anterior nos lo da ya que
+    \begin{equation*}
+        \sum_{k=0}^n k^p = \sum_{k=0} (\frac{B_{p+1}(k+1) - B_{p+1}(k)}{p+1}) = \frac{B_{p+1}(n+1) - B_{p+1}}{p+1}
+    \end{equation*}
+\end{demo}
+
+\begin{proposicion}\label{recurrencia suma bernoulli}
+    \textbf{(ecuación de recurrencia)}. Los polinomios de Bernoulli $B_n^{(r)}(x)$ satisfacen la ecuación de recurrencia
+    \begin{equation*}
+        \sum_{k=1}^n \binom{n}{k} B_{n-k}(x) = nx^{n-1} \quad (n \geq 1)
+    \end{equation*}
+    En particular, los números de Bernoulli cumplen que
+    \begin{equation*}
+        \sum_{k=1}^n \binom{n}{k} B_{n-k} = 0 \quad (n \geq 1)
+    \end{equation*}
+\end{proposicion}
+
+\begin{demo}
+    Por la propia definición de $G(T)$ como serie formal, tenemos que para todo entero $m \geq 1$
+    \begin{equation*}
+        \frac{e^T - 1}{T} = \sum_{k=1}^\infty \frac{T^k}{k!} = \sum_{k=m}^\infty \frac{T^{k-m}}{(k-m+1)!} \implies T^m \frac{e^T - 1}{T} = \sum_{k=m}^\infty \frac{T^{k}}{(k-m+1)!}
+    \end{equation*}
+    Y, por tanto
+    \begin{equation*}
+        T^m = \sum_{k=m}^\infty \frac{1}{(k-m+1)!} (\frac{T}{e^T - 1}) T^k
+    \end{equation*}
+    Así pues, si lo aplicamos como operadores sobre $x^n$, usando \ref{polinomio bernoulli operador sobre x^n}, vemos que
+    \begin{align*}
+        (n)_m x^{n-m} = \sum_{k=m}^n \frac{(n)_k}{(k-m+1)!} B_{n-k}(x)
+    \end{align*}
+    de donde obtenemos el resultado tomando $m=1$.
+\end{demo}
+
+
+La identidad de Appell \ref{identidad binomial y de Appell} nos proporciona varios resultados.
+\begin{proposicion}\label{identidad appell bernoulli}
+    \textbf{(identidad de Appell)}. Los polinomios de Bernoulli de orden $r$ satisfacen
+    \begin{equation*} 
+    B_n^{(r)}(x + y) = \sum_{k=0}^n \binom{n}{k} B_k^{(r)}(y)x^{n-k}
+    \end{equation*}
+\end{proposicion}
+
+\begin{corolario}\label{polinomios bernoulli funcion numeros bernoulli}
+    Los polinomios de Bernoulli de orden $r$ se pueden escribir como
+    \begin{equation*}
+    B_n^{(r)}(x) = \sum_{k=0}^n \binom{n}{k} B_{n-k}^{(r)}x^k
+    \end{equation*}
+\end{corolario}
+
+\begin{demo}
+    Tomando $y = 0$ en la proposición anterior.
+\end{demo}
+
+\begin{corolario}
+    Los polinomios de Bernoulli de orden $r$ se pueden escribir como
+    \begin{equation*}
+     B_n^{(r+s)}(x + y) = \sum_{k=0}^n \binom{n}{k} B_k^{(r)}(y)B_{n-k}^{(s)}(y)
+    \end{equation*}
+\end{corolario}
+
+\begin{demo}
+    Aplicando $(\frac{T}{e^T - 1})^s$ a \ref{identidad appell bernoulli} y usando \ref{bernoulli r+s en terminos de bernoulli r} se obtiene el resultado.
+\end{demo}
+
+\begin{teorema}
+    \textbf{(sumación de Euler-Maclaurin)} Dado $p(x) \in \poly$ se verifica que
+    \begin{equation*}
+        \sum_{i=0}^{\mu-1} p(\lambda+i) = \int_{\lambda}^{\lambda + \mu} p(u)du + \sum_{k = 1}^\infty \frac{B_k}{k!}(p^{(k-1)}(\lambda + \mu) - p^{(k-1)}(\lambda))
+    \end{equation*}
+    para todo $\lambda, \mu \in \field$.
+\end{teorema}
+
+\begin{demo}
+    Por el teorema de expansión \ref{teorema de expansion} para los polinomios de Bernoulli $B_n(x)$, tenemos que
+    \begin{equation*}
+        E_y(T) = \sum_{k=0}^\infty \frac{\langle E_y(T)| B_k(x) \rangle}{k!} \frac{e^T - 1}{T} T^k = \frac{e^T - 1}{T} + \sum_{k=1}^\infty \frac{B_k(y)}{k!} (e^T - 1) T^{k-1} 
+    \end{equation*}
+    Si ahora lo aplicamos como operador a un polinomio genérico $p(x) \in \poly$ obtenemos
+    \begin{equation*}
+        p(x+y) = \int_{x}^{x+1} p(u)du + \sum_{k=1}^\infty \frac{B_k(y)}{k!} (p^{(k-1)}(x+1) - p^{(k-1)}(x))
+    \end{equation*}
+    Tomando $y = 0$ y sustituyendo $x$ por $\lambda, \lambda + 1, \dots, \lambda + \mu -1$, llegamos a las ecuaciones
+    \begin{equation*}
+        \begin{dcases*}
+            p(\lambda) = \int_{\lambda}^{\lambda + 1} p(u)du + \sum_{k=1}^\infty \frac{B_k}{k!} (p^{(k-1)}(\lambda + 1) - p^{(k-1)}(\lambda)) \\
+            p(\lambda + 1) = \int_{\lambda+1}^{\lambda + 2} p(u)du + \sum_{k=1}^\infty \frac{B_k}{k!} (p^{(k-1)}(\lambda + 2) - p^{(k-1)}(\lambda + 1))\\
+            \vdots \\
+            p(\lambda + \mu - 1) = \int_{\lambda + \mu -1}^{\lambda + \mu} p(u)du + \sum_{k=1}^\infty \frac{B_k}{k!} (p^{(k-1)}(\lambda + \mu) - p^{(k-1)}(\lambda + \mu - 1))
+        \end{dcases*}
+    \end{equation*}
+    y sumando todas ellas obtenemos el resultado buscado.
+\end{demo}
+
+A partir de aquí obtenemos por recurrencia tanto los valores de los números de Bernoulli como el de los polinomios de Bernoulli. En particular, usando \eqref{polinomios bernoulli funcion numeros bernoulli} podemos calcular los primeros para obtener los segundos. Los primeros valores son
+\begin{itemize}
+    \item $B_0(x) = 1$ y $B_0 = 1$ como ya sabemos.
+    \item $2B_1 + B_0 = 0 \implies B_1 = -\frac{1}{2}$ y $B_1(x) = B_1 + B_0 x \implies B_1(x) = 1 - \frac{x}{2}$
+    \item $3B_2 + 3B_1 + B_0 = 0 \implies B_2 = \frac{1}{6}$ y $B_2(x) = B_2 + 2B_1 x + B_0 x^2 \implies B_2(x) = \frac{1}{6} - x + x^2$
+    \item $4B_3 + 6B_2 + 4B_1 + B_0 = 0 \implies B_3 = 0$ y $B_3(x) = B_3 + 3B_2 x + 3B_1 x^2 + B_0x^3 \implies B_3(x) = \frac{1}{2}x - \frac{3}{2}x^2 + x^3$
+\end{itemize}
+Que $B_3 = 0$ no es ninguna casualidad. Si uno continua calculando los números de Bernoulli, observará que todos los números en valores impares (salvo para $n=1$) se anulan. Esto es consecuencia del siguiente resultado.
+
+\begin{teorema}
+    \textbf{(fórmula del argumento complementario)}. Los polinomios de Bernoulli de orden $r$ verifican
+    \begin{equation*}
+        B_n^{(r)}(-x) = (-1)^n B_n^{(r)}(x + r)
+    \end{equation*}
+\end{teorema}
+
+\begin{demo}
+    Usando \ref{producto escalares} vemos que
+    \begin{equation*}
+        \langle (\frac{e^{-T} - 1}{-T})^r| B_n^{(r)}(-x)\rangle = \langle (\frac{e^{T} - 1}{T})^r| B_n^{(r)}(x)\rangle = n! \delta_{n,k}
+    \end{equation*}
+    con lo que $B_n^{(r)}(-x) \sim ((\frac{e^{-T} - 1}{-T})^r, -T)$. Ya que $(-x)^n \sim (-T)$, la proposición \ref{relacion sheffer y asociada} nos da
+    \begin{align*}
+        B_n^{(r)}(-x) = (\frac{-T}{e^{-T} - 1})^r (-x^n) & = e^{r T} (\frac{T}{1 - e^T})^r (-x^n) \\
+        & = (-1)^n E_r(T) B_n^{(r)}(x) = (-1)^n B_n^{(r)}(x + r)
+    \end{align*}
+    que era lo que queríamos ver.
+\end{demo}
+
+\begin{corolario}
+    Para todo entero $m \geq 1$ se verifica que $B_{2m + 1} = 0$. 
+\end{corolario}
+
+\begin{demo}
+    Por el teorema anterior, tomando $r=1$ y $x=0$ obtenemos que
+    \begin{equation*}
+        B_n(1) = (-1)^n B_n
+    \end{equation*}
+    Usando ahora \eqref{polinomios bernoulli funcion numeros bernoulli}, vemos que
+    \begin{equation*}
+        \sum_{k=0}^n \binom{n}{k} B_{n-k} = (-1)^n B_n \implies \sum_{k=1}^n \binom{n}{k} B_{n-k}= ((-1)^n - 1) B_n
+    \end{equation*}
+    Con lo que si $n = 2m + 1$, llegamos a que
+    \begin{equation*}
+        \sum_{k=1}^{2m+1} \binom{2m+1}{k} B_{2m + 1 -k}= -2 B_{2m + 1}
+    \end{equation*}
+    y utilizando \ref{recurrencia suma bernoulli} obtenemos el resultado.
+\end{demo}
+
+\begin{corolario}
+    Para todo entero $m \geq 1$ se verifica que $B_{2m + 1}(1) = 0$. 
+\end{corolario}
+
+\begin{proposicion}\label{caracterizacion integral bernoulli}
+    \textbf{(caracterización integral)}. Los polinomios de Bernoulli de orden $r$ satisfacen la ecuación integral
+    \begin{equation*}
+        \int_{x+ y}^{x} B_n^{(r)}(u) du = \frac{B_{n+1}^{(r)}(x + y) - B_{n+1}^{(r)}(x)}{n+1}
+    \end{equation*}
+    para todo $x, y \in \field$. En particular
+    \begin{equation*}
+        \int_{0}^{x} B_n^{(r)}(u) du = \frac{B_{n+1}^{(r)}(x) - B_{n+1}^{(r)}}{n+1}
+    \end{equation*}
+\end{proposicion}
+
+\begin{demo}
+    Por la definición del operador de Bernoulli vemos que
+    \begin{equation*}
+        \int_{x+ y}^{x} B_n^{(r)}(u) du = (\frac{e^{yT} - 1}{T}) B_n(x) = \sum_{k=1}^{\infty} \frac{y^k}{k!} T^{k-1}B_{n}(x) 
+    \end{equation*}
+    Utilizando ahora la caracterizacion diferencial \ref{recurrencia bernoulli} recurrentemente en el mimebro de la derecha obtenemos que
+    \begin{equation*}
+        \sum_{k=1}^{\infty} \frac{y^k}{k!} T^{k-1}B_{n}(x) = \sum_{k=1}^{n+1} \frac{y^k}{k!} (n)_{k-1}B_{(n+1) - k}(x) = \frac{1}{n+1} \sum_{k=1}^{n+1} \binom{n+1}{k} y^k B_{(n+1) - k}(x)
+    \end{equation*}
+    de donde se sigue el resultado, por la identidad de Appell \ref{identidad appell bernoulli}.
+\end{demo}
+
+Aplicando el teorema de multiplicación para sucesiones de Appell \ref{teorema de multiplicacion} sobre valores enteros obtenemos el teorema de multiplicación para los polinomios de Bernoulli.
+
+\begin{teorema}
+    \textbf{(de multiplicación para los polinomios de Bernoulli)}. Para todo entero $m \geq 0$ se verifica
+    \begin{equation}
+        B_n(mx) = m^{n-1} \sum_{k=0}^{m-1} B_n(x + \frac{k}{m})
+    \end{equation}
+\end{teorema}
+
+Por último, la teoría umbral aplicada sobre los números de Bernoulli puede ser aprovechada para calcular los valores de los denominados \textit{números de Stirling de segunda especie}.
+
+\begin{definicion}
+    Se definen los \textbf{k-ésimos números de Stirling de segunda especie}, ${n \brace k}$, como los coeficientes del desarrollo del operador $\Delta^k$, es decir
+    \begin{equation*}
+        {n \brace k} = \frac{\langle \Delta^k | x^n \rangle}{k!}
+    \end{equation*}
+\end{definicion}
+
+\begin{proposicion}
+    Los $k$-ésimos números de Stirling de segunda especie vienen dados por los números de Bernoulli de orden $-k$ a través de la fórmula
+    \begin{equation*}
+        {n \brace k} = \binom{n}{k}B_{n-k}^{(-k)}
+    \end{equation*}
+\end{proposicion}
+
+\begin{demo}
+    Usando \ref{polinomio bernoulli operador sobre x^n} obtenemos el resultado
+    \begin{align*}
+        {n \brace k} = \frac{\langle \Delta^k | x^n \rangle}{k!} = \frac{\langle \frac{\Delta^k}{T^k} T^k | x^n \rangle}{k!} = \frac{\langle (\frac{\Delta}{T})^k | T^k x^n \rangle}{k!} = \binom{n}{k} \langle 1 | (\frac{T}{\Delta})^k x^{n-k} \rangle = \binom{n}{k}B_{n-k}^{(-k)}
+    \end{align*}
+\end{demo}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
 
 %: CONEXIÓN CONSTANTES
 \section{Problemas de conexión de constantes}
 
+\begin{definicion}
+    Sean $\{s_n(x)\}_{n \geq 0}$ y $\{r_n(x)\}_{n \geq 0}$ dos sucesiones de polinomios. Resolver el \textbf{problema de conexión de constantes de $s_n(x)$ con $r_n(x)$} equivale a encontrar escalares $c_{n,k} \in \field$ tales que
+    \begin{equation}\label{conexion constantes}
+        s_n(x) = \sum_{k=0}^n c_{n,k}r_k(x)
+    \end{equation} 
+    Diremos que una igualdad como esta es \textbf{la identidad $(s_n, r_n)$} y los escalares $c_{n,k}$ serán las \textbf{constantes de conexión de $s_n(x)$ con $r_n(x)$}. 
+\end{definicion}
+
+\begin{ej}
+    Uno puede ver que los numeros de Stirling de segunda especie ${n \brace k}$ cumplen que
+    \begin{equation*}
+        x^n = \sum_{k=0}^n {n \brace k}(x)_k
+    \end{equation*}
+    y, por tanto, estos son las constantes de conexión que cumplen la identidad $(x^n, (x)_n)$.
+\end{ej}
+
+No es fácil encontrar una solución general al problema de conexión de constantes. Sin embargo y para nuestra suerte, no es muy díficil ver como el cálculo umbral proporciona una solución para el caso en el que ambas sucesiones son de Sheffer.
+
+\begin{teorema}
+    Sean $s_n(x) \sim (G(T), F(T))$ y $r_n(x) \sim (H(T), L(T))$ dos sucesiones de Sheffer. Las constantes de conexión $c_{n,k}$ que resuelven el problema de conexión de constantes de $s_n(x)$ con $r_n(x)$ vienen dadas por
+    \begin{equation*}
+        c_{n,k} = \frac{1}{k!} \langle \frac{H(F^{-1}(T))}{G(F^{-1}(T))} L^k(F^{-1}(T))| x^n \rangle
+    \end{equation*}
+    Además, la sucesión de polinomios
+    \begin{equation*}
+        t_n(x) = \sum_{k=0}^n c_{n,k}x^n
+    \end{equation*}
+    es de Sheffer para $(\frac{G(F^{-1}(T))}{H(F^{-1}(T))}, F(L^{-1}(T)))$.
+\end{teorema}
+
+\begin{demo}
+    Podemos reescribir \eqref{conexion constantes} como
+    \begin{equation*}
+        s_n(x) = (\sum_{k=0}^n c_{n,k} x^k)(\mathbf{r(x)}) = \Lambda_{H,L}\sum_{k=0}^n c_{n,k} x^k
+    \end{equation*}
+    y usando la estructura de grupo de los operadores de Sheffer obtenemos
+    \begin{align*}
+        \sum_{k=0}^n c_{n,k}x^k = \Lambda_{H, L}^{-1}s_n(x) = \Lambda_{H, L}^{-1} \circ \Lambda_{G,F}x^n & = \Lambda_{H \circ L^{-1}, L^{-1}} \circ \Lambda_{G,F}x^n \\
+        & = \Lambda_{\frac{G \circ L^{-1}}{H \circ L^{-1}}, F \circ L^{-1}} x^n
+    \end{align*}
+    de donde vemos que $t_n(x) = \sum_{k=0}^n c_{n,k}x^k \sim (\frac{G \circ L^{-1}}{H \circ L^{-1}}, F \circ L^{-1})$. Por otro lado, usando esta igualdad junto a la adjunción de los operadores de Sheffer obtenemos
+    \begin{align*}
+        c_{n,k} = \frac{1}{k!} \langle T^k | \sum_{k=0}^n c_{n,k}x^k\rangle & = \frac{1}{k!} \langle T^k | \Lambda_{\frac{G \circ L^{-1}}{H \circ L^{-1}}, F \circ L^{-1}} x^n\rangle \\
+        & = \frac{1}{k!} \langle \Lambda_{\frac{G \circ L^{-1}}{H \circ L^{-1}}, F \circ L^{-1}}^* T^k | x^n\rangle \\
+        & = \frac{1}{k!} \langle \frac{H(F^{-1}(T))}{G(F^{-1}(T))} L^k(F^{-1}(T))| x^n \rangle
+    \end{align*}
+    tal y como queríamos ver. 
+\end{demo}
+
+\begin{ej}
+    Los \textbf{\textit{polinomios de Euler}} se definen como la sucesión de polinomios $E_n(x)$ que es Appell para $G(T) = \frac{e^T +1}{2}$. En particular, estos poseen la función generadora
+    \begin{equation*}
+        \sum_{k=0}^\infty \frac{E_k(x)}{k!}T^k = \frac{2e^{xT}}{e^T + 1}
+    \end{equation*}
+    Esta es bastante similar a la de los polinomios de Bernoulli que vimos en la sección anterior y es por ello natural que surja la pregunta de cómo ambos pueden relacionarse. Son varias las fórmulas que expresan la relación existente entre ambos; la identidad $(E_n, B_n)$ es una de ellas.
+
+    En este caso, tenemos que $F(T) = L(T) = T$, $G(T) = \frac{e^T + 1}{2}$ y $H(T) = \frac{e^T - 1}{T}$. Esto nos da que $t_n(x)$ es de Appell para $\frac{T}{e^T - 1}\frac{e^T + 1}{2}$. Además, la identidad de Appell nos da la igualdad
+    \begin{equation}\label{appell identidad euler}
+        E_n(x) = \sum_{k=0}^n \binom{n}{k} E_{n-k}(0)x^k
+    \end{equation}
+    Usando \ref{relacion appell y asociada}, se sigue que
+    \begin{align*}
+        t_n(x) =  \frac{e^T - 1}{T}\frac{2}{e^T + 1}x^n & = \frac{e^T - 1}{T} E_n(x) = \frac{e^T - 1}{T} T \frac{E_{n+1}(x)}{n+1} \\
+        & = \frac{1}{n+1} (e^T - 1)E_{n+1}(x) =  \frac{1}{n+1} (e^T + 1 - 2)E_{n+1}(x) \\
+        & = \frac{2}{n+1} (\frac{e^T + 1}{2}- 1)E_{n+1}(x) = \frac{2}{n+1}(x^{n+1} - E_{n+1}(x)) \\
+        & = \sum_{k=0}^n \binom{n+1}{k} \frac{-2}{n+1} E_{n+1-k}(0)x^k
+    \end{align*}
+    donde la penúltima igualdad se debe nuevamente a \ref{relacion appell y asociada} y la última se debe a la igualdad \eqref{appell identidad euler}. Y, por tanto, obtenemos los valores de las constantes $c_{n,k}$, que nos muestra la relación entre los polinomios $E_n(x)$ y $B_n(x)$
+    \begin{equation*}
+        E_n(x) = \sum_{k=0}^n \binom{n+1}{k} \frac{-2}{n+1} E_{n+1-k}(0)B_k(x)
+    \end{equation*}
+\end{ej}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+
 %: INTERPOLACIÓN
 \section{Interpolación lineal}
 
-El cálculo umbral nos proporciona distintas fórmulas de interpolación para obtener polinomios que aproximen a una función definida en un intervalo $[a,b]$. A continuación damos alguna de estas, aunque para un extenso desarrollo de esta teoría, junto con varios ejemplos, se puede consultar \cite{costabile}.
+El cálculo umbral también permite obtener ciertas fórmulas de interpolación destinadas a construir polinomios que aproximen a una función definida en un intervalo $[a,b]$. Damos aquí tan solo una fórmula de interpolación, basada en la teoría de las sucesiones asociadas y la cual generaliza varias de las interpolaciones clásicas conocidas. No obstante, para un extenso desarrollo de esta teoría, junto con varios ejemplos, se puede consultar \cite{costabile}. 
 
 \begin{lema}
     \textbf{(de Peano)}. Sea $\Lambda$ un operador definido sobre el anillo de funciones continuas en un intervalo $[a,b]$ tal que $\Lambda p(x) = 0$ para todo $p(x) \in \poly$ con $\gr(p(x)) \leq n$. Entonces, para toda $f \in \mathcal{C}^{n+1}[a,b]$
@@ -40,7 +430,7 @@ El cálculo umbral nos proporciona distintas fórmulas de interpolación para ob
     \begin{equation*}
         (G^m(T)B_n[f](x))(0) = (G^m(T)f(x))(0) \text{ y } f(x) = B_n[f](x) + R_n[f](x)
     \end{equation*}
-    donde $0 \leq m \leq n$ y el resto $R_n[f](x)$ está dado por
+    donde $0 \leq m \leq n$ y donde el resto $R_n[f](x)$ está dado por
     \begin{align*}
         R_n[f](x) & = \int_{a}^{b} f^{(n+1)}(t)K_n(x,t) dt\\
         K_n(x,t) & = \frac{1}{n!}[(x-t)_{+}^n - \sum_{k=0}^n \frac{[G^k(T)(x-t)_{+}^n](0)}{k!} p_k(x)]
@@ -59,34 +449,87 @@ El cálculo umbral nos proporciona distintas fórmulas de interpolación para ob
     Por otro lado, $R_n g(x) \equiv R_n[g](x) = g(x) - B_n[g](x)$ cumple las condiciones del lema de Peano y de ahí obtenemos la segunda igualdad. 
 \end{demo}
 
-\begin{obs}
-    Cuando $G(T) = T$ y $p_n(x) = x^n$ obtenemos el clásico teorema de Taylor. Esto es, por tanto, una generalización del mismo. 
-\end{obs}
+     
 
 \begin{ej}
-    En el caso de los factoriales descendentes, $p_n(x) = (x)_n$, estos están asociados a $G(T) = e^T -1$ (puesto que $(e^T -1)(x)_n = n(x)_{n-1}$). Mediante inducción, uno puede probar que
-    \begin{equation*}
-        G^n(T)f(x) = \sum_{k=0}^n \binom{n}{k}(-1)^k f(x+n-k)
-    \end{equation*}
-    para toda función $f$ y todo entero $n \geq 0$. De tal forma, que se tiene que
-    \begin{equation*}
-        (G^n(T)f(x))(0) = \sum_{k=0}^n \binom{n}{k}(-1)^k f(n-k)
-    \end{equation*}
-    Y, por tanto, el polinomio de interpolación es
-    \begin{equation*}
-        B_n[f](x) = \sum_{k=0}^n \sum_{m=0}^k \frac{(-1)^m f(k-m)}{m! (k-m)!} (x)_k
-    \end{equation*}
-    que, expandiendo el factorial descendente, resulta en
-    \begin{equation}
-        \boxed{B_n[f](x) = \sum_{k=0}^n \sum_{m=0}^k \frac{(-1)^m f(k-m)}{m! (k-m)!} x(x-1) \cdots (x-k+1)}
-    \end{equation}
+    \begin{enumerate}
+        \item Cuando $G(T) = T$ y $p_n(x) = x^n$ obtenemos
+        \begin{equation*}
+            B_n[f](x) = \sum_{k=0}^n \frac{(T^k f(x))(0)}{k!}x^n = \sum_{k=0}^n \frac{f^{(k)}(0)}{k!}x^n
+        \end{equation*} 
+        y además se tendrá que
+        \begin{equation*}
+            B_n[f]^{(k)}(0) = f^{(k)}(0)
+        \end{equation*}
+        que es el clásico \textbf{teorema de Taylor}.
+        \item En el caso de los factoriales descendentes, $p_n(x) = (x)_n$, estos están asociados a $G(T) = e^T -1 \equiv \Delta$ (puesto que $(e^T -1)(x)_n = n(x)_{n-1}$). Así pues, el polinomio de interpolación asociado es
+        \begin{equation*}
+            B_n[f](x) = \sum_{k=0}^n \frac{(\Delta^k f(x))(0)}{k!} (x)_k
+        \end{equation*}
+        que verifica además que $(\Delta^k B_n[f](x))(0) = (\Delta^k f(x))(0)$, de donde se deduce que
+        \begin{equation*}
+            B_n[f](k) = f(k) \quad k=0,1,2, \dots ,n
+        \end{equation*}
+        Esto no es más que la \textbf{interpolación de Newton-Gregory.}
+        \item Los polinomios de Abel $A_n(x) = x(x-n)^{n-1}$ están asociados al operador de Abel $G(T) = Te^T$. El polinomio de interpolación asociado es
+        \begin{equation*}
+            B_n[f](x) = \sum_{k=0}^n \frac{f^{(k)}(k)}{k!} A_k(x) = \sum_{k=0}^n \frac{f^{(k)}(k)}{k!}x(x-k)^{k-1}
+        \end{equation*}
+        y este verificará además que
+        \begin{equation*}
+            B_n[f]^{(k)}(k) = f^{(k)}(k) \quad k = 0, 1, 2, \dots, n
+        \end{equation*} 
+        Esto es un tipo de \textbf{interpolación de Birkhoff}.
+        \item Los polinomios $p_n(x) = x^n y_{n-1}(\frac{1}{x})$ están asociados al operador $G(T) = T - \frac{T^2}{2}$. En este caso tenemos que
+        \begin{equation*}
+            G^k(T) f(x) = (1 - \frac{T}{2})^k T^k f(x) = \sum_{m=0}^k (-\frac{1}{2})^m T^m f^{(k)}(x) = \sum_{m=0}^k (-\frac{1}{2})^m f^{(m + k)}(x)
+        \end{equation*}
+        Con lo que, el polinomio de interpolación binomial será
+        \begin{equation*}
+            B_n[f](x) = \sum_{k=0}^n \sum_{m=0}^k (-\frac{1}{2})^m f^{(m + k)}(0) p_k(x) = \sum_{k=0}^n \sum_{m=0}^k (-\frac{1}{2})^m f^{(m + k)}(0) y_{k-1}(\frac{1}{x})x^k
+        \end{equation*}
+        y este verificará que
+        \begin{equation*}
+            \sum_{m=0}^k (-\frac{1}{2})^m B_n[f]^{(m + k)}(0) = \sum_{m=0}^k (-\frac{1}{2})^m f^{(m + k)}(0)
+        \end{equation*}
+    \end{enumerate} 
+
 \end{ej}
 
-%: RECURSIÓN
-\section{Problemas de recursión}
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
 
-%: RELACIONES INVERSAS
-\section{Relaciones inversas}
+%: EC. EN DIFERENCIAS
+\section{Solución a ec. en diferencias}
+Como una última aplicación del cálculo umbral, veamos como aplicar esta teoría para deducir la solución de ciertas ecuaciones en diferencia. En concreto, damos aquí la solución de la ecuación en diferencias finitas dada por
+\begin{equation}\label{ec diferencias}
+    r(i, j) = r_(i, j-1) + r(i-1, j) + r(i-1, j-1)
+\end{equation}
 
-%: EC. DIFERENCIAL
-\section{Solución a ec. diferenciales}
+\begin{proposicion}
+    La solución de la ecuación en diferencias finitas \ref{ec diferencias} viene dada por
+    \begin{equation*}
+        r(i,j) = \frac{\langle (1+T)^j | s_i(x)\rangle}{i!}
+    \end{equation*} 
+    siendo $s_n(x) \sim (G(T), \frac{T}{(1+T)(2+T)})$ y donde $G(T) \in \F^*$ es una serie invertible cualquiera. 
+\end{proposicion}
+
+\begin{demo}
+    La sucesión $r(i,j)$ así definida cumplirá que
+    \begin{align*}
+        r(i, j) - r_(i, j-1) - r(i-1, j) - r(i-1, j-1)\\
+        = \frac{\langle (1+T)^{j-1} T | s_i(x)\rangle}{i!} -  \frac{\langle (1+T)^j(2+T) | s_{i-1}(x)\rangle}{(i-1)!}\\
+        = \frac{\langle (1+T)^{j-1} T | s_i(x)\rangle}{i!} -  \frac{\langle T(1+T)^{j-1}/F(T) | s_{i-1}(x)\rangle}{(i-1)!} 
+    \end{align*}
+    Y utilizando que $F(T)s_n(x) = ns_{n-1}(x)$ vemos que $s_{n-1}(x) = F(T)s_n(x)/n$, de donde llegamos al resultado.
+\end{demo}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%

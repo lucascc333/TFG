@@ -5,7 +5,7 @@
 
 Una vez desarrollada toda la teoría de operadores y funcionales lineales sobre el espacio de polinomios y haber establecido la conexión existente con las series formales, estamos ya en condiciones de estudiar las sucesiones de polinomios. En lo que sigue, y aunque no lo digamos explícitamente, las sucesiones de polinomios $\{ p_n(x) \}_{n \geq 0}$ serán tan solo aquellas tales que $\gr(p_n) = n$, para todo $n$.
 
-Las sucesiones de polinomios que nos interesan son \textit{las sucesiones de Sheffer}. En grandes términos, las sucesiones de Sheffer son un tipo de sucesiones de polinomios que se comportan de una ``forma similar'', respecto a dos series formales concretas, a como lo hacen los polinomios $x^n$ respecto a la serie formal $T$. El teorema más importante en lo que a estas respecta, que pone de manifiesto este hecho, es el siguiente.
+Las sucesiones de polinomios que nos interesan son \textit{las sucesiones de Sheffer}. En grandes términos, las sucesiones de Sheffer son un tipo de sucesiones de polinomios que se comportan de una ``forma similar'', respecto a dos series formales concretas, a como lo hacen los polinomios $x^n$ respecto a la serie formal $T$. El teorema más importante en lo que a estas respecta y que pone de manifiesto este hecho es el siguiente.
 
 \begin{teorema}
     \textbf{(de existencia de sucesiones de Sheffer)}. Sea $F(T) \in \F^{\delta}$ una serie delta y $G(T) \in \F^*$ una serie invertible. Existe una única sucesion de polinomios $s_n(x)$ con $\gr(s_n) = n$ tal que
@@ -80,7 +80,7 @@ De las definiciones rápidamente extraemos el siguiente resultado.
     $\langle F^k(T)| G(T)s_n(x) \rangle = \langle G(T)F^k(T)| s_n(x) \rangle = n!\delta_{n,k}$
 \end{demo}
 
-\begin{corolario}
+\begin{corolario}\label{relacion appell y asociada}
     La sucesión de polinomios $s_n(x)$ es la sucesión de Appell asociada a $G(T)$ si y solo si
     \begin{equation*}
         s_n(x) = \frac{1}{G(T)} x^n
@@ -92,7 +92,7 @@ Recordamos que, en el caso del ejemplo anterior, donde $F(T) = T$ y $p_n(x) = x^
     G(T) & = \sum_{k = 0}^\infty \frac{\langle F(T)| p_k(x)\rangle}{k!} F^k(T)\\
     p(x) & = \sum_{k \geq 0} \frac{\langle F^k(T) | p(x) \rangle}{k!}p_k(x)
 \end{align*}
-para toda $G(T) \in \F$ y todo $p(x) \in \poly$. Esta observación nos permite enunciar y probar los dos siguientes teoremas clave, generalizaciones de estos hechos.
+para toda $G(T) \in \F$ y todo $p(x) \in \poly$. Esta observación nos permite enunciar y probar los dos siguientes teoremas clave, generalizaciones de estos hechos y muestras, una vez más, de la relación con $p_n(x) = x^n$ existente para las sucesiones de Sheffer.
 
 \begin{teorema} \label{teorema de expansion}
     \textbf{(de expansión)}. Sea $s_n(x) \sim (G(T), F(T))$. Entonces, para toda serie formal $H(T) \in \F$
@@ -365,7 +365,7 @@ Damos aquí algunas propiedades importantes que las sucesiones de Sheffer poseen
     \end{equation*}
 \end{corolario}
 
-La siguiente propiedad muestra como la sucesiones de Sheffer presentan no solo un comportamiento similar al de la sucesión $x^n$ como el que indicabámos en la introducción de la sección, sino también cuando el producto umbral de dos funcionales actúa sobre ella \eqref{producto funcionales}. Se pone de manifiesto así ese intercambio de exponentes y subíndices del que hablamos en la introducción.
+La siguiente propiedad es una nueva muestra de como la sucesiones de Sheffer presentan un comportamiento similar al de la sucesión $x^n$. En este caso, es un resultado análogo al producto umbral \eqref{producto funcionales}, lo que pone de manifiesto ese intercambio de exponentes y subíndices del que hablamos en la introducción del trabajo.
 
 \begin{teorema}
     Sea $s_n(x) \sim (G(T), F(T))$ y $p_n(x)$ la sucesión asociada a $F(T)$. Entonces, para toda $H(T), L(T) \in \F$
