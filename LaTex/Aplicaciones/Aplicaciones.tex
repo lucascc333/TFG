@@ -3,6 +3,7 @@
 %: EJEMPLOS SUCESIONES POLINOMIOS
 \section{Sucesiones de polinomios conocidas}
 
+%: POLINOMIOS BERNOULLI
 \subsection{Polinomios de Bernoulli}
 
 \begin{definicion}
@@ -108,7 +109,7 @@ Con esta definición, la caracterización \ref{caracterizacion diferencial} y el
 \end{corolario}
 
 \begin{demo}
-    El corolario anterior nos lo da ya que
+    La proposoicón anterior nos lo da, ya que
     \begin{equation*}
         \sum_{k=0}^n k^p = \sum_{k=0} (\frac{B_{p+1}(k+1) - B_{p+1}(k)}{p+1}) = \frac{B_{p+1}(n+1) - B_{p+1}}{p+1}
     \end{equation*}
@@ -211,7 +212,7 @@ A partir de aquí obtenemos por recurrencia tanto los valores de los números de
 Que $B_3 = 0$ no es ninguna casualidad. Si uno continua calculando los números de Bernoulli, observará que todos los números en valores impares (salvo para $n=1$) se anulan. Esto es consecuencia del siguiente resultado.
 
 \begin{teorema}
-    \textbf{(fórmula del argumento complementario)}. Los polinomios de Bernoulli de orden $r$ verifican
+    \textbf{(fórmula del argumento complementario)}. Los polinomios de Bernoulli de orden $r$ verifican que 
     \begin{equation*}
         B_n^{(r)}(-x) = (-1)^n B_n^{(r)}(x + r)
     \end{equation*}
@@ -305,8 +306,186 @@ Por último, la teoría umbral aplicada sobre los números de Bernoulli puede se
 \begin{demo}
     Usando \ref{polinomio bernoulli operador sobre x^n} obtenemos el resultado
     \begin{align*}
-        {n \brace k} = \frac{\langle \Delta^k | x^n \rangle}{k!} = \frac{\langle \frac{\Delta^k}{T^k} T^k | x^n \rangle}{k!} = \frac{\langle (\frac{\Delta}{T})^k | T^k x^n \rangle}{k!} = \binom{n}{k} \langle 1 | (\frac{T}{\Delta})^k x^{n-k} \rangle = \binom{n}{k}B_{n-k}^{(-k)}
+        {n \brace k} = \frac{\langle \Delta^k | x^n \rangle}{k!} = \frac{\langle \frac{\Delta^k}{T^k} T^k | x^n \rangle}{k!} = \frac{\langle (\frac{\Delta}{T})^k | T^k x^n \rangle}{k!} = \binom{n}{k} \langle 1 | (\frac{T}{\Delta})^{-k} x^{n-k} \rangle = \binom{n}{k}B_{n-k}^{(-k)}
     \end{align*}
+\end{demo}
+
+%%%%%%%%%%%%%%%%%%%%
+
+%: POLINOMIOS LAGUERRE
+
+\subsection{Polinomios de Laguerre}
+
+\begin{definicion}
+    Se llaman \textbf{polinomios de Laguerre de orden r} a los polinomios $L_n^{(r)}(x)$ tales que forman la sucesión de Sheffer para
+    \begin{equation*}
+        G(T) = \frac{1}{(1-T)^{r+1}} \quad F(T) = \frac{T}{T-1}
+    \end{equation*}
+
+    En particular, los polinomios $L_n^{(-1)}(x) \sim \frac{T}{T-1}$ se simbolizan simplemente por $L_n(x)$ y los polinomios $L_n^{0}(x)$ se denominan \textbf{polinomios simples de Laguerre}.
+\end{definicion}
+
+Es inmediato ver que
+\begin{equation*}
+    F'(T) = -\frac{1}{(1-T)^2} \quad \text{ y } \quad F^{-1}(T) = F(T)
+\end{equation*}
+Por las caracterizaciones \ref{funcion generadora} y \ref{identidad de Sheffer}, obtenemos directamente su función generadora y la identidad de Sheffer para estos polinomios.
+
+\begin{proposicion}
+    Los polinomios $L_n^{(r)}(x)$ tienen la función generadora
+    \begin{equation*}
+        \frac{1}{(1-T)^{r+1}}e^{\frac{xT}{T-1}} = \sum_{k=0}^\infty \frac{L_k^{(r)}(x)}{k!}T^k
+    \end{equation*}
+\end{proposicion}
+
+\begin{proposicion}
+    Los polinomios $L_n^{(r)}(x)$ satisfacen la igualdad
+    \begin{equation*}
+        L_n^{(r)}(x+y) = \sum_{k=0}^n \binom{n}{k} L_k^{(r)}(x) L_{n-k}^{(r)}(y)
+    \end{equation*}
+\end{proposicion}
+
+La relación con la sucesión asociada \ref{relacion sheffer y asociada} nos da el siguiente resultado.
+
+\begin{proposicion} \label{laguerre orden r+s funcion orden r}
+    Los polinomios $L_n^{(r)}(x)$ cumplen la igualdad
+    \begin{equation*}
+        (1-T)^s L_n^{(r)}(x) = L_n^{(r + s)}(x)
+    \end{equation*}
+\end{proposicion}
+
+\begin{demo}
+    Tenemos que
+    \begin{equation*}
+        L_n^{(r)}(x) = (1-T)^{r+1} L_n(x)
+    \end{equation*}
+    Por tanto, obtenemos
+    \begin{equation*}
+        (1-T)^s L_n^{(r)}(x) = (1-T)^s(1-T)^{r+1} L_n(x) = (1-T)^{s+r+1} L_n(x) = L_n^{(r + s)}(x)
+    \end{equation*}
+\end{demo}
+
+Usando este resultado y la caracterización \ref{caracterizacion diferencial} llegamos a ver que estos polinomios verifican la relación de recurrencia siguiente.
+
+\begin{proposicion} \label{recurrencia diferencial laguerre}
+    Los polinomios $L_n^{(r)}(x)$ verifican la ecuación de recurrencia diferencial
+    \begin{equation*}
+        (L_n^{(r)}(x))' = -n L_{n-1}^{(r+1)}(x)
+    \end{equation*}
+\end{proposicion}
+
+\begin{demo}
+    Tenemos que
+    \begin{equation*}
+        \frac{T}{T-1} L_n^{(r)}(x) = n L_{n-1}^{(r)}(x) \implies T L_n^{(r)}(x) = -n (1-T) L_{n-1}^{(r)}(x) = -n L_{n-1}^{(r+1)}(x)
+    \end{equation*}
+\end{demo}
+
+La fórmula de recurrencia \ref{recurrencia sheffer} nos da un resultado muy útil.
+
+\begin{proposicion}
+    Los polinomios $L_n^{(r)}(x)$ cumplen la relación
+    \begin{equation*}
+        L_{n+1}^{(r)}(x) = (M \circ T - M + r + 1)L_n^{(r+1)}(x)
+    \end{equation*}
+\end{proposicion}
+
+\begin{demo}
+    La fórmula de recurrencia nos da que
+    \begin{align*}
+        L_{n+1}^{(r)}(x) = (M - \frac{G'(T)}{G(T)}) \circ \frac{1}{F'(T)} L_n^{(r)}(x) & = -(M - \frac{r+1}{1-T}) \circ (1-T)^2 L_n^{(r)}(x) \\
+        & = (M \circ T - M + r +1)(1-T) L_n^{(r)}(x) \\
+        & = (M \circ T - M + r + 1)L_n^{(r+1)}(x)
+    \end{align*}
+    donde la última igualdad se debe nuevamente a la proposición \ref{laguerre orden r+s funcion orden r}.
+\end{demo}
+
+A partir de este resultado, obtenemos la ecuación diferencial que estos polinomios cumplen y que suele darse como definición de los mismos.
+
+\begin{teorema}
+    \textbf{(ec. diferencial de Laguerre)}. Los polinomios $L_n^{(r)}(x)$ cumplen la ecuación diferencial
+    \begin{equation*}
+        xy'' + (r + 1 -x)y' + ny = 0
+    \end{equation*}
+\end{teorema}
+
+\begin{demo}
+    Combinando las dos proposiciones anteriores, tenemos que
+    \begin{align*}
+        -n L_{n-1}^{(r+1)}(x) = (L_n^{(r)}(x))' & = [(M \circ T - M + r + 1)L_n^{(r+1)}(x)]' \\
+        & = [x (L_{n-1}^{(r+1)}(x))' - x L_{n-1}^{(r+1)}(x) + (r+1)L_{n-1}^{(r+1)}(x)]' \\
+        & = x (L_{n-1}^{(r+1)}(x))'' + (L_{n-1}^{(r+1)}(x))' - L_{n-1}^{(r+1)}(x) 
+        \\ & \quad - x (L_{n-1}^{(r+1)}(x))' + (r+1)(L_{n-1}^{(r+1)}(x))'
+    \end{align*}
+    de donde, reorganizando, se sigue el resultado.
+\end{demo}
+
+Una fórmula explícita de estos polinomios se puede obtener mediante las fórmulas de transferencia.
+
+\begin{teorema}\label{formula explicita laguerre}
+    Para todo $r \neq 1$, los polinomios $L_n^{(r)}(x)$ se escriben como
+    \begin{equation*}
+        L_n^{(r)}(x) = \sum_{k=0}^n \binom{n + r}{n - k} \frac{n!}{k!} (-x)^k
+    \end{equation*}
+    y en el caso en el que $r = 1$, se escriben como
+    \begin{equation*}
+        L_n(x) = \sum_{k=1}^{n} \binom{n-1}{k-1} \frac{n!}{k!} (-x)^{k}
+    \end{equation*}
+    A los números $L(n,k) = \binom{n-1}{k-1} \frac{n!}{k!}$ se les conoce como \textbf{números de Lah}.
+\end{teorema}
+
+\begin{demo}
+    Veámoslo primero para $L_n(x)$. La primera de las fórmulas de transferencia \ref{transferencia asociada} nos da el resultado, pues
+    \begin{align*}
+        L_n(x) = -(1-T)^2(T-1)^{n+1}x^n & = (-1)^n (1-T)^{n-1} x^n \\ 
+        & = (-1)^n \sum_{k=0}^{n-1} \binom{n-1}{k} (-1)^k T^k x^n = \sum_{k=0}^{n-1} \binom{n-1}{k} (-1)^{n-k} (n)_k x^{n-k} \\
+        & = \sum_{k=1}^{n} \binom{n-1}{k-1} (n)_{k-1} (-x)^{n-(k-1)}
+        = \sum_{k=1}^{n} \binom{n-1}{k-1} (n)_{n-k} (-x)^{k}
+    \end{align*}
+    donde hemos usado en la última igualdad la simetría de la suma. Para ver el caso más general, basta con usar la proposición \ref{laguerre orden r+s funcion orden r} y la caracterización \ref{sucesion asociada caracterizacion operador}, de donde vemos que
+    \begin{equation*}
+        L_n^{(r)}(x) = (1-T)^{r+1} L_n(x) = (-1)^n (1+T)^{r+n} x^n
+    \end{equation*}
+y el resultado se sigue de una forma similar a lo hecho antes.
+\end{demo}
+
+\begin{teorema}
+    \textbf{(fórmula de Rodrigues)}. Los polinomios de Laguerre de orden $r$ se pueden excribir como
+    \begin{equation*}
+        L_n^{(r)}(x) = (M(e^x x^{-r}) \circ T^n \circ M(e^{-x})) x^{n+r}
+    \end{equation*}
+\end{teorema}
+
+\begin{demo}
+    Hemos visto en la demostración anterior que $L_n^{(r)}(x) = (-1)^n (1+T)^{r+n} x^n$. Además, se tiene que
+    \begin{equation*}
+        (M(-e^x) \circ T \circ M(e^{-x}))x^n = M(-e^x)[(Tx^{n}) \cdot e^{-x}-e^{-x} \cdot x^n] = (1 - T) x^n
+    \end{equation*}
+    y, por lo tanto
+    \begin{equation*}
+        1 - T = M(-e^x) \circ T \circ M(e^{-x}) \implies (1-T)^n = (-1)^n M(e^x) \circ T^n \circ M(e^{-x})
+    \end{equation*}
+    Por otro lado, se verifica además que
+    \begin{align*}
+        (M(x^{-r}) \circ (1-T)^n) x^{r+n} & = M(x^{-r}) \circ \sum_{k=0}^n \binom{n}{k} (-1)^k T^k x^{r+n} \\
+        & = \sum_{k=0}^n \binom{n}{k} (-1)^k (r+n)_k M(x^r)x^{r+n-k}\\ 
+        & = \sum_{k=0}^n \binom{n}{k} (-1)^k (r+n)_k x^{n-k}
+    \end{align*}
+    mientras que
+    \begin{equation*}
+        (1-T)^{r+n} x^n = \sum_{k=0}^\infty \binom{n+r}{k}(-1)^k T^k x^n = \sum_{k=0}^n \binom{n+r}{k}(-1)^k (n)_k x^{n-k}
+    \end{equation*}
+    Ahora bien, de la propia definición uno ve que $\binom{n+r}{k} (n)_k = \binom{n}{k} (n+r)_k$, con lo que se tiene que
+    \begin{equation*}
+        (M(x^{-r}) \circ (1-T)^n) x^{r+n} = (1-T)^{r+n} x^n 
+    \end{equation*}
+    Uniendo todo esto, obtenemos
+    \begin{align*}
+        L_n^{(r)}(x) = (-1)^n (1+T)^{r+n} x^n & = (-1)^n (M(x^{-r}) \circ (1-T)^n) x^{r+n} \\
+        & = (M(x^{-r}) \circ M(e^x) \circ T^n \circ M(e^{-x})) x^{r+n} \\
+        & = (M(x^{-r}e^x) \circ T^n \circ M(e^{-x})) x^{r+n} 
+    \end{align*}
+    que era lo que queríamos ver.
 \end{demo}
 
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -334,7 +513,7 @@ Por último, la teoría umbral aplicada sobre los números de Bernoulli puede se
     y, por tanto, estos son las constantes de conexión que cumplen la identidad $(x^n, (x)_n)$.
 \end{ej}
 
-No es fácil encontrar una solución general al problema de conexión de constantes. Sin embargo y para nuestra suerte, no es muy díficil ver como el cálculo umbral proporciona una solución para el caso en el que ambas sucesiones son de Sheffer.
+No es fácil encontrar una solución general al problema de conexión de constantes. Sin embargo, y para nuestra suerte, no es muy díficil ver como el cálculo umbral proporciona una solución para el caso en el que ambas sucesiones son de Sheffer.
 
 \begin{teorema}
     Sean $s_n(x) \sim (G(T), F(T))$ y $r_n(x) \sim (H(T), L(T))$ dos sucesiones de Sheffer. Las constantes de conexión $c_{n,k}$ que resuelven el problema de conexión de constantes de $s_n(x)$ con $r_n(x)$ vienen dadas por
@@ -368,27 +547,41 @@ No es fácil encontrar una solución general al problema de conexión de constan
 \end{demo}
 
 \begin{ej}
-    Los \textbf{\textit{polinomios de Euler}} se definen como la sucesión de polinomios $E_n(x)$ que es Appell para $G(T) = \frac{e^T +1}{2}$. En particular, estos poseen la función generadora
-    \begin{equation*}
-        \sum_{k=0}^\infty \frac{E_k(x)}{k!}T^k = \frac{2e^{xT}}{e^T + 1}
-    \end{equation*}
-    Esta es bastante similar a la de los polinomios de Bernoulli que vimos en la sección anterior y es por ello natural que surja la pregunta de cómo ambos pueden relacionarse. Son varias las fórmulas que expresan la relación existente entre ambos; la identidad $(E_n, B_n)$ es una de ellas.
+    \begin{enumerate}
+        \item Los \textbf{\textit{polinomios de Euler}} se definen como la sucesión de polinomios $E_n(x)$ que es Appell para $G(T) = \frac{e^T +1}{2}$. En particular, estos poseen la función generadora
+        \begin{equation*}
+            \sum_{k=0}^\infty \frac{E_k(x)}{k!}T^k = \frac{2e^{xT}}{e^T + 1}
+        \end{equation*}
+        Esta es bastante similar a la de los polinomios de Bernoulli que vimos en la sección anterior y es por ello natural que surja la pregunta de cómo ambos pueden relacionarse. Son varias las fórmulas que expresan uno en términos del otro; la identidad $(E_n, B_n)$ es una de ellas.
 
-    En este caso, tenemos que $F(T) = L(T) = T$, $G(T) = \frac{e^T + 1}{2}$ y $H(T) = \frac{e^T - 1}{T}$. Esto nos da que $t_n(x)$ es de Appell para $\frac{T}{e^T - 1}\frac{e^T + 1}{2}$. Además, la identidad de Appell nos da la igualdad
-    \begin{equation}\label{appell identidad euler}
-        E_n(x) = \sum_{k=0}^n \binom{n}{k} E_{n-k}(0)x^k
-    \end{equation}
-    Usando \ref{relacion appell y asociada}, se sigue que
-    \begin{align*}
-        t_n(x) =  \frac{e^T - 1}{T}\frac{2}{e^T + 1}x^n & = \frac{e^T - 1}{T} E_n(x) = \frac{e^T - 1}{T} T \frac{E_{n+1}(x)}{n+1} \\
-        & = \frac{1}{n+1} (e^T - 1)E_{n+1}(x) =  \frac{1}{n+1} (e^T + 1 - 2)E_{n+1}(x) \\
-        & = \frac{2}{n+1} (\frac{e^T + 1}{2}- 1)E_{n+1}(x) = \frac{2}{n+1}(x^{n+1} - E_{n+1}(x)) \\
-        & = \sum_{k=0}^n \binom{n+1}{k} \frac{-2}{n+1} E_{n+1-k}(0)x^k
-    \end{align*}
-    donde la penúltima igualdad se debe nuevamente a \ref{relacion appell y asociada} y la última se debe a la igualdad \eqref{appell identidad euler}. Y, por tanto, obtenemos los valores de las constantes $c_{n,k}$, que nos muestra la relación entre los polinomios $E_n(x)$ y $B_n(x)$
-    \begin{equation*}
-        E_n(x) = \sum_{k=0}^n \binom{n+1}{k} \frac{-2}{n+1} E_{n+1-k}(0)B_k(x)
-    \end{equation*}
+        En este caso, tenemos que $F(T) = L(T) = T$, $G(T) = \frac{e^T + 1}{2}$ y $H(T) = \frac{e^T - 1}{T}$. Esto nos da que $t_n(x)$ es de Appell para $\frac{T(e^T + 1)}{2(e^T - 1)}$. Además, la identidad de Appell nos da la igualdad
+        \begin{equation}\label{appell identidad euler}
+            E_n(x) = \sum_{k=0}^n \binom{n}{k} E_{n-k}(0)x^k
+        \end{equation}
+        Usando \ref{relacion appell y asociada}, se sigue que
+        \begin{align*}
+            t_n(x) =  \frac{e^T - 1}{T}\frac{2}{e^T + 1}x^n & = \frac{e^T - 1}{T} E_n(x) = \frac{e^T - 1}{T} T \frac{E_{n+1}(x)}{n+1} \\
+            & = \frac{1}{n+1} (e^T - 1)E_{n+1}(x) =  \frac{1}{n+1} (e^T + 1 - 2)E_{n+1}(x) \\
+            & = \frac{2}{n+1} (\frac{e^T + 1}{2}- 1)E_{n+1}(x) = \frac{2}{n+1}(x^{n+1} - E_{n+1}(x)) \\
+            & = \sum_{k=0}^n \binom{n+1}{k} \frac{-2}{n+1} E_{n+1-k}(0)x^k
+        \end{align*}
+        donde la penúltima igualdad se debe nuevamente a \ref{relacion appell y asociada} y la última se debe a la igualdad \eqref{appell identidad euler}. Y, por tanto, obtenemos los valores de las constantes $c_{n,k}$, que nos muestran como escribir los polinomios de Euler en función de los de Bernoulli
+        \begin{equation*}
+            E_n(x) = \sum_{k=0}^n \binom{n+1}{k} \frac{-2}{n+1} E_{n+1-k}(0)B_k(x)
+        \end{equation*}
+    \item Podemos obtener una fórmula recíproca del teorema \ref{formula explicita laguerre}, es decir, podemos expresar las potencias $x^n$ en función de los polinomios de Laguerre. Para ello, basta con tener en cuenta que $x^n \sim T$ y $L_n(x) \sim \frac{T}{T-1}$, de donde vemos que los coeficientes de la identidad $(x^n, L_n(x))$ son 
+        \begin{align*}
+            c_{n,k} = \frac{1}{k!} \langle (\frac{T}{T-1})^k | x^n \rangle & = \frac{1}{k!} \langle T^k | (-1)^k (1-T)^{-k} x^n \rangle \\
+            & = \frac{1}{k!} \langle T^k | (-1)^k (1-T)^{-k} x^n \rangle \\
+            & = \frac{(-1)^k}{k!} \langle T^k | \sum_{l=0}^\infty \binom{-k}{l} (-T)^l x^n \rangle \\
+            & = \frac{(-1)^k}{k!} \langle T^k | \sum_{l=0}^\infty \binom{k + l -1}{l} T^l x^n \rangle \\
+            & = \frac{(-1)^k}{k!} \sum_{l=0}^\infty \binom{k + l -1}{l}\langle T^{k+l} | x^n \rangle = (-1)^k \frac{n!}{k!} \binom{n-1}{k-1}
+        \end{align*}
+        donde hemos usado que $\binom{-k}{l} = (-1)^k \binom{k + l -1}{l}$. Así pues, obtenemos que las potencias $x^n$ se escriben como
+        \begin{equation*}
+            x^n = \sum_{k=0}^{n} (-1)^k L(n,k) L_k(x)
+        \end{equation*}
+    \end{enumerate}
 \end{ej}
 
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -480,53 +673,30 @@ El cálculo umbral también permite obtener ciertas fórmulas de interpolación 
             B_n[f]^{(k)}(k) = f^{(k)}(k) \quad k = 0, 1, 2, \dots, n
         \end{equation*} 
         Esto es un tipo de \textbf{interpolación de Birkhoff}.
-        \item Los polinomios $p_n(x) = x^n y_{n-1}(\frac{1}{x})$ están asociados al operador $G(T) = T - \frac{T^2}{2}$. En este caso tenemos que
+        \item Los \textit{\textbf{polinomios de Gould}} son los polinomios $p_n(x) = (\frac{x}{x - \lambda n})(\frac{x- \lambda n}{\mu})_n$ que están asociados al operador $G(T) = e^{\lambda T} (e^{\mu T} - 1) = E_{\lambda} \Delta_{\mu}$. En este caso tenemos que
+        \begin{align*}
+             G^k(T) f(x) & = (E_{\lambda} \Delta_{\mu})^k f(x) = \Delta_{\mu}^k E_{k\lambda} f(x) = \Delta_{\mu}^k f(x + k \lambda)\\
+            & \implies (G^k(T) f(x))(0) = \Delta_{\mu}^k f(k \lambda)
+        \end{align*}
+        y, por tanto, el polinomio de interpolación asociado es
         \begin{equation*}
-            G^k(T) f(x) = (1 - \frac{T}{2})^k T^k f(x) = \sum_{m=0}^k (-\frac{1}{2})^m T^m f^{(k)}(x) = \sum_{m=0}^k (-\frac{1}{2})^m f^{(m + k)}(x)
+            B_n[f](x) = \sum_{k=0}^n \frac{\Delta_{\mu}^k f(k \lambda)}{k!} (\frac{x}{x - \lambda n})(\frac{x- \lambda n}{\mu})_n 
         \end{equation*}
-        Con lo que, el polinomio de interpolación binomial será
+        el cual verificará además que
         \begin{equation*}
-            B_n[f](x) = \sum_{k=0}^n \sum_{m=0}^k (-\frac{1}{2})^m f^{(m + k)}(0) p_k(x) = \sum_{k=0}^n \sum_{m=0}^k (-\frac{1}{2})^m f^{(m + k)}(0) y_{k-1}(\frac{1}{x})x^k
+            \Delta_{\mu}^k f(k \lambda) = \Delta_{\mu}^k B_n[f](k \lambda)
         \end{equation*}
-        y este verificará que
+        En particular, si tomamos $\lambda = \mu/2$ obtenemos que los polinomios de Gould para estos valores son los \textit{\textbf{factoriales centrales}} $x^{[n]}$
         \begin{equation*}
-            \sum_{m=0}^k (-\frac{1}{2})^m B_n[f]^{(m + k)}(0) = \sum_{m=0}^k (-\frac{1}{2})^m f^{(m + k)}(0)
+            x^{[n]} = (\frac{x}{x - \frac{\mu}{2} n})(\frac{x- \frac{\mu}{2} n}{\mu})_n = x (x + \frac{n}{2} - 1)_{n-1}
+        \end{equation*}
+        los cuales nos darán el polinomio de interpolación 
+        \begin{equation*}
+            B_n[f](x) = \sum_{k=0}^n \frac{\Delta_{\mu}^k f(-\frac{k \mu}{2})}{k!} x^{[k]}
         \end{equation*}
     \end{enumerate} 
 
 \end{ej}
-
-%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%
-
-%: EC. EN DIFERENCIAS
-\section{Solución a ec. en diferencias}
-Como una última aplicación del cálculo umbral, veamos como aplicar esta teoría para deducir la solución de ciertas ecuaciones en diferencia. En concreto, damos aquí la solución de la ecuación en diferencias finitas dada por
-\begin{equation}\label{ec diferencias}
-    r(i, j) = r_(i, j-1) + r(i-1, j) + r(i-1, j-1)
-\end{equation}
-
-\begin{proposicion}
-    La solución de la ecuación en diferencias finitas \ref{ec diferencias} viene dada por
-    \begin{equation*}
-        r(i,j) = \frac{\langle (1+T)^j | s_i(x)\rangle}{i!}
-    \end{equation*} 
-    siendo $s_n(x) \sim (G(T), \frac{T}{(1+T)(2+T)})$ y donde $G(T) \in \F^*$ es una serie invertible cualquiera. 
-\end{proposicion}
-
-\begin{demo}
-    La sucesión $r(i,j)$ así definida cumplirá que
-    \begin{align*}
-        r(i, j) - r_(i, j-1) - r(i-1, j) - r(i-1, j-1)\\
-        = \frac{\langle (1+T)^{j-1} T | s_i(x)\rangle}{i!} -  \frac{\langle (1+T)^j(2+T) | s_{i-1}(x)\rangle}{(i-1)!}\\
-        = \frac{\langle (1+T)^{j-1} T | s_i(x)\rangle}{i!} -  \frac{\langle T(1+T)^{j-1}/F(T) | s_{i-1}(x)\rangle}{(i-1)!} 
-    \end{align*}
-    Y utilizando que $F(T)s_n(x) = ns_{n-1}(x)$ vemos que $s_{n-1}(x) = F(T)s_n(x)/n$, de donde llegamos al resultado.
-\end{demo}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%

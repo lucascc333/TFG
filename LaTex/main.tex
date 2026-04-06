@@ -69,8 +69,8 @@
 
 %: Redefinición de estilo de subsecciones
 \titleformat{\subsection}
-  {\normalfont\large}
-  {\thesubsection}{1em}{}
+  {\normalfont\large\bfseries}
+  {\thesubsection}{0.5em}{}
 
 %: Colores
 % Comandos para resaltar con colores
@@ -288,17 +288,9 @@
 
 \include{Algebra umbral/Algebra Umbral}
 
-%: Página vacía
-\newpage
-\hfill
-\thispagestyle{empty} % Eliminar numeración de la página
 
 \include{Sucesiones de Sheffer/Sucesiones de Sheffer}
 
-%: Página vacía
-\newpage
-\hfill
-\thispagestyle{empty} % Eliminar numeración de la página
 
 \include{Operadores en dual/Operadores en dual}
 
@@ -316,6 +308,11 @@
 
 %: Apéndices
 \include{Apéndices/Series formales}
+
+%: Página vacía
+\newpage
+\hfill
+\thispagestyle{empty} % Eliminar numeración de la página
 
 %: Bibliografía
 \include{Bibliografía}

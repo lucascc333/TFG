@@ -628,7 +628,7 @@ Una vez vistos los operadores de Sheffer, nos interesa ahora estudiar a las tras
     El lado derecho de esta igualdad se le conoce como \textbf{derivada de Pincherle}.
 \end{teorema}
 
-\begin{teorema}
+\begin{teorema}\label{recurrencia sheffer}
     \textbf{(fórmula de recurrencia para sucesiones de Sheffer)} Dado $\theta_{G,F} \in \TrasSh$, se verifica
     \begin{equation*}
         \theta_{G,F} = (M - \frac{G'(T)}{G(T)}) \circ \frac{1}{F'(T)}
@@ -641,7 +641,7 @@ Una vez vistos los operadores de Sheffer, nos interesa ahora estudiar a las tras
 
 El siguiente teorema nos proporciona dos formas operacionales y directas de calcular la sucesión asociada a una serie formal $F(T)$.
 
-\begin{teorema}
+\begin{teorema}\label{transferencia asociada}
     \textbf{(fórmulas de transferencia)}. Sea $p_n(x) \sim F(T)$. Se tiene
     \begin{enumerate}
         \item $p_n(x) = F'(T)(\frac{T}{F(T)})^{n+1} x^n$
@@ -678,7 +678,7 @@ El siguiente teorema nos proporciona dos formas operacionales y directas de calc
 Cerramos este capítulo mostrando como las fórmulas de transferencia pueden aprovecharse para obtener una fórmula con la que calcular la serie inversa, respecto a la composición, de una serie delta. Son varias las formas en las que esta fórmula puede presentarse. Damos aquí tan solo una de ellas.
 
 \begin{teorema}
-    \textbf{(fórmula de inversión de Lagrange)}. Sean $F(T) \in \F^\delta$ y $G(T) \in \F^*$. Se verifica que
+    \textbf{(fórmula de inversión de Lagrange)}. Sean $F(T) \in \F^\delta$ y $G(T) \in \F^*$. Parar todo entero $n \geq 1$ se verifica que
     \begin{equation*}
         \langle G(F^{-1}(T)) | x^n \rangle = \langle G'(T)(\frac{T}{F(T)})^{n}| x^{n-1}\rangle
     \end{equation*} 

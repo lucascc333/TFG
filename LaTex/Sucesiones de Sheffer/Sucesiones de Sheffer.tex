@@ -3,9 +3,7 @@
 %: CARACTERIZACIONES
 \section{Definición y caracterizaciones}
 
-Una vez desarrollada toda la teoría de operadores y funcionales lineales sobre el espacio de polinomios y haber establecido la conexión existente con las series formales, estamos ya en condiciones de estudiar las sucesiones de polinomios. En lo que sigue, y aunque no lo digamos explícitamente, las sucesiones de polinomios $\{ p_n(x) \}_{n \geq 0}$ serán tan solo aquellas tales que $\gr(p_n) = n$, para todo $n$.
-
-Las sucesiones de polinomios que nos interesan son \textit{las sucesiones de Sheffer}. En grandes términos, las sucesiones de Sheffer son un tipo de sucesiones de polinomios que se comportan de una ``forma similar'', respecto a dos series formales concretas, a como lo hacen los polinomios $x^n$ respecto a la serie formal $T$. El teorema más importante en lo que a estas respecta y que pone de manifiesto este hecho es el siguiente.
+Nos centraremos ahora en el estudio de las sucesiones de polinomios. En concreto, y aunque no lo digamos explícitamente, las sucesiones de polinomios $\{ p_n(x) \}_{n \geq 0}$ de las que hablaremos serán tan solo aquellas tales que $\gr(p_n) = n$, para todo $n$. Dentro de estas, las sucesiones de polinomios que nos interesan son \textit{las sucesiones de Sheffer}. En grandes términos, las sucesiones de Sheffer son un tipo de sucesiones de polinomios que se comportan de una ``forma similar'', respecto a dos series formales concretas, a como lo hacen los polinomios $x^n$ respecto a la serie formal $T$. El teorema más importante en lo que a estas respecta y que pone de manifiesto este hecho es el siguiente.
 
 \begin{teorema}
     \textbf{(de existencia de sucesiones de Sheffer)}. Sea $F(T) \in \F^{\delta}$ una serie delta y $G(T) \in \F^*$ una serie invertible. Existe una única sucesion de polinomios $s_n(x)$ con $\gr(s_n) = n$ tal que
@@ -92,7 +90,7 @@ Recordamos que, en el caso del ejemplo anterior, donde $F(T) = T$ y $p_n(x) = x^
     G(T) & = \sum_{k = 0}^\infty \frac{\langle F(T)| p_k(x)\rangle}{k!} F^k(T)\\
     p(x) & = \sum_{k \geq 0} \frac{\langle F^k(T) | p(x) \rangle}{k!}p_k(x)
 \end{align*}
-para toda $G(T) \in \F$ y todo $p(x) \in \poly$. Esta observación nos permite enunciar y probar los dos siguientes teoremas clave, generalizaciones de estos hechos y muestras, una vez más, de la relación con $p_n(x) = x^n$ existente para las sucesiones de Sheffer.
+para toda $G(T) \in \F$ y todo $p(x) \in \poly$. Esta observación nos permite enunciar y probar los dos siguientes teoremas clave, generalizaciones de estos hechos y muestras, una vez más, de la relación con $p_n(x) = x^n$.
 
 \begin{teorema} \label{teorema de expansion}
     \textbf{(de expansión)}. Sea $s_n(x) \sim (G(T), F(T))$. Entonces, para toda serie formal $H(T) \in \F$
@@ -100,17 +98,14 @@ para toda $G(T) \in \F$ y todo $p(x) \in \poly$. Esta observación nos permite e
         H(T) = \sum_{k = 0}^\infty \frac{\langle H(T)| s_k(x)\rangle}{k!}G(T)F^k(T)
     \end{equation*}
 
-    En particular:
-    \begin{itemize}
-        \item Si $p_n(x)$ está asociada a $F(T)$, entonces para toda $H(T) \in \F$
+    En particular, si $p_n(x)$ está asociada a $F(T)$, entonces para toda $H(T) \in \F$
         \begin{equation*}
             H(T) = \sum_{k = 0}^\infty \frac{\langle H(T)| p_k(x)\rangle}{k!}F^k(T)
         \end{equation*}
-        \item Si $s_n(x)$ es la sucesión de Appell asociada a $G(T)$, entonces para toda $H(T) \in \F$
+    Análogamente, si $s_n(x)$ es la sucesión de Appell asociada a $G(T)$, entonces para toda $H(T) \in \F$
         \begin{equation*}
             H(T) = \sum_{k = 0}^\infty \frac{\langle H(T)| s_k(x)\rangle}{k!}G(T)T^k
         \end{equation*}
-    \end{itemize}
 \end{teorema}
 
 \begin{demo}
@@ -128,17 +123,14 @@ para toda $G(T) \in \F$ y todo $p(x) \in \poly$. Esta observación nos permite e
         p(x) = \sum_{k \geq 0} \frac{\langle G(T)F^k(T) | p(x) \rangle}{k!}s_k(x)
     \end{equation*}
 
-    En particular:
-    \begin{itemize}
-        \item Si $p_n(x)$ está asociada a $F(T)$, entonces para todo $p(x) \in \poly$
+    En particular, si $p_n(x)$ está asociada a $F(T)$, entonces para todo $p(x) \in \poly$
         \begin{equation*}
             p(x) = \sum_{k \geq 0} \frac{\langle F^k(T) | p(x) \rangle}{k!}p_k(x)
         \end{equation*}
-        \item Si $s_n(x)$ es la sucesión de Appell asociada a $G(T)$, entonces para todo $p(x) \in \poly$
+    Análogamente, si $s_n(x)$ es la sucesión de Appell asociada a $G(T)$, entonces para todo $p(x) \in \poly$
         \begin{equation*}
             p(x) = \sum_{k \geq 0} \frac{\langle G(T) | p^{(k)}(x) \rangle}{k!}s_k(x)
         \end{equation*}
-    \end{itemize}
 \end{teorema}
 
 \begin{demo}
@@ -324,14 +316,13 @@ Como esto es válido para cualquier $\xi$, se concluye.
 \end{definicion}
 
 \begin{obs}
-    \begin{itemize}
-        \item Con esta definición, el corolario anterior muestra que $p_n(x)$ es una sucesión asociada si y solo si es de tipo binomial.
-        \item Tomando $y=0$, la identidad de Sheffer proporciona
-        \begin{equation*}
-            s_n(x) = \sum_{k=0}^n \binom{n}{k} s_{n-k} (0)p_k(x)
-        \end{equation*}
-        De esta forma, vemos que una sucesión de Sheffer está completamente determinada por las constantes $s_n(0)$. 
-    \end{itemize}
+    Con esta definición, el corolario anterior muestra que $p_n(x)$ es una sucesión asociada si y solo si es de tipo binomial.
+    
+    Por otro lado, tomando $y=0$, la identidad de Sheffer proporciona
+    \begin{equation*}
+        s_n(x) = \sum_{k=0}^n \binom{n}{k} s_{n-k} (0)p_k(x)
+    \end{equation*}
+    De esta forma, vemos que una sucesión de Sheffer está completamente determinada por las constantes $s_n(0)$. 
 \end{obs}
 %%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%
