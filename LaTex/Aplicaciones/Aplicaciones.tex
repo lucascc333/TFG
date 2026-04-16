@@ -96,9 +96,16 @@ Con esta definición, la caracterización \ref{caracterizacion diferencial} y el
 \begin{demo}
     Utilizando \ref{recurrencia bernoulli} y \ref{polinomio bernoulli operador sobre x^n} obtenemos el resultado pues
     \begin{equation*}
-        B_n^{(r)}(x+1) - B_n^{(r)}(x) = \Delta B_n^{(r)}(x) = \Delta \frac{T}{\Delta}^r x^n = \frac{T}{\Delta}^{r-1} T x^n = nB_{n-1}^{(r-1)}(x)
+        B_n^{(r)}(x+1) - B_n^{(r)}(x) = \Delta B_n^{(r)}(x) = \Delta (\frac{T}{\Delta})^r x^n = (\frac{T}{\Delta})^{r-1} T x^n = nB_{n-1}^{(r-1)}(x)
     \end{equation*}
 \end{demo}
+
+\begin{corolario} \label{simetria bernoulli}
+    Los polinomios de Bernoulli verifican la simetría
+    \begin{equation*}
+        B_n(1) = B_n
+    \end{equation*}
+\end{corolario}
 
 \begin{corolario}
     Se tiene la igualdad
@@ -111,7 +118,7 @@ Con esta definición, la caracterización \ref{caracterizacion diferencial} y el
 \begin{demo}
     La proposoicón anterior nos lo da, ya que
     \begin{equation*}
-        \sum_{k=0}^n k^p = \sum_{k=0} (\frac{B_{p+1}(k+1) - B_{p+1}(k)}{p+1}) = \frac{B_{p+1}(n+1) - B_{p+1}}{p+1}
+        \sum_{k=0}^n k^p = \sum_{k=0} \frac{B_{p+1}(k+1) - B_{p+1}(k)}{p+1} = \frac{B_{p+1}(n+1) - B_{p+1}}{p+1}
     \end{equation*}
 \end{demo}
 
@@ -209,7 +216,7 @@ A partir de aquí obtenemos por recurrencia tanto los valores de los números de
     \item $3B_2 + 3B_1 + B_0 = 0 \implies B_2 = \frac{1}{6}$ y $B_2(x) = B_2 + 2B_1 x + B_0 x^2 \implies B_2(x) = \frac{1}{6} - x + x^2$
     \item $4B_3 + 6B_2 + 4B_1 + B_0 = 0 \implies B_3 = 0$ y $B_3(x) = B_3 + 3B_2 x + 3B_1 x^2 + B_0x^3 \implies B_3(x) = \frac{1}{2}x - \frac{3}{2}x^2 + x^3$
 \end{itemize}
-Que $B_3 = 0$ no es ninguna casualidad. Si uno continua calculando los números de Bernoulli, observará que todos los números en valores impares (salvo para $n=1$) se anulan. Esto es consecuencia del siguiente resultado.
+Que $B_3 = 0$ no es ninguna casualidad. Si uno continúa calculando los números de Bernoulli, observará que todos los números en valores impares (salvo para $n=1$) se anulan. Esto es consecuencia del siguiente resultado.
 
 \begin{teorema}
     \textbf{(fórmula del argumento complementario)}. Los polinomios de Bernoulli de orden $r$ verifican que 
@@ -225,7 +232,7 @@ Que $B_3 = 0$ no es ninguna casualidad. Si uno continua calculando los números 
     \end{equation*}
     con lo que $B_n^{(r)}(-x) \sim ((\frac{e^{-T} - 1}{-T})^r, -T)$. Ya que $(-x)^n \sim (-T)$, la proposición \ref{relacion sheffer y asociada} nos da
     \begin{align*}
-        B_n^{(r)}(-x) = (\frac{-T}{e^{-T} - 1})^r (-x^n) & = e^{r T} (\frac{T}{1 - e^T})^r (-x^n) \\
+        B_n^{(r)}(-x) = (\frac{-T}{e^{-T} - 1})^r (-x^n) & = e^{r T} (\frac{T}{e^T - 1})^r (-x^n) \\
         & = (-1)^n E_r(T) B_n^{(r)}(x) = (-1)^n B_n^{(r)}(x + r)
     \end{align*}
     que era lo que queríamos ver.
@@ -236,19 +243,11 @@ Que $B_3 = 0$ no es ninguna casualidad. Si uno continua calculando los números 
 \end{corolario}
 
 \begin{demo}
-    Por el teorema anterior, tomando $r=1$ y $x=0$ obtenemos que
+    Por el teorema anterior, tomando $r=1$ y $x=0$, y por la relación de simetria \ref{simetria bernoulli}, obtenemos que
     \begin{equation*}
-        B_n(1) = (-1)^n B_n
+        B_n = (-1)^n B_n(1) = (-1)^n B_n
     \end{equation*}
-    Usando ahora \eqref{polinomios bernoulli funcion numeros bernoulli}, vemos que
-    \begin{equation*}
-        \sum_{k=0}^n \binom{n}{k} B_{n-k} = (-1)^n B_n \implies \sum_{k=1}^n \binom{n}{k} B_{n-k}= ((-1)^n - 1) B_n
-    \end{equation*}
-    Con lo que si $n = 2m + 1$, llegamos a que
-    \begin{equation*}
-        \sum_{k=1}^{2m+1} \binom{2m+1}{k} B_{2m + 1 -k}= -2 B_{2m + 1}
-    \end{equation*}
-    y utilizando \ref{recurrencia suma bernoulli} obtenemos el resultado.
+    de donde se sigue el resultado.
 \end{demo}
 
 \begin{corolario}

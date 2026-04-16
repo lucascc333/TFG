@@ -7,16 +7,11 @@ Antes de comenzar, hemos tanto como aclarar parte de la notación como fijar las
     \item Utilizaremos $\poly$ para referirnos a la $\field$-álgebra de polinomios (con la estructura de álgebra usual) en una variable, es decir, $\field[x]$.
     \item $\gr(p)$ simbolizará el grado del polinomio $p(x)$ y $p'(x)$ simbolizará la derivada, en el sentido usual, del polinomio $p(x)$. En el caso de las derivadas sucesivas, estas se escribirán como $p^{(k)}(x)$.
     \item $\delta_{n,k}$ será la delta de Dirac, es decir
-    \begin{equation*}
-        \delta_{n,k} (x) = \begin{dcases}
+        $\delta_{n,k} (x) = \begin{dcases}
             1 & k=n\\
             0 & k \neq n
-        \end{dcases}
-    \end{equation*}
-    \item $(x)_n$ simbolizará al factorial descendente. Esto es
-    \begin{equation*}
-        (x)_n = x(x-1) \dots (x-n+1)
-    \end{equation*}
+        \end{dcases} $
+    \item $(x)_n$ simbolizará al factorial descendente. Esto es: $(x)_n = x(x-1) \cdots (x-n+1)$
 \end{itemize}
 
 %: EL ÁLGEBRA UMBRAL
@@ -25,12 +20,7 @@ Antes de comenzar, hemos tanto como aclarar parte de la notación como fijar las
     Dado un espacio vectorial $V$, llamaremos \textbf{funcional lineal} a todo elemento $L \in V^*$, donde $V^*$ es el espacio dual de $V$.
 \end{definicion}
 
-Tal y como indica el título de la sección, nos centraremos en el estudio de los funcionales lineales sobre el espacio de polinomios $\poly$; es decir, las aplicaciones lineales $L$
-\begin{align*}
-    L &\colon \poly \longrightarrow \field\\
-     & p(x) \mapsto \langle L | p(x) \rangle
-\end{align*}
-
+Tal y como indica el título de la sección, nos centraremos en el estudio de los funcionales lineales sobre el espacio de polinomios $\poly$; es decir, las aplicaciones $L \colon \poly \longrightarrow \field$ tales que $\langle L | p(x) + \lambda q(x) \rangle = \langle L | p(x) \rangle + \lambda \langle L | q(x) \rangle$, para todo $p(x), q(x) \in \poly$ y $\lambda \in \field$.
 Nótese que hemos fijado la notación $\langle L | p(x) \rangle$ para simbolizar la acción de $L$ sobre $p(x)$, típica de la física. Más tarde se aclarará el motivo de esta elección. 
 
 \begin{obs}
@@ -78,30 +68,16 @@ Recíprocamente, si consideramos un funcional $L \in \poly^*$, este define la se
 \end{equation}
 Esta correspondencia entre funcionales y series formales es la que nos permite formular y demostrar el siguiente teorema, base de todo el cálculo umbral.
 
-\begin{teorema} \textbf{(isomorfismo umbral)} La aplicación $\phi$ definida como
+\begin{teorema} \textbf{(isomorfismo umbral)} La aplicación $\phi \colon  \poly^* \xrightarrow{\sim} \F$ definida por
     \begin{align*}
-        \phi \colon & \poly^* \xrightarrow{\sim} \F\\
-        & L \mapsto F_L(T) = \sum_{k=0}^\infty \frac{ \langle L | x^k \rangle}{k!} T^k \\
-        & \omega_F \mapsfrom F(T) = \sum_{k=0}^\infty a_k T^k
+        L \mapsto \phi (L) = F_L(T) = \sum_{k=0}^\infty \frac{ \langle L | x^k \rangle}{k!} T^k \quad \text{y} \quad \omega_F = \phi^{-1}(F(T)) \mapsfrom F(T) = \sum_{k=0}^\infty a_k T^k
     \end{align*}
     donde el funcional $\omega_F$ viene dado por $\langle \omega_F | x^n \rangle = n! \cdot a_n$, es un isomorfismo lineal. A este morfismo $\phi$ lo llamaremos el \textbf{isomorfismo canónico umbral} (abreviadamente, i.c.u).
 \end{teorema}
 \begin{demo}
-    Veamos primero que es biyectiva.
-        \begin{equation*}
-            F(T) \longrightarrow \omega_F \longrightarrow F_{\omega_F}(T) = F(T)
-        \end{equation*}
-        puesto que $\langle \omega_F | x^n \rangle = n! \cdot a_n$
-        \begin{equation*}
-            L \longrightarrow F_L(T) \longrightarrow \omega_{F_L} = L
-        \end{equation*}
-        ya que, por \ref{spanning argument}, $L = \omega_{F_L} \iff \langle L | x^n \rangle = \langle \omega_{F_L} | x^n \rangle$, lo cual es cierto.
-        
-        La linealidad es inmediata pues
-        \begin{align*}
-            \phi (L+cM) & = F_{L+M} (T) = \sum_{n=0} ^\infty \frac{\langle L + cM | p(x) \rangle}{n!}T^n \\
-            & = \sum_{n=0} ^\infty \frac{\langle L | p(x) \rangle}{n!}T^n + c\sum_{n=0} ^\infty \frac{\langle M | p(x) \rangle}{n!}T^n \\ &= F_L(T) + c\cdot F_M(T) = \phi (L) + c \cdot \phi (M)
-        \end{align*}
+    Veamos primero que es biyectiva, para lo que hemos de comprobar que $\phi^{-1}$ es la del enunciado. Por un lado,  $F(T) \longrightarrow \omega_F \longrightarrow F_{\omega_F}(T)$ y $F_{\omega_F}(T) = F(T)$ puesto que $\langle \omega_F | x^n \rangle = n! \cdot a_n$. Mientras que por otro lado, $L \longrightarrow F_L(T) \longrightarrow \omega_{F_L}$ y $\omega_{F_L} = L$ ya que, por \ref{spanning argument}, $L = \omega_{F_L} \iff \langle L | x^n \rangle = \langle \omega_{F_L} | x^n \rangle$, lo cual es cierto. Queda así probado que $\phi \circ \phi^{-1} = \phi^{-1} \circ \phi = I$. 
+
+    La linealidad es inmediata pues es consecuencia de la linealidad en el primer factor de $\langle \quad | \quad \rangle$; es decir, $\langle L + \lambda M | p(x) \rangle = \langle L | p(x) \rangle + \lambda \langle M | p(x) \rangle $.
 \end{demo}
 
 Una vez probado que $\phi$ es un isomorfismo lineal entre el espacio de funcionales $\poly^*$ y el espacio de series formales $\F$, es natural que a uno le surja ahora la siguiente pregunta: ¿es, además, un isomorfismo de álgebras? La respuesta es que, con la estructura usual de $\field$-álgebra de $\poly^*$, no tiene por qué serlo. Es fácil comprobar esto, ya que
@@ -115,9 +91,9 @@ y es evidente que, en lo general
 Ahora bien, también es cierto que este isomorfismo induce una estructura de $\field$-álgebra en $\poly^*$ distinta de la que en un principio teníamos y para la cual $\phi$ sí será un isomorfismo de álgebras de forma evidente. Esta es la que llamaremos \textit{álgebra umbral}.
 
 \begin{definicion}
-    Llamaremos \textbf{álgebra umbral} al espacio vectorial $\poly^*$ dotado de la estructura de $\field$-álgebra definida por:
+    Llamaremos \textbf{álgebra umbral} al espacio vectorial $\poly^*$ dotado de la estructura de $\field$-álgebra inducida por $\phi$, es decir, aquella definida por
     \begin{equation}\label{producto funcionales}
-        \langle LM | x^n \rangle = \sum_{k=0}^n\binom{n}{k}\langle L | x^k \rangle \langle M | x^{n-k} \rangle
+        \langle L \cdot M | x^n \rangle = \sum_{k=0}^n\binom{n}{k}\langle L | x^k \rangle \langle M | x^{n-k} \rangle \quad \forall L, M \in \poly^*
     \end{equation}
 \end{definicion}
 Es una mera comprobación ver que, en efecto, esto nos da una estructura de $\field$-álgebra y en forma de resumen de lo dicho hasta ahora, llegamos al siguiente resultado.
@@ -160,41 +136,29 @@ El espacio de funcionales también puede tener una estructura de espacio topoló
 \begin{demo}
     Ambos hechos son consecuencias inmediatas de la definición dada de convergencia para funcionales. Para ver que es un álgebra topológica basta con probar que tanto la suma como el producto de operadores son aplicaciones continuas, ya que, por la definición del producto de operadores, esto implicaría también que el producto por escalares es continuo. 
     
-    Consideramos entonces sucesiones de operadores $L_n$ y $M_n$ que convergan a ciertos operadores $L$ y $M$, respectivamente; es decir, ambas sucesiones se estabilizan para un $n$ lo suficientemente grande. Por tanto, tendremos que
+    Consideramos entonces sucesiones de operadores $L_n$ y $M_n$ que convergan a ciertos operadores $L$ y $M$, respectivamente; es decir, para todo natural $m$, existe $n_0$ tal que si $n \geq n_0$, entonces $\langle L_n | x^m \rangle = \langle L | x^m \rangle$ y $\langle M_n | x^m \rangle = \langle M | x^m \rangle$. Por tanto, tendremos que
     \begin{align*}
         \langle L_n + M_n | x^m \rangle & = \langle L_n | x^m \rangle + \langle M_n | x^m \rangle  = \langle L | x^m \rangle + \langle M | x^m \rangle = \langle L + M | x^m \rangle  \\
         \langle L_n \cdot M_n | x^m \rangle & = \sum_{k=0}^m \binom{m}{k}\langle L_n | x^k \rangle \langle M_n | x^{m-k} \rangle = \sum_{k=0}^m \binom{m}{k}\langle L | x^k \rangle \langle M | x^{m-k} \rangle = \langle L \cdot M | x^m \rangle
     \end{align*}
     para un $n$ suficientemente grande y para todo $m \geq 0$. Generalizando esto por linealidad a un polinomio $p(x) \in \poly$ cualquiera, obtenemos que $L_n + M_n$ converge a $L + M$ y $L_n \cdot M_n$ converge a $L \cdot M$, con lo que se concluye.
 
-    Queda ver que es completa. Sea $\{L_n\}_{n}$ una sucesión de Cauchy en $\poly^*$; es decir, dado polinomio $p(x) \in \poly^*$ existe un $n_0$ tal que si $n, m \geq n_0$ entonces $\langle L_n | p(x) \rangle = \langle L_m | p(x) \rangle $. En particular, para el operador $L$ definido por $\langle L | p(x) \rangle \equiv \langle L_{n_0} | p(x) \rangle $, tenemos que
-    \begin{equation*}
-       \langle L_n | p(x) \rangle = \langle L_{n_0} | p(x) \rangle = \langle L | p(x) \rangle
-    \end{equation*}
-    Luego, $L_n \longrightarrow L$ y queda así probado que el espacio es completo.
+    Queda ver que es completa. Sea $\{L_n\}_{n}$ una sucesión de Cauchy en $\poly^*$; es decir, dado polinomio $p(x) \in \poly^*$ existe un $n_0$ tal que si $n, m \geq n_0$ entonces $\langle L_n | p(x) \rangle = \langle L_m | p(x) \rangle $. En particular, para el operador $L$ definido por $\langle L | p(x) \rangle \equiv \langle L_{n_0} | p(x) \rangle $, tenemos que $\langle L_n | p(x) \rangle = \langle L_{n_0} | p(x) \rangle = \langle L | p(x) \rangle$. Luego, $L_n \longrightarrow L$ y queda así probado que el espacio es completo.
 \end{demo}
 
 \begin{proposicion}
     Con la topología de estabilización de $\poly^*$ y la topología formal, el i.c.u es un homeomorfismo.
 \end{proposicion}
 
-\begin{demo}
+\begin{demo} Hemos de ver que $\phi$ y $\phi^{-1}$ son ambas continuas.
     \begin{itemize}
-        \item \textit{$\phi$ es continua:} Sea $\{L_n\}_{n}$ sucesión de funcionales tal que converja a un funcional $L$. Esto es, dado $p(x) \in \poly$ existe un $n_0$ tal que si $n \geq n_0$ entonces $\langle L_n | p(x) \rangle = \langle L | p(x) \rangle$. Por otro lado, tenemos que
-        \begin{equation*}
-            \phi(L_n) = F_{L_n}(T) = \sum_{k\geq0} \frac{\langle L_n | x^k \rangle}{k!}T^k \quad \phi(L) = F_{L}(T) = \sum_{k\geq0} \frac{\langle L | x^k \rangle}{k!}T^k
-        \end{equation*}
-        Luego, $[F_{L_n}]_k = [F_L]_k$ para un $n$ lo suficientemente grande y para todo $k \geq 0$. Esto no es más que la convergencia de $F_{L_n}$ a $F_L$ en la topología formal y, por tanto, $\phi$ es continua.
-        \item \textit{$\phi^{-1}$ es continua:} De forma similar, sea $\{F_n(T)\}_{n}$ sucesión de series formales tal que converja a una serie formal $F(T)$, siendo
+        \item \textit{$\phi$ es continua:} Sea $\{L_n\}_{n}$ sucesión de funcionales tal que converja a un funcional $L$. Esto es, dado $p(x) \in \poly$ existe un $n_0$ tal que si $n \geq n_0$ entonces $\langle L_n | p(x) \rangle = \langle L | p(x) \rangle$. Así pues, de la definición de $F(L_n)$ y $F(L)$, vemos que sus términos $k-$ésimos coinciden para un $n$ lo suficientemente grande y para todo $k \geq 0$. Luego, $F_{L_n}$ converge a $F_L$ en la topología formal y, en consecuencia, $\phi$ es continua.
+        \item \textit{$\phi^{-1}$ es continua:} De forma similar, sea $\{F_n(T)\}_{n}$ sucesión de series formales tal que converja a una serie formal $F(T)$, siendo estas series las dadas por $F_n(T) = \sum_{k\geq 0} \frac{a_{n, k}}{k!}T^k$ y $F(T) = \sum_{k\geq 0} \frac{a_{k}}{k!}T^k $. Es decir, existe un natural $n_0$ tal que $a_{n,k} = a_k$ siempre que $n \geq n_0$. Luego, por la definición de la aplicación $\phi^{-1}$, obtenemos que
     \begin{equation*}
-        F_n(T) = \sum_{k\geq 0} \frac{a_{n, k}}{k!}T^K \quad F(T) = \sum_{k\geq 0} \frac{a_{k}}{k!}T^K 
+        \langle \phi^{-1}(F_n(T)) | x^m \rangle = \langle \omega_{F_n} | x^m \rangle = m! \cdot a_{n,m} = m! \cdot a_m = \langle \phi^{-1}(F(T)) | x^m \rangle
     \end{equation*}
-    Por tanto, existe un natural $n_0$ tal que $a_{n,k} = a_k$ siempre que $n \geq n_0$. Luego, por la definición de la aplicación $\phi^{-1}$, obtenemos que
-    \begin{equation*}
-        \langle \phi^{-1}(F_n(T)) | x^m \rangle = \langle \omega_{F_n} | x^m \rangle = m!a_{n,m} = m! a_m = \langle \phi^{-1}(F(T)) | x^m \rangle
-    \end{equation*}
-    para $n \geq n_0$ y para todo $m \geq 0$. Luego, por la linealidad, se ve que $\langle \phi^{-1}(F_n(T)) | p(x) \rangle = \langle \phi^{-1}(F(T)) | p(x) \rangle$ para todo polinomio $p(x)$ y para un $n$ lo suficientemente grande. Con lo que $\phi^{-1}(F_n(T)) \longrightarrow \phi^{-1}(F(T))$ y, por tanto, $\phi^{-1}$ es continua.
-    \end{itemize}
+    para $n \geq n_0$ y para todo $m \geq 0$. Luego, por la linealidad, se ve que, para un $n$ suficientemente grande, $\phi^{-1}(F_n(T))$ y $\phi^{-1}(F(T))$ coinciden al aplicarla sobre cualquier polinomio $p(x)$. Luego, $\phi^{-1}(F_n(T)) \longrightarrow \phi^{-1}(F(T))$ y, por tanto, $\phi^{-1}$ es continua. \qedhere 
+    \end{itemize} 
 \end{demo}
 
 \begin{teorema}\label{topologia formal equivalente a topologia de estabilizacion}
@@ -231,9 +195,7 @@ De esta forma, podemos pensar cada serie formal $F(T)$ como el funcional $\omega
     \begin{equation}\label{funcional evaluacion}
         \langle e^{\lambda T} | p(x) \rangle = p(\lambda)
     \end{equation}
-    Siguiendo la notación formal, simbolizaremos a esta serie por $E_\lambda (T) \equiv e^{\lambda T}$ y en caso de que $\lambda = 0$, se dice que $E_0$ es el \textbf{funcional aumento}. 
-    
-    Dicho esto, la proposición \ref{identidad algebra umbral} se puede reformular diciendo que el funcional aumento $E_0$ es la identidad para el producto del álgebra umbral.
+    Siguiendo la notación formal, simbolizaremos a esta serie por $E_\lambda (T) \equiv e^{\lambda T}$ y en caso de que $\lambda = 0$, se dice que $E_0$ es el \textbf{funcional aumento}. Con esta notación, la proposición \ref{identidad algebra umbral} se puede reformular diciendo que el funcional aumento $E_0$ es la identidad para el producto del álgebra umbral.
     \item El \textbf{funcional diferencia} $e^{ \lambda T} -1$ está dado por
     \begin{equation}\label{funcional diferencia}
         \langle e^{\lambda T}-1 | p(x) \rangle = p(\lambda)-p(0)
@@ -264,29 +226,26 @@ Mostramos aquí las propiedades fundamentales de los funcionales lineales sobre 
 A partir de las definiciones dadas y de las igualdades \ref{funcional derivada} y \ref{omegaF} se obtiene un análogo del teorema de Taylor clásico para las series formales (o funcionales), así como una reescritura del mismo en términos de los funcionales $T^n$.
 
 \begin{proposicion}\label{taylor analogo}
-    Sea $F(T) \in \F$ y $p(x) \in \poly$. Entonces:
+    Sean $F(T) \in \F$ y $p(x) \in \poly$. Se tiene que
     \begin{enumerate}
         \item $\begin{aligned}[t]
-            F(T) = \sum_{n \geq 0} \frac{ \langle F(T) | x^n \rangle}{n!}T^n \quad \text{\textbf{(desarrollo de Taylor para funcionales)}}
+            F(T) = \sum_{k \geq 0} \frac{ \langle F(T) | x^k \rangle}{k!}T^k \quad \text{\textbf{(desarrollo de Taylor para funcionales)}}
         \end{aligned}$ 
         \item $\begin{aligned}
-            p(x) = \sum_{n \geq 0} \frac{ \langle T^n| p(x) \rangle}{n!}x^n \quad \text{\textbf{(desarrollo de Taylor clásico)}}
+            p(x) = \sum_{k \geq 0} \frac{ \langle T^k| p(x) \rangle}{k!}x^k \quad \text{\textbf{(desarrollo de Taylor clásico)}}
         \end{aligned}$
     \end{enumerate}
 \end{proposicion}
 
 \begin{proposicion} \label{orden mayor que grado}
-    Sean $F(T) \in \F$ y $p(x) \in \poly$. Si $\ord(F(T)) > \gr(p(x))$, entonces $\langle F(T)| p(x) \rangle = 0$
+    Sean $F(T) \in \F$ y $p(x) \in \poly$. Si $\ord(F) > \gr(p)$, entonces se verifica que $\langle F(T)| p(x) \rangle = 0$
 \end{proposicion}
 \begin{demo}
-    Esto es consecuencia de la definición \ref{omegaF}, pues \begin{equation*}
-    \langle F(T)| x^n\rangle = n! [F]_n \implies \langle F(T)| p(x)\rangle = \sum_{n}n![F]_n[p]_n 
-    \end{equation*}
-    y como $\ord(F(T)) > \gr(p(x))$, o bien $[F]_n = 0$ o bien $[p]_n = 0$.   
+    Esto es consecuencia de la definición \ref{omegaF}, pues si $F(T) = \sum_{k \geq 0} a_k T^k$ y $p(x) = \sum_{k=0}^m b_k x^k$ entonces $\langle F(T)| x^n\rangle = n! \cdot a_n$, con lo que $\langle F(T)| p(x)\rangle = \sum_{k \geq 0} k! \cdot a_k \cdot b_k$ y como $\ord(F) > \gr(p)$, o bien $a_k = 0$ o bien $b_k = 0$.   
 \end{demo}
 
 \begin{proposicion}\label{producto escalares}
-    Sea $F(T) \in \F$, $p(x) \in \poly^*$ y $\lambda \in \field$ cualesquiera. Se verifica que
+    Sean $F(T) \in \F$, $p(x) \in \poly^*$ y $\lambda \in \field$ cualesquiera. Se verifica que
     \begin{equation*}
         \langle F(T)| p(\lambda x)\rangle = \langle F(\lambda T) | p(x)\rangle
     \end{equation*}
@@ -296,36 +255,31 @@ A partir de las definiciones dadas y de las igualdades \ref{funcional derivada} 
     \begin{equation*}
         \langle T^n| (\lambda x)^k \rangle = \lambda^k n! \delta_{n,k} = \lambda^n n! \delta_{n,k} = \langle (\lambda T)^n| x^k\rangle
     \end{equation*}
-    Para un polinomio genérico $p(x)$, por la proposición anterior y la linealidad, escribiendo $m = \gr(p)$ se verifica que
+    Para un polinomio genérico $p(x) = \sum_{k=0}^m b_k x^k$, siendo $m = \gr(p)$, por la proposición anterior y la linealidad, se verifica que
     \begin{equation*}
-        \langle F(T) | p(\lambda x) \rangle = \sum_{k=0}^m \sum_{n=0}^m [p]_k[F]_k \langle T^n| (\lambda x)^k\rangle = \sum_{k=0}^m \sum_{n=0}^m [p]_k[F]_k \langle (\lambda T)^n| x^k\rangle = \langle F(\lambda T) | p(x)\rangle
+        \langle F(T) | p(\lambda x) \rangle = \sum_{k=0}^m \sum_{n=0}^m b_k a_k \langle T^n| (\lambda x)^k\rangle = \sum_{k=0}^m \sum_{n=0}^m b_k a_k \langle (\lambda T)^n| x^k\rangle = \langle F(\lambda T) | p(x)\rangle \qedhere
     \end{equation*}
 \end{demo}
 \begin{proposicion}
-    Sea $\{ F_k(T) \}_{k\geq0}$ sucesión de series formales tal que $\ord(F_k) \rightarrow \infty$ cuando $k\rightarrow \infty$. Entonces $\sum_{k}a_kF_k(T)$ converge en la topología formal y además se verifica que
+    Sea $\{ F_k(T) \}_{k\geq0}$ sucesión de series formales tal que $\ord(F_k) \rightarrow \infty$ cuando $k\rightarrow \infty$. Entonces, $\sum_{k}a_kF_k(T)$ converge en la topología formal y además se verifica que
     \begin{equation*}
-        \langle \sum_k a_kF_k(T)| p(x)\rangle =  \sum_k a_k\langle F_k(T)| p(x)\rangle
+        \langle \sum_{k=0}^\infty a_kF_k(T)| p(x)\rangle =  \sum_{k=0}^\infty a_k\langle F_k(T)| p(x)\rangle
     \end{equation*}
-    para todo $p(x) \in \poly$. En particular, se cumple cuando $\ord(F_k(T)) = k$
+    para todo $p(x) \in \poly$. En particular, se cumple cuando $\ord(F_k) = k$
 \end{proposicion}
 \begin{demo}
 Sea $m$ tal que $\ord(F_k) > \gr(p)$ para todo $k > m$. De nuevo, por la proposición \ref{orden mayor que grado} tenemos que
     \begin{align*}
         \langle \sum_{k=0}^\infty a_kF_k(T) | p(x) \rangle & = \langle \sum_{k \leq m} a_kF_k(T) + \sum_{k > m} a_kF_k(T)| p(x) \rangle \\& = \langle \sum_{k \leq m} a_kF_k(T)| p(x) \rangle = \sum_{k \leq m} a_k\langle F_k(T)| p(x)\rangle = \sum_{k=0}^\infty a_k\langle F_k(T)| p(x)\rangle
     \end{align*}
-    donde la segunda suma es finita ya que $\langle F_k(x) | p(x) \rangle = 0$ para todo $k > m$.
+    donde la última suma es finita ya que $\langle F_k(T) | p(x) \rangle = 0$ para todo $k > m$.
 \end{demo}
 
 \begin{proposicion}\label{inyectividad sucesion F_k}
-    Sea $\{ F_k(T) \}_{k\geq0}$ sucesión de series formales tal que $\ord(F_k(T)) = k$. Entonces la aplicación
-    \begin{align*}
-        \langle F(T) \rangle \colon & \poly \longrightarrow \field^\infty\\
-        &p(x) \mapsto \{ \langle F_k(T) | p(x) \rangle \}_{k \geq 0}
-    \end{align*}
-    que asocia a cada polinomio la sucesión $\{ \langle F_k(T) | p(x) \rangle \}_{k \geq 0}$, es inyectiva.
+    Sea $\{ F_k(T) \}_{k\geq0}$ sucesión de series formales tal que $\ord(F_k) = k$. En ese caso, la aplicación $\langle F(T) \rangle \colon \poly \longrightarrow \field^\infty$ dada por $p(x) \mapsto \{ \langle F_k(T) | p(x) \rangle \}_{k \geq 0}$ es inyectiva.
 \end{proposicion}
 \begin{demo}
-    Ya que $\ord(F_k(T)) = k$, sabemos que las series formales $F_k(T)$ forman una pseudobase de $\F$. En particular, existen $a_{n,k} \in \field$ tales que $T^n = \sum_{k} a_{n,k}F_k(T)$. Por tanto, por la proposición anterior
+    Ya que $\ord(F_k) = k$, sabemos que las series formales $F_k(T)$ forman una pseudobase de $\F$. En particular, existen $a_{n,k} \in \field$ tales que $T^n = \sum_{k} a_{n,k}F_k(T)$. Por tanto, por la proposición anterior
     \begin{equation*}
         p^{(n)}(0) = \langle T^n | p(x) \rangle = \langle \sum_{k} a_{n,k}F_k(T) | p(x) \rangle = \sum_{k} a_{n,k} \langle F_k(T) | p(x) \rangle
     \end{equation*}
@@ -337,11 +291,7 @@ Sea $m$ tal que $\ord(F_k) > \gr(p)$ para todo $k > m$. De nuevo, por la proposi
 \end{demo}
 
 \begin{proposicion}
-    Sea $\{p_k(x)\}_{k \geq 0}$ familia de polinomios que sea un sistema de generadores algebraico para $\poly$. Entonces, la aplicación
-    \begin{align*}
-        \langle p(x) \rangle \colon & \poly^* \longrightarrow \field^\infty\\
-        &F(T) \mapsto \{  \langle F(T) | p_k(x) \rangle \}_{k \geq 0}
-    \end{align*}
+    Sea $\{p_k(x)\}_{k \geq 0}$ familia de polinomios que sea un sistema de generadores algebraico para $\poly$. En ese caso, la aplicación $ \langle p(x) \rangle \colon  \poly^* \longrightarrow \field^\infty$ dada por $F(T) \mapsto \{  \langle F(T) | p_k(x) \rangle \}_{k \geq 0}$
     es inyectiva. En particular, el resultado se verifica para los $p_k(x)$ tales que $\gr(p_k) = k$. 
 \end{proposicion}
 \begin{demo}
@@ -356,7 +306,7 @@ Sea $m$ tal que $\ord(F_k) > \gr(p)$ para todo $k > m$. De nuevo, por la proposi
 \end{proposicion}
 
 \begin{demo}
-    $F(T) = \sum_k a_kT^k$. Por la linealidad, basta verlo para $p(x) = x^n$. En efecto 
+    Sea $F(T) = \sum_k a_kT^k$. Por la linealidad, basta verlo para $p(x) = x^n$. En efecto 
         $$\begin{aligned}
             \langle \partial F(T)| x^n\rangle & = \sum_{k=1}^\infty ka_k\langle T^{k-1}| x^n\rangle = \sum_{k=0}^\infty (k+1)a_{k+1}\langle T^{k}| x^n\rangle \\
             & = \sum_{k=0}^\infty (k+1)a_{k+1}k! \delta_{n,k} = (n+1)!a_{n+1} = \langle F(T)| x^{n+1}\rangle \\
@@ -381,18 +331,17 @@ Sea $m$ tal que $\ord(F_k) > \gr(p)$ para todo $k > m$. De nuevo, por la proposi
 \end{demo}
     
 \begin{ej}
-    El funcional $\frac{e^{\lambda T} -1}{T} = \frac{\Delta_\lambda}{T}$ (bien definido ya que $\ord(e^{\lambda T} - 1) = 1$) será aquel con
+    El \textbf{funcional de Bernoulli} $\frac{e^{\lambda T} -1}{T} = \frac{\Delta_\lambda}{T}$ (bien definido, ya que $\ord(e^{\lambda T} - 1) = 1$) será aquel con
     \begin{equation*}
         \langle \frac{\Delta_{\lambda}}{T} | p(x) \rangle = \langle \Delta_\lambda | \int p(x) \rangle = (\int p(x))(\lambda) - (\int p(x))(0) = (\int p(x))(\lambda)
     \end{equation*}
-    En el caso de que $\field = \C, \R$ entonces
+    Que en el caso de que $\field = \C, \R$ se reduce a
     \begin{equation} \label{funcional Bernoulli}
         \langle \frac{e^{\lambda T} -1}{T} | p(x) \rangle = \langle \frac{\Delta_\lambda}{T} | p(x) \rangle = \int_{0}^{\lambda} p(u), du
     \end{equation}
-    Este funcional nos aparecerá cuando estudiemos los polinomios de Bernoulli y allí lo analizaremos con detenimiento. 
 \end{ej}
 
-Dos familias de funcionales son de especial importancia: estos son los \textit{funcionales delta} y los \textit{funcionales invertibles}. Los utilizaremos, fundamentalmente, cuando hablemos de las \textit{sucesiones de Sheffer}. Damos tanto sus definiciones como su caracterización.
+Dos familias de funcionales son de especial importancia: estos son los \textit{funcionales delta} y los \textit{funcionales invertibles}. Los utilizaremos, fundamentalmente, cuando hablemos de las \textit{sucesiones de Sheffer}, puesto que los necesitaremos para construirlas. Damos tanto sus definiciones como su caracterización.
 
 \begin{definicion}
     Dada $F(T) \in \F$, diremos que $F(T)$ es una \textbf{serie delta} (o \textbf{$\delta$-serie}) si $F(T) \in \maximal$ y $F(T) \not \in \maximal^2$; es decir, cuando $F(T)$ es un invertible respecto de la composición. Escribimos $\F^\delta$ para simbolizar el conjunto de series delta.
@@ -403,7 +352,7 @@ Dos familias de funcionales son de especial importancia: estos son los \textit{f
 \end{definicion}
 
 \begin{proposicion}
-    Sea $F(T) \in \F$. Entonces:
+    Sea $F(T) \in \F$. Entonces
     \begin{enumerate}
         \item $F(T) \in \F^{\delta} \iff \langle F(T)| 1\rangle = 0, \langle F(T)| x \rangle \neq 0$
         \item $F(T) \in \F^* \iff \langle F(T)|1 \rangle \neq 0$
@@ -428,7 +377,7 @@ Dos familias de funcionales son de especial importancia: estos son los \textit{f
 \end{definicion}
 
 \begin{obs}
-    De forma similar a lo que hacíamos con los funcionales, a los operadores lineales de $\End(\poly)$ los llamaremos simplemente \textbf{operadores}. Recordamos también que el espacio de operadores, $\End(\poly)$,  tiene estructura de $\field$-álgebra, siendo el producto de operadores el producto usual.
+    De forma similar a lo que hacíamos con los funcionales, a los operadores lineales de $\End(\poly)$ los llamaremos simplemente \textbf{operadores}. Recordamos también que el espacio de operadores, $\End(\poly)$,  tiene estructura de $\field$-álgebra con el producto de operadores el producto usual.
 \end{obs}
 
 
@@ -440,13 +389,12 @@ Para ello, consideramos la identificación
     & \F \longrightarrow \End(\poly) \nonumber \\
     & T^k \longleftrightarrow \partial^k
 \end{align}
-donde es importante recordar que $\partial^k$ actúa como
-\begin{align*}
-    \partial^kx^n = \begin{dcases}
+donde es importante recordar que $\partial^k$ actúa sobre $\poly$ como
+    $\partial^kx^n = \begin{dcases}
         (n)_kx^{n-k} & k \leq n\\
         0 & k > n
-    \end{dcases}
-\end{align*}
+    \end{dcases}$
+
 Extendediendo esta asignación por linealidad a la aplicación $\varphi$ definida por
 \begin{align*}
     \varphi \colon & \F \longrightarrow \End(\poly)\\
@@ -489,15 +437,11 @@ Con todo, podemos ya enunciar y probar el resultado principal de la sección.
     \end{align*}
     y por la linealidad se concluye que es, efectivamente, un $\F$-módulo.
 
-    Queda probar que el módulo es fiel. Esto es que
-    \begin{equation*}
-        \text{Ann}(\poly) = \{ F(T) \in \F : F(T) \cdot p(x) = 0, \forall p(x) \in \poly\} = \{0\}
-    \end{equation*}
-    Sea, pues, $F(T) = \sum_k \frac{a_k}{k!}T^k \in \text{Ann}(\poly)$. Aplicándola a cada $x^n$ obtenemos que
+    Queda probar que el módulo es fiel, es decir, comprobar que el conjunto de los anuladores $\text{Ann}(\poly) = \{ F(T) \in \F : F(T) \cdot p(x) = 0, \forall p(x) \in \poly\}$ es nulo. Consideremos, pues, una serie formal $F(T) = \sum_k \frac{a_k}{k!}T^k \in \text{Ann}(\poly)$. Aplicándola a cada $x^n$ como operador obtenemos que
     \begin{align*}
-        F(T) \cdot x^0 & = a_0 = 0\\
-        F(T) \cdot x^1 & = a_0x + a_1 = 0\\
-        F(T) \cdot x^2 & = a_0x^2 + 2a_1x + a_2 = 0\\
+        F(T) \cdot x^0 & = a_0 = 0 \implies a_0 = 0\\
+        F(T) \cdot x^1 & = a_0x + a_1 = 0 \implies a_1 = 0\\
+        F(T) \cdot x^2 & = a_0x^2 + 2a_1x + a_2 = 0 \implies a_2 = 0\\
         \vdots
     \end{align*}
     de donde vemos que $a_0 = a_1 = \dots = a_n = \dots = 0$ y se concluye.
@@ -510,34 +454,24 @@ Los operadores lineales $F(T)$ cumplirán propiedades análogas a la de los func
 \end{proposicion}
 
 \begin{proposicion}
-    Si $\{F_k(T)\}_{k \geq 0}$ es una sucesión de series formales tal que $\ord(F_k) \rightarrow \infty$, entonces
+    Si $\{F_k(T)\}_{k \geq 0}$ es una sucesión de series formales verificando que $\ord(F_k) \rightarrow \infty$, entonces
     \begin{equation*}
-        (\sum_{k=0}^\infty a_kF_k(T))p(x) = \sum_{k=0}^\infty a_k(F_k(T)p(x))
+        \left( \sum_{k=0}^\infty a_kF_k(T) \right)p(x) = \sum_{k=0}^\infty a_k \left( F_k(T)p(x) \right)
     \end{equation*}
     para todo polinomio $p(x) \in \poly$. En particular, un operador está completamente determinado por su acción sobre los elementos de una pseudobase de $\F$.
 \end{proposicion}
 
 
 \begin{proposicion}
-    Si $\{ F_k(T) \}_{k \geq 0}$ es un sistema de generadores topológico para $\F$, entonces la aplicación
-    \begin{align*}
-        \{F(T)\} \colon & \poly \longrightarrow \field^\infty\\
-        &p(x) \mapsto \{ F_k(T)p(x)\}_{k \geq 0}
-    \end{align*}
-    que asocia a cada polinomio la sucesión $\{ F_k(T)p(x)\}_{k \geq 0}$, es inyectiva.
+    Si $\{ F_k(T) \}_{k \geq 0}$ es un sistema de generadores topológico para $\F$, entonces la aplicación $\{F(T)\} \colon  \poly \longrightarrow \field^\infty$ dada por $p(x) \mapsto \{ F_k(T)p(x)\}_{k \geq 0}$ es inyectiva.
 \end{proposicion}
 
 \begin{proposicion}
-    Si $\{ p_k(x) \}_{k \geq 0}$ es un sistema de generadores algebraico para $\poly$, entonces la aplicación
-    \begin{align*}
-        \{p(x)\} \colon & \poly \longrightarrow \field^\infty\\
-        &p(x) \mapsto \{ F(T)p_k(x)\}_{k \geq 0}
-    \end{align*}
-    que asocia a cada serie formal la sucesión $\{ F(T)p_k(x)\}_{k \geq 0}$, es inyectiva.
+    Si $\{ p_k(x) \}_{k \geq 0}$ es un sistema de generadores algebraico para $\poly$, entonces la aplicación $\{p(x)\} \colon \poly \longrightarrow \field^\infty$ dada por $p(x) \mapsto \{ F(T)p_k(x)\}_{k \geq 0}$ es inyectiva.
 \end{proposicion}
 
 Uno de los resultados claves en lo que a estos operadores respecta es el de la relación de adjunción que guardan con el producto del álgebra formal.
-\begin{teorema} \label{adjuncion serie operador y multiplicacion}
+\begin{teorema} \textbf{(de adjunción)} \label{adjuncion serie operador y multiplicacion}
     Sean $F(T), G(T) \in \F$. Para todo $p(x) \in \poly$ se verifica
     \begin{equation*}
         \langle F(T)G(T) | p(x) \rangle = \langle F(T) | G(T)p(x) \rangle
@@ -545,11 +479,10 @@ Uno de los resultados claves en lo que a estos operadores respecta es el de la r
 \end{teorema}
 
 \begin{demo}
-    Por la linealidad, esto se reduce a ver que $\langle T^k T^j | p(x) \rangle = \langle T^k | T^j p(x) \rangle$. En efecto:
-    \begin{align*}
-        \langle T^k T^j | p(x) \rangle & = \langle T^{k+j} | p(x) \rangle = p^{(k+j)}(0)\\
-        & = (\partial^j p)^{(k)}(0) = (T^j p)^{(k)}(0) = \langle T^k | T^j p(x) \rangle
-    \end{align*}
+    Por la linealidad, esto se reduce a ver que $\langle T^k T^j | p(x) \rangle = \langle T^k | T^j p(x) \rangle$. En efecto, debido a la conmutatividad del producto de series formales se verifica
+    \begin{equation*}
+        \langle T^k T^j | p(x) \rangle  = \langle T^{k+j} | p(x) \rangle = p^{(k+j)}(0) = (\partial^j p)^{(k)}(0) = (T^j p)^{(k)}(0) = \langle T^k | T^j p(x) \rangle \qedhere
+    \end{equation*} 
 \end{demo}
 
 \begin{corolario}
@@ -564,27 +497,19 @@ Uno de los resultados claves en lo que a estos operadores respecta es el de la r
     Dada $F(T) \in \F$ y $p(x) \in \poly$ se tiene que $ \langle  F(T) | p(x) \rangle = (F(T)p(x))(0)$.
 
     Es decir, se verifica que el diagrama
-    \[\begin{tikzcd}
-	{\poly} & {\poly}\\
-	& {\field}
-	\arrow["{F(T)}", from=1-1, to=1-2]
-	\arrow["{\langle F(T) | \quad \rangle}"', from=1-1, to=2-2]
-	\arrow["{E_0}", from=1-2, to=2-2]
-    \end{tikzcd}\]
-    es un diagrama conmutativo.
+    $\vcenter{\hbox{\begin{tikzcd}
+    {\poly} & {\poly}\\
+    & {\field}
+    \arrow["{F(T)}", from=1-1, to=1-2]
+    \arrow["{\langle F(T) | \quad \rangle}"', sloped, above, from=1-1, to=2-2]
+    \arrow["{E_0}", from=1-2, to=2-2]
+    \end{tikzcd}}}$
+es un diagrama conmutativo.
 \end{corolario}
-Si bien la asignación \eqref{T como derivada} es biunívoca de forma trivial, a diferencia de lo que ocurría con el i.c.u, la aplicación $\varphi$ \underline{\textbf{no}} es una aplicación biyectiva; es decir, existen operadores que no provienen de ninguna serie formal. Esto es consecuencia de que, como $\gr(\partial p) \leq \gr(p)$, por linealidad se tiene que
-\begin{equation*}
-    \gr(F(T)p(x)) \leq \gr(p)
-\end{equation*}
-es decir, que todos los operadores que son series formales actúan bajando o manteniendo el grado. Así pues, el operador multiplicación por $x$
-\begin{equation*}
-    p(x) \mapsto xp(x)
-\end{equation*}
-es un ejemplo de un operador que no proviene de ninguna serie formal.
+Si bien la asignación \eqref{T como derivada} es biunívoca de forma trivial, a diferencia de lo que ocurría con el i.c.u, la aplicación $\varphi$ \underline{\textbf{no}} es una aplicación biyectiva; es decir, existen operadores que no provienen de ninguna serie formal. Esto es consecuencia de que $\gr(\partial p) \leq \gr(p)$, luego por linealidad se tiene que $\gr(F(T)p(x)) \leq \gr(p)$, es decir, que todos los operadores que son series formales actúan bajando o manteniendo el grado. Así pues, el operador multiplicación por $x$, dado por $p(x) \mapsto xp(x)$, es un ejemplo de un operador que no proviene de ninguna serie formal.
 
 \begin{obs}\label{multiplicacion por x operador}
-    El operador \textit{multiplicación por $x$} nos aparecerá posteriormente. En lo que sigue, lo escribiremos abreviadamente como $M$. Hacemos esto con el objetivo de evitar la posible confusión que podría crearse con la multiplicación de series formales y polinomios. En particular, con esta notación, la proposicón \ref{adjuncion M} se reescribe como
+    El operador \textbf{\textit{multiplicación por $x$}} nos aparecerá posteriormente. En lo que sigue, lo escribiremos abreviadamente como $M$. Hacemos esto con el objetivo de evitar la posible confusión que podría crearse con la multiplicación de series formales y polinomios. En particular, con esta notación, la proposicón \ref{adjuncion M} se reescribe como
     \begin{equation}\label{adjuncion multiplicar x}
         \langle \partial F(T) | p(x) \rangle = \langle F(T) | M p(x)\rangle
     \end{equation}
@@ -600,7 +525,7 @@ Mediante lo ya dicho, se ha probado la siguiente proposición.
     \end{equation*}
 \end{proposicion}
 
-Así pues, nos interesa ahora dar una caracterización de la imagen del morfismo $\varphi$.
+Así pues, nos interesa ahora dar una caracterización de la imagen de este morfismo.
 
 \begin{definicion}
     Diremos que un operador $L \in \End(\poly)$ tiene \textbf{forma de serie formal} si $L \in \text{Im}(\varphi)$.
@@ -614,16 +539,12 @@ Así pues, nos interesa ahora dar una caracterización de la imagen del morfismo
     Si $F(T)$ es un operador delta y $\Lambda \in \End(\poly)$ conmuta con $F(T)$, es decir, $F(T) \circ \Lambda = \Lambda \circ \F(T)$, entonces $\gr(\Lambda p(x)) \leq \gr(p)$ para todo $p(x) \in \poly$
 \end{lema}
 \begin{demo}
-    Como venimos haciendo, por linealidad, basta con probarlo para los polinomios $x^n$. Por contradicción, supongamos que existe un número natural $m$ tal que $\gr(\Lambda x^n) \geq m+1$. Como $\ord(F) = 1$, tenemos que, siendo $F(T) = \sum_{k \geq 1} \frac{a_k}{k!}T^k$
-    \begin{align*}
-        F(T)x^n & = \sum_{k=1}^n \binom{n}{k}a_k T^k = n a_1 x^{n-1} + \dots + a_n, \quad \forall n \geq 1\\
-        F(T)x^{0} & = 0
-    \end{align*} 
-    Por tanto, $\gr(F(T)p(x)) = \gr(p) - 1$ si $\gr(p) \geq 1$. Luego, de aquí deducimos que, como $\ord(F^{m+1}) = m+1$, entonces $F^{m+1}(T)x^m = 0$. Y, en consecuencia
-    \begin{equation*}
-        F^{m+1}(T) (\Lambda x^m) = \Lambda (F^{m+1}(T)x^m) = 0 
-    \end{equation*} 
-    Pero $\gr(\Lambda x^n) \geq m+1 \implies \gr(F^{m+1}(T) (\Lambda x^m)) \geq 0 \implies F^{m+1}(T) (\Lambda x^m) \neq 0$, lo cual es imposible. Con lo que $\gr(\Lambda x^n) \leq \gr(x^n)$ necesariamente y se concluye.
+    Como venimos haciendo, por linealidad, basta con probarlo para los polinomios $x^n$. Por contradicción, supongamos que existe un número natural $m$ tal que $\gr(\Lambda x^m) \geq m+1$. Como $\ord(F) = 1$, tenemos que, siendo $F(T) = \sum_{k \geq 1} \frac{a_k}{k!}T^k$, como funcional verifica que $F(T)x^n = \begin{dcases}
+        \sum_{k=1}^n \binom{n}{k}a_k x^k = n a_1 x^{n-1} + \dots + a_n, \quad & n \geq 1\\
+        0 & n = 0
+        \end{dcases}$ 
+    
+    Por tanto, $\gr(F(T)p(x)) = \gr(p) - 1$ si $\gr(p) \geq 1$. Luego, de aquí deducimos que, como $\ord(F^{m+1}) = m+1$, entonces $F^{m+1}(T)x^m = 0$. Y, en consecuencia, se tiene que$F^{m+1}(T) (\Lambda x^m) = \Lambda (F^{m+1}(T)x^m) = 0$. Pero como $\gr(\Lambda x^m) \geq m+1$ esto implica que $\gr(F^{m+1}(T) (\Lambda x^m)) \geq 0$ y por tanto $F^{m+1}(T) (\Lambda x^m) \neq 0$, lo cual es imposible. Con lo que $\gr(\Lambda x^n) \leq \gr(x^n)$ necesariamente y se concluye.
 \end{demo}
 
 \begin{teorema}\textbf{(caracterización Im($\varphi$))}
@@ -631,23 +552,15 @@ Así pues, nos interesa ahora dar una caracterización de la imagen del morfismo
 \end{teorema}
 
 \begin{demo}
-    Es claro que los elementos de $\text{Im}(\varphi)$ conmutan con $T$, puesto que conmutan con todas las series formales, luego en particular lo hacen con $T$. Recíprocamente, si $\Lambda$ conmuta con $T$, entonces $\Lambda$ tendrá la forma de $F(T)$ para la serie formal $F(T)$ definida como:
+    Es claro que los elementos de $\text{Im}(\varphi)$ conmutan con $T$, puesto que conmutan con todas las series formales, luego en particular lo hacen con $T$. Recíprocamente, si $\Lambda$ conmuta con $T$, entonces $\Lambda$ tendrá la forma de $F(T)$ para la serie formal $F(T)$ definida como
     \begin{equation*}
         F(T) = \sum_{k=0}^\infty \frac{\langle 1| \Lambda x^k\rangle}{k!}T^k
     \end{equation*}
-    En efecto, ya que $\gr(\Lambda x^n) \leq n$, por el lema previo y la proposición \ref{taylor analogo} tenemos que
-    \begin{equation*}
-        \Lambda x^n = \sum_{k=0}^n \frac{\langle T^k| \Lambda x^n\rangle}{k!}x^k
-    \end{equation*}
-    Y utilizando las propiedades demostradas previamente junto a la hipótesis de conmutación con $T$, vemos que
-    \begin{equation*}
-        \langle T^k| \Lambda x^n\rangle = \langle 1| T^k\Lambda x^n\rangle = \langle 1| \Lambda T^k x^n\rangle = \langle 1| \Lambda (n)_k x^{n-k}\rangle
-    \end{equation*}
-    Por tanto, podemos reescribir $\Lambda x^n$ como
+    En efecto, ya que $\gr(\Lambda x^n) \leq n$, por el lema previo, y por el desarrollo de Taylor de \ref{taylor analogo}, tenemos que $\Lambda x^n = \sum_{k=0}^n \frac{\langle T^k| \Lambda x^n\rangle}{k!}x^k$. Y utilizando las propiedades demostradas previamente junto a la hipótesis de conmutación con $T$, vemos entonces que $\Lambda x^n$ cumple que $\langle T^k| \Lambda x^n\rangle = \langle 1| T^k\Lambda x^n\rangle = \langle 1| \Lambda T^k x^n\rangle = \langle 1| \Lambda (n)_k x^{n-k}\rangle$. Por tanto, podemos reescribir a este polinomio como
     \begin{equation*}
         \Lambda x^n = \sum_{k=0}^n \binom{n}{k}\langle 1| \Lambda x^{n-k}\rangle x^k = \sum_{k=0}^n \binom{n}{k}\langle 1| \Lambda x^{k}\rangle x^{n-k} = F(T)x^n 
     \end{equation*}
-    donde en la segunda igualdad hemos usado que $\binom{n}{k} = \binom{n}{n-k}$
+    donde en la segunda igualdad hemos usado que $\binom{n}{k} = \binom{n}{n-k}$, y llegamos a que $\Lambda = F(T)$
 \end{demo}
 
 \begin{corolario}\label{conmutacion G(T)}
@@ -655,16 +568,12 @@ Así pues, nos interesa ahora dar una caracterización de la imagen del morfismo
 \end{corolario}
 
 \begin{demo}
-    Si $\Lambda$ tiene forma de serie formal entonces conmuta con toda serie formal, en particular con $G(T)$. Recíprocamente, si $\Lambda \circ G(T) = G(T) \circ \Lambda$, como $G(T)$ es un operador delta, las series formales $G^k(T)$ forman una pseudobase de $\F$. En concreto, existen escalares $a_k \in \F$ tales que
-    \begin{equation*}
-        T = \sum_{k = 0}^\infty a_k G^k(T)
-    \end{equation*}
-    Por lo tanto, la conmutatividad implica que
+    Si $\Lambda$ tiene forma de serie formal entonces conmuta con toda serie formal, en particular con $G(T)$. Recíprocamente, si $\Lambda \circ G(T) = G(T) \circ \Lambda$, como $G(T)$ es un operador delta, las series formales $G^k(T)$ forman una pseudobase de $\F$. En concreto, existen escalares $a_k \in \F$ tales que $T = \sum_{k = 0}^\infty a_k G^k(T)$. Por lo tanto, la conmutatividad implica que
     \begin{align*}
         \Lambda T x^n & = \Lambda(\sum_{k=0}^\infty a_k G^k(T) x^n) = \Lambda (\sum_{k=0}^n a_k G^k(T) x^n) = \sum_{k=0}^n a_k \Lambda G^k(T) x^n\\
         & = \sum_{k=0}^n a_k G^k(T) \Lambda x^n = \sum_{k=0}^\infty a_k G^k(T) \Lambda x^n = T \Lambda x^n
     \end{align*}  
-    donde la penúltima igualdad se debe a que $\gr(\Lambda x^n) \leq n$ por el lema previo.
+    donde la segunda igualdad es consecuencia de que $\ord(G^k) = k$ y la penúltima se debe a que $\gr(\Lambda x^n) \leq n$ por el lema previo.
 \end{demo}
 
 \begin{corolario}
@@ -689,7 +598,7 @@ Por otro lado, conviene que dotemos al espacio de operadores de una estructura, 
     La topología de estabilización en $\End(\poly)$ se corresponde con la topología inicial de la aplicación $\varphi$.
 \end{proposicion}
 
-Recuperamos ahora los ejemplos de funcionales dados con anterioridad con el objetivo de dar su intepretación como operadores, cerrando así esta sección y, con ello, este primer capítulo.
+Recuperamos ahora los ejemplos de funcionales dados con anterioridad con el objetivo de dar su intepretación como operadores y cerramos así esta sección, junto al primer capítulo.
 
 \begin{ej}
     \begin{enumerate}
@@ -713,7 +622,7 @@ Recuperamos ahora los ejemplos de funcionales dados con anterioridad con el obje
         \begin{equation}\label{operador de Abel}
             Te^{\lambda T}p(x) = p'(x+ \lambda)
         \end{equation}
-        \item El operador $\frac{e^{\lambda T} - 1}{T}$ verifica que
+        \item El \textbf{operador de Bernoulli} $\frac{e^{\lambda T} - 1}{T}$ verifica que
         \begin{align*}
             \frac{e^{\lambda T} - 1}{T}x^n & = (\sum_{k=0}^\infty \frac{\lambda^{k+1}}{(k+1)!}T^k )x^n = \sum_{k=0}^n \binom{n+1}{k+1} \frac{\lambda^{k+1}}{(n+1)}x^{n-k}\\
             & = \frac{1}{n+1}\sum_{k=1}^{n+1} \binom{n+1}{k} \lambda^k x^{n+1-k} = \frac{1}{n+1}((x+ \lambda )^{n+1} - x^{n+1}) = \int\limits_{x}^{x+ \lambda} u^n \, du

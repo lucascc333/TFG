@@ -1,5 +1,11 @@
 %!TEX encoding = UTF-8 Unicode
-\documentclass[a4paper,12pt,centertags,intlimits,twoside]{report}
+\documentclass{beamer}
+
+\usetheme{Berlin} % Personalización del tema 
+\usecolortheme{beaver}
+
+\setbeamertemplate{navigation symbols}{} % Para eliminar los símbolos clickables de navegación
+
 
 %: PAQUETES DE LATEX
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -9,42 +15,39 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\usepackage{tikz}
+
+\renewcommand{\maketitle}{
+  \begin{frame}
+    \centering
+    \vspace{1cm}
+    
+    \begin{tikzpicture}
+      % Sombra
+      \fill[black!40, rounded corners=2pt] (0.3,-0.1) rectangle (0.86\textwidth-0.1, -2.2);
+      % Recuadro gris
+      \fill[gray!15, rounded corners=2pt] (0, 0) rectangle (0.85\textwidth-0.2, -2.1);
+      \node[anchor=north, text width=0.8\textwidth, align=center] at (0.425\textwidth-0.1, -0.3) {
+        {\color{red}\large\textbf{\inserttitle}}\\[4pt]
+        {\color{red}\insertsubtitle}
+      };
+    \end{tikzpicture}
+    
+    \vspace{0.4cm}
+    {\large\insertauthor}\\[0.3cm]
+    {\small\insertinstitute}\\[0.4cm]
+    {\insertdate}\\[0.6cm]
+    \inserttitlegraphic
+  \end{frame}
+}
+
 %: Paquetes básicos
 \usepackage[utf8]{inputenc} % Para la codificación unicode
 \usepackage[T1]{fontenc} %Para la codificación unicode
 \usepackage[spanish]{babel} % Para trabajar en castellano
 \usepackage{enumitem} % Para enumerar casos
-    \setlist[itemize]{
-    leftmargin=*,       % sin sangría extra
-    topsep=4pt,
-    itemsep=2pt,
-    before=\leavevmode  % evita que el primer ítem quede suelto arriba
-    }
-
-    \setlist[enumerate]{
-    leftmargin=*,
-    topsep=4pt,
-    itemsep=2pt,
-    before=\leavevmode
-    }
 \usepackage{graphicx} % Para insertar imágenes
-\usepackage{index} % Para el índice
 \usepackage{csquotes} % Para las citas de la bibliografía
-\usepackage{pdfpages} % Para cargar pdf's
-\usepackage{parskip} % Para eliminar la sangría
-
-
-%: Paquetes de estilo
-\usepackage[left=2.5cm,right=2.5cm,top=3.1cm,bottom=3.1cm]{geometry} % Para definir los márgenes y el tipo de papel
-\usepackage{ragged2e} % Para alinear texto
-\usepackage{titlesec} % Para cambiar el estilo de los títulos
-\usepackage[x11names,dvipsnames,svgnames]{xcolor}% Para utilizar colores
-\usepackage{fancyhdr} % Para el estilo del encabezado
-\usepackage{hyperref} % Para poder clickar links
-\hypersetup{
-    colorlinks = true, linkcolor = {DarkRed}, urlcolor={Cyan}, citecolor = {DarkRed}
-} 
-\usepackage{lettrine} % Para añadir letras grandes al comienzo de un párrafo
 
 %: Paquetes matemáticos
 \usepackage{amsfonts} % Añade letras góticas, negritas... etc
@@ -58,7 +61,6 @@
 \usepackage{cases} % Para distinguir casos al definir una función
 \usepackage{framed} % Para recuadrar fórmulas y texto
 \usepackage{tikz-cd} % Para crear diagramas con flechas
-\usepackage{multicol} % Para mayor control sobre enumeraciones
 \usetikzlibrary{babel}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -75,16 +77,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%: Redefinición de estilo de secciones
-\titleformat{\section}
-  {\normalfont\LARGE\bfseries}
-  {\thesection.}{1em}{}
-
-%: Redefinición de estilo de subsecciones
-\titleformat{\subsection}
-  {\normalfont\large\bfseries}
-  {\thesubsection}{0.5em}{}
 
 %: Colores
 % Comandos para resaltar con colores
@@ -192,16 +184,6 @@
 
 \renewcommand{\qedsymbol}{$\blacksquare$} % Símbolo q.e.d
 
-%: ENCABEZADO
-\pagestyle{fancy}
-\fancyhead[R]{\bfseries \textsc{\rightmark}}
-\fancyhead[L]{\bfseries \textsc{\leftmark}}
-\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
-\renewcommand{\sectionmark}[1]{\markright{#1}}
-
-\let\oldheadrule\headrule
-\renewcommand{\headrule}{\color{DarkRed}\oldheadrule} % Color del encabezado
-
 %: FIN DE MACROS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -210,133 +192,17 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\makeindex
+\author{Lucas Cuerva Cuenca}
+\title{Introducción al cálculo umbral}
+\subtitle{Trabajo Fin de Grado}
+\date{Curso 2025/2026}
+\institute{\small Tutor: Luis Manuel Navas Vicente \\ Grado en Matemáticas}
 
-\begin{document}
-\thispagestyle{empty}
-
-\definecolor{granate}{RGB}{79, 3, 3}
-\pagecolor{granate}
-
-%: Portada
-\begin{center}
-
-\includegraphics[scale=0.15]{usal logo.png}
-
-\vspace{1cm}
-
-\color{white}
-{\large \textbf{Facultad de Ciencias}}\\[0.2cm]
-{\large \textsc{Grado en Matemáticas}}
-
-\vspace{2cm}
-
---------------------------------------------------------------------------------------------------------
-\vspace{0.5cm}
-
-{\LARGE \textbf{INTRODUCCIÓN AL CÁLCULO UMBRAL }}\\[0.3cm]
-
-
-\vspace{0.5cm}
-
-{\large \textsc{Trabajo Fin de Grado}}
-
-\vspace{0.5cm}
-
---------------------------------------------------------------------------------------------------------
-
-\vspace{1.5cm}
-
-    {\textsc{Autor:}} \\[0.25cm] \textsc{\large{Lucas Cuerva Cuenca }} \\ [1cm] {\textsc{Tutor:}} \\[0.25cm] \textsc{\large{Luis Manuel Navas Vicente}} 
-
-\vfill
-
-\LARGE{Curso 2025/2026}
-
-\end{center}
-%: Fin de portada
-
-%: Página vacía
-\newpage
-\nopagecolor
-\color{black}
-\hfill
-\thispagestyle{empty} % Eliminar numeración de la página
-
-%: Página con cita
-\newpage
-\thispagestyle{empty} % Eliminar numeración de la página
-\begin{flushright}
-    \vspace*{9cm}
-    \small\textit{¡Oh santas matemáticas, ojalá pudieraris, \\con vuestro perpetuo trato, consolar el resto de mis días \\de la maldad del hombre y de la injusticia del Gran Todo!}
-    \\[1em]\textsc{Conde de Lautremont}
-\end{flushright}
-
-%: Página vacía
-\newpage
-\hfill
-\thispagestyle{empty} % Eliminar numeración de la página
-
-%: Índice
-\newpage
-\renewcommand{\contentsname}{\LARGE Índice de contenidos}
-{
-    \hypersetup{linkcolor = .}
-    \tableofcontents 
+\titlegraphic{
+    \includegraphics[width=2cm]{usal logo negro.png}
 }
+\begin{document}
 
-\thispagestyle{empty} % Eliminar numeración del índice
-
-%: Página vacía
-\newpage
-\hfill
-\thispagestyle{empty} % Eliminar numeración de la página
-
-\setcounter{page}{0} % La enumeración comienza con la introducción
-\include{Introducción}
-
-%: Página vacía
-\newpage
-\hfill
-\thispagestyle{empty} % Eliminar numeración de la página
-
-\include{Algebra umbral/Algebra Umbral}
-
-%: Página vacía
-\newpage
-\hfill
-\thispagestyle{empty} % Eliminar numeración de la página
-
-\include{Sucesiones de Sheffer/Sucesiones de Sheffer}
-
-%: Página vacía
-\newpage
-\hfill
-\thispagestyle{empty} % Eliminar numeración de la página
-
-\include{Operadores en dual/Operadores en dual}
-
-%: Página vacía
-\newpage
-\hfill
-\thispagestyle{empty} % Eliminar numeración de la página
-
-\include{Aplicaciones/Aplicaciones}
-
-%: Página vacía
-\newpage
-\hfill
-\thispagestyle{empty} % Eliminar numeración de la página
-
-%: Apéndices
-\include{Apéndices/Series formales}
-
-%: Página vacía
-\newpage
-\hfill
-\thispagestyle{empty} % Eliminar numeración de la página
-
-%: Bibliografía
-\include{Bibliografía}
+\maketitle
 
 \end{document}
