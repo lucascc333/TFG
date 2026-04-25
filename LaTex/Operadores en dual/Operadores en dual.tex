@@ -349,11 +349,10 @@ Podemos ya dar una estructura algebraica tanto a los conjuntos de estos operador
 Aprovechando lo hecho para los operadores de Sheffer, podemos definir una operación que dota al conjunto de sucesiones de Sheffer de una estructura de grupo.
 
 \begin{definicion}
-    Sean $s_n(x) \sim (G(T), F(T))$ y $r_n(x) \sim (H(T), L(T))$ dos sucesiones de Sheffer. Se define la $\textbf{composición umbral}$ de $r_n(x)$ con $s_n(x)$ como el polinomio
+    Sean $s_n(x) \sim (G(T), F(T))$ y $r_n(x) \sim (H(T), L(T))$ dos sucesiones de Sheffer. Se define la $\textbf{composición umbral}$ de $r_n(x) = \sum_{k=0}^n r_{n,k}x^k$ con $s_n(x)$ como el polinomio
     \begin{equation*}
         r_n(\mathbf{s(x)}) = \sum_{k=0}^n r_{n,k}s_k(x)
     \end{equation*} 
-    siendo $r_n(x) = \sum_{k=0}^n r_{n,k}x^k$
 \end{definicion}
 
 \begin{obs}
@@ -398,11 +397,7 @@ Aprovechando lo hecho para los operadores de Sheffer, podemos definir una operac
 \end{demo}
 
 \begin{teorema}
-    Para todo operador umbral $\Lambda_F \in \End_{Umb}(\poly)$ y toda serie formal $G(T) \in \F$ se tiene que
-    \begin{equation*}
-        \Lambda_F^* G(T) = \Lambda_{F^{-1}} \circ G(T) \circ \Lambda_F
-    \end{equation*}
-    donde la igualdad se debe intepretar como una igualdad de operadores.
+    Para todo operador umbral $\Lambda_F \in \End_{\mathrm{Umb}}(\poly)$ y toda serie formal $G(T) \in \F$ se tiene que $\Lambda_F^* G(T) = \Lambda_{F^{-1}} \circ G(T) \circ \Lambda_F$ como operadores.
 \end{teorema}
 
 \begin{demo}
@@ -421,23 +416,11 @@ Aprovechando lo hecho para los operadores de Sheffer, podemos definir una operac
 \end{corolario}
 
 \begin{demo}
-    Sean $F(T) \in \F$ y $p(x) \in \poly$. Tenemos que
-    \begin{align*}
-        \langle F(T) | (\Lambda_F^* G(T)) p(x) \rangle = \langle F(T) (\Lambda_F^* G(T)) |  p(x) \rangle & = \langle \Lambda_F^* [G(T) (\Lambda_F^*)^{-1} F(T)] |  p(x) \rangle\\
-        & = \langle F(T) | \Lambda_F^{-1} G(T) \Lambda_F p(x) \rangle
-    \end{align*}
-    de donde se obtiene la igualdad.
+    Sean $F(T) \in \F$ y $p(x) \in \poly$. Tenemos que $\langle F(T) | (\Lambda_F^* G(T)) p(x) \rangle = \langle F(T) (\Lambda_F^* G(T)) |  p(x) \rangle = \langle \Lambda_F^* [G(T) (\Lambda_F^*)^{-1} F(T)] |  p(x) \rangle = \langle F(T) | \Lambda_F^{-1} G(T) \Lambda_F p(x) \rangle$, de donde se obtiene la igualdad.
 \end{demo}
 
 \begin{teorema}
-    Si $p_n(x) \sim F(T)$, entonces para todo $q(x) \in \poly$ y toda $H(T) \in \F$ se tiene que
-    \begin{equation*}
-        \langle H(T) | q(\mathbf{p(x)}) \rangle = \langle H(F^{-1}(T)) | q(x) \rangle 
-    \end{equation*}
-    En particular
-    \begin{equation*}
-        \langle H(T) | p_n(x) \rangle = \langle H(F^{-1}(T)) | x^n \rangle 
-    \end{equation*}
+    Si $p_n(x) \sim F(T)$, entonces para todo $q(x) \in \poly$ y toda $H(T) \in \F$ se tiene que $\langle H(T) | q(\mathbf{p(x)}) \rangle = \langle H(F^{-1}(T)) | q(x) \rangle $. En particular $\langle H(T) | p_n(x) \rangle = \langle H(F^{-1}(T)) | x^n \rangle $
 \end{teorema}
 
 \begin{demo}
@@ -450,14 +433,7 @@ Aprovechando lo hecho para los operadores de Sheffer, podemos definir una operac
 
 
 \begin{corolario}
-    Si $s_n(x) \sim (G(T), F(T))$, entonces para todo $q(x) \in \poly$ y toda serie formal $H(T) \in \F$ se tiene que
-    \begin{equation*}
-        \langle H(T) | q(\mathbf{s(x)}) \rangle = \langle \frac{1}{G(F^{-1}(T))}H(F^{-1}(T)) | q(x) \rangle 
-    \end{equation*}
-    En particular
-    \begin{equation*}
-        \langle H(T) | s_n(x) \rangle = \langle \frac{1}{G(F^{-1}(T))}H(F^{-1}(T)) | x^n \rangle 
-    \end{equation*}
+    Si $s_n(x) \sim (G(T), F(T))$, entonces para todo $q(x) \in \poly$ y toda serie formal $H(T) \in \F$ se tiene que $ \langle H(T) | q(\mathbf{s(x)}) \rangle = \langle \frac{1}{G(F^{-1}(T))}H(F^{-1}(T)) | q(x) \rangle $. En particular,  se tiene que $\langle H(T) | s_n(x) \rangle = \langle \frac{1}{G(F^{-1}(T))}H(F^{-1}(T)) | x^n \rangle $
 \end{corolario}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -537,10 +513,8 @@ Una vez vistos los operadores de Sheffer, nos interesa ahora estudiar a las tras
 \end{teorema}
 
 \begin{teorema}\label{recurrencia sheffer}
-    \textbf{(fórmula de recurrencia para sucesiones de Sheffer)} Dado $\theta_{G,F} \in \TrasSh$, se verifica
-    \begin{equation*}
-        \theta_{G,F} = (M - \frac{G'(T)}{G(T)}) \circ \frac{1}{F'(T)}
-    \end{equation*}
+    \textbf{(fórmula de recurrencia para sucesiones de Sheffer)} Dada una traslación de Sheffer $\theta_{G,F} \in \TrasSh$, se verifica que $\theta_{G,F} = (M - \frac{G'(T)}{G(T)}) \circ \frac{1}{F'(T)}$
+    
     En consecuencia, si $s_n(x) \sim (G(T), F(T))$ se tiene que
     \begin{equation*}
         s_{n+1}(x) = (M - \frac{G'(T)}{G(T)}) \circ \frac{1}{F'(T)}s_n(x)
@@ -550,7 +524,7 @@ Una vez vistos los operadores de Sheffer, nos interesa ahora estudiar a las tras
 El siguiente teorema nos proporciona dos formas operacionales y directas de calcular la sucesión asociada a una serie formal $F(T)$.
 
 \begin{teorema}\label{transferencia asociada}
-    \textbf{(fórmulas de transferencia)}. Sea $p_n(x) \sim F(T)$. Se tiene
+    \textbf{(fórmulas de transferencia)}. Sea $p_n(x) \sim F(T)$. Se verifican las dos siguientes relaciones.
     \begin{enumerate}
         \item $p_n(x) = F'(T)(\frac{T}{F(T)})^{n+1} x^n$
         \item $p_n(x) = M \circ (\frac{T}{F(T)})^{n} x^{n-1}$

@@ -32,25 +32,14 @@ El primer resultado importante que usaremos continuamente proviene del álgebra 
     Si $\{p_n(x)\}_{n\geq0}$ es una sucesión de polinomios tal que $\gr(p_n) = n$ para todo $n$, entonces dos funcionales $L$ y $M$ son iguales si y solo si $\langle L | p_n(x) \rangle = \langle  M | p_n(x) \rangle$ para todo $n$. En particular, $p_n(x) = x^n$ cumple el teorema.
 \end{teorema}
 \begin{demo}
-    Basta con ver que los polinomios $p_n(x)$ así definidos forman una base (de Hamel) de $\poly$. Que son generadores está claro por ser cada polinomio $p_n(x)$ de grado $n$. Veamos que cada subconjunto finito de estos son linealmente independientes. Sean pues $p_{n_1}(x), \cdots , p_{n_r}(x)$ un subconjunto finito de $\{p_n\}_{n\geq0}$, que, sin pérdida de generalidad, podemos suponer ordenado con $\gr(p_{n_1}(x)) < \dots < \gr(p_{n_r}(x))$, y $\lambda_{n_1}, \dots , \lambda_{n_r} \in \field$ escalares tales que:
-    \begin{equation*}
-        \lambda_{n_1}p_{n_1}(x) + \cdots + \lambda_{n_r}p_{n_r}(x) = 0
-    \end{equation*}
-    Si escribimos cada polinomio $p_{n_l}(x)$ como $p_{n_l}(x) = \sum_{k=0}^{n_l}a_{k,n_l}x^k$, igualando coeficientes y teniendo en cuenta que $\gr(p_{n_1}(x)) < \dots < \gr(p_{n_r}(x))$ y que $a_{n_k,n_k} \neq 0$ para todo $k$, obtenemos las ecuaciones:
+    Basta con ver que los polinomios $p_n(x)$ así definidos forman una base (de Hamel) de $\poly$. Que son generadores está claro por ser cada polinomio $p_n(x)$ de grado $n$. Veamos que cada subconjunto finito de estos son linealmente independientes. Sean pues $p_{n_1}(x), \cdots , p_{n_r}(x)$ un subconjunto finito de $\{p_n\}_{n\geq0}$, que, sin pérdida de generalidad, podemos suponer ordenado con $\gr(p_{n_1}(x)) < \dots < \gr(p_{n_r}(x))$, y $\lambda_{n_1}, \dots , \lambda_{n_r} \in \field$ escalares tales que $\lambda_{n_1}p_{n_1}(x) + \cdots + \lambda_{n_r}p_{n_r}(x) = 0$. Si escribimos cada polinomio $p_{n_l}(x)$ como $p_{n_l}(x) = \sum_{k=0}^{n_l}a_{k,n_l}x^k$, igualando coeficientes y teniendo en cuenta que $\gr(p_{n_1}(x)) < \dots < \gr(p_{n_r}(x))$ y que $a_{n_k,n_k} \neq 0$ para todo $k$, obtenemos las ecuaciones
     \begin{align*}
-        \lambda_{n_r}a_{n_r,n_r} = 0 &\implies \lambda_{n_r} = 0\\
-        \lambda_{n_{r-1}}a_{n_{r-1},n_{r-1}} + \lambda_{n_r}a_{n_{r-1},n_r} = 0 &\implies \lambda_{n_{r-1}} = 0\\
-        \dots\\
-        \sum_{k=0}^r\lambda_{n_k}a_{0,n_k} = 0 &\implies \lambda_{n_1} = 0
+        \lambda_{n_r}a_{n_r,n_r} = 0 \quad \lambda_{n_{r-1}}a_{n_{r-1},n_{r-1}} + \lambda_{n_r}a_{n_{r-1},n_r} = 0 \quad \dots \quad \sum_{k=0}^r\lambda_{n_k}a_{0,n_k} = 0
     \end{align*}
-    Luego, son linealmente independientes y se concluye.
+    de donde vemos que $\lambda_{n_1} = \cdots = \lambda_{n_r} = 0$. Luego, son linealmente independientes.
 \end{demo}
 \begin{corolario}\label{spanning argument}
-    Dada $\{p_n(x)\}_{n\geq0}$ sucesión de polinomios tal que $\gr(p_n) = n$ para todo $n$, un funcional está completamente determinado por las constantes $\langle L | p_n(x) \rangle$. En particular:
-    \begin{enumerate}
-        \item Un funcional $L$ está completamente determinado por las constantes $\langle L | x^n \rangle$
-        \item Si $\langle L | p_n(x) \rangle = 0$ para todo $n$, entonces $L = 0$.
-    \end{enumerate}
+    Dada $\{p_n(x)\}_{n\geq0}$ sucesión de polinomios tal que $\gr(p_n) = n$ para todo $n$, un funcional está completamente determinado por las constantes $\langle L | p_n(x) \rangle$. En particular, un funcional $L$ está completamente determinado por las constantes $\langle L | x^n \rangle$ y si es el caso que verifica $\langle L | p_n(x) \rangle = 0$ para todo $n$, entonces $L = 0$.
 \end{corolario}
 Este teorema nos es de suma utilidad, ya que nos permite definir un funcional de una forma tan sencilla como dar tan solo su valor sobre los polinomios $x^n$. Lo aprovechamos ahora para obtener uno de los teoremas fundamentales del cálculo umbral, el cual nos permitirá interpretar cada serie formal como un funcional concreto.
 
@@ -75,19 +64,15 @@ Esta correspondencia entre funcionales y series formales es la que nos permite f
     donde el funcional $\omega_F$ viene dado por $\langle \omega_F | x^n \rangle = n! \cdot a_n$, es un isomorfismo lineal. A este morfismo $\phi$ lo llamaremos el \textbf{isomorfismo canónico umbral} (abreviadamente, i.c.u).
 \end{teorema}
 \begin{demo}
-    Veamos primero que es biyectiva, para lo que hemos de comprobar que $\phi^{-1}$ es la del enunciado. Por un lado,  $F(T) \longrightarrow \omega_F \longrightarrow F_{\omega_F}(T)$ y $F_{\omega_F}(T) = F(T)$ puesto que $\langle \omega_F | x^n \rangle = n! \cdot a_n$. Mientras que por otro lado, $L \longrightarrow F_L(T) \longrightarrow \omega_{F_L}$ y $\omega_{F_L} = L$ ya que, por \ref{spanning argument}, $L = \omega_{F_L} \iff \langle L | x^n \rangle = \langle \omega_{F_L} | x^n \rangle$, lo cual es cierto. Queda así probado que $\phi \circ \phi^{-1} = \phi^{-1} \circ \phi = I$. 
-
-    La linealidad es inmediata pues es consecuencia de la linealidad en el primer factor de $\langle \quad | \quad \rangle$; es decir, $\langle L + \lambda M | p(x) \rangle = \langle L | p(x) \rangle + \lambda \langle M | p(x) \rangle $.
+    Veamos primero que es biyectiva, para lo que hemos de comprobar que $\phi^{-1}$ es la del enunciado. Por un lado,  $F(T) \longrightarrow \omega_F \longrightarrow F_{\omega_F}(T)$ y $F_{\omega_F}(T) = F(T)$ puesto que $\langle \omega_F | x^n \rangle = n! \cdot a_n$. Mientras que por otro lado, $L \longrightarrow F_L(T) \longrightarrow \omega_{F_L}$ y $\omega_{F_L} = L$ ya que, por \ref{spanning argument}, $L = \omega_{F_L} \iff \langle L | x^n \rangle = \langle \omega_{F_L} | x^n \rangle$, lo cual es cierto. Queda así probado que $\phi \circ \phi^{-1} = \phi^{-1} \circ \phi = I$. Flata ver la linealidad, pero esta es inmediata pues es consecuencia de la linealidad en el primer factor de $\langle \quad | \quad \rangle$; es decir, de que $\langle L + \lambda M | p(x) \rangle = \langle L | p(x) \rangle + \lambda \langle M | p(x) \rangle $.
 \end{demo}
 
 Una vez probado que $\phi$ es un isomorfismo lineal entre el espacio de funcionales $\poly^*$ y el espacio de series formales $\F$, es natural que a uno le surja ahora la siguiente pregunta: ¿es, además, un isomorfismo de álgebras? La respuesta es que, con la estructura usual de $\field$-álgebra de $\poly^*$, no tiene por qué serlo. Es fácil comprobar esto, ya que
 \begin{equation*}
     \phi(LM) = F_{LM}(T) = \sum_{n\geq0} \frac{ \langle LM | x^n \rangle}{n!} T^n = \sum_{n\geq0} \frac{ \langle L | x^n \rangle \langle M | x^n \rangle}{n!} T^n
 \end{equation*}
-y es evidente que, en lo general
-\begin{equation*}
-    \sum_{n\geq0} \frac{ \langle L | x^n \rangle \langle M | x^n \rangle}{n!} T^n \neq (\sum_{n\geq0} \frac{ \langle L | x^n \rangle}{n!} T^n) (\sum_{n\geq0} \frac{ \langle L | x^n \rangle}{n!} T^n) = \phi(L) \cdot \phi(M)
-\end{equation*}
+y, en lo general, $\sum_{n\geq0} \frac{ \langle L | x^n \rangle \langle M | x^n \rangle}{n!} T^n \neq (\sum_{n\geq0} \frac{ \langle L | x^n \rangle}{n!} T^n) (\sum_{n\geq0} \frac{ \langle L | x^n \rangle}{n!} T^n) = \phi(L) \cdot \phi(M)$
+
 Ahora bien, también es cierto que este isomorfismo induce una estructura de $\field$-álgebra en $\poly^*$ distinta de la que en un principio teníamos y para la cual $\phi$ sí será un isomorfismo de álgebras de forma evidente. Esta es la que llamaremos \textit{álgebra umbral}.
 
 \begin{definicion}
@@ -111,7 +96,7 @@ En particular, el álgebra umbral cumple las siguientes dos propiedades.
 \end{demo}
 
 \begin{proposicion}\label{producto multiples funcionales}
-    Sean $L_1, \dots , L_r \in \poly^*$ funcionales. Entonces,
+    Sean $L_1, \dots , L_r \in \poly^*$ funcionales. Entonces, se tiene que
     \begin{equation*}
         \langle L_1 \cdots L_m | x^n \rangle = \sum_{|i|=n}\binom{n}{i_1, \dots , i_m} \langle L_1| x^{i_1} \rangle \dots  \langle L_m | x^{i_m} \rangle
     \end{equation*}
@@ -189,7 +174,7 @@ De esta forma, podemos pensar cada serie formal $F(T)$ como el funcional $\omega
     \end{equation}
     \item El \textbf{funcional evaluación} $e^{\lambda T}$ está dado por
     \begin{equation*}
-        \langle e^{ \lambda T} | x^n \rangle = \langle \sum_{n\geq0} \frac{\lambda^n}{n!}T^n | x^n \rangle = \lambda^n 
+       \langle e^{ \lambda T} | x^n \rangle = \langle \sum_{n\geq0} \frac{\lambda^n}{n!}T^n | x^n \rangle = \lambda^n 
     \end{equation*}
     Y, por tanto
     \begin{equation}\label{funcional evaluacion}
@@ -251,11 +236,7 @@ A partir de las definiciones dadas y de las igualdades \ref{funcional derivada} 
     \end{equation*}
 \end{proposicion}
 \begin{demo}
-    Para $(\lambda x)^k$ el resultado es cierto puesto que
-    \begin{equation*}
-        \langle T^n| (\lambda x)^k \rangle = \lambda^k n! \delta_{n,k} = \lambda^n n! \delta_{n,k} = \langle (\lambda T)^n| x^k\rangle
-    \end{equation*}
-    Para un polinomio genérico $p(x) = \sum_{k=0}^m b_k x^k$, siendo $m = \gr(p)$, por la proposición anterior y la linealidad, se verifica que
+    Para $(\lambda x)^k$ obtenemos que $\langle T^n| (\lambda x)^k \rangle = \lambda^k n! \delta_{n,k} = \lambda^n n! \delta_{n,k} = \langle (\lambda T)^n| x^k\rangle$ y el resultado es cierto. Para un polinomio genérico $p(x) = \sum_{k=0}^m b_k x^k$, siendo $m = \gr(p)$, por la proposición anterior y la linealidad, se verifica que
     \begin{equation*}
         \langle F(T) | p(\lambda x) \rangle = \sum_{k=0}^m \sum_{n=0}^m b_k a_k \langle T^n| (\lambda x)^k\rangle = \sum_{k=0}^m \sum_{n=0}^m b_k a_k \langle (\lambda T)^n| x^k\rangle = \langle F(\lambda T) | p(x)\rangle \qedhere
     \end{equation*}
@@ -283,11 +264,7 @@ Sea $m$ tal que $\ord(F_k) > \gr(p)$ para todo $k > m$. De nuevo, por la proposi
     \begin{equation*}
         p^{(n)}(0) = \langle T^n | p(x) \rangle = \langle \sum_{k} a_{n,k}F_k(T) | p(x) \rangle = \sum_{k} a_{n,k} \langle F_k(T) | p(x) \rangle
     \end{equation*}
-    Con lo que
-    \begin{equation*}
-        \langle F(T) \rangle(p(x)) =\{  \langle F_k(T) | p(x) \rangle \}_{k \geq 0} = 0 \implies \sum_{k} a_{n,k} \langle F_k(T) | p(x) \rangle = 0 \implies p^{(n)}(0) = 0
-    \end{equation*}
-    Ya que este vale para todo $n$, $p(x) = 0$ necesariamente y se concluye.
+    Con lo que si $ \langle F(T) \rangle(p(x)) =\{  \langle F_k(T) | p(x) \rangle \}_{k \geq 0} = 0$, entonces se ha de verificar que $\sum_{k} a_{n,k} \langle F_k(T) | p(x) \rangle = p^{(n)}(0) = 0$. Ya que esto vale para todo $n$, $p(x) = 0$ necesariamente y se concluye.
 \end{demo}
 
 \begin{proposicion}
@@ -309,8 +286,7 @@ Sea $m$ tal que $\ord(F_k) > \gr(p)$ para todo $k > m$. De nuevo, por la proposi
     Sea $F(T) = \sum_k a_kT^k$. Por la linealidad, basta verlo para $p(x) = x^n$. En efecto 
         $$\begin{aligned}
             \langle \partial F(T)| x^n\rangle & = \sum_{k=1}^\infty ka_k\langle T^{k-1}| x^n\rangle = \sum_{k=0}^\infty (k+1)a_{k+1}\langle T^{k}| x^n\rangle \\
-            & = \sum_{k=0}^\infty (k+1)a_{k+1}k! \delta_{n,k} = (n+1)!a_{n+1} = \langle F(T)| x^{n+1}\rangle \\
-            &= \langle F(T)| x\cdot x^n\rangle
+            & = \sum_{k=0}^\infty (k+1)a_{k+1}k! \delta_{n,k} = (n+1)!a_{n+1} = \langle F(T)| x^{n+1}\rangle = \langle F(T)| x\cdot x^n\rangle \qedhere
         \end{aligned}$$
 \end{demo}
     
@@ -324,8 +300,7 @@ Sea $m$ tal que $\ord(F_k) > \gr(p)$ para todo $k > m$. De nuevo, por la proposi
 \begin{demo}
     Si $F(T) = \sum_{k\geq1} a_kT^k$ tenemos que
     \begin{align*}
-        \langle \frac{F(T)}{T} | x^n \rangle & = \langle \sum_{k=1}^\infty a_kT^{k-1}| x^n \rangle = \sum_{k=0}^\infty a_{k+1} \langle T^{k}| x^n \rangle\\ 
-        & = n! a_{n+1} = (n+1)!\frac{a_{n+1}}{(n+1)} = \langle F(T) | \int x^n \rangle
+        \langle \frac{F(T)}{T} | x^n \rangle & = \langle \sum_{k=1}^\infty a_kT^{k-1}| x^n \rangle = \sum_{k=0}^\infty a_{k+1} \langle T^{k}| x^n \rangle = n! a_{n+1} = (n+1)!\frac{a_{n+1}}{(n+1)} = \langle F(T) | \int x^n \rangle
     \end{align*}
     Extendiéndolo a todo $p(x) \in \poly$ por linealidad se concluye.
 \end{demo}
@@ -333,7 +308,7 @@ Sea $m$ tal que $\ord(F_k) > \gr(p)$ para todo $k > m$. De nuevo, por la proposi
 \begin{ej}
     El \textbf{funcional de Bernoulli} $\frac{e^{\lambda T} -1}{T} = \frac{\Delta_\lambda}{T}$ (bien definido, ya que $\ord(e^{\lambda T} - 1) = 1$) será aquel con
     \begin{equation*}
-        \langle \frac{\Delta_{\lambda}}{T} | p(x) \rangle = \langle \Delta_\lambda | \int p(x) \rangle = (\int p(x))(\lambda) - (\int p(x))(0) = (\int p(x))(\lambda)
+        \langle \frac{\Delta_{\lambda}}{T} | p(x) \rangle = \langle \Delta_\lambda | \int p(x) \rangle = \left( \int p(x) \right)(\lambda) - \left( \int p(x) \right)(0) = \left( \int p(x) \right)(\lambda)
     \end{equation*}
     Que en el caso de que $\field = \C, \R$ se reduce a
     \begin{equation} \label{funcional Bernoulli}

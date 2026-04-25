@@ -23,25 +23,14 @@ Damos aquí las definiciones y los resultados de los que nos servimos a lo largo
     \begin{equation*}
     \alpha \cdot \beta \equiv \{a_0  b_0, a_0b_1 + a_1b_0, a_0b_2 + a_1b_1 + a_2b_0, \dots, \sum_{k=0}^na_kb_{n-k}, \dots\}
     \end{equation*}
-    y donde se define el elemento $T$ como
-    \begin{equation*}
-        T \equiv \delta_{n,1} = (0,1,0, \dots)
-    \end{equation*}
-    Se simboliza por $\mathcal{R} \llbracket T \rrbracket$ o por $\F$, si no hay riesgo de confusión, a este conjunto y a sus elementos se les llaman \textbf{series formales en la variable T}.
+    y donde se define el \textbf{la variable formal} $T$ como el elemento $T \equiv \delta_{n,1} = (0,1,0, \dots)$. Se simboliza por $\mathcal{R} \llbracket T \rrbracket$ o por $\F$, si no hay riesgo de confusión, a este conjunto y a sus elementos se les llaman \textbf{series formales en la variable T}.
 \end{definicion}
 
 \begin{teorema}
-    $(\F, +, \cdot)$ es un anillo. El elemento neutro y la unidad son, respectivamente
-    \begin{equation*}
-        0 \equiv \{0,0,0,\dots\} \hspace{2cm} 1\equiv \{1, 0, 0, \dots\}
-    \end{equation*}
-    y el elemento opuesto o inverso respecto a la suma es
-    \begin{equation*}
-        -\alpha \equiv \{-a_0, -a_1, -a_2, \dots \}
-    \end{equation*}
+    $(\F, +, \cdot)$ es un anillo. El elemento neutro y la unidad son, respectivamente $0 \equiv \{0,0,0,\dots\} \hspace{2cm} 1\equiv \{1, 0, 0, \dots\}$ y el elemento opuesto o inverso respecto a la suma es $ -\alpha \equiv \{-a_0, -a_1, -a_2, \dots \}$
 \end{teorema}
 
-\begin{definicion}
+\begin{definicion} 
     Dada $\alpha = (a_0, a_1, \dots) \in \F$, se define el \textbf{orden de $\alpha$} como
     \begin{equation*}
         \ord(\alpha) = \min \{ n \geq 0 : a_n \neq 0 \}
@@ -49,7 +38,7 @@ Damos aquí las definiciones y los resultados de los que nos servimos a lo largo
     En particular, se define $\ord(0) = \infty$.
 \end{definicion}
 
-\begin{proposicion}
+\begin{proposicion} El orden verifica las siguientes propiedades.
     \begin{itemize}
         \item $\ord(\alpha) = \infty \iff \alpha = 0$
         \item $\ord(\alpha + \beta) \geq \min(\ord(\alpha), \ord(\beta))$
@@ -74,11 +63,7 @@ Damos aquí las definiciones y los resultados de los que nos servimos a lo largo
             0 & \alpha = 0
         \end{dcases}
     \end{align*}
-    En particular, este define la métrica
-    \begin{equation*}
-        \text{d}(\alpha, \beta) = |\alpha - \beta|_f
-    \end{equation*}
-    Se llama \textbf{topología formal} a la topología de $\F$ asociada a esta métrica.
+    En particular, este define la métrica $\text{d}(\alpha, \beta) = |\alpha - \beta|_f$. Se llama \textbf{topología formal} a la topología de $\F$ asociada a esta métrica.
 \end{definicion}
 
 \begin{teorema}
@@ -120,20 +105,18 @@ En lo que sigue, supondremos que $\mathcal{R} = \field$ es un cuerpo de caracter
 
 \begin{proposicion}
     La composición de series formales verifica
-    \begin{itemize}
-        \item $(F + G) \circ H = F \circ H + G \circ H$
-        \item $(F \cdot G) \circ H = (F \circ H) \cdot (G \circ H)$
-        \item $F, G \in \maximal \implies F \circ G \in \maximal$
-        \item $F \circ T = T \circ F = F$
-        \item $(F \circ G) \circ H = F \circ (G \circ H)$
-    \end{itemize}
+
+    \begin{tabular}{@{}ll@{}}
+    $\bullet$ $(F + G) \circ H = F \circ H + G \circ H$ & 
+    \quad $\bullet$ $F \circ T = T \circ F = F$ \\[6pt]
+    $\bullet$ $(F \cdot G) \circ H = (F \circ H) \cdot (G \circ H)$ & 
+    \quad $\bullet$ $(F \circ G) \circ H = F \circ (G \circ H)$ \\[6pt]
+    $\bullet$ $F, G \in \maximal \implies F \circ G \in \maximal$ & \\
+    \end{tabular}
 \end{proposicion}
 
 \begin{definicion}
-    Se dice que la sucesión de series formales $F_n(T)$ forman una \textbf{pseudobase de $\F$}, si para toda serie formal $F(T)$ existen constnates únicas $a_n$ tales que
-    \begin{equation*}
-        F(T) = \sum_{n=0}^\infty a_n F_n(T)
-    \end{equation*}
+    Se dice que la sucesión de series formales $F_n(T)$ forman una \textbf{pseudobase de $\F$}, si para toda serie formal $F(T) \in \F$ existen constantes únicas $a_n$ tales que $F(T) = \sum_{n=0}^\infty a_n F_n(T)$
 \end{definicion}
 
 \begin{proposicion}
@@ -159,8 +142,7 @@ En lo que sigue, supondremos que $\mathcal{R} = \field$ es un cuerpo de caracter
 \begin{proposicion}
     La derivada formal verifica
     \begin{itemize}
-        \item $\partial \lambda = 0, \forall \lambda \in \field \subset \F $
-        \item $\partial$ es $\field$-lineal.
+        \item $\partial$ es $\field$-lineal y $\partial \field = 0$
         \item $\partial(F \cdot G) = \partial(F) \cdot G + F (\partial G)$
         \item $\partial (\frac{F}{G}) = \frac{\partial(F) \cdot G - F (\partial G)}{G^2}$ si $G \in \F^*$ (donde $\frac{F}{G} = F \cdot \frac{1}{G}$).
         \item $\partial(F \circ G) = ((\partial F) \circ G) \cdot G$ si $G \in \maximal$.

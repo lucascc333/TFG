@@ -165,10 +165,7 @@ Son varias las formas de caracterizar a estas sucesiones y todas ellas nos será
     \end{align*}
     Luego, por \ref{inyectividad sucesion F_k} vemos que $F(T)s_{n}(x) = ns_{n-1}(x)$, como queríamos. 
 
-    $\boxed{\impliedby}$ Sea $\overline{s_n}(x)$ asociada a $F(T)$. El operador $\Lambda$ dado por
-    \begin{equation*}
-        \Lambda s_n(x) = \overline{s_n}(x)
-    \end{equation*} 
+    $\boxed{\impliedby}$ Sea $\overline{s_n}(x)$ asociada a $F(T)$. El operador $\Lambda$ dado por $\Lambda s_n(x) = \overline{s_n}(x)$
     será invertible y estará bien definido, pues tanto $s_n(x)$ como $\overline{s_n}(x)$ son bases de $\poly$. Además, por lo visto antes, tendremos que $F(T)\overline{s_n}(x) = n\overline{s_{n-1}}(x)$. Con lo que
     \begin{equation*}
         F(T) \Lambda s_n(x) = F(T) \overline{s_n}(x) = n\overline{s_{n-1}}(x) = n \Lambda s_{n-1}(x) = \Lambda F(T) s_n(x)
@@ -198,7 +195,7 @@ Son varias las formas de caracterizar a estas sucesiones y todas ellas nos será
 \end{demo}
 
 \begin{corolario}
-    La sucesión de polinomios $s_n(x)$ es la sucesión de Appell asociada a $G(T)$ si y solo Si
+    La sucesión de polinomios $s_n(x)$ es la sucesión de Appell asociada a $G(T)$ si y solo si
     \begin{equation*}
         s_n'(x) = ns_{n-1}(x)
     \end{equation*}
@@ -222,11 +219,7 @@ Son varias las formas de caracterizar a estas sucesiones y todas ellas nos será
     \langle \frac{1}{G(F^{-1}(T))}E_{\xi} (F^{-1}(T)) | x^n \rangle & = \langle \frac{1}{G(F^{-1}(T))} \sum_{k=0}^\infty \xi^k (F^{-1}(T))^k| x^n \rangle\\
     & = \sum_{k=0}^n \frac{1}{k!} \langle \frac{1}{G(F^{-1}(T))}(F^{-1}(T))^k | x^n \rangle \xi^k
 \end{align*}
-y por el otro
-\begin{equation*}
-    \langle \sum_{k=0}^\infty \frac{s_k(\xi)}{k!}T^k | x^n \rangle = s_n(\xi)
-\end{equation*}
-Como esto es válido para cualquier $\xi$, se concluye.
+y por el otro $\langle \sum_{k=0}^\infty \frac{s_k(\xi)}{k!}T^k | x^n \rangle = s_n(\xi)$. Como esto es válido para cualquier $\xi$, se concluye. \qedhere
 \end{demo}
 
 \begin{corolario}
@@ -264,10 +257,8 @@ Como esto es válido para cualquier $\xi$, se concluye.
     \end{equation*}
     Así pues, tenemos que
     \begin{align*}
-        E_{y}(T) \Lambda s_n(x) = E_{y}(T) p_n(x) = p_n(x+y) & = \sum_{k=0}^n \binom{n}{k} p_k (y) p_{n-k}(x)\\
-        & = \Lambda \sum_{k=0}^n \binom{n}{k} p_k (y) s_{n-k}(x)\\
-        & = \Lambda s_n(x+y)\\
-        & = \Lambda E_{y}(T) s_n(x)
+        E_{y}(T) \Lambda s_n(x) & = E_{y}(T) p_n(x) = p_n(x+y) = \sum_{k=0}^n \binom{n}{k} p_k (y) p_{n-k}(x)\\
+        & = \Lambda \sum_{k=0}^n \binom{n}{k} p_k (y) s_{n-k}(x) = \Lambda s_n(x+y) = \Lambda E_{y}(T) s_n(x)
     \end{align*}
     Lo que prueba que $E_{y}(T) \circ \Lambda = \Lambda \circ E_{y}(T)$, como queríamos.
 \end{demo}
