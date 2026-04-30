@@ -1,10 +1,24 @@
 %!TEX encoding = UTF-8 Unicode
 \documentclass{beamer}
 
-\usetheme{Berlin} % Personalización del tema 
+
+\usetheme{Madrid} % Personalización del tema 
 \usecolortheme{beaver}
+% Block normal
+\setbeamercolor{block title}{bg=red, fg=white}
+\setbeamercolor{block body}{bg=red!10, fg=black}
+
+% Block de alerta
+\setbeamercolor{block title alerted}{bg=red!80, fg=white}
+\setbeamercolor{block body alerted}{bg=red!10, fg=black}
+
+% Block de ejemplo
+\setbeamercolor{block title example}{bg=red!60, fg=white}
+\setbeamercolor{block body example}{bg=red!10, fg=black}
 
 \setbeamertemplate{navigation symbols}{} % Para eliminar los símbolos clickables de navegación
+\setbeamercolor{item projected}{bg=red!70!black, fg=white}
+\setbeamercolor{subitem projected}{bg=red!70!black, fg=white}
 
 
 %: PAQUETES DE LATEX
@@ -17,29 +31,6 @@
 
 \usepackage{tikz}
 
-\renewcommand{\maketitle}{
-  \begin{frame}
-    \centering
-    \vspace{1cm}
-    
-    \begin{tikzpicture}
-      % Sombra
-      \fill[black!40, rounded corners=2pt] (0.3,-0.1) rectangle (0.86\textwidth-0.1, -2.2);
-      % Recuadro gris
-      \fill[gray!15, rounded corners=2pt] (0, 0) rectangle (0.85\textwidth-0.2, -2.1);
-      \node[anchor=north, text width=0.8\textwidth, align=center] at (0.425\textwidth-0.1, -0.3) {
-        {\color{red}\large\textbf{\inserttitle}}\\[4pt]
-        {\color{red}\insertsubtitle}
-      };
-    \end{tikzpicture}
-    
-    \vspace{0.4cm}
-    {\large\insertauthor}\\[0.3cm]
-    {\small\insertinstitute}\\[0.4cm]
-    {\insertdate}\\[0.6cm]
-    \inserttitlegraphic
-  \end{frame}
-}
 
 %: Paquetes básicos
 \usepackage[utf8]{inputenc} % Para la codificación unicode
@@ -52,9 +43,6 @@
 %: Paquetes matemáticos
 \usepackage{amsfonts} % Añade letras góticas, negritas... etc
 \usepackage{amsmath, amssymb, amsthm} % Para alinear fórmulas y ecuaciones, añadir símbolos básicos, escribir teoremas y demos...
-    % Esto nos deja decir \begin{demo} en vez de \begin{proof}
-    \let\demo\proof
-    \let\enddemo\endproof
 \usepackage{mathtools} % Para facilitar la escritura de matemáticas
 \usepackage{mathrsfs} % Añade estilos para escribir símbolos
 \usepackage{stmaryrd} % Añade más símbolos
@@ -79,6 +67,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %: Colores
+\usepackage[dvipsnames]{xcolor}
 % Comandos para resaltar con colores
 \newcommand{\contrastcolor}{Blue3}
 \newcommand{\headingscolor}{Blue1}
@@ -93,19 +82,41 @@
 \let\azul\blue
 \let\granate\garnet
 
-%: Estilo teoremas, lemas, definiciones...
-\newtheorem{teorema}{Teorema}[section] % Teorema
-\newtheorem{corolario}[teorema]{Corolario} % Corolario
-\newtheorem{lema}[teorema]{Lema} % Lema
-\newtheorem{proposicion}[teorema]{Proposición} % Proposición
-\newtheorem{definicion}{Definición}[section] % Definición
-
-\theoremstyle{definition}
-\newtheorem*{obs}{Observación} % Observación
-
-\theoremstyle{definition}
-\newtheorem*{ej}{Ejemplo}
 \def\eqref#1{\textcolor{DarkRed}{{(\ref{#1})}}} % Redefine el estilo de las referencias a ecuaciones
+
+\usepackage{tcolorbox}
+
+\newenvironment{teorema}[1][]{
+  \begin{tcolorbox}[colback=darkred!10, colframe=darkred!90, title=Teorema\ #1, fonttitle=\bfseries]
+}{
+  \end{tcolorbox}
+}
+
+\newenvironment{lema}[1][]{
+  \begin{tcolorbox}[colback=red!10, colframe=red!60!black, title=Lema\ #1, fonttitle=\bfseries]
+}{
+  \end{tcolorbox}
+}
+
+\newenvironment{definicion}[1][]{
+  \begin{tcolorbox}[colback=red!10, colframe=red!80!black, title=Definición\ #1, fonttitle=\bfseries]
+}{
+  \end{tcolorbox}
+}
+
+\newenvironment{proposicion}[1][]{
+  \begin{tcolorbox}[colback=darkred!10, colframe=darkred!70, title=Proposición\ #1, fonttitle=\bfseries]
+}{
+  \end{tcolorbox}
+}
+
+\let\demo\undefined
+\let\enddemo\undefined
+\newenvironment{demo}{%
+  \par\medskip\noindent\textbf{Demostración.}\hspace{0.5em}%
+}{%
+  \hfill$\blacksquare$\par\medskip%
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -184,6 +195,14 @@
 
 \renewcommand{\qedsymbol}{$\blacksquare$} % Símbolo q.e.d
 
+\AtBeginSection[]{
+  \begin{frame}
+    \begin{beamercolorbox}[sep=8pt, center, rounded=true, shadow=true]{section in head/foot}
+      \usebeamerfont{title}\insertsectionhead\par
+    \end{beamercolorbox}
+  \end{frame}
+}
+
 %: FIN DE MACROS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -192,17 +211,193 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\author{Lucas Cuerva Cuenca}
+\author[Lucas Cuerva Cuenca]{Lucas Cuerva Cuenca}
 \title{Introducción al cálculo umbral}
 \subtitle{Trabajo Fin de Grado}
 \date{Curso 2025/2026}
-\institute{\small Tutor: Luis Manuel Navas Vicente \\ Grado en Matemáticas}
+\institute[]{\footnotesize Tutor: Luis Manuel Navas Vicente \\ Grado en Matemáticas}
+
 
 \titlegraphic{
-    \includegraphics[width=2cm]{usal logo negro.png}
+    \includegraphics[width=2.2cm]{usal logo negro.png}
 }
+
 \begin{document}
 
-\maketitle
+{
+  \setbeamertemplate{headline}{}
+  \begin{frame}
+    \titlepage
+  \end{frame}
+}
 
+\begin{frame}{Sumario}
+  \tableofcontents
+\end{frame}
+
+\section{¿Qué es el cálculo umbral?}
+  \begin{frame}{Origen de la disciplina}
+    \begin{block}{John Blissard}
+      En 1861 publica el artículo \textit{Theory of generic equations}. En años posteriores, publica otros 9 artículos donde da aplicaciones de esta teoría. Por primera vez aparecen las ideas umbrales.
+    \end{block}
+    \begin{block}{Édouard Lucas}
+      15 años después, recupera las ideas de Blissard y les da una mayor visibilidad, aunque sigue habiendo escepticismo sobre su validez.
+    \end{block}
+
+    \begin{center}
+      \includegraphics[width=1.8cm]{E_Lucas.png}
+
+      \footnotesize{Édouard Lucas}
+    \end{center}
+  \end{frame}
+
+  \begin{frame}{¿Qué es el cálculo umbral?}
+      La idea básica sobre que la giraban todas estas publicaciones era la de estudiar el comportamiento tan particular que ciertas sucesiones de números y polinomios poseen. 
+
+      \begin{block}{Idea fundacional}
+        \begin{align*}
+        \text{Subíndices} & \leftrightarrow \text{Exponentes}\\
+        b_0, b_1, \dots, b_n & \leftrightarrow b^0, b^1, \dots, b^n
+        \end{align*}
+      \end{block}
+
+      Para ello, utilizaremos la notación $b_k \equiv b^k$ para simbolizar este intercambio. 
+
+  \end{frame}
+
+  \begin{frame}{Un ejemplo clásico}
+    Los números de Bernoulli $B_n$ suelen definirse a través de la función generadora
+      \begin{equation*}
+        \frac{x}{e^x - 1} = \sum_{n=0}^\infty B_n \frac{x^n}{n!}
+      \end{equation*} 
+      Con esta convención, podemos obtener lo siguiente
+      \begin{align*}
+        e^{B \cdot x} = \sum_{n=0}^\infty (B \cdot x)^n \frac{x^n}{n!} \equiv \sum_{n=0}^\infty B_n \frac{x^n}{n!} = \frac{x}{e^x - 1} \implies e^{B \cdot x} \equiv \frac{x}{e^x - 1}\\
+        \implies e^{-Bx} \equiv \frac{-x}{e^{-x}-1} = \frac{xe^x}{e^x-1} \equiv e^{(B+1) \cdot x} \implies (B+1)^n = (-B)^n
+      \end{align*}
+      Y de aquí se llega a la prueba del conocido resultado
+      \begin{block}{}
+        \begin{equation*}
+        B_1 = -\frac{1}{2} \quad B_3 = B_5 = B_7 = \cdots = 0
+      \end{equation*}
+      \end{block}
+  \end{frame}
+
+  \begin{frame}{Un ejemplo clásico}
+    Lo mismo se puede hacer con los polinomios de Bernoulli $B_n(x)$. Su función generadora es
+      \begin{equation*}
+        \frac{zx}{e^{zx} - 1} = \sum_{n=0}^\infty B_n(x) \frac{z^n}{n!}
+      \end{equation*}
+      Por lo ya visto, esto lleva a que
+      \begin{equation*}
+        e^{(B + x)z} \equiv \sum_{n=0}^\infty B_n(x)\frac{z^n}{n!} \implies B_n(x) \equiv (B + x)^n
+      \end{equation*}
+     y se llega así a la clásica fórmula
+     \begin{block}{}
+      \begin{equation*}
+        B_n(x) = \sum_{k=0}^{n} \binom{n}{k} B_{n-k} x^k
+      \end{equation*}
+     \end{block}
+  \end{frame}
+
+  \begin{frame}{Un ejemplo clásico}
+    Otras tantas fórmulas conocidas apoyan esta idea.
+    \begin{align*}
+      &B_n(x + y) = \sum_{k=0}^n \binom{n}{k} B_{n-k}(y)x^k \leftrightarrow (x + y)^n = \sum_{k=0}^n \binom{n}{k} y^{n-k}x^k\\
+      &B_n'(x) = nB_{n-1}(x) \leftrightarrow (x^n)' = nx^{n-1}\\
+      &\int_{x}^{y} B_n(u) du = \frac{B_{n+1}(x) - B_{n+1}(y)}{n+1} \leftrightarrow \int_{x}^{y} u^n du = \frac{x^{n+1} - y^{n+1}}{n+1}
+    \end{align*}
+  \end{frame}
+
+  \begin{frame}
+    \begin{center}
+      \Large
+      \textbf{¿A qué se deben estas aparentes coincidencias?}\\[1em]
+      \textbf{¿Por qué funcionan estas manipulaciones?}\\[1em]
+      \textbf{¿Se pueden generalizar los resultados a más sucesiones de polinomios?}
+    \end{center}
+  \end{frame}
+
+  \begin{frame}{El cálculo umbral moderno}
+    \begin{block}{G-C. Rota, S.Roman}
+      Medio siglo despúes, revivirían todas estas ideas para darles la formalización necesaria y responder a estas preguntas. En 1984 se publica \textit{The Umbral Calculus} que sienta las bases de la disciplina. 
+    \end{block}
+    \begin{center}
+    \begin{minipage}{2.5cm}
+      \centering
+      \includegraphics[width=2.1cm]{Rota.jpg}\\[1pt]
+      \footnotesize Gian-Carlo Rota
+    \end{minipage}
+    \hspace{1cm}
+    \begin{minipage}{2.5cm}
+      \centering
+      \includegraphics[width=1.7cm]{roman.jpeg}\\[1pt]
+      \footnotesize Steven Roman
+    \end{minipage}
+  \end{center}
+  Todo se reduce al estudio y tratamiento de una clase de sucesiones de polinomios: las \textit{sucesiones de Sheffer}
+
+  \begin{block}{}
+    \begin{center}
+      \begin{tabular}{rl}
+        & Series formales \\
+        & Análisis funcional $\rightarrow$ Cálculo umbral moderno \\
+        & Álgebra \\
+      \end{tabular}
+    \end{center}
+  \end{block}
+  \end{frame}
+
+\section{El álgebra umbral}
+  \begin{frame}
+    \begin{definicion}
+      Llamaremos \textbf{funcional} a cada elemento de $\poly^*$. Además, dado $L \in \poly^*$ simbolizaremos su acción sobre un polinomio $p(x)$ como $\langle L | p(x) \rangle$
+    \end{definicion}
+
+    \begin{proposicion}
+      Dada $\{p_n(x)\}_{n\geq0}$ sucesión de polinomios tal que $\gr(p_n) = n$ para todo $n$, un funcional está completamente determinado por las constantes $\langle L | p_n(x) \rangle$. En particular, un funcional $L$ está completamente determinado por las constantes $\langle L | x^n \rangle$ y si es el caso que verifica $\langle L | p_n(x) \rangle = 0$ para todo $n$, entonces $L = 0$.
+    \end{proposicion}
+  \end{frame}
+
+  \begin{frame}
+    Así, dada la serie formal $T^k$, esto nos permite definir el funcional $\omega_{T^k}$ dado por $\langle \omega_{T^k} | x^n \rangle = n! \delta_{n,k}$, que podemos extender por linealidad a cualquier serie formal $F(T)$ y obtener los funcionales $\omega_F$. Y recíprocamente, cada funcional $L$ define la serie formal $F_L(T) = \sum_{k=0}^\infty \frac{ \langle L | x^k \rangle}{k!} T^k $
+    \begin{teorema}
+      La aplicación $\phi \colon  \poly^* \xrightarrow{\sim} \F$ definida por
+    \begin{align*}
+        L & \mapsto \phi (L) = F_L(T) = \sum_{k=0}^\infty \frac{ \langle L | x^k \rangle}{k!} T^k\\
+        \omega_F = \phi^{-1}(F(T)) & \mapsfrom F(T) = \sum_{k=0}^\infty a_k T^k
+    \end{align*}
+    donde el funcional $\omega_F$ viene dado por $\langle \omega_F | x^n \rangle = n! \cdot a_n$, es un isomorfismo lineal. A este morfismo $\phi$ lo llamaremos el \textbf{isomorfismo canónico umbral}.
+    \end{teorema}
+  \end{frame}
+
+  \begin{frame}
+    \begin{demo}
+      La linealidad de $\phi$ es inmediata. Basta ver la biyectividad.
+      \begin{itemize}
+        \item $F(T) \longrightarrow \omega_F \longrightarrow F_{\omega_F}(T) = F(T)$ pues $\langle \omega_F(T) | x^n\rangle = n! \cdot a_n \implies F_{\omega_F}(T) = \sum_{k=0}^\infty \frac{k! \cdot a_k}{k!} T^k = F(T)$
+        \item $L \longrightarrow F_L(T) \longrightarrow \omega_{F_L} = L$ ya que $\langle \omega_{F_L} | x^n \rangle = \langle L | x^n \rangle$
+      \end{itemize} 
+    \end{demo}
+    $\phi$ \underline{no} es isomorfismo de álgebras. No obstante, inducirá un nuevo producto en $\poly^*$, distinto del producto usual de funcionales. 
+
+    \begin{definicion}
+      Se llama \textbf{álgebra umbral} al espacio vectorial $\poly^*$ dotado de la estructura de $\field$-álgebra inducida por $\phi$, es decir, aquella definida por
+        \begin{equation*}
+        \langle L \cdot M | x^n \rangle = \sum_{k=0}^n\binom{n}{k}\langle L | x^k \rangle \langle M | x^{n-k} \rangle \quad \forall L, M \in \poly^*
+        \end{equation*}
+    \end{definicion}
+
+
+  \end{frame}
+
+\section{Sucesiones de Sheffer}
+  \begin{frame}
+    
+  \end{frame}
+\section{Aplicación a los polinomios de Bernoulli}
+  \begin{frame}
+    
+  \end{frame}
+  
 \end{document}

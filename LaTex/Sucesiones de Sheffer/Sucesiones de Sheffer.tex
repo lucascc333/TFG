@@ -17,7 +17,7 @@ Nos centraremos ahora en el estudio de las sucesiones de polinomios. En concreto
     
     Sean entonces $s_n(x) = \sum_{m=0}^n c_{n,m}x^m \text{ y } G(T)F^k(T) = \sum_{l=k}^\infty a_{k,l}T^l$, donde $c_{n,m}$ son los coeficientes a determinar, es decir, $c_{n,n \neq 0}$, para todo $n \geq 0$, y $a_{k,k} \neq 0$, para todo $k \geq 0$, ya que $\ord(G(T)F^k(T)) = k$. Con todo, tendremos que se debe verificar
     \begin{align*}
-        \langle G(T)F^k(T)| s_n(x) \rangle & = \langle \sum_{l=k}^\infty a_{k,l}T^l | \sum_{m=0}^n c_{n,m}x^m \rangle = \sum_{l=k}^n \sum_{m=0}^n a_{k,l}c_{n,m} \langle T^l | x^m \rangle\\
+        \langle G(T)F^k(T)| s_n(x) \rangle & = \left\langle \sum_{l=k}^\infty a_{k,l}T^l | \sum_{m=0}^n c_{n,m}x^m \right\rangle = \sum_{l=k}^n \sum_{m=0}^n a_{k,l}c_{n,m} \langle T^l | x^m \rangle\\
         & = \sum_{l=k}^n \sum_{m=0}^n a_{k,l}c_{n,m} m! \delta_{l,m} = \sum_{l=k}^n a_{k,l}c_{n,l} l! = n! \delta_{n,k} \quad \forall k \in \{0,1, \ldots, n \}
     \end{align*}
     De tal manera que, para cada $n \in \{0, 1, 2, \cdots \}$, llegamos al sistema triangular de $n+1$ ecuaciones lineales con $n+1$ incógnitas siguiente
@@ -108,7 +108,7 @@ para toda $G(T) \in \F$ y todo $p(x) \in \poly$. Esta observación nos permite e
 \begin{demo}
     De forma similar a lo hecho antes, como $\ord(G(T)F^k(T)) = k$, por la proposición \ref{inyectividad sucesion F_k}, basta con ver que ambos lados de la expresión coinciden al aplicarles el funcional $G(T)F^n(T)$, para todo natural $n$. En efecto
     \begin{align*}
-        \langle G(T)F^n(T) | \sum_{k \geq 0} \frac{\langle G(T)F^k(T) | p(x) \rangle}{k!}s_k(x) \rangle & = \sum_{k \geq 0} \frac{\langle G(T)F^k(T) | p(x) \rangle}{k!}\langle G(T)F^n(T) | s_k(x) \rangle\\
+        \left\langle G(T)F^n(T) | \sum_{k \geq 0} \frac{\langle G(T)F^k(T) | p(x) \rangle}{k!}s_k(x) \right\rangle & = \sum_{k \geq 0} \frac{\langle G(T)F^k(T) | p(x) \rangle}{k!}\langle G(T)F^n(T) | s_k(x) \rangle\\
         & = \sum_{k \geq 0} \frac{\langle G(T)F^k(T) | p(x) \rangle}{k!}k! \delta_{k,n} \\
         & = \langle G(T)F^n(T) | p(x) \rangle \qedhere
     \end{align*}
@@ -177,7 +177,7 @@ Son varias las formas de caracterizar a estas sucesiones y todas ellas nos será
     La sucesión de polinomios $p_n(x)$ es la sucesión asociada a $F(T)$ si y solo si
     \begin{enumerate}
         \item $\begin{aligned}
-            \langle 1 | p_n(x) \rangle = \delta_{n,0} \quad (\textnormal{lo que equivale a: } p_0(x)=1, p_n(0)=0; \forall n > 0)
+            \langle 1 | p_n(x) \rangle = \delta_{n,0} \quad (\textnormal{lo que equivale a que } p_0(x)=1, p_n(0)=0; \forall n > 0)
         \end{aligned}$
         \item $\begin{aligned}
             F(T)p_n(x) = np_{n-1}(x)
@@ -216,10 +216,10 @@ Son varias las formas de caracterizar a estas sucesiones y todas ellas nos será
     \end{equation*}
     Intepretando ambas series como funcionales y aplicándolas a los polinomios $x^n$, por un lado obtenemos
 \begin{align*}
-    \langle \frac{1}{G(F^{-1}(T))}E_{\xi} (F^{-1}(T)) | x^n \rangle & = \langle \frac{1}{G(F^{-1}(T))} \sum_{k=0}^\infty \xi^k (F^{-1}(T))^k| x^n \rangle\\
-    & = \sum_{k=0}^n \frac{1}{k!} \langle \frac{1}{G(F^{-1}(T))}(F^{-1}(T))^k | x^n \rangle \xi^k
+    \left\langle \frac{1}{G(F^{-1}(T))}E_{\xi} (F^{-1}(T)) | x^n \right\rangle & = \left\langle \frac{1}{G(F^{-1}(T))} \sum_{k=0}^\infty \xi^k (F^{-1}(T))^k| x^n \right\rangle\\
+    & = \sum_{k=0}^n \frac{1}{k!} \left\langle \frac{1}{G(F^{-1}(T))}(F^{-1}(T))^k | x^n \right\rangle \xi^k
 \end{align*}
-y por el otro $\langle \sum_{k=0}^\infty \frac{s_k(\xi)}{k!}T^k | x^n \rangle = s_n(\xi)$. Como esto es válido para cualquier $\xi$, se concluye. \qedhere
+y por el otro $\langle \sum_{k=0}^\infty \frac{s_k(\xi)}{k!}T^k | x^n \rangle = s_n(\xi)$. Como esto vale para cualquier $\xi$, se concluye.
 \end{demo}
 
 \begin{corolario}
@@ -229,7 +229,7 @@ y por el otro $\langle \sum_{k=0}^\infty \frac{s_k(\xi)}{k!}T^k | x^n \rangle = 
     \end{equation*}
     Análogamente, la sucesión de polinomios $s_n(x)$ es la sucesión de Appell asociada a $G(T)$ si y solo si 
     \begin{equation*}
-        s_n(x) = \sum_{k=0}^n \binom{n}{k} \langle \frac{1}{G(T)} | x^{n-k} \rangle x^k
+        s_n(x) = \sum_{k=0}^n \binom{n}{k} \left\langle \frac{1}{G(T)} | x^{n-k} \right\rangle x^k
     \end{equation*}
 \end{corolario}
 

@@ -1,1 +1,5 @@
 \babel@toc {spanish}{}\relax 
+\beamer@sectionintoc {1}{¿Qué es el cálculo umbral?}{3}{0}{1}
+\beamer@sectionintoc {2}{El álgebra umbral}{11}{0}{2}
+\beamer@sectionintoc {3}{Sucesiones de Sheffer}{15}{0}{3}
+\beamer@sectionintoc {4}{Aplicación a los polinomios de Bernoulli}{17}{0}{4}
