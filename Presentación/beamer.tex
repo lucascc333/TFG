@@ -20,6 +20,14 @@
 \setbeamercolor{item projected}{bg=red!70!black, fg=white}
 \setbeamercolor{subitem projected}{bg=red!70!black, fg=white}
 
+\setbeamercolor{frametitle}{bg=black!80, fg=white} % Color del fondo de los títulos
+
+% Cambia el bloque de la derecha en el pie de página (donde está la fecha/página)
+\setbeamercolor{date in head/foot}{bg=black!80, fg=white}
+
+% Si usas una barra lateral o bloques que aún se vean grises:
+\setbeamercolor{structure}{fg=black!80}
+
 
 %: PAQUETES DE LATEX
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -49,6 +57,7 @@
 \usepackage{cases} % Para distinguir casos al definir una función
 \usepackage{framed} % Para recuadrar fórmulas y texto
 \usepackage{tikz-cd} % Para crear diagramas con flechas
+\usepackage{relsize} % Para cambiar el tamaño de fuente matemática
 \usetikzlibrary{babel}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -116,6 +125,16 @@
   \par\medskip\noindent\textbf{Demostración.}\hspace{0.5em}%
 }{%
   \hfill$\blacksquare$\par\medskip%
+}
+
+\let\ejmplo\undefined
+\let\endejemplo\undefined
+\newenvironment{ejemplo}{%
+  \par\medskip\noindent\textbf{Ejemplo.}\hspace{0.5em}%
+}
+
+\newcommand{\rboxed}[1]{%
+  \fcolorbox{red!80!black}{red!10}{$#1$}%
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -211,24 +230,30 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\author[Lucas Cuerva Cuenca]{Lucas Cuerva Cuenca}
-\title{Introducción al cálculo umbral}
-\subtitle{Trabajo Fin de Grado}
-\date{Curso 2025/2026}
-\institute[]{\footnotesize Tutor: Luis Manuel Navas Vicente \\ Grado en Matemáticas}
+\author[Lucas Cuerva Cuenca]{\textsc{Lucas Cuerva Cuenca}}
+\title[Introducción al cálculo umbral]{\textsc{\underline{Introducción al cálculo umbral}}}
+\subtitle{\textsc{Trabajo Fin de Grado}}
+\date[Curso 2025/2026]{\textsc{Curso 2025/2026}}
+\institute[]{\footnotesize \textsc{Tutor: Luis Manuel Navas Vicente \\ Grado en Matemáticas}}
 
 
 \titlegraphic{
-    \includegraphics[width=2.2cm]{usal logo negro.png}
+    \includegraphics[width=4cm, decodearray = {1 0 1 0 1 0}]{usal logo negro.png}
 }
+\definecolor{granate}{RGB}{100, 0, 0}
 
 \begin{document}
 
 {
-  \setbeamertemplate{headline}{}
-  \begin{frame}
-    \titlepage
-  \end{frame}
+    \setbeamercolor{background canvas}{bg=granate}
+    \setbeamercolor{title}{fg=black}       % Asegura que el título sea blanco
+    \setbeamercolor{author}{fg=white}      % Autor en blanco
+    \setbeamercolor{institute}{fg=white}   % Institución en blanco
+    \setbeamercolor{date}{fg=white}        % Fecha en blanco
+    
+    \begin{frame}[plain] % El [plain] quita las barras de navegación solo en esta diapo
+        \titlepage
+    \end{frame}
 }
 
 \begin{frame}{Sumario}
@@ -238,15 +263,14 @@
 \section{¿Qué es el cálculo umbral?}
   \begin{frame}{Origen de la disciplina}
     \begin{block}{John Blissard}
-      En 1861 publica el artículo \textit{Theory of generic equations}. En años posteriores, publica otros 9 artículos donde da aplicaciones de esta teoría. Por primera vez aparecen las ideas umbrales.
+      En 1861 publica el artículo \textbf{\textit{Theory of generic equations}}, donde se habla de una \textit{notación simbólica}. En años posteriores, publica otros 9 artículos donde da aplicaciones de esta teoría. Por primera vez aparecen las ideas umbrales.
     \end{block}
     \begin{block}{Édouard Lucas}
       15 años después, recupera las ideas de Blissard y les da una mayor visibilidad, aunque sigue habiendo escepticismo sobre su validez.
     \end{block}
 
     \begin{center}
-      \includegraphics[width=1.8cm]{E_Lucas.png}
-
+      \includegraphics[width=1.5cm]{E_Lucas.png}\\
       \footnotesize{Édouard Lucas}
     \end{center}
   \end{frame}
@@ -255,6 +279,7 @@
       La idea básica sobre que la giraban todas estas publicaciones era la de estudiar el comportamiento tan particular que ciertas sucesiones de números y polinomios poseen. 
 
       \begin{block}{Idea fundacional}
+        A grandes rasgos
         \begin{align*}
         \text{Subíndices} & \leftrightarrow \text{Exponentes}\\
         b_0, b_1, \dots, b_n & \leftrightarrow b^0, b^1, \dots, b^n
@@ -320,7 +345,7 @@
 
   \begin{frame}{El cálculo umbral moderno}
     \begin{block}{G-C. Rota, S.Roman}
-      Medio siglo despúes, revivirían todas estas ideas para darles la formalización necesaria y responder a estas preguntas. En 1984 se publica \textit{The Umbral Calculus} que sienta las bases de la disciplina. 
+      Medio siglo después, revivirían todas estas ideas para darles la formalización necesaria y responder a estas preguntas. En 1984 se publica \textbf{\textit{The Umbral Calculus}} que sienta las bases de la disciplina. 
     \end{block}
     \begin{center}
     \begin{minipage}{2.5cm}
@@ -335,7 +360,7 @@
       \footnotesize Steven Roman
     \end{minipage}
   \end{center}
-  Todo se reduce al estudio y tratamiento de una clase de sucesiones de polinomios: las \textit{sucesiones de Sheffer}
+  Todo se reduce al estudio y tratamiento de una clase de sucesiones de polinomios: estas son las \textbf{\textit{sucesiones de Sheffer}.} 
 
   \begin{block}{}
     \begin{center}
@@ -348,19 +373,55 @@
   \end{block}
   \end{frame}
 
-\section{El álgebra umbral}
-  \begin{frame}
+\section{Series formales como funcionales y operadores}
+
+  \begin{frame}{Definiciones y resultados previos}
     \begin{definicion}
-      Llamaremos \textbf{funcional} a cada elemento de $\poly^*$. Además, dado $L \in \poly^*$ simbolizaremos su acción sobre un polinomio $p(x)$ como $\langle L | p(x) \rangle$
+      Se llama \textbf{anillo de series formales en la variable $T$ con coeficientes en el cuerpo $\field$} al conjunto
+      \begin{equation*}
+        \F \equiv \field \llbracket T \rrbracket = \{ \sum_{k=0}^{\infty} a_k T^k : a_k \in \field\}
+      \end{equation*}
+      dotado de las operaciones de suma y producto habituales
+      \begin{align*}
+        \sum_{k=0}^{\infty} a_k T^k + \sum_{k=0}^{\infty} b_k T^k = \sum_{k=0}^{\infty} (a_k + b_k) T^k \\
+        \left(\sum_{k=0}^{\infty} a_k T^k\right) \cdot \left(\sum_{k=0}^{\infty} b_k T^k\right) = \sum_{k=0}^{\infty} \left( \sum_{n=0}^{k} a_n b_{n-k}\right) T^k
+      \end{align*}
+    \end{definicion}
+  \end{frame}
+
+  \begin{frame}{Definiciones y resultados previos}
+    \begin{definicion}
+      Dada $F(T) = \sum_{k=0}^\infty a_k T^k \in \F$, se define el \textbf{orden de $F(T)$} como
+      \begin{equation*}
+        \ord(F) = \min \{ n \geq 0 : a_n \neq 0 \}
+      \end{equation*}
+    \end{definicion}
+    \begin{definicion}
+      Se define la \textbf{derivada formal} como el operador
+      \begin{align*}
+        \partial \colon \F & \longrightarrow \F \\
+        \sum_{k=0}^{\infty} a_k T^k & \mapsto \sum_{k=1}^{\infty} ka_k T^{k-1}
+      \end{align*}
+    \end{definicion}
+  \end{frame}
+
+  \begin{frame}{Definiciones y resultados previos}
+    \begin{definicion}
+      Llamaremos \textbf{funcional} a cada elemento de $\poly^*$, siendo $\poly \equiv \field[x]$. Además, dado $L \in \poly^*$ simbolizaremos su acción sobre un polinomio $p(x)$ como $\langle L | p(x) \rangle$
     \end{definicion}
 
-    \begin{proposicion}
+    \begin{proposicion}[(caracterización sobre una base)]
       Dada $\{p_n(x)\}_{n\geq0}$ sucesión de polinomios tal que $\gr(p_n) = n$ para todo $n$, un funcional está completamente determinado por las constantes $\langle L | p_n(x) \rangle$. En particular, un funcional $L$ está completamente determinado por las constantes $\langle L | x^n \rangle$ y si es el caso que verifica $\langle L | p_n(x) \rangle = 0$ para todo $n$, entonces $L = 0$.
     \end{proposicion}
   \end{frame}
 
-  \begin{frame}
-    Así, dada la serie formal $T^k$, esto nos permite definir el funcional $\omega_{T^k}$ dado por $\langle \omega_{T^k} | x^n \rangle = n! \delta_{n,k}$, que podemos extender por linealidad a cualquier serie formal $F(T)$ y obtener los funcionales $\omega_F$. Y recíprocamente, cada funcional $L$ define la serie formal $F_L(T) = \sum_{k=0}^\infty \frac{ \langle L | x^k \rangle}{k!} T^k $
+  \begin{frame}{Correspondencia entre series formales y funcionales}
+    En consecuencia, podemos definir las asignaciones siguientes
+    \begin{itemize}
+      \item $T^k \longrightarrow \omega_{T^k} \text{ con } \langle \omega_{T^k} | x^n \rangle = n! \delta_{n,k}$. Por linealidad, $F(T) \longrightarrow \omega_{F}$.
+      \item $L \longrightarrow F_L(T) = \sum_{k=0}^\infty \frac{ \langle L | x^k \rangle}{k!} T^k $
+    \end{itemize}
+
     \begin{teorema}
       La aplicación $\phi \colon  \poly^* \xrightarrow{\sim} \F$ definida por
     \begin{align*}
@@ -371,15 +432,15 @@
     \end{teorema}
   \end{frame}
 
-  \begin{frame}
+  \begin{frame}{El álgebra umbral}
     \begin{demo}
       La linealidad de $\phi$ es inmediata. Basta ver la biyectividad.
       \begin{itemize}
         \item $F(T) \longrightarrow \omega_F \longrightarrow F_{\omega_F}(T) = F(T)$ pues $\langle \omega_F(T) | x^n\rangle = n! \cdot a_n \implies F_{\omega_F}(T) = \sum_{k=0}^\infty \frac{k! \cdot a_k}{k!} T^k = F(T)$
-        \item $L \longrightarrow F_L(T) \longrightarrow \omega_{F_L} = L$ ya que $\langle \omega_{F_L} | x^n \rangle = \langle L | x^n \rangle$
+        \item $L \longrightarrow F_L(T) \longrightarrow \omega_{F_L} = L$ ya que $\langle \omega_{F_L} | x^n \rangle = \langle L | x^n \rangle  \qedhere$
       \end{itemize} 
     \end{demo}
-    $\phi$ \underline{no} es isomorfismo de álgebras. No obstante, inducirá un nuevo producto en $\poly^*$, distinto del producto usual de funcionales. 
+    $\phi$ \underline{no} es isomorfismo de álgebras. No obstante, inducirá un nuevo producto en $\poly^*$, distinto del producto usual de funcionales.
 
     \begin{definicion}
       Se llama \textbf{álgebra umbral} al espacio vectorial $\poly^*$ dotado de la estructura de $\field$-álgebra inducida por $\phi$, es decir, aquella definida por
@@ -387,17 +448,302 @@
         \langle L \cdot M | x^n \rangle = \sum_{k=0}^n\binom{n}{k}\langle L | x^k \rangle \langle M | x^{n-k} \rangle \quad \forall L, M \in \poly^*
         \end{equation*}
     \end{definicion}
-
-
   \end{frame}
+
+  \begin{frame}{El álgebra umbral}
+    \begin{proposicion}
+      \begin{enumerate}
+        \item El funcional $e^{0T} = 1$ es la identidad para el producto del álgebra umbral.
+        \item $\langle L_1 \cdots L_m | x^n \rangle = \sum_{|i|=n}\binom{n}{i_1, \dots , i_m} \langle L_1| x^{i_1} \rangle \dots  \langle L_m | x^{i_m} \rangle$
+      \end{enumerate}
+    \end{proposicion}
+    Así pues, $\phi$ será un isomorfismo de álgebras entre el álgebra umbral y el álgebra de series formales. En particular, se tiene que
+    \begin{equation*}
+      F(T) = G(T) \iff \phi^{-1}(F(T)) = \phi^{-1}(G(T)) \iff \omega_F = \omega_G
+    \end{equation*}
+
+    \begin{block}{}
+      Con todo, $F(T)$ simbolizará a la serie formal y al funcional $\omega_F$ asociado.
+      \begin{align*}
+        F(T) & \colon \poly \longrightarrow \field \\
+        & p(x) \mapsto \langle F(T)| p(x)\rangle
+      \end{align*}
+    \end{block}
+  \end{frame}
+
+  \begin{frame}{Algunos ejemplos}
+    \begin{enumerate}
+      \item \textbf{Funcionales derivada k-ésima}
+      \begin{align*}
+        \langle T^k| x^n \rangle = n!\delta_{n,k} = (x^n)^{(k)}(0) \implies
+          \rboxed{\langle T^k| p(x) \rangle = p^{(k)}(0)}
+      \end{align*}
+      \item \textbf{Funcional evaluación en $\lambda$}. Simbolizamos por $E_{\lambda}$ a la serie  $e^{\lambda T}$
+      \begin{align*}
+        \langle E_{\lambda} | x^n \rangle = \left\langle \sum_{k = 0}^\infty \frac{\lambda^k}{k!}T^k | x^n \right\rangle = n! \cdot \frac{\lambda^n}{n!} = \lambda^n \implies \rboxed{\langle E_{\lambda} | p(x) \rangle = p(\lambda)}
+      \end{align*}
+      \item \textbf{Funcional diferencia con $\lambda$}. Simbolizamos por $\Delta_{\lambda}$ a la serie $E_{\lambda} - 1$
+      \begin{align*}
+        \rboxed{\langle \Delta_{\lambda} | p(x) \rangle = \langle e^{\lambda T}-1 | p(x) \rangle = p(\lambda)-p(0)} 
+      \end{align*}
+      \item \textbf{Funcional de Abel en $\lambda$}
+      \begin{align*}
+        \langle T E_\lambda | x^n \rangle = \left\langle \sum_{n\geq0} \frac{\lambda^n}{n!}T^{n+1} | x^n \right\rangle = nx^{n-1} \implies \rboxed{\langle Te^{\lambda T} | p(x) \rangle = p^`(\lambda)}
+      \end{align*}
+    \end{enumerate}
+  \end{frame}
+
+  \begin{frame}{Propiedades de las series como funcionales}
+    \begin{proposicion}
+    Sean $F(T) \in \F$ y $p(x) \in \poly$. Se tiene que
+    \begin{enumerate}
+        \item $\begin{aligned}[t]
+            F(T) = \sum_{k \geq 0} \frac{ \langle F(T) | x^k \rangle}{k!}T^k \quad \text{\textbf{(Taylor para funcionales)}}
+        \end{aligned}$ 
+        \item $\begin{aligned}
+            p(x) = \sum_{k \geq 0} \frac{ \langle T^k| p(x) \rangle}{k!}x^k \quad \text{\textbf{(Taylor clásico)}}
+        \end{aligned}$
+    \end{enumerate}
+  \end{proposicion}
+
+  \begin{demo}
+    La segunda igualdad solo es una reescritura del teorema de Taylor habitual para polinomios. La primera es consecuencia directa de la definición del funcional $F(T)$ pues $\langle F(T) | x^k\rangle = k! \cdot a_k$.
+  \end{demo}
+\end{frame}
+
+\begin{frame}{Propiedades de las series como funcionales}
+  \begin{proposicion}
+    Sea $\{ F_k(T) \}_{k\geq0}$ sucesión de series formales tal que $\ord(F_k) \rightarrow \infty$ cuando $k\rightarrow \infty$. Entonces, $\sum_{k}a_kF_k(T)$ converge en la topología formal y además se verifica que
+    \begin{equation*}
+        \left\langle \sum_{k=0}^\infty a_k F_k(T)| p(x)\right\rangle = \sum_{k=0}^\infty a_k \left\langle F_k(T)| p(x) \right\rangle
+    \end{equation*}
+    para todo $p(x) \in \poly$. En particular, se cumple cuando $\ord(F_k) = k$
+  \end{proposicion}
+
+  \begin{demo}
+    
+  \end{demo}
+\end{frame}
+
+\begin{frame}{Propiedades de las series como funcionales}
+  \begin{proposicion}
+      \begin{equation*}
+        \langle \partial F(T) | p(x) \rangle = \langle F(T) | x \cdot p(x)\rangle \quad \forall F(T) \in \F, p(x) \in \poly
+      \end{equation*}
+    \end{proposicion}
+    \begin{demo}
+      
+    \end{demo}
+\end{frame}
+
+\begin{frame}{Series como operadores}
+  \begin{definicion}
+    Llamaremos \textbf{operador} a cada elemento de $\End(\poly)$. Además, dado $\Lambda \in \poly^*$ simbolizaremos su acción sobre un polinomio $p(x)$ simplemente como $\Lambda p(x)$.
+  \end{definicion}
+  Igual que con los funcionales, podemos asignar la variable formal $T$ a la derivada formal. Por linealidad, se extiende a la aplicación $\varphi$ siguiente.
+    \begin{align*}
+      T \mapsto \partial \implies \varphi \colon & \F \longrightarrow \End(\poly)\\
+      & \sum_{k\geq0} \frac{a_k}{k!}T^k \mapsto \sum_{k \geq 0} \frac{a_k}{k!} \partial^k = \varphi(F(T))
+    \end{align*}
+\end{frame}
+
+\begin{frame}{Series como operadores}
+  Con esta idea, \underline{$F(T)$ simbolizará también al funcional asociado $\varphi(F(T))$}
+  \begin{block}{}
+    \begin{align*}
+    \varphi(F(T)) \equiv F(T) \colon & \poly \longrightarrow \poly \nonumber \\
+    & x^n \mapsto F(T)x^n = \sum_k \binom{n}{k}a_k x^{n-k}
+    \end{align*}
+  \end{block}
+
+  \begin{teorema}[(estructura de módulo)]
+    El producto definido por
+    \begin{align*}
+        \cdot \colon & \F \times \poly \longrightarrow \poly\\
+        & (F(T), p(x)) \mapsto F(T) \cdot p(x) \equiv F(T) p(x)
+    \end{align*}
+    dota a $\poly$ de una estructura de $\F$-módulo fiel.
+  \end{teorema}
+\end{frame}
+
+\begin{frame}{Ejemplos de operadores}
+  \begin{enumerate}
+      \item \textbf{Funcionales derivada k-ésima}
+      \item \textbf{Funcional evaluación en $\lambda$}
+      \item \textbf{Funcional diferencia con $\lambda$}
+      \item \textbf{Funcional de Abel en $\lambda$}
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Propiedades de los operadores}
+  Estos operadores verifican resultados análogos a los de los funcionales. También están relacionados con ellos.
+  \begin{teorema}
+    Sean $F(T), G(T) \in \F$ y $p(x) \in \poly$. Entonces
+    \begin{equation*}
+        \langle F(T)G(T) | p(x) \rangle = \langle F(T) | G(T)p(x) \rangle 
+    \end{equation*}
+  \end{teorema}
+\end{frame}
+
+\begin{frame}{Series como operadores}
+  \begin{demo}
+   
+  \end{demo}
+\end{frame}
 
 \section{Sucesiones de Sheffer}
-  \begin{frame}
+  \begin{frame}{La existencia de las sucesiones}
+    \begin{teorema}
+      Sea $F(T) \in \F^{\delta}$ una serie delta y $G(T) \in \F^*$ una serie invertible. Existe una única sucesion de polinomios $s_n(x)$ con $\gr(s_n) = n$ tal que para todo entero $k \geq 0$ verifica que
+      \begin{equation*}
+        \langle G(T)F^k(T)| s_n(x) \rangle = n!\delta_{n,k}
+      \end{equation*}
+    \end{teorema}
+
+    \begin{demo}
+      
+    \end{demo}
+  \end{frame}
+
+  \begin{frame}{Definiciones}
+    \begin{definicion}
+      Se llama \textbf{sucesión de Sheffer asociada a $(¡G(T), F(T))$} a la sucesión de polinomios $s_n(x)$ anterior. Se simboliza por la notación $s_n(x) \sim (G(T), F(T))$ y $\Sh$ es el conjunto de estas sucesioness.
+    \end{definicion}
+
+    \begin{definicion}
+      Si $F(T) = T$ decimos que $s_n(x)$ es la \textbf{sucesión de Appell asociada a $G(T)$} y si $G(T) = 1$ decimos que $p_n(x)$ es la \textbf{sucesión asociada a $F(T)$}. Escribiremos $p_n(x) \sim F(T)$ para indicar que esta es la sucesión asociada a $F(T)$ y $\Umb$ y $\App$ simbolizarán los conjuntos de las sucesiones asociadas y de Appell, respectivamente.
+    \end{definicion}
+  \end{frame}
+
+  \begin{frame}{El teorema de expansión para series formales}
+    \begin{teorema}
+      Sea $s_n(x) \sim (G(T), F(T))$. Entonces
+      \begin{equation*}
+        H(T) = \sum_{k = 0}^\infty \frac{\langle H(T)| s_k(x)\rangle}{k!}G(T)F^k(T) \quad \forall H(T) \in \F
+      \end{equation*}
+    \end{teorema}
+
+    \begin{demo}
+      
+    \end{demo}
+  \end{frame}
+
+  \begin{frame}{El teorema de expansión polinómico}
+    \begin{teorema}
+      Sea $s_n(x) \sim (G(T), F(T))$. Entonces
+      \begin{equation*}
+        p(x) = \sum_{k \geq 0} \frac{\langle G(T)F^k(T) | p(x) \rangle}{k!}s_k(x) \quad \forall p(x) \in \poly
+      \end{equation*}
+    \end{teorema}
+
+    \begin{demo}
+      
+    \end{demo}
+  \end{frame}
+
+  \begin{frame}{¿Cómo caracterizar a estas sucesiones?}
+    \begin{teorema}[(función generadora)]
+      \begin{align*}
+        s_n(x) \sim (G(T), F(T)) \iff \frac{1}{G(F^{-1}(T))}E_{\xi} (F^{-1}(T)) = & \sum_{k=0}^\infty \frac{s_k(\xi)}{k!}T^k \\ 
+        & \forall \xi \in \field
+      \end{align*}
+    \end{teorema}
+
+    \begin{demo}
+      
+    \end{demo}
+  \end{frame}
+
+  \begin{frame}{¿Cómo caracterizar a estas sucesiones?}
+    \begin{teorema}[(caracterización diferencial)]
+      \begin{equation*}
+        s_n(x) \sim (G(T), F(T)) \iff F(T)s_{n}(x) = ns_{n-1}(x) \quad \forall n \geq 0
+      \end{equation*}
+    \end{teorema}
+  \begin{demo}
+    
+  \end{demo}
+  \end{frame}
+
+  \begin{frame}{¿Cómo caracterizar a estas sucesiones?}
+    \begin{teorema}[(representación conjugada)]
+      \footnotesize
+      \begin{equation*}
+      s_n(x) \sim (G(T), F(T)) \iff s_n(x) = \sum_{k=0}^n \frac{1}{k!} \left\langle \frac{1}{G(F^{-1}(T))}(F^{-1}(T))^k | x^n \right\rangle x^k
+      \end{equation*}
+    \end{teorema}
+    \normalsize
+
+    \begin{demo}
+      
+    \end{demo}
+  \end{frame}
+
+  \begin{frame}{¿Cómo caracterizar a estas sucesiones?}
+    \begin{teorema}[(identidad de Sheffer)]
+      Sea $p_n(x) \sim F(T)$. Entonces
+      \begin{equation*}
+        s_n(x) \sim (G(T), F(T)) \iff s_n (x+y) = \sum_{k=0}^n \binom{n}{k} p_k (y) s_{n-k}(x)
+      \end{equation*}
+    \end{teorema}
+
+    \begin{demo}
+      
+    \end{demo}
+  \end{frame}
+
+  \begin{frame}{Propiedades de las sucesiones de Sheffer}
     
   \end{frame}
-\section{Aplicación a los polinomios de Bernoulli}
-  \begin{frame}
-    
+
+  \begin{frame}{Propiedades de las sucesiones de Sheffer}
+    \begin{teorema}[(de multiplicación)]
+      \begin{equation*}
+        s_n(x) \sim (G(T), F(T)) \implies s_n(\lambda x) = \lambda^n \frac{G(T)}{G(T/\lambda)} s_n(x) \quad \forall \lambda \in \field^*
+      \end{equation*}
+    \end{teorema}
   \end{frame}
+  
+\section{Aplicaciones de toda esta teoría}
+
+\subsection{Los polinomios de Bernoulli y los de Laguerre}
+  \begin{frame}{Los polinomios de Bernoulli}
+    \begin{definicion}
+      Se llaman \textbf{polinomios de Bernoulli de orden $r$} a los polinomios $B_n^{(r)}(x)$ tales que forman las sucesión de Appell para
+    \begin{equation*}
+        G(T) \equiv \left(\frac{e^T - 1}{T}\right)^r \equiv \left(\frac{\Delta}{T}\right)^r \quad \text{ con } r \in \field^*
+    \end{equation*}
+    En el caso de que $r = 1$, se llaman simplemente \textbf{polinomios de Bernoulli} y se escriben como $B_n(x)$.
+    \end{definicion}
+
+    \begin{definicion}
+    Se llaman \textbf{números de Bernoulli de orden $r$} a los escalares $B_n^{(r)}(0)$ y se simbolizan como $B_n^{(r)}$. Si $r=1$, se llaman simplemente \textbf{números de Bernoulli} y se escriben como $B_n$.
+\end{definicion}
+\end{frame}
+
+\begin{frame}{Los polinomios de Bernoulli}
+  Con toda esta teoría desarrollada, varios de los resultados conocidos son inmediatos.
+  \begin{itemize}
+    \item \textbf{Caracterización diferencial:} \begin{equation*}
+      \rboxed{\left(B_n^{(r)}(x)\right)' = n B_{n-1}^{(r)}(x)}
+    \end{equation*}
+    \item \textbf{Función generadora:} \begin{equation*}
+      \rboxed{\sum_{k=0}^\infty \frac{B_k^{(r)}(x)}{k!} T^k = \left(\frac{T}{e^T - 1}\right)^r e^{x T}}
+    \end{equation*}
+    \item \textbf{Identidad de Appell:} \begin{equation*}
+      \rboxed{B_n^{(r)}(x + y) = \sum_{k=0}^n \binom{n}{k} B_k^{(r)}(y)x^{n-k}}
+    \end{equation*}
+  \end{itemize}
+\end{frame}
+
+\subsection{Problemas de conexión de constantes}
+\begin{frame}
+  
+\end{frame}
+
+\subsection{Interpolación binomial}
+\begin{frame}
+  
+\end{frame}
   
 \end{document}

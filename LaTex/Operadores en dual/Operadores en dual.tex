@@ -27,11 +27,11 @@ Comenzamos recordando que $\poly^*$ es un espacio topológico con la topología 
 
 \section{Automorfismos y derivaciones}
 
-Recordamos ahora la definición de automorfismo en una álgebra. El resultado de mayor relevancia para lo que nos interesa es que los automorfismos de $\poly^*$ son todos continuos. Antes de probarlo, hemos de ver un par de propiedades. 
-
 \begin{definicion}
     Dada una $\field$-álgebra $A$ y un endomorfismo $F \in \End(A)$, se dice que $F$ es un \textbf{automorfismo} si es un morfismo de álgebras biyectivo. Simbolizaremos por $\Aut(A)$ al conjunto de automorfismos de $A$.
 \end{definicion}
+
+Lo más importante en cuanto a estos nos conciernen es que los automorfismos de $\poly^*$ son todos continuos. Antes de probarlo, hemos de ver un par de resultados previos.
 
 \begin{lema}
     Si $\alpha \in \Aut(\poly^*)$, entonces $\alpha F(T)$ es invertible (respecto al producto) si y solo si $F(T)$ es invertible (respecto al producto); es decir, $\ord(\alpha F(T)) = 0$ si y solo si $\ord(F(T)) = 0$
@@ -147,18 +147,18 @@ De esta manera, y como vimos con los automorfismos, queda probado así la contin
 \end{definicion}
 
 \begin{proposicion}
-    Para toda $F(T) \in \poly^*$ se verifica que el operador asociado $M^*(F)$ es un endomorfismo continuo. Además, si $F(T) \in \F^*$, entonces $M^*(F)$ es una biyección con inversa $M^*(F)^{-1} = M(\frac{1}{F})$
+    Para toda $F(T) \in \poly^*$ se verifica que el operador asociado $M^*(F)$ es un endomorfismo continuo. Además, si $F(T) \in \F^*$, entonces $M^*(F)$ es una biyección con inversa $M^*(F)^{-1} = M(1/F)$
 \end{proposicion}
 
 \begin{demo}
-    Para la continuidad basta con aplicar el teorema \ref{equivalencia continuidad}. En el caso en el que la serie es invertible, $G(T) \xmapsto{M^*(F)} F(T) \cdot G(T) \xmapsto{M^*(\frac{1}{F})} \frac{1}{F(T)} \cdot (F(T) \cdot G(T)) = G(T) $ y viceversa prueban que es una biyección con $M^*(F)^{-1} = M(\frac{1}{F})$
+    Para la continuidad basta con aplicar el teorema \ref{equivalencia continuidad}. En el caso en el que la serie es invertible, $G(T) \xmapsto{M^*(F)} F(T) \cdot G(T) \xmapsto{M^*(1/F)} \frac{1}{F(T)} \cdot (F(T) \cdot G(T)) = G(T) $ y viceversa prueban que es una biyección con $M^*(F)^{-1} = M(1/F)$
 \end{demo}
 
 \begin{ej}
     \begin{enumerate}
         \item Por la proposición \ref{adjuncion serie operador y multiplicacion}, tenemos que
         \begin{equation*}
-            \langle M^*(F)G(T) | p(x) \rangle = \langle G(T) | F(T)p(x) \rangle
+            \langle M^*(F)G(T) | p(x) \rangle = \langle F(T) \cdot G(T) | p(x) \rangle = \langle G(T) | F(T)p(x) \rangle
         \end{equation*}
         Es decir, el operador adjunto de una serie formal $F(T)$ es su operador multiplicación asociado $M^*(F)$. Esto es: $F(T)^* = M^*(F)$
         \item La proposición \ref{adjuncion operador integral} se puede reescribir como
@@ -184,7 +184,6 @@ Más especifícamente, nos interesará la correspondecia existente entre un subc
 \begin{teorema}
     La aplicación adjunta restringida al espacio de los operadores lineales continuos de $\poly^*$, $\mu_{\mathcal{C}}$, es un isomorfismo con el espacio de operadores; es decir, se tiene que $\End(\poly) \backsimeq \End_{\mathcal{C}}(\poly^*)$, o lo que es lo mismo $\Im(\mu) = \End_{\mathcal{C}}(\poly^*)$ y $\mu$ es inyectiva.
 \end{teorema}
-
 \begin{demo}
     \begin{itemize}
         \item \textit{Inyectividad:} Si $\Lambda^* = 0$, entonces $\langle F(T)| \Lambda p(x) \rangle = \langle \Lambda^* F(T)| p(x) \rangle = 0$ para toda serie formal $F(T)$ y todo polinomio $p(x)$. Con lo que $\Lambda = 0$ necesariamente.
@@ -196,7 +195,6 @@ Más especifícamente, nos interesará la correspondecia existente entre un subc
         donde la última implicación se debe a la continuidad de los operadores. \qedhere
     \end{itemize}
 \end{demo}
-
 Una vez visto que la aplicación adjunta restringida $\mu_{\mathcal{C}}$ es un isomorfismo, junto a los resultados \ref{auto implica continuo} y \ref{derivaciones epi implica continuo}, nos interesaría conocer la antiimagen tanto de $\Aut(\poly^*)$ como de $\Der_{\mathrm{epi}}(\poly^*)$. Lo cierto es que estos dos conjuntos se corresponden con dos nuevas clases de operadores en $\poly^*$: estos son los \textit{operadores umbrales} y las \textit{traslaciones umbrales}, respectivamente. A su vez, estos no son más que dos subfamilias de dos clases de operadores más generales: los \textit{operadores de Sheffer} y las \textit{traslaciones de Sheffer}. Es más, estas identificaciones mediante la aplicación adjunta caracterizan a estas familias de operadores. Comenzamos estudiando y viendo este hecho para los primeros. 
 
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -270,7 +268,7 @@ Por tanto, $\mu_{\mathcal{C}}^{-1}(\alpha) x^n = p_n(x)$ y, en consecuencia, $\m
     \end{equation*}
     Equivalentemente, se tiene la igualdad de conjuntos $\mu_{\mathcal{C}}(\End_{\mathrm{Sh}}(\poly)) = \Aut(\poly^*) \cup M^*(\poly^*)$ Es más, para todo operador de Sheffer $\Lambda_{G,F} \in \End_{\mathrm{Sh}}(\poly)$ y toda $H(T) \in \poly^*$ se verifica
     \begin{equation*}
-        \Lambda_{G,F}^*H(T) = \frac{1}{G(F^{-1}(T))} \cdot H(F^{-1}(T)) 
+        \Lambda_{G,F}^*H(T) = \frac{1}{G(F^{-1}(T))} H(F^{-1}(T)) 
     \end{equation*}
 \end{teorema}
 
@@ -422,7 +420,7 @@ Aprovechando lo hecho para los operadores de Sheffer, podemos definir una operac
 \begin{corolario}
     Si $s_n(x) \sim (G(T), F(T))$, entonces para todo $q(x) \in \poly$ y toda serie formal $H(T) \in \F$ se tiene que $ \langle H(T) | q(\mathbf{s(x)}) \rangle = \langle \frac{1}{G(F^{-1}(T))}H(F^{-1}(T)) | q(x) \rangle $. En particular,  se tiene que 
     \begin{align*}
-        \langle H(T) | s_n(x) \rangle = \langle \frac{1}{G(F^{-1}(T))}H(F^{-1}(T)) | x^n \rangle
+        \langle H(T) | s_n(x) \rangle = \left\langle \frac{1}{G(F^{-1}(T))}H(F^{-1}(T)) | x^n \right\rangle
     \end{align*}
 \end{corolario}
 
@@ -457,11 +455,8 @@ Una vez vistos los operadores de Sheffer, nos interesa ahora estudiar a las tras
     \end{equation*}
 \end{teorema}
 
-\begin{proposicion}
-    Dada $\theta_{G,F} \in \TrasSh$ se verifica que
-    \begin{equation*}
-        \theta_{G,F} = M^*(1/G) \circ \theta_F \circ G(T)
-    \end{equation*}
+\begin{proposicion}\label{tras sheffer explicita}
+    Dada $\theta_{G,F} \in \TrasSh$ se verifica que $\theta_{G,F} = M^*(1/G) \circ \theta_F \circ G(T)$
 \end{proposicion}
 
 \begin{teorema}
@@ -486,7 +481,7 @@ Una vez vistos los operadores de Sheffer, nos interesa ahora estudiar a las tras
 
         \item Se ve usando \ref{conmutacion composicion operador umbral} y el apartado anterior
         \begin{align*}
-            p_{n+1}(x) = M \circ \frac{1}{F'(T)} \circ \Lambda_F x^n & = M \circ \Lambda_F \circ \frac{1}{F'(F^{-1}(T))} x^n = M \circ \Lambda_F \circ (F^{-1}(T))' x^n
+            p_{n+1}(x) = M \circ \frac{1}{F'(T)} \circ \Lambda_F x^n & = M \circ \Lambda_F \circ \frac{1}{F'(F^{-1}(T))} x^n = M \circ \Lambda_F \circ (F^{-1}(T))' x^n \qedhere
         \end{align*}
     \end{enumerate}
 \end{demo}
@@ -517,6 +512,16 @@ Una vez vistos los operadores de Sheffer, nos interesa ahora estudiar a las tras
         s_{n+1}(x) = \left(M - \frac{G'(T)}{G(T)}\right) \circ \frac{1}{F'(T)}s_n(x)
     \end{equation*}
 \end{teorema}
+
+\begin{demo}
+    Combinando la proposición \ref{tras sheffer explicita} y la igualdad $\theta_F = M \circ \frac{1}{F'(T)}$ vista en la demostración de la priemra de las fórmulas de recurrencia para las traslaciones umbrales, junto a la regla de la cadena y el teorema anterior, obtenemos el resultado
+    \begin{align*}
+        \theta_{G,F} & = M^*(1/G) \circ \theta_F \circ G(T) = M^*(1/G) \circ \left( G(T) \circ \theta_F - \theta_F^* \circ G(T) \right) \\
+        & = \theta_F - M^*(1/G) \circ \partial_F \circ G(T) = \theta_F - M^*(1/G) \circ \partial_F T  \circ \partial_T G(T) \\
+        & = M \circ \frac{1}{F'(T)} - M^*(1/G) \circ \frac{1}{F'(T)} \circ G'(T) = M \circ \frac{1}{F'(T)} - \frac{1}{G(T)} \left(\frac{1}{F'(T)}G'(T)\right)\\
+        & = M \circ \frac{1}{F'(T)} - \frac{G'(T)}{G(T)} \circ \frac{1}{F'(T)} = \left(M - \frac{G'(T)}{G(T)} \right) \circ \frac{1}{F'(T)}\qedhere
+    \end{align*}
+\end{demo}
 
 El siguiente teorema nos proporciona dos formas operacionales y directas de calcular la sucesión asociada a una serie formal $F(T)$.
 

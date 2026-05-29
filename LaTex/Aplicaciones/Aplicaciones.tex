@@ -200,7 +200,7 @@ Que $B_3 = 0$ no es ninguna casualidad. Si uno continúa calculando los números
     Usando \ref{producto escalares} vemos que $\langle (\frac{e^{-T} - 1}{-T})^r| B_n^{(r)}(-x)\rangle = \langle (\frac{e^{T} - 1}{T})^r| B_n^{(r)}(x)\rangle = n! \delta_{n,k}$ con lo que $B_n^{(r)}(-x) \sim ((\frac{e^{-T} - 1}{-T})^r, -T)$. Ya que $(-x)^n \sim (-T)$, la proposición \ref{relacion sheffer y asociada} nos da
     \begin{align*}
         B_n^{(r)}(-x) = \left(\frac{-T}{e^{-T} - 1}\right)^r (-x^n) & = e^{r T} \left(\frac{T}{e^T - 1}\right)^r (-x^n) \\
-        & = (-1)^n E_r(T) B_n^{(r)}(x) = (-1)^n B_n^{(r)}(x + r)
+        & = (-1)^n E_r B_n^{(r)}(x) = (-1)^n B_n^{(r)}(x + r)
     \end{align*}
     que era lo que queríamos ver.
 \end{demo}
@@ -543,7 +543,7 @@ El cálculo umbral también permite obtener ciertas fórmulas de interpolación 
 \end{lema}
 
 \begin{teorema}
-    \textbf{(de interpolación binomial)}. Sea $G(T) \in \F^\delta$ un operador delta \footnote{Aquí, extendemos la noción de serie formal como operador al anillo de funciones continuas. El operador $T$ se corresponde entonces con la derivada clásica de funciones en una variable, como hacíamos con polinomios.} con sucesión asociada $p_n(x)$ y $f \in \mathcal{C}^{n+1}[a,b]G(T)$. El polinomio
+    \textbf{(de interpolación binomial)}. Sea $G(T) \in \F^\delta$ un operador delta\footnote{Aquí, extendemos la noción de serie formal como operador al anillo de funciones continuas. El operador $T$ se corresponde entonces con la derivada clásica de funciones en una variable, como hacíamos con polinomios.} con sucesión asociada $p_n(x)$ y $f \in \mathcal{C}^{n+1}[a,b]G(T)$, siendo este conjunto el definido por $\mathcal{C}^{n+1}[a,b]G(T) = \{ f \in \mathcal{C}^{n+1}[a,b] \colon G^k(T)f(x) \in \mathcal{C}^{n+1}[a,b], k = 0, 1, \dots, n \forall n \in \N\}$. Entonces, el polinomio
     \begin{equation*}
         B_n[f](x) = \sum_{k=0}^n \frac{(G^k(T)f(x))(0)}{k!} p_k(x)
     \end{equation*}
@@ -563,11 +563,9 @@ El cálculo umbral también permite obtener ciertas fórmulas de interpolación 
     \begin{equation*}
         (G^m(T)B_n[f](x))(0) = \sum_{k=0}^m \frac{(G^k(T)f(x))(0)}{k!} (k)_m p_{k-m}(0) = (G^m(T)f(x))(0)
     \end{equation*}
-    Por otro lado, $R_n g(x) \equiv R_n[g](x) = g(x) - B_n[g](x)$ cumple las condiciones del lema de Peano y de ahí obtenemos la segunda igualdad. 
+    Por otro lado, $R_n g(x) \equiv R_n[g](x) = g(x) - B_n[g](x)$ cumple las condiciones del lema de Peano, pues esto no es más que el teorema de expansión para polinomios \ref{teorema de expansion polinomico}. De ahí obtenemos inmediatamente la segunda igualdad. 
 \end{demo}
-
-     
-
+\bigskip
 \begin{ej}
     \begin{enumerate}
         \item Cuando $G(T) = T$ y $p_n(x) = x^n$ obtenemos
@@ -589,17 +587,17 @@ El cálculo umbral también permite obtener ciertas fórmulas de interpolación 
             B_n[f](x) = \sum_{k=0}^n \frac{f^{(k)}(k)}{k!}x(x-k)^{k-1} \text{ con } B_n[f]^{(k)}(k) = f^{(k)}(k) \quad k = 0, 1, 2, \dots, n
         \end{equation*}
         Esto es un tipo de \textbf{interpolación de Birkhoff}.
-        \item Los \textit{\textbf{polinomios de Gould}} son los polinomios $p_n(x) = (\frac{x}{x - \lambda n})(\frac{x- \lambda n}{\mu})_n$ que están asociados al operador $G(T) = e^{\lambda T} (e^{\mu T} - 1) = E_{\lambda} \Delta_{\mu}$. En este caso tenemos que
+        \item Los \textit{\textbf{polinomios de Gould}} son los polinomios $p_n(x) = (\frac{x}{x - \lambda n})(\frac{x- \lambda n}{\mu})_n$ que están asociados al operador $G(T) = E_{\lambda} \Delta_{\mu}$. En este caso tenemos que
         \begin{align*}
              G^k(T) f(x) = (E_{\lambda} \Delta_{\mu})^k f(x) = \Delta_{\mu}^k E_{k\lambda} f(x) = \Delta_{\mu}^k f(x + k \lambda)
         \end{align*}
         Con lo que $(G^k(T) f(x))(0) = \Delta_{\mu}^k f(k \lambda)$ y, por tanto, el polinomio de interpolación asociado es
         \begin{equation*}
-            B_n[f](x) = \sum_{k=0}^n \frac{\Delta_{\mu}^k f(k \lambda)}{k!} (\frac{x}{x - \lambda n})(\frac{x- \lambda n}{\mu})_n \text{ con } \Delta_{\mu}^k f(k \lambda) = \Delta_{\mu}^k B_n[f](k \lambda)
+            B_n[f](x) = \sum_{k=0}^n \frac{\Delta_{\mu}^k f(k \lambda)}{k!} \left(\frac{x}{x - \lambda n}\right)\left(\frac{x- \lambda n}{\mu}\right)_n \text{ con } \Delta_{\mu}^k f(k \lambda) = \Delta_{\mu}^k B_n[f](k \lambda)
         \end{equation*}
         En particular, si tomamos $\lambda = \mu/2$ obtenemos que los polinomios de Gould para estos valores son los \textit{\textbf{factoriales centrales}} $x^{[n]}$
         \begin{equation*}
-            x^{[n]} = (\frac{x}{x - \frac{\mu}{2} n})(\frac{x- \frac{\mu}{2} n}{\mu})_n = x (x + \frac{n}{2} - 1)_{n-1}
+            x^{[n]} = \left(\frac{x}{x - \frac{\mu}{2} n}\right)\left(\frac{x- \frac{\mu}{2} n}{\mu}\right)_n = x \left(x + \frac{n}{2} - 1\right)_{n-1}
         \end{equation*}
         los cuales nos darán el polinomio de interpolación 
         \begin{equation*}

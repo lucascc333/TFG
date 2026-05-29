@@ -10,7 +10,7 @@
 \contentsline {chapter}{\numberline {3}Operadores en el dual}{28}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Automorfismos y derivaciones}{29}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Operadores adjuntos}{31}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Operadores de Sheffer}{33}{section.3.3}%
+\contentsline {section}{\numberline {3.3}Operadores de Sheffer}{32}{section.3.3}%
 \contentsline {section}{\numberline {3.4}Traslaciones de Sheffer}{37}{section.3.4}%
 \contentsline {chapter}{\numberline {4}Aplicaciones y ejemplos}{40}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Sucesiones de polinomios conocidas}{40}{section.4.1}%

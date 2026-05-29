@@ -27,7 +27,7 @@ Damos aquí las definiciones y los resultados de los que nos servimos a lo largo
 \end{definicion}
 
 \begin{teorema}
-    $(\F, +, \cdot)$ es un anillo. El elemento neutro y la unidad son, respectivamente $0 \equiv \{0,0,0,\dots\} \hspace{2cm} 1\equiv \{1, 0, 0, \dots\}$ y el elemento opuesto o inverso respecto a la suma es $ -\alpha \equiv \{-a_0, -a_1, -a_2, \dots \}$
+    $(\F, +, \cdot)$ es un anillo. El elemento neutro y la unidad son, respectivamente, $0 \equiv \{0,0,0,\dots\} \text{ y } 1\equiv \{1, 0, 0, \dots\}$ y el elemento opuesto o inverso respecto a la suma es $ -\alpha \equiv \{-a_0, -a_1, -a_2, \dots \}$
 \end{teorema}
 
 \begin{definicion} 
@@ -35,7 +35,7 @@ Damos aquí las definiciones y los resultados de los que nos servimos a lo largo
     \begin{equation*}
         \ord(\alpha) = \min \{ n \geq 0 : a_n \neq 0 \}
     \end{equation*}
-    En particular, se define $\ord(0) = \infty$.
+    En particular, se define $\ord(0) = \infty$
 \end{definicion}
 
 \begin{proposicion} El orden verifica las siguientes propiedades.
@@ -71,12 +71,13 @@ Damos aquí las definiciones y los resultados de los que nos servimos a lo largo
 \end{teorema}
 
 \begin{teorema}
-    El anillo de polinomios es denso sobre $\F$. En consecuencia, tenemos que
+    El anillo de polinomios es denso sobre $\F$. En consecuencia, para toda serie formal $\alpha = \{ a_0, a_1, a_2,\dots\}$ se tiene que
     \begin{equation*}
         \alpha = \sum_{k=0}^{\infty} a_k T^k = \lim_{N \longrightarrow \infty} \sum_{k=0}^{N} a_k T^k
     \end{equation*}
-    lo que nos permite intepretar a los elementos $\alpha$ como series infinitas en la variable $T$ y escribirlos como $\alpha \equiv F(T)$.
 \end{teorema}
+
+Este resultado prueba así que se pueden intepretar a los elementos de $\F$ como series infinitas en la variable $T$. De esta manera, si $\alpha = \{ a_0, a_1, a_2,\dots\}$, se puede pensar como $\alpha \equiv F(T) = \sum_{k=0}^\infty a_k T^k$
 
 \begin{teorema}
     Dada una sucesión de series formales $F_n(T)$, la serie de series formales $\sum_{n=0}^\infty F_n(T)$ es convergente si y solo si el límite de $F_n(T)$ es 0.
@@ -140,7 +141,7 @@ En lo que sigue, supondremos que $\mathcal{R} = \field$ es un cuerpo de caracter
 \end{proposicion}
 
 \begin{proposicion}
-    La derivada formal verifica
+    La derivada formal verifica las siguientes propiedades
     \begin{itemize}
         \item $\partial$ es $\field$-lineal y $\partial \field = 0$
         \item $\partial(F \cdot G) = \partial(F) \cdot G + F (\partial G)$
