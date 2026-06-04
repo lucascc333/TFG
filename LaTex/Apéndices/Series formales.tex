@@ -12,7 +12,7 @@
 Damos aquí las definiciones y los resultados de los que nos servimos a lo largo de todo el trabajo. Para un desarrollo completo de esta teoría se puede consultar \cite{sambale}.
 
 \begin{definicion}
-    Sea $\mathcal{R}$ un dominio íntegro. Se llama \textbf{anillo de series formales en la variable $T$ con coeficientes en $\mathcal{R}$} al conjunto de sucesiones infinita en $\mathcal{R}$, es decir, de elementos
+    Sea $\mathcal{R}$ un dominio íntegro. Se llama \textbf{anillo de series formales en la variable $T$ con coeficientes en $\mathcal{R}$} al conjunto de sucesiones infinitas en $\mathcal{R}$, es decir, de elementos
     \begin{equation*}
         \alpha = \{a_0, a_1, a_2, \dots \} \hspace{0.25cm} a_n \in \mathcal{R}, \forall n \in \N 
     \end{equation*}
@@ -21,9 +21,9 @@ Damos aquí las definiciones y los resultados de los que nos servimos a lo largo
     \alpha + \beta \equiv \{a_0 + b_0, a_1 + b_1, a_2 + b_2, \dots \}
     \end{equation*}
     \begin{equation*}
-    \alpha \cdot \beta \equiv \{a_0  b_0, a_0b_1 + a_1b_0, a_0b_2 + a_1b_1 + a_2b_0, \dots, \sum_{k=0}^na_kb_{n-k}, \dots\}
+    \alpha \cdot \beta \equiv \left\{a_0  b_0, a_0b_1 + a_1b_0, a_0b_2 + a_1b_1 + a_2b_0, \dots, \sum_{k=0}^na_kb_{n-k}, \dots \right\} 
     \end{equation*}
-    y donde se define el \textbf{la variable formal} $T$ como el elemento $T \equiv \delta_{n,1} = (0,1,0, \dots)$. Se simboliza por $\mathcal{R} \llbracket T \rrbracket$ o por $\F$, si no hay riesgo de confusión, a este conjunto y a sus elementos se les llaman \textbf{series formales en la variable T}.
+    y donde se define \textbf{la variable formal} $T$ como el elemento $T \equiv \delta_{n,1} = (0,1,0, \dots)$. Se simboliza por $\mathcal{R} \llbracket T \rrbracket$ o por $\F$, si no hay riesgo de confusión, a este conjunto y a sus elementos se les llaman \textbf{series formales en la variable T}.
 \end{definicion}
 
 \begin{teorema}
@@ -38,7 +38,7 @@ Damos aquí las definiciones y los resultados de los que nos servimos a lo largo
     En particular, se define $\ord(0) = \infty$
 \end{definicion}
 
-\begin{proposicion} El orden verifica las siguientes propiedades.
+\begin{proposicion} El orden es una valoración discreta, es decir, verifica las siguientes propiedades.
     \begin{itemize}
         \item $\ord(\alpha) = \infty \iff \alpha = 0$
         \item $\ord(\alpha + \beta) \geq \min(\ord(\alpha), \ord(\beta))$
@@ -73,11 +73,11 @@ Damos aquí las definiciones y los resultados de los que nos servimos a lo largo
 \begin{teorema}
     El anillo de polinomios es denso sobre $\F$. En consecuencia, para toda serie formal $\alpha = \{ a_0, a_1, a_2,\dots\}$ se tiene que
     \begin{equation*}
-        \alpha = \sum_{k=0}^{\infty} a_k T^k = \lim_{N \longrightarrow \infty} \sum_{k=0}^{N} a_k T^k
+        \alpha = \sum_{k=0}^{\infty} a_k T^k = \lim_{N \longrightarrow \infty} \left(\sum_{k=0}^{N} a_k T^k\right)
     \end{equation*}
 \end{teorema}
 
-Este resultado prueba así que se pueden intepretar a los elementos de $\F$ como series infinitas en la variable $T$. De esta manera, si $\alpha = \{ a_0, a_1, a_2,\dots\}$, se puede pensar como $\alpha \equiv F(T) = \sum_{k=0}^\infty a_k T^k$
+Este resultado prueba así que se pueden intepretar a los elementos de $\F$ como series infinitas en la variable $T$. De esta manera, cada $\alpha = \{ a_0, a_1, a_2,\dots\}$ se puede pensar como $\alpha \equiv F(T) = \sum_{k=0}^\infty a_k T^k$
 
 \begin{teorema}
     Dada una sucesión de series formales $F_n(T)$, la serie de series formales $\sum_{n=0}^\infty F_n(T)$ es convergente si y solo si el límite de $F_n(T)$ es 0.
@@ -117,7 +117,7 @@ En lo que sigue, supondremos que $\mathcal{R} = \field$ es un cuerpo de caracter
 \end{proposicion}
 
 \begin{definicion}
-    Se dice que la sucesión de series formales $F_n(T)$ forman una \textbf{pseudobase de $\F$}, si para toda serie formal $F(T) \in \F$ existen constantes únicas $a_n$ tales que $F(T) = \sum_{n=0}^\infty a_n F_n(T)$
+    Se dice que la sucesión de series formales $F_n(T)$ forman una \textbf{pseudobase de $\F$} si para toda serie formal $F(T) \in \F$ existen constantes únicas $a_n$ tales que $F(T) = \sum_{n=0}^\infty a_n F_n(T)$
 \end{definicion}
 
 \begin{proposicion}

@@ -7,15 +7,15 @@ Nos centraremos ahora en el estudio de las sucesiones de polinomios. En concreto
 
 En grandes términos, las sucesiones de Sheffer son un tipo de sucesiones de polinomios que se comportan de una ``forma similar'', respecto a dos series formales concretas, a como lo hacen los polinomios $x^n$ respecto a la serie formal $T$. El teorema más importante en lo que a estas respecta y que pone de manifiesto este hecho es el siguiente.
 
-\begin{teorema}
-    \textbf{(de existencia de sucesiones de Sheffer)}. Sea $F(T) \in \F^{\delta}$ una serie delta y $G(T) \in \F^*$ una serie invertible. Existe una única sucesion de polinomios $s_n(x)$ con $\gr(s_n) = n$ tal que para todo entero $k \geq 0$ verifica que
+\begin{teorema}[de existencia de sucesiones de Sheffer] 
+    Sea $F(T) \in \F^{\delta}$ una serie delta y $G(T) \in \F^*$ una serie invertible. Existe una única sucesion de polinomios $s_n(x)$ con $\gr(s_n) = n$ tal que para todo entero $k \geq 0$ verifica que
     \begin{equation}\label{sucesion de sheffer}
         \langle G(T)F^k(T)| s_n(x) \rangle = n!\delta_{n,k}
     \end{equation}
 \end{teorema}
 
 \begin{demo}
-    Ya que $\ord(F) = 1 \implies \ord(F^k) = k$ y $\ord(G) = 0$, tendremos que $\ord(GF^k) = k$. Por tanto, por la proposición \ref{inyectividad sucesion F_k}, la sucesión, si existe, es única. Veamos ahora su existencia. Para ello, construiremos explícitamente la sucesión $\{s_n(x)\}_{n \geq 0}$. 
+    Ya que $\ord(F) = 1$ y $\ord(G) = 0$ tendremos que $\ord(F^k) = k$ y, por tanto, $\ord(GF^k) = k$. Luego, por la proposición \ref{inyectividad sucesion F_k}, la sucesión, si existe, es única. Veamos ahora su existencia. Para ello, construiremos explícitamente la sucesión $\{s_n(x)\}_{n \geq 0}$. 
     
     Sean entonces $s_n(x) = \sum_{m=0}^n c_{n,m}x^m \text{ y } G(T)F^k(T) = \sum_{l=k}^\infty a_{k,l}T^l$, donde $c_{n,m}$ son los coeficientes a determinar, es decir, $c_{n,n \neq 0}$, para todo $n \geq 0$, y $a_{k,k} \neq 0$, para todo $k \geq 0$, ya que $\ord(GF^k) = k$. Con todo, tendremos que se debe verificar
     \begin{align*}
@@ -78,14 +78,14 @@ De las definiciones rápidamente extraemos el siguiente resultado.
     \end{equation*}
 \end{corolario}
 
-Recordamos que, en el caso del ejemplo anterior, donde $F(T) = T$ y $p_n(x) = x^n$, y en virtud de la proposición \ref{taylor analogo}, tenemos las dos fórmulas 
+Recordamos que, en el caso del ejemplo anterior, donde $F(T) = T$ y $p_n(x) = x^n$, en virtud de la proposición \ref{taylor analogo} tenemos las dos fórmulas 
 \begin{equation*}
     G(T) = \sum_{k = 0}^\infty \frac{\langle F(T)| p_k(x)\rangle}{k!} F^k(T) \quad \text{y} \quad p(x) = \sum_{k \geq 0} \frac{\langle F^k(T) | p(x) \rangle}{k!}p_k(x)
 \end{equation*}
 para toda $G(T) \in \F$ y todo $p(x) \in \poly$. Esta observación nos permite enunciar y probar los dos siguientes teoremas clave, generalizaciones de estos hechos y muestras, una vez más, de la relación que esta clase de sucesiones guardan con $p_n(x) = x^n$.
 
-\begin{teorema} \label{teorema de expansion}
-    \textbf{(de expansión)}. Sea $s_n(x) \sim (G(T), F(T))$. Entonces, para toda serie formal $H(T) \in \F$
+\begin{teorema}[de expansión] \label{teorema de expansion}
+    Sea $s_n(x) \sim (G(T), F(T))$. Entonces, para toda serie formal $H(T) \in \F$
     \begin{equation*}
         H(T) = \sum_{k = 0}^\infty \frac{\langle H(T)| s_k(x)\rangle}{k!}G(T)F^k(T)
     \end{equation*}
@@ -96,13 +96,13 @@ para toda $G(T) \in \F$ y todo $p(x) \in \poly$. Esta observación nos permite e
 \begin{demo}
     Ya que $\gr(s_n(x)) = n$, por \ref{spanning argument}, basta con ver que ambos funcionales coinciden al aplicarlo a cada $s_n(x)$. En efecto
     \begin{align*}
-        \langle \sum_{k \geq 0} \frac{\langle H(T)| s_k(x)\rangle}{k!}G(T)F^k(T) | s_n(x) \rangle & = \sum_{k \geq 0} \frac{\langle H(T)| s_k(x) \rangle}{k!} \langle G(T)F^k(T) | s_n(x) \rangle\\
+        \left\langle \sum_{k \geq 0} \frac{\langle H(T)| s_k(x) \rangle}{k!}G(T)F^k(T) | s_n(x) \right\rangle & = \sum_{k \geq 0} \frac{\langle H(T)| s_k(x) \rangle}{k!} \langle G(T)F^k(T) | s_n(x) \rangle\\
         & = \sum_{k \geq 0} \frac{\langle H(T)| s_k(x) \rangle}{k!} n!\delta_{n,k} = \langle H(T)| s_n(x) \rangle \qedhere
     \end{align*}
 \end{demo}
 
-\begin{teorema}\label{teorema de expansion polinomico}
-    \textbf{(de expansión para polinomios)}. Sea $s_n(x) \sim (G(T), F(T))$. Entonces, para todo polinomio $p(x) \in \poly$
+\begin{teorema}[de expansión para polinomios]\label{teorema de expansion polinomico}
+    Sea $s_n(x) \sim (G(T), F(T))$. Entonces, para todo polinomio $p(x) \in \poly$
     \begin{equation*}
         p(x) = \sum_{k \geq 0} \frac{\langle G(T)F^k(T) | p(x) \rangle}{k!}s_k(x)
     \end{equation*}
@@ -121,8 +121,8 @@ para toda $G(T) \in \F$ y todo $p(x) \in \poly$. Esta observación nos permite e
 
 Son varias las formas de caracterizar a estas sucesiones y todas ellas nos serán de gran utilidad para obtener distintas propiedades en la práctica. Incluso se podría dar una definición para las sucesiones asociadas y posteriormente desarrollar una teoría similar para las sucesiones de Sheffer\footnote{Esta es la forma en la que se hace en \cite{roman1}}. No obstante, la definición que hemos escogido muestra de una forma sencilla que las sucesiones de Appell y las sucesiones asociadas no son más que un caso particular de las sucesiones de Sheffer, lo que nos permite obtener como corolario a cada caracterización para las sucesiones de Sheffer, caracterizaciones tanto de las sucesiones de Appell como de las sucesiones asociadas (como hemos hecho en los dos teoremas de expansión). Las demostraciones de estos quedan, en consecuencia, omitidas.
 
-\begin{teorema}\label{funcion generadora}
-    \textbf{(función generadora)} La sucesión de polinomios $s_n(x)$ es de Sheffer para $(G(T), F(T))$ si y solo si se verifica
+\begin{teorema}[función generadora]\label{funcion generadora}
+    La sucesión de polinomios $s_n(x)$ es de Sheffer para $(G(T), F(T))$ si y solo si se verifica
     \begin{equation*}
         \frac{1}{G(F^{-1}(T))}E_{\xi} (F^{-1}(T)) = \sum_{k=0}^\infty \frac{s_k(\xi)}{k!}T^k
     \end{equation*}
@@ -155,8 +155,8 @@ Son varias las formas de caracterizar a estas sucesiones y todas ellas nos será
     para todo $\xi \in \field$
 \end{corolario}
 
-\begin{teorema}\label{caracterizacion diferencial}
-    \textbf{(caracterización diferencial)}. La sucesión de polinomios $s_n(x)$ es de Sheffer para $(G(T), F(T))$ si y solo si, para todo $n \geq 0$, se verifica 
+\begin{teorema}[caracterización diferencial]\label{caracterizacion diferencial}
+    La sucesión de polinomios $s_n(x)$ es de Sheffer para $(G(T), F(T))$ si y solo si, para todo $n \geq 0$, se verifica 
     \begin{equation*}
         F(T)s_{n}(x) = ns_{n-1}(x)
     \end{equation*}
@@ -206,8 +206,8 @@ Son varias las formas de caracterizar a estas sucesiones y todas ellas nos será
     \end{equation*}
 \end{corolario}
 
-\begin{teorema}\label{representacion conjugada}
-    \textbf{(representación conjugada)}. La sucesión de polinomios $s_n(x)$ es de Sheffer para $(G(T), F(T))$ si y solo si
+\begin{teorema}[representación conjugada]\label{representacion conjugada}
+    La sucesión de polinomios $s_n(x)$ es de Sheffer para $(G(T), F(T))$ si y solo si
     \begin{equation*}
         s_n(x) = \sum_{k=0}^n \frac{1}{k!} \left\langle \frac{1}{G(F^{-1}(T))}(F^{-1}(T))^k | x^n \right\rangle x^k
     \end{equation*}
@@ -238,8 +238,8 @@ y por el otro $\langle \sum_{k=0}^\infty \frac{s_k(\xi)}{k!}T^k | x^n \rangle = 
     \end{equation*}
 \end{corolario}
 
-\begin{teorema}\label{identidad de Sheffer}
-    \textbf{(identidad de Sheffer)}. Sea $p_n(x)$ la sucesión asociada a $F(T)$. La sucesión de polinomios $s_n(x)$ es de Sheffer para $(G(T), F(T))$ si y solo si
+\begin{teorema}[identidad de Sheffer]\label{identidad de Sheffer}
+    Sea $p_n(x)$ la sucesión asociada a $F(T)$. La sucesión de polinomios $s_n(x)$ es de Sheffer para $(G(T), F(T))$ si y solo si
     \begin{equation*}
         s_n (x+y) = \sum_{k=0}^n \binom{n}{k} p_k (y) s_{n-k}(x) = \sum_{k=0}^n \binom{n}{k} p_{n-k} (x) s_k (y) 
     \end{equation*}
@@ -375,8 +375,8 @@ para toda $H(T), L(T)  \in \F$. Análogamente, si $s_n(x)$ es la sucesión de Ap
     \end{equation*}
 \end{corolario}
 
-\begin{teorema}\label{teorema de multiplicacion}
-    \textbf{(de multiplicación)}. Si $s_n(x)$ es la sucesión de Appell asociada a $G(T)$, entonces
+\begin{teorema}[de multiplicación]\label{teorema de multiplicacion}
+    Si $s_n(x)$ es la sucesión de Appell asociada a $G(T)$, entonces
     \begin{equation*}
         s_n(\lambda x) = \lambda^n \frac{G(T)}{G(T/\lambda)} s_n(x)
     \end{equation*}
