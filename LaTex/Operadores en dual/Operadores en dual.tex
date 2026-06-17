@@ -1,13 +1,13 @@
 \chapter{Operadores en el dual}
 
-Si bien ya hemos visto que las sucesiones de Sheffer se pueden definir de multitud de formas distintas, todas ellas equivalentes, aún no hemos dado ninguna forma de calcularlas ni hemos analizado la estructura algebraica que el conjunto de estas sucesiones puede poseer, asi como los casos concretos de las sucesiones de Appell y las sucesiones asociadas. En este capítulo daremos respuesta a estas dos cuestiones. Para ello, tendremos que estudiar a los operadores lineales sobre $\poly^*$. Es conveniente que pensemos en estos momentos a este como el álgebra umbral, aunque escribiremos $\poly^*$ para hacer hincapie en que los objetos que estamos manipulando son funcionales. 
+Si bien ya hemos visto que las sucesiones de Sheffer se pueden definir de multitud de formas distintas, todas ellas equivalentes, aún no hemos dado ninguna forma de calcularlas ni hemos analizado la estructura algebraica que el conjunto de estas sucesiones puede poseer, asi como los casos concretos de las sucesiones de Appell y las sucesiones asociadas. En este capítulo daremos respuesta a estas dos cuestiones. Para ello, tendremos que estudiar a los operadores lineales sobre $\poly^*$.
 
-Comenzamos recordando que $\poly^*$ es un espacio topológico con la topología de estabilización \ref{topologia de estabilizacion} y que esta coincicde con la topología formal, en virtud del teorema \ref{topologia formal equivalente a topologia de estabilizacion}. Esto nos permite enunciar y probar el siguiente teorema.
+Comenzamos recordando que $\poly^*$ es un espacio topológico con la topología de estabilización \ref{topologia de estabilizacion} y que esta coincide con la topología formal, en virtud del teorema \ref{topologia formal equivalente a topologia de estabilizacion}. Esto nos permite enunciar y probar el siguiente teorema.
 
 \begin{teorema} \label{equivalencia continuidad}
-    Un operador lineal $\alpha \in \End(\poly^*)$ es continuo si y solo si verifica que para todas las sucesiones de funcionales $F_n(T)$ convergentes a 0 en la topología formal, la suma $\sum_{k=0}^\infty a_k \cdot \alpha F_k(T)$ es convergente y además
+    Un operador lineal $\alpha \in \End(\poly^*)$ es continuo si y solo si verifica que para todas las sucesiones de funcionales $F_n(T)$ convergentes a 0 en la topología formal, la suma $\sum_{k=0}^\infty a_k \alpha F_k(T)$ es convergente y además
     \begin{equation*}
-        \alpha \left( \sum_{k=0}^\infty a_k F_k(T) \right) = \sum_{k=0}^\infty a_k \cdot \alpha F_k(T)
+        \alpha \left( \sum_{k=0}^\infty a_k F_k(T) \right) = \sum_{k=0}^\infty a_k \alpha F_k(T)
     \end{equation*} 
     
 \end{teorema}
@@ -18,7 +18,7 @@ Comenzamos recordando que $\poly^*$ es un espacio topológico con la topología 
     \begin{equation*}
         \left\langle \alpha \sum_{k=0}^\infty a_k F_k(T) | p(x) \right\rangle = \left\langle \alpha \sum_{k=0}^m a_k F_k(T) | p(x) \right\rangle + \left\langle \alpha \sum_{k=m+1}^\infty a_k F_k(T) | p(x) \right\rangle
     \end{equation*}
-    Ahora, como la sucesión formada por las $F_n(T)$ es convergente se tiene que la sucesión $\{\sum_{k=m+1}^\infty a_k F_k(T)\}_{m \geq 0}$ también es convergente. Luego, como $\alpha$ es continuo sabemos que $\{ \alpha \sum_{k=m+1}^\infty a_k F_k(T)\}_{m \geq 0}$ es convergente y, por tanto, podemos tomar $m$ lo suficentemente grande como para que el segundo término se anule y $\ord(\alpha F_k(T)) > \gr(p(x))$ para $k > m$. Así pues, obtenemos la igualdad $\langle \alpha \sum_{k=0}^\infty a_k F_k(T) | p(x) \rangle = \langle \alpha \sum_{k=0}^m a_k F_k(T) | p(x) \rangle = \langle \sum_{k=0}^m a_k \alpha F_k(T) | p(x) \rangle = \langle \sum_{k=0}^\infty a_k \alpha F_k(T) | p(x) \rangle$, que es lo que buscábamos.
+    Ahora, como la sucesión formada por las $F_n(T)$ es convergente se tiene que la sucesión $\{\sum_{k=m+1}^\infty a_k F_k(T)\}_{m \geq 0}$ también es convergente. Luego, como $\alpha$ es continuo sabemos que $\{ \alpha \sum_{k=m+1}^\infty a_k F_k(T)\}_{m \geq 0}$ es convergente y, por tanto, podemos tomar $m$ lo suficentemente grande como para que el segundo término se anule y $\ord(\alpha F_k(T)) > \gr(p(x))$ para todo entero $k > m$. Así pues, obtenemos la igualdad $\langle \alpha \sum_{k=0}^\infty a_k F_k(T) | p(x) \rangle = \langle \alpha \sum_{k=0}^m a_k F_k(T) | p(x) \rangle = \langle \sum_{k=0}^m a_k \alpha F_k(T) | p(x) \rangle = \langle \sum_{k=0}^\infty a_k \alpha F_k(T) | p(x) \rangle$, que es lo que buscábamos.
 \end{demo}
 
 \begin{obs}
@@ -34,15 +34,15 @@ Comenzamos recordando que $\poly^*$ es un espacio topológico con la topología 
 Lo más importante en cuanto a estos nos conciernen es que los automorfismos de $\poly^*$ son todos continuos. Antes de probarlo, hemos de ver un par de resultados previos.
 
 \begin{lema}
-    Si $\alpha \in \Aut(\poly^*)$, entonces $\alpha F(T)$ es invertible (respecto al producto) si y solo si $F(T)$ es invertible (respecto al producto); es decir, $\ord(\alpha F(T)) = 0$ si y solo si $\ord(F(T)) = 0$
+    Si $\alpha \in \Aut(\poly^*)$, entonces $\alpha F(T)$ es invertible (respecto al producto) si y solo si $F(T)$ es invertible (respecto al producto); es decir, $\ord(\alpha F(T)) = 0$ si y solo si $\ord(F) = 0$
 \end{lema}
 
 \begin{demo}
-    Si $F(T)$ es invertible con inversa $\frac{1}{F(T)}$, entonces
+    Si $F(T)$ es invertible con inversa $1/F(T)$, entonces
     \begin{equation*}
         (\alpha F(T))\left(\alpha \frac{1}{F(T)}\right)= \alpha\left(F(T) \frac{1}{F(T)}\right) = \alpha 1 = 1 \implies \frac{1}{\alpha F(T)} = \alpha \frac{1}{F(T)}
     \end{equation*}
-    Recíprocamente, si $\alpha F(T)$ es invertible con inversa $\frac{1}{\alpha F(T)}$ para el producto e inversa $\alpha^{-1}$ para la composición, entonces
+    Recíprocamente, si $\alpha F(T)$ es invertible con inversa $1/\alpha F(T)$ para el producto e inversa $\alpha^{-1}$ para la composición, entonces
     \begin{equation*}
         F(T) \left(\alpha^{-1} \frac{1}{\alpha F(T)}\right) = \left(\alpha^{-1}(\alpha F(T))\right) \left(\alpha^{-1} \frac{1}{\alpha F(T)}\right) = \alpha^{-1}\left(\alpha F(T) \frac{1}{\alpha F(T)}\right) = \alpha^{-1}1 = 1
     \end{equation*}
@@ -50,18 +50,18 @@ Lo más importante en cuanto a estos nos conciernen es que los automorfismos de 
 \end{demo}
 
 \begin{teorema}
-    Si $\alpha \in \Aut(\poly^*)$, entonces $\ord(\alpha F(T)) = \ord(F(T))$
+    Si $\alpha \in \Aut(\poly^*)$, entonces $\ord(\alpha F(T)) = \ord(F)$
     para toda $F(T) \in \poly^*$
 \end{teorema}
 
 \begin{demo}
-    Veamos primero que $\ord(\alpha T) = 1$. Por el lema previo, $\ord(\alpha T) \geq 1$. Si fuera mayor que 1, tendriamos que, para toda $F(T) \in \poly^*$
+    Veamos primero que $\ord(\alpha T) = 1$. Por el lema previo, $\ord(\alpha T) \geq 1$. Si fuera $\ord(\alpha T) > 1$, tendriamos que, para toda $F(T) \in \poly^*$
     \begin{equation*}
         F(T) = a_0 + T G(T) \implies \alpha F(T) = a_0 + \alpha (T \cdot G(T))
     \end{equation*}
-    Ahora, $\alpha (T \cdot G(T)) = \alpha T \cdot \alpha G(T)$, por ser $\alpha$ un morfismo de álgebras, lo cual implica que $\ord(\alpha (T \cdot G(T))) \geq \ord(\alpha T) > 1$. Luego, $\ord(\alpha F(T)) \neq 1$ y no podría haber ninguna $F(T) \in \poly^*$ tal que $\alpha F(T) = T$, lo cual es imposible por la biyectividad de $\alpha$. Con lo que $\ord(\alpha T) = 1$ necesariamente. Así pues, para $k \geq 0$, $\alpha T^k = (\alpha T)^k \implies \ord(\alpha T^k) = k$
+    Ahora, $\alpha (T \cdot G(T)) = \alpha T \cdot \alpha G(T)$, por ser $\alpha$ un morfismo de álgebras, lo cual implica que $\ord(\alpha (T \cdot G(T))) \geq \ord(\alpha T) > 1$. Luego, $\ord(\alpha F(T)) \neq 1$ y no podría haber ninguna $F(T) \in \poly^*$ tal que $\alpha F(T) = T$, lo cual es imposible por la biyectividad de $\alpha$. Con lo que $\ord(\alpha T) = 1$ necesariamente. En consecuencia, como $\alpha T^k = (\alpha T)^k$, será $\ord(\alpha T^k) = k$.
 
-    Si ahora consideramos una $F(T) \in \poly^*$ cualquiera, con $\ord(F(T)) = k$, podemos reescibirla como $F(T) = T^k G(T)$ con $\ord(G(T)) = 0$ y por tanto llegamos a que la serie $F(T)$ cumple que $\ord(\alpha F(T)) = \ord(\alpha T^k) + \ord(\alpha G(T)) = k$
+    Si ahora consideramos una $F(T) \in \poly^*$ cualquiera, con $\ord(F(T)) = k$, podemos reescibirla como $F(T) = T^k G(T)$, con $\ord(G(T)) = 0$, y por tanto llegamos a que la serie $F(T)$ cumple que $\ord(\alpha F(T)) = \ord(\alpha T^k) + \ord(\alpha G(T)) = k$.
 \end{demo}
 
 \begin{teorema}\label{auto implica continuo}
@@ -69,7 +69,7 @@ Lo más importante en cuanto a estos nos conciernen es que los automorfismos de 
 \end{teorema}
 
 \begin{demo}
-    Es consecuencia inmediata del teorema anterior
+    Es consecuencia inmediata del teorema anterior.
 \end{demo}
 
 Otra clase de operadores lineales sobre $\poly^*$ son de especial relevancia: estas son las derivaciones.
@@ -82,7 +82,7 @@ Otra clase de operadores lineales sobre $\poly^*$ son de especial relevancia: es
     para todo $a,b \in A$. Simbolizaremos por $\Der(A)$ al conjunto de las derivaciones de $A$.
 \end{definicion}
 
-En particular, prestaremos una atención particular a las derivaciones epiyectivas, cuyo conjunto lo escribiremos como $\Der_{\mathrm{epi}}(A)$. De forma similar a lo que ocurre con los automorfismos, su propiedad más importante es que todas son continuas. Para verlo, hemos de probar primero algunas de sus propiedades. 
+En particular, prestaremos atención a las derivaciones epiyectivas, cuyo conjunto lo escribiremos como $\Der_{\mathrm{epi}}(A)$. De forma similar a lo que ocurre con los automorfismos, su propiedad más importante es que todas son continuas. Para verlo, hemos de probar primero algunas de sus propiedades. 
 
 \begin{proposicion}\label{derivaciones nulas sobre k}
     Si $\delta \in \Der(A)$, entonces $\delta (\field) = 0$
@@ -101,7 +101,7 @@ En particular, prestaremos una atención particular a las derivaciones epiyectiv
 \end{demo}
 
 \begin{teorema}
-    Si $\delta \in \Der_{\mathrm{epi}}(\poly^*)$ y $F(T) \in \poly^*$ es tal que $\ord(F(T)) \geq 1$, entonces $\ord(\delta F(T)) = \ord(F(T))-1$
+    Si $\delta \in \Der_{\mathrm{epi}}(\poly^*)$ y $F(T) \in \poly^*$ es tal que $\ord(F(T)) \geq 1$, entonces $\ord(\delta F(T)) = \ord(F)-1$
 \end{teorema}
 
 \begin{demo}
@@ -109,14 +109,14 @@ En particular, prestaremos una atención particular a las derivaciones epiyectiv
     \begin{equation*}
         \delta F(T) = \delta T \cdot G(T) + T \cdot \delta G(T) \implies \ord(\delta F(T)) = \ord(\delta T \cdot G(T) + T \cdot \delta G(T))
     \end{equation*}
-    Como $\delta$ es epiyectiva, podemos escoger una $F(T)$ tal que $\ord(\delta F(T)) = 0$ y $\ord(G(T)) > 0$. De tal manera que, como $\ord(T \cdot \delta G(T)) \geq 1$, necesariamente
+    Como $\delta$ es epiyectiva, podemos escoger una $F(T)$ tal que $\ord(\delta F(T)) = 0$ y $\ord(G) > 0$. De tal manera que, como $\ord(T \cdot \delta G(T)) \geq 1$, necesariamente
     \begin{equation*}
-        \ord(\delta T \cdot G(T)) = 0 \iff \ord(\delta T) + \ord (G(T)) = 0 \iff \ord(\delta T) = 0
+        \ord(\delta T \cdot G(T)) = 0 \iff \ord(\delta T) + \ord (G) = 0 \iff \ord(\delta T) = 0
     \end{equation*}
-    Si ahora consideramos una serie formal cualquiera $F(T) \in \poly^*$ con $\ord(F(T)) = k$, podemos reescribirla como $F(T) = T^k G(T)$ con $\ord(G(T)) = 0$. Luego, por \ref{derivaciones T^k} llegamos a que $\ord(F(T)) = \ord(T^k \cdot \delta G(T) + kT^{k-1}G(T) \cdot \delta T)$. De aquí, usando un argumento como el de antes, obtenemos el resultado que buscábamos.
+    Si ahora consideramos una serie formal cualquiera $F(T) \in \poly^*$ con $\ord(F) = k$, podemos reescribirla como $F(T) = T^k G(T)$ con $\ord(G) = 0$. Luego, por \ref{derivaciones T^k} llegamos a que $\ord(\delta F(T)) = \ord(T^k \cdot \delta G(T) + kT^{k-1}G(T) \cdot \delta T) = k-1$, pues $\ord(kT^{k-1}G(T) \cdot \delta T) = k-1$ y $\ord(T^k \cdot \delta G(T)) = k$ debido a \ref{derivaciones nulas sobre k}.
 \end{demo}
 
-De esta manera, y como vimos con los automorfismos, queda probado así la continuidad de esta clase de operadores.
+De esta manera, y como vimos con los automorfismos, queda probada la continuidad de esta clase de operadores.
 
 \begin{teorema}\label{derivaciones epi implica continuo}
     Toda derivación epiyectiva de $\poly^*$ es continua, es decir, se verifica que $\Der_{\mathrm{epi}}(\poly^*) \subset \End_{\mathcal{C}}(\poly^*)$
@@ -125,7 +125,7 @@ De esta manera, y como vimos con los automorfismos, queda probado así la contin
 \section{Operadores adjuntos}
 
 \begin{definicion}
-    Dado un operador $\Lambda \in \End(\poly)$, llamaremos \textbf{operador adjunto de $\Lambda$} al operador lineal $\Lambda^* \in \End(\poly^*)$, donde para cada $F(T) \in \poly^*$, el operador $\Lambda^*F(T)$ se define como la aplicación dada por $p(x) \mapsto \langle F(T) | \Lambda p(x) \rangle$, es decir, es aquel tal que
+    Dado un operador $\Lambda \in \End(\poly)$, llamaremos \textbf{operador adjunto de $\Lambda$} al operador lineal $\Lambda^* \in \End(\poly^*)$ tal que para cada $F(T) \in \poly^*$, el operador $\Lambda^*F(T)$ se define como la aplicación dada por $p(x) \mapsto \langle F(T) | \Lambda p(x) \rangle$; es decir, es aquel tal que
     \begin{equation*}
         \langle \Lambda^* F(T) | p(x) \rangle = \langle F(T) | \Lambda p(x) \rangle
     \end{equation*}
@@ -151,7 +151,7 @@ De esta manera, y como vimos con los automorfismos, queda probado así la contin
 \end{proposicion}
 
 \begin{demo}
-    Para la continuidad basta con aplicar el teorema \ref{equivalencia continuidad}. En el caso en el que la serie es invertible, $G(T) \xmapsto{M^*(F)} F(T) \cdot G(T) \xmapsto{M^*(1/F)} \frac{1}{F(T)} \cdot (F(T) \cdot G(T)) = G(T) $ y viceversa prueban que es una biyección con $M^*(F)^{-1} = M(1/F)$
+    Para la continuidad basta con aplicar el teorema \ref{equivalencia continuidad}. En el caso en el que la serie es invertible, $G(T) \xmapsto{M^*(F)} F(T) \cdot G(T) \xmapsto{M^*(1/F)} \frac{1}{F(T)} \cdot (F(T) \cdot G(T)) = G(T) $ y viceversa prueban que es una biyección con $M^*(F)^{-1} = M^*(1/F)$
 \end{demo}
 
 \begin{ej}
@@ -182,12 +182,12 @@ Podemos ahora construir la aplicación que mande cada operador a su operador adj
 Más especifícamente, nos interesará la correspondecia existente entre un subconjunto de los operadores y los operadores continuos de $\poly^*$. En este sentido, el siguiente teorema nos muestra que este subconjunto es, de hecho, todo el espacio de operadores.
 
 \begin{teorema}
-    La aplicación adjunta restringida al espacio de los operadores lineales continuos de $\poly^*$, $\mu_{\mathcal{C}}$, es un isomorfismo con el espacio de operadores; es decir, se tiene que $\End(\poly) \backsimeq \End_{\mathcal{C}}(\poly^*)$, o lo que es lo mismo $\Im(\mu) = \End_{\mathcal{C}}(\poly^*)$ y $\mu$ es inyectiva.
+    La aplicación adjunta restringida al espacio de los operadores lineales continuos de $\poly^*$, $\mu_{\mathcal{C}}$, es un isomorfismo con el espacio de operadores; es decir, se tiene que $\End(\poly) \backsimeq \End_{\mathcal{C}}(\poly^*)$, o lo que es lo mismo, que $\Im(\mu) = \End_{\mathcal{C}}(\poly^*)$ y $\mu$ es inyectiva.
 \end{teorema}
 \begin{demo}
     \begin{itemize}
-        \item \textit{Inyectividad:} Si $\Lambda^* = 0$, entonces $\langle F(T)| \Lambda p(x) \rangle = \langle \Lambda^* F(T)| p(x) \rangle = 0$ para toda serie formal $F(T)$ y todo polinomio $p(x)$. Con lo que $\Lambda = 0$ necesariamente.
-        \item \textit{Epiyectividad:} Sea $\alpha \in \End_{\mathcal{C}}(\poly^*)$. Dado un $n > 0$, por ser continuo, $\ord(\alpha T^k) > n$ para un k suficientemente grande. Así pues, podemos considerar el operador $\Lambda_{\alpha}$ que viene definido por $\Lambda_{\alpha} x^n = \sum_{k=0}^\infty \frac{\langle \alpha T^k | x^n \rangle}{k!}x^k$. Este operador cumple que $\Lambda_{\alpha}^* = \alpha$. En efecto
+        \item Inyectividad: Si $\Lambda^* = 0$, entonces $\langle F(T)| \Lambda p(x) \rangle = \langle \Lambda^* F(T)| p(x) \rangle = 0$ para toda serie formal $F(T)$ y todo polinomio $p(x)$. Con lo que $\Lambda = 0$ necesariamente.
+        \item Epiyectividad: Sea $\alpha \in \End_{\mathcal{C}}(\poly^*)$. Dado un $n > 0$, por ser continuo, $\ord(\alpha T^k) > n$ para un $k$ suficientemente grande. Así pues, podemos considerar el operador $\Lambda_{\alpha}$ que viene definido por $\Lambda_{\alpha} x^n = \sum_{k=0}^\infty \frac{\langle \alpha T^k | x^n \rangle}{k!}x^k$. Este operador cumplirá que $\mu_{\mathcal{C}}(\Lambda_{\alpha}) = \Lambda_{\alpha}^* = \alpha$:
         \begin{align*}
             & \langle \Lambda_{\alpha}^* T^m | x^n \rangle =  \langle T^m | \Lambda_{\alpha}x^n \rangle = \sum_{k=0}^\infty \frac{\langle \alpha T^k | x^n \rangle}{k!}\langle T^m | x^k \rangle = \langle \alpha T^m | x^n \rangle\\
             & \implies \Lambda_{\alpha}^* T^m = \alpha T^m \implies \alpha = \Lambda_{\alpha}^*
@@ -195,7 +195,7 @@ Más especifícamente, nos interesará la correspondecia existente entre un subc
         donde la última implicación se debe a la continuidad de los operadores. \qedhere
     \end{itemize}
 \end{demo}
-Una vez visto que la aplicación adjunta restringida $\mu_{\mathcal{C}}$ es un isomorfismo, junto a los resultados \ref{auto implica continuo} y \ref{derivaciones epi implica continuo}, nos interesaría conocer la antiimagen tanto de $\Aut(\poly^*)$ como de $\Der_{\mathrm{epi}}(\poly^*)$. Lo cierto es que estos dos conjuntos se corresponden con dos nuevas clases de operadores en $\poly^*$: estos son los \textit{operadores umbrales} y las \textit{traslaciones umbrales}, respectivamente. A su vez, estos no son más que dos subfamilias de dos clases de operadores más generales: los \textit{operadores de Sheffer} y las \textit{traslaciones de Sheffer}. Es más, estas identificaciones mediante la aplicación adjunta caracterizan a estas familias de operadores. Comenzamos estudiando y viendo este hecho para los primeros. 
+Una vez visto que la aplicación $\mu_{\mathcal{C}}$ es un isomorfismo, junto a los resultados \ref{auto implica continuo} y \ref{derivaciones epi implica continuo}, nos interesa conocer la antiimagen tanto de $\Aut(\poly^*)$ como de $\Der_{\mathrm{epi}}(\poly^*)$. Lo cierto es que estos dos conjuntos se corresponden con dos nuevas clases de operadores en $\poly^*$: estos son los \textit{operadores umbrales} y las \textit{traslaciones umbrales}, respectivamente. A su vez, estos no son más que dos subfamilias de dos clases de operadores más generales: los \textit{operadores de Sheffer} y las \textit{traslaciones de Sheffer}. Es más, estas identificaciones mediante la aplicación adjunta caracterizan a estas familias de operadores. Comenzamos estudiando y viendo este hecho para los primeros mencionados. 
 
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -211,7 +211,7 @@ Una vez visto que la aplicación adjunta restringida $\mu_{\mathcal{C}}$ es un i
     \begin{equation*}
         \Lambda_{G,F} x^n = s_n(x)
     \end{equation*}
-    En el caso de que $p_n(x)$ sea la sucesión asociada a $F(T)$ decimos que $\Lambda_{1, F} \equiv \Lambda_{F}$ es simplemnte el \textbf{operador umbral asociado a $p_n(x) $ o a $F(T)$}. Simbolizaremos a ambos conjuntos por $\End_{\mathrm{Sh}}(\poly)$ y $\End_{\mathrm{Umb}}(\poly)$, respectivamente.
+    En el caso de que $p_n(x)$ sea la sucesión asociada a $F(T)$ decimos que $\Lambda_{1, F} \equiv \Lambda_{F}$ es simplemente el \textbf{operador umbral asociado a $p_n(x) $ o a $F(T)$} y se simbolizarán a ambos conjuntos por $\End_{\mathrm{Sh}}(\poly)$ y $\End_{\mathrm{Umb}}(\poly)$, respectivamente.
 \end{definicion}
 
 \begin{proposicion}
@@ -236,13 +236,13 @@ Una vez visto que la aplicación adjunta restringida $\mu_{\mathcal{C}}$ es un i
     \begin{equation*}
         \Lambda_{F}^*(G(T)H(T)) = G(F^{-1}(T))H(F^{-1}(T)) = (\Lambda^*_{F}G(T))\cdot (\Lambda^*_{F}H(T)) 
     \end{equation*}
-    y $\Lambda_{F}$ sería, por tanto, un automorfismo. Basta con ver, pues, que se tiene dicha igualdad. Por las definiciones dadas tendremos que 
+    y $\Lambda_{F}^*$ sería, por tanto, un automorfismo. Basta con ver entonces que se tiene dicha igualdad. Por las definiciones dadas tendremos que 
 \begin{align*}
     \langle \Lambda_{F}^* F^k(T)| x^n\rangle =  \langle F^k(T) | \Lambda_{F} x^n\rangle & =  \langle F^k(T) | p_n(x)\rangle = n!\delta_{n,k} = \langle T^k | x^n \rangle
 \end{align*}
-Luego, $\Lambda_{F}^* F^k(T) =T^k$. Y por tanto, $\Lambda_{F}^*G(F(T)) = G(T)$ para toda $G(T) \in \poly^*$, ya que los operadores adjuntos son continuos. En particular, para $G(T) = (F^{-1}(T))^k$ tenemos que $\Lambda_{F}^*T^k = (F^{-1}(T))^k$, de donde se obtiene la igualdad buscada. 
+Luego, $\Lambda_{F}^* F^k(T) =T^k$. Y por tanto, $\Lambda_{F}^*G(F(T)) = G(T)$ para toda $G(T) \in \poly^*$, ya que los operadores adjuntos son continuos. En particular, para $G(T) = (F^{-1}(T))^k$ tenemos que $\Lambda_{F}^*T^k = (F^{-1}(T))^k$, de donde se obtiene la igualdad del enunciado. 
 
-$\boxed{\mu_{\mathcal{C}}^{-1}(\Aut(\poly^*)) \subseteq \End_{umb}(\poly)}$ Sea $\alpha \in \Aut(\poly^*)$ un automorfismo. Por conservar los automorfismos el orden y ser biyecciones, habrá un único funcional delta $F(T) \in \poly^*$ tal que $\alpha F(T) = T$. En particular, por ser morfismo de algebrás será $\alpha F^k(T) = T^k$. Sea ahora $p_n(x)$ la sucesión asociada al funiconal delta $F(T)$. Tenemos que
+$\boxed{\mu_{\mathcal{C}}^{-1}(\Aut(\poly^*)) \subseteq \End_{umb}(\poly)}$ Sea $\alpha \in \Aut(\poly^*)$ un automorfismo. Por conservar los automorfismos el orden y ser biyecciones, habrá un único funcional delta $F(T) \in \poly^*$ tal que $\alpha F(T) = T$. En particular, por ser morfismo de álgebras será $\alpha F^k(T) = T^k$. Sea ahora $p_n(x)$ la sucesión asociada al funcional delta $F(T)$. Tenemos que
 \begin{align*}
     \langle F^k(T) | \mu_{\mathcal{C}}^{-1}(\alpha) x^n \rangle & = \langle (\mu_{\mathcal{C}}^{-1}(\alpha))^* F^k(T) | x^n \rangle = \langle \alpha F^k(T) | x^n \rangle\\
     & = \langle T^k | x^n \rangle = n! \delta_{n,k} = \langle F^k(T) | p_n(x) \rangle
@@ -261,7 +261,7 @@ Por tanto, $\mu_{\mathcal{C}}^{-1}(\alpha) x^n = p_n(x)$ y, en consecuencia, $\m
     \end{equation*}
 \end{demo}
 
-\begin{teorema}[caracterización operadors de Sheffer]
+\begin{teorema}[caracterización operadores de Sheffer]
     Sea $\Lambda \in \End(\poly)$ un operador cualquiera. $\Lambda$ es un operador de Sheffer asociado a $(G(T), F(T))$ si y solo si su operador adjunto $\Lambda^*$ tiene la forma
     \begin{equation*}
         \Lambda^* = \Lambda_{F}^* \circ M^*(1/G)
@@ -274,7 +274,7 @@ Por tanto, $\mu_{\mathcal{C}}^{-1}(\alpha) x^n = p_n(x)$ y, en consecuencia, $\m
 
 \begin{demo}
     $\boxed{\implies}$
-    Se sigue directamente de la proposición anterior y las propiedades de los operadores adjuntos, de donde se ve que
+    Se sigue directamente de la proposición anterior y las propiedades de los operadores adjuntos, de donde se deduce que
     \begin{equation*}
         \Lambda_{G,F}^*H(T) = (\Lambda_{F}^* \circ M^*(1/G))H(T) = \Lambda_{F}^*\left(\frac{1}{G(T)} \cdot H(T)\right) = \frac{1}{G(F^{-1}(T))} \cdot H(F^{-1}(T)) 
     \end{equation*}
@@ -284,10 +284,10 @@ Por tanto, $\mu_{\mathcal{C}}^{-1}(\alpha) x^n = p_n(x)$ y, en consecuencia, $\m
     \begin{equation*}
         \Lambda^* = (\Lambda_{G,F}^* \circ M^*(G)) \circ M^*(1/G) = \Lambda_{G,F}^* \circ (M^*(G) \circ M^*(1/G)) = \Lambda_{G,F}^* 
     \end{equation*}
-    de donde se llega a que $\Lambda = \Lambda_{G,F}$ usando que $\mu_{\mathcal{C}}$ es inyectiva. 
+    de donde se llega a que $\Lambda = \Lambda_{G,F}$ usando la inyectividad de $\mu_{\mathcal{C}}$. 
 \end{demo}
 
-De esta manera vemos que si estudiamos el comportamineto de los operadores umbrales, estudiaremos como consecuencia también a los operadores de Sheffer y viceversa. Es decir, basta con estudiar a uno de los dos. En este caso, optaremos por estudiar a los operadores umbrales en detalle, puesto que su manipulación resultará más sencilla y obtendremos como corolario una teoría para los operadores de Sheffer, aunque insistimos en que este proceso podría realizarse de forma inversa. 
+Con todo, vemos que estudiar el comportamineto de los operadores umbrales implica estudiar, como consecuencia, también a los operadores de Sheffer, y viceversa. Es decir, basta con estudiar a uno de los dos. En este caso, optaremos por estudiar a los operadores umbrales en detalle, puesto que su manipulación resultará más sencilla y obtendremos como corolario una teoría para los operadores de Sheffer, aunque insistimos en que este proceso podría realizarse de forma inversa. 
 
 Podemos ya dar una estructura algebraica tanto a los conjuntos de estos operadores como al de las sucesiones de Sheffer. 
 
@@ -304,7 +304,7 @@ Podemos ya dar una estructura algebraica tanto a los conjuntos de estos operador
 \end{demo}
 
 \begin{corolario}
-    $\End_{\mathrm{Sh}}(\poly)$ es un grupo bajo la ley de grupo dada por la composición de aplicaciones. Concretamente $\Lambda_{G,F} \circ \Lambda_{H,L} = \Lambda_{G \cdot H \circ F, L \circ F} \text{ y } \Lambda_{G, F}^{-1} = \Lambda_{\frac{1}{G \circ F^{-1}}, F^{-1}}$
+    $\End_{\mathrm{Sh}}(\poly)$ es un grupo bajo la ley de grupo dada por la composición de aplicaciones. Concretamente $\Lambda_{G,F} \circ \Lambda_{H,L} = \Lambda_{G \cdot H \circ F, L \circ F} \text{ y } \Lambda_{G, F}^{-1} = \Lambda_{1/(G \circ F^{-1}), F^{-1}}$
 \end{corolario}
 
 \begin{proposicion} Se verifica que
@@ -317,7 +317,7 @@ Podemos ya dar una estructura algebraica tanto a los conjuntos de estos operador
 \begin{demo}
     \begin{enumerate}
         \item Sea $\Lambda_F \in \End_{\mathrm{Umb}}(\poly)$ y $p_n(x)$ la sucesión asociada a una serie $G(T)$. Entonces, se tiene que $\Lambda_F p_n(x) = \Lambda_F \circ \Lambda_G x^n = \Lambda_{G \circ F}x^n$, y como $\Lambda_{G \circ F}$ es un operador umbral, $\Lambda_F p_n(x)$ es una sucesión asociada.
-        \item Se debe a que $\Lambda = \Lambda_F \circ \Lambda_{G^{-1}}$. \qedhere 
+        \item $(\Lambda_G \circ \Lambda_{F^{-1}})p_n(x) = \Lambda_G x^n = q_n(x) \implies \Lambda = \Lambda_G \circ \Lambda_{F^{-1}} \in \End_{\mathrm{Umb}}(\poly)$. \qedhere 
     \end{enumerate}
 \end{demo}
 
@@ -385,10 +385,10 @@ Aprovechando lo hecho para los operadores de Sheffer, podemos definir una operac
 \begin{demo}
     Usando las propiedades vistas de los operadores umbrales, tenemos que
     \begin{align*}
-        \langle F(T) | [\Lambda_F^* G(T)] p(x) \rangle & = \langle F(T) [\Lambda_F^*G(T)]| p(x) \rangle = \langle \Lambda_F^* [G(T) (\Lambda_F^*)^{-1}F(T)]| p(x) \rangle \\
-        & = \langle G(T) (\Lambda_F^*)^{-1}F(T) | \Lambda_F p(x) \rangle 
-        = \langle (\Lambda_F^{-1})^* F(T) | G(T) \circ \Lambda_F p(x) \rangle \\
-        & = \langle F(T) | \lambda_F^{-1} \circ G(T) \circ \Lambda_F p(x) \rangle
+        \langle F(T) | [\Lambda_F^* G(T)] p(x) \rangle & = \langle F(T) \cdot \Lambda_F^*G(T)| p(x) \rangle = \langle \Lambda_F^* [G(T) \cdot (\Lambda_F^*)^{-1}F(T)]| p(x) \rangle \\
+        & = \langle G(T) \cdot (\Lambda_F^*)^{-1}F(T) | \Lambda_F p(x) \rangle 
+        = \langle (\Lambda_F^{-1})^* F(T) | (G(T) \circ \Lambda_F) p(x) \rangle \\
+        & = \langle F(T) | (\Lambda_F^{-1} \circ G(T) \circ \Lambda_F) p(x) \rangle
     \end{align*}
     de donde vemos que $\Lambda_F^* G(T) = \Lambda_{F^{-1}} \circ G(T) \circ \Lambda_F$, como buscábamos.
 \end{demo}
@@ -398,7 +398,7 @@ Aprovechando lo hecho para los operadores de Sheffer, podemos definir una operac
 \end{corolario}
 
 \begin{demo}
-    Sean $F(T) \in \F$ y $p(x) \in \poly$. Tenemos que $\langle F(T) | (\Lambda_F^* G(T)) p(x) \rangle = \langle F(T) (\Lambda_F^* G(T)) |  p(x) \rangle = \langle \Lambda_F^* [G(T) (\Lambda_F^*)^{-1} F(T)] |  p(x) \rangle = \langle F(T) | \Lambda_F^{-1} G(T) \Lambda_F p(x) \rangle$, de donde se obtiene la igualdad.
+    Tenemos que $G(F^{-1}(T)) = \Lambda_F^* G(T) = \Lambda_{F^{-1}} \circ G(T) \circ \Lambda_F$. Utilizando que $(\Lambda_F^{-1})^{-1} = \Lambda_F$ se concluye.
 \end{demo}
 
 \begin{teorema}
@@ -413,7 +413,7 @@ Aprovechando lo hecho para los operadores de Sheffer, podemos definir una operac
     \begin{equation*}
         \langle H(T) | q(\mathbf{p(x)}) \rangle = \langle H(T) |  \Lambda_{F}(q(x)) \rangle =  \langle \Lambda_{F}^*H(T) |  q(x) \rangle = \langle H(F^{-1}(T))| q(x) \rangle
     \end{equation*}
-    La segunda igualdad se deduce tomando $q(x) = x^n$
+    La segunda igualdad se deduce tomando $q(x) = x^n$.
 \end{demo}
 
 
@@ -434,14 +434,14 @@ Aprovechando lo hecho para los operadores de Sheffer, podemos definir una operac
 %: TRASLACIONES DE SHEFFER
 \section{Traslaciones de Sheffer}
 
-Una vez vistos los operadores de Sheffer, nos interesa ahora estudiar a las traslaciones de Sheffer. El desarrollo de la teoría de esta clase de operadores es muy similar a la de los operadores de Sheffer. En consecuencia, muchas de las demostraciones, por ser muy similares a las ya dadas con estos últimos, se han excluido.
+Una vez vistos los operadores de Sheffer, nos interesa ahora estudiar a las traslaciones de Sheffer. El desarrollo de la teoría de esta clase de operadores es muy similar a la de los operadores de Sheffer. En consecuencia, muchas de las demostraciones, por ser muy similares a las ya dadas con estos últimos, se han excluido (pueden consultarse en \cite{roman2}).
 
 \begin{definicion}
     Dada $s_n(x) \sim (G(T), F(T))$, se llama \textbf{traslación de Sheffer asociada a $s_n(x)$ o a $(G(T), F(T))$} al operador $\theta_{G,F} \in \End(\poly)$ dado por
     \begin{equation*}
         \theta_{G,F} s_n(x) = s_{n+1}(x)
     \end{equation*}
-    En el caso de que $p_n(x)$ sea la sucesión asociada a $F(T)$ decimos que $\theta_{1, F} \equiv \theta_{F}$ es simplemente la \textbf{traslación umbral asociada a $p_n(x) $ o a $F(T)$}. Simbolizaremos a ambos conjuntos por $\TrasSh$ y $\TrasUmb$, respectivamente.
+    En el caso de que $p_n(x)$ sea la sucesión asociada a $F(T)$ decimos que $\theta_{1, F} \equiv \theta_{F}$ es simplemente la \textbf{traslación umbral asociada a $p_n(x) $ o a $F(T)$} y se simbolizarán a ambos conjuntos por $\TrasSh$ y $\TrasUmb$, respectivamente.
 \end{definicion}
 
 \begin{proposicion}
@@ -456,13 +456,13 @@ Una vez vistos los operadores de Sheffer, nos interesa ahora estudiar a las tras
 \end{teorema}
 
 \begin{proposicion}\label{tras sheffer explicita}
-    Dada $\theta_{G,F} \in \TrasSh$ se verifica que $\theta_{G,F} = M^*(1/G) \circ \theta_F \circ G(T)$
+    Dada $\theta_{G,F} \in \TrasSh$ se verifica que $\theta_{G,F} = \frac{1}{G(T)}\circ \theta_F \circ G(T)$
 \end{proposicion}
 
 \begin{teorema}[regla de la cadena]
     Dados $\theta_F, \theta_G \in \TrasUmb$ se verifica que
     \begin{equation*}
-        \theta_F = \theta_G \circ (\partial_F G(T))
+        \theta_F = \theta_G \circ \partial_F G(T)
     \end{equation*}
 \end{teorema}
 
@@ -477,7 +477,7 @@ Una vez vistos los operadores de Sheffer, nos interesa ahora estudiar a las tras
 
 \begin{demo}
     \begin{enumerate}
-        \item Si tomamos $G(T) = T$ se tiene que $\theta_G x^n = x^{n+1} \implies \theta_G = M$. Por el teorema anterior, vemos que $\theta_F = M \circ (\partial_F T) = M \circ \frac{1}{\partial_T F(T)} = M \circ \frac{1}{F'(T)}$. Aplicándolo a $p_n(x)$ se obtiene la fórmula primera.
+        \item Si tomamos $G(T) = T$ se tiene que $\theta_G x^n = x^{n+1} \implies \theta_G = M$. Mediante el teorema anterior vemos que $\theta_F = M \circ \partial_F T = M \circ \frac{1}{\partial_T F(T)} = M \circ \frac{1}{F'(T)}$. Aplicándolo a $p_n(x)$ se obtiene la fórmula primera.
 
         \item Se ve usando \ref{conmutacion composicion operador umbral} y el apartado anterior
         \begin{align*}
@@ -487,7 +487,7 @@ Una vez vistos los operadores de Sheffer, nos interesa ahora estudiar a las tras
 \end{demo}
 
 \begin{teorema}[fórmula de derivación]
-    Dado $\theta_F \in \TrasUmb$, para todo operador $G(T) \in \End(\poly)$ se verifica que $\theta_F^* G(T) = G(T) \circ \theta_F - \theta_F \circ G(T)$. En particular, se verifica
+    Dado $\theta_F \in \TrasUmb$, para todo operador $G(T) \in \End(\poly)$ se verifica que $\theta_F^* G(T) = G(T) \circ \theta_F - \theta_F \circ G(T)$. En particular
     \begin{equation*}
         G'(T) = G(T) \circ M - M \circ G(T)
     \end{equation*}
@@ -525,10 +525,10 @@ Una vez vistos los operadores de Sheffer, nos interesa ahora estudiar a las tras
 El siguiente teorema nos proporciona dos formas operacionales y directas de calcular la sucesión asociada a una serie formal $F(T)$.
 
 \begin{teorema}[fórmulas de transferencia]\label{transferencia asociada}
-    Sea $p_n(x) \sim F(T)$. Se verifican las dos siguientes relaciones.
+    Sea $p_n(x) \sim F(T)$. Se verifican las dos siguientes relaciones:
     \begin{enumerate}
-        \item $p_n(x) = F'(T)(\frac{T}{F(T)})^{n+1} x^n$
-        \item $p_n(x) = M \circ (\frac{T}{F(T)})^{n} x^{n-1}$
+        \item $\displaystyle p_n(x) = F'(T)\left(\frac{T}{F(T)}\right)^{n+1} x^n$
+        \item $\displaystyle p_n(x) = M \circ \left(\frac{T}{F(T)}\right)^n x^{n-1}$
     \end{enumerate}
 \end{teorema}
 
@@ -536,19 +536,19 @@ El siguiente teorema nos proporciona dos formas operacionales y directas de calc
     Sea $G(T) = \frac{F(T)}{T}$. Veamos primero que ambas fórmulas coinciden.
     \begin{align*}
         F'(T)G^{-n-1}(T)x^n & = (TG(T))'G^{-n-1}(T)x^n = G^{-n}(T)x^n + G'(T)G^{-n-1}(T)Tx^n\\
-        & = G^{-n}(T)x^n + nG'(T)G^{-n-1}(T)x^{n-1} = G^{-n}(T)x^n - (G^{-n}(T))'x^{n-1}\\
+        & = G^{-n}(T)x^n + nG'(T)G^{-n-1}(T)x^{n-1} \stackrel{(*)}{=} G^{-n}(T)x^n - (G^{-n}(T))'x^{n-1}\\
         & = G^{-n}(T)x^n - (G^{-n}(T) \circ M - M \circ G^{-n}(T)) x^{n-1} = M \circ G^{-n}(T) x^{n-1}
     \end{align*}
     donde la penúltima igualdad viene de utilizar la derivada de Pincherle sobre $G^{-n}(T)$. Basta entonces con probar que se tiene la primera de estas fórmulas. Para ello, hemos de comprobar que $q_n(x) = F'(T)G^{-n-1} (T)x^n $ cumple las condiciones de ser la sucesión asociada a $F(T)$. Usamos la caracterización \ref{sucesion asociada caracterizacion operador}.
 
-    Sea $n \geq 1$. Usando las igualdades anteriores, vemos que
+    Sea $n \geq 1$. Usando la igualdad (*) anterior, vemos que
     \begin{align*}
         \langle 1| F'(T)G^{-n-1} (T)x^n \rangle = \langle 1 | G^{-n}(T) x^n - (G^{-n}(T))'x^{n-1} \rangle & = \langle 1 | G^{-n}(T) x^n \rangle - \langle 1 | \partial G^{-n}(T)x^{n-1} \rangle \\
         & = \langle G^{-n}(T) | x^n \rangle - \langle G^{-n}(T) | x^{n} \rangle = 0
     \end{align*}
-    donde hemos usado que el operador adjunto de $\partial$ es $M$. Si $n = 0$, entonces $\langle 1| q_0(x) \rangle = 0$ de forma evidente. Con lo que $\langle 1| q_n(x) \rangle = \delta_{n,0} $ y la primera condición se cumple. Por otro lado
+    donde hemos usado que el operador adjunto de $M$ es $\partial$. Si $n = 0$, entonces $\langle 1| q_0(x) \rangle = 0$ de forma evidente. Con lo que $\langle 1| q_n(x) \rangle = \delta_{n,0} $ y la primera condición se cumple. Así mismo
     \begin{align*}
-        F(T)F'(T)G^{-n-1} (T)x^n & = TG(T)F'(T)G^{-n-1} (T)x^n = G(T)F'(T)G^{-n-1} (T) T x^n \\
+        F(T)F'(T)G^{-n-1} (T)x^n = TG(T)F'(T)G^{-n-1} (T)x^n & = G(T)F'(T)G^{-n-1} (T) T x^n \\
         & = nF'(T)G(T)^{-n}x^{n-1} = nq_{n-1}(x)
     \end{align*} 
     y la segunda condición también se cumple. Luego, $q_n(x) = p_n(x)$ como buscábamos.

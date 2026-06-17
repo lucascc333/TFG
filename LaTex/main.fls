@@ -437,8 +437,9 @@ INPUT Algebra umbral\Algebra Umbral.tex
 INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecbi1200.tfm
 INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecti0800.tfm
 INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecti0600.tfm
-INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecbi0800.tfm
-INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecbi0600.tfm
+INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecbx0800.tfm
+INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecrm0600.tfm
+INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecbx0600.tfm
 INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\ueuf.fd
 INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\ueuf.fd
 INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\ueuf.fd
@@ -448,7 +449,6 @@ INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\eul
 INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\euler\eufm10.tfm
 INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\euler\eufm7.tfm
 INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\euler\eufm5.tfm
-INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecrm0600.tfm
 INPUT .\Sucesiones de Sheffer\Sucesiones de Sheffer.tex
 INPUT .\Sucesiones de Sheffer\Sucesiones de Sheffer.tex
 OUTPUT Sucesiones de Sheffer\Sucesiones de Sheffer.aux
@@ -461,6 +461,8 @@ OUTPUT Operadores en dual\Operadores en dual.aux
 INPUT .\Operadores en dual\Operadores en dual.tex
 INPUT .\Operadores en dual\Operadores en dual.tex
 INPUT Operadores en dual\Operadores en dual.tex
+INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecbi0800.tfm
+INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecbi0600.tfm
 INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
 INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx8.tfm
 INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx6.tfm

@@ -279,7 +279,6 @@
       La idea básica sobre que la giraban todas estas publicaciones era la de estudiar el comportamiento tan particular que ciertas sucesiones de números y polinomios poseen. 
 
       \begin{block}{Idea fundacional}
-        A grandes rasgos
         \begin{align*}
         \text{Subíndices} & \leftrightarrow \text{Exponentes}\\
         b_0, b_1, \dots, b_n & \leftrightarrow b^0, b^1, \dots, b^n
@@ -360,59 +359,56 @@
       \footnotesize Steven Roman
     \end{minipage}
   \end{center}
-  Todo se reduce al estudio y tratamiento de una clase de sucesiones de polinomios: estas son las \textbf{\textit{sucesiones de Sheffer}.} 
+  Todo se reduce al estudio y tratamiento de una clase especial de sucesiones de polinomios en 1 variable.
 
-  \begin{block}{}
-    \begin{center}
-      \begin{tabular}{rl}
-        & Series formales \\
-        & Análisis funcional $\rightarrow$ Cálculo umbral moderno \\
-        & Álgebra \\
-      \end{tabular}
-    \end{center}
-  \end{block}
   \end{frame}
+
+\begin{frame}{El cálculo umbral moderno}
+\begin{center}
+  \begin{tikzpicture}
+    % Los tres recuadros de la izquierda
+    \node[draw=darkred, fill=red!30, rounded corners=4pt,
+          minimum width=4cm, minimum height=0.7cm,
+          text centered] (sf) at (0, 4) {Series formales};
+    
+    \node[font=\small, text centered] (sf) at (0, 3) {+};
+
+    \node[draw=darkred, fill=red!30, rounded corners=4pt,
+          minimum width=4cm, minimum height=0.7cm,
+          text centered] (af) at (0, 2) {Análisis funcional};
+
+    \node[font=\small, text centered] (sf) at (0, 1) {+};
+
+    \node[draw=darkred, fill=red!30, rounded corners=4pt,
+          minimum width=4cm, minimum height=0.7cm,
+          text centered] (al) at (0, 0) {Álgebra};
+
+    % Recuadro destino a la derecha
+    \node[draw=darkred, fill=red!30, rounded corners=4pt,
+          minimum width=4cm, minimum height=0.7cm,
+          text centered] (cu) at (6, 2) {Cálculo umbral moderno};
+
+    % Línea vertical que agrupa los tres recuadros
+    \draw[darkred] (2.2, 4) -- (2.2, 0);
+
+    % Flecha desde el centro de la línea vertical al recuadro destino
+    \draw[->, darkred, thick] (2.2, 2) -- (cu.west);
+  \end{tikzpicture}
+\end{center}
+\end{frame}
 
 \section{Series formales como funcionales y operadores}
 
   \begin{frame}{Definiciones y resultados previos}
     \begin{definicion}
-      Se llama \textbf{anillo de series formales en la variable $T$ con coeficientes en el cuerpo $\field$} al conjunto
-      \begin{equation*}
-        \F \equiv \field \llbracket T \rrbracket = \{ \sum_{k=0}^{\infty} a_k T^k : a_k \in \field\}
-      \end{equation*}
-      dotado de las operaciones de suma y producto habituales
-      \begin{align*}
-        \sum_{k=0}^{\infty} a_k T^k + \sum_{k=0}^{\infty} b_k T^k = \sum_{k=0}^{\infty} (a_k + b_k) T^k \\
-        \left(\sum_{k=0}^{\infty} a_k T^k\right) \cdot \left(\sum_{k=0}^{\infty} b_k T^k\right) = \sum_{k=0}^{\infty} \left( \sum_{n=0}^{k} a_n b_{n-k}\right) T^k
-      \end{align*}
-    \end{definicion}
-  \end{frame}
-
-  \begin{frame}{Definiciones y resultados previos}
-    \begin{definicion}
-      Dada $F(T) = \sum_{k=0}^\infty a_k T^k \in \F$, se define el \textbf{orden de $F(T)$} como
-      \begin{equation*}
-        \ord(F) = \min \{ n \geq 0 : a_n \neq 0 \}
-      \end{equation*}
-    \end{definicion}
-    \begin{definicion}
-      Se define la \textbf{derivada formal} como el operador
-      \begin{align*}
-        \partial \colon \F & \longrightarrow \F \\
-        \sum_{k=0}^{\infty} a_k T^k & \mapsto \sum_{k=1}^{\infty} ka_k T^{k-1}
-      \end{align*}
-    \end{definicion}
-  \end{frame}
-
-  \begin{frame}{Definiciones y resultados previos}
-    \begin{definicion}
-      Llamaremos \textbf{funcional} a cada elemento de $\poly^*$, siendo $\poly \equiv \field[x]$. Además, dado $L \in \poly^*$ simbolizaremos su acción sobre un polinomio $p(x)$ como $\langle L | p(x) \rangle$
+      Se llama \textbf{funcional} a cada elemento de $\poly^*$, donde $\poly \equiv \field[x]$.
     \end{definicion}
 
-    \begin{proposicion}[(caracterización sobre una base)]
-      Dada $\{p_n(x)\}_{n\geq0}$ sucesión de polinomios tal que $\gr(p_n) = n$ para todo $n$, un funcional está completamente determinado por las constantes $\langle L | p_n(x) \rangle$. En particular, un funcional $L$ está completamente determinado por las constantes $\langle L | x^n \rangle$ y si es el caso que verifica $\langle L | p_n(x) \rangle = 0$ para todo $n$, entonces $L = 0$.
-    \end{proposicion}
+    \begin{itemize}
+      \item Dado $L \in \poly^*$, $\langle L | p(x) \rangle$ simboliza su acción sobre el polinomio $p(x)$.
+      \item Los funcionales están completamente determinados por una base; si $\{p_n(x)\}_{n\geq0}$ es una base de $\poly$, entonces las constantes $\langle L | p_n(x) \rangle$ definen al funcional.
+      \item En particular, para todas las sucesiones $\{p_n(x)\}_{n\geq0}$ tales que $\gr(p_n) = n$ para todo $n$.
+    \end{itemize}
   \end{frame}
 
   \begin{frame}{Correspondencia entre series formales y funcionales}
@@ -422,48 +418,47 @@
       \item $L \longrightarrow F_L(T) = \sum_{k=0}^\infty \frac{ \langle L | x^k \rangle}{k!} T^k $
     \end{itemize}
 
-    \begin{teorema}
+    \begin{teorema}[(isomorfismo canónico umbral)]
       La aplicación $\phi \colon  \poly^* \xrightarrow{\sim} \F$ definida por
     \begin{align*}
         L & \mapsto \phi (L) = F_L(T) = \sum_{k=0}^\infty \frac{ \langle L | x^k \rangle}{k!} T^k\\
         \omega_F = \phi^{-1}(F(T)) & \mapsfrom F(T) = \sum_{k=0}^\infty a_k T^k
     \end{align*}
-    donde el funcional $\omega_F$ viene dado por $\langle \omega_F | x^n \rangle = n! \cdot a_n$, es un isomorfismo lineal. A este morfismo $\phi$ lo llamaremos el \textbf{isomorfismo canónico umbral}.
+    donde el funcional $\omega_F$ viene dado por $\langle \omega_F | x^n \rangle = n! \cdot a_n$, es un isomorfismo lineal.
     \end{teorema}
   \end{frame}
 
-  \begin{frame}{El álgebra umbral}
+  \begin{frame}{Correspondencia entre series formales y funcionales}
     \begin{demo}
-      La linealidad de $\phi$ es inmediata. Basta ver la biyectividad.
-      \begin{itemize}
-        \item $F(T) \longrightarrow \omega_F \longrightarrow F_{\omega_F}(T) = F(T)$ pues $\langle \omega_F(T) | x^n\rangle = n! \cdot a_n \implies F_{\omega_F}(T) = \sum_{k=0}^\infty \frac{k! \cdot a_k}{k!} T^k = F(T)$
-        \item $L \longrightarrow F_L(T) \longrightarrow \omega_{F_L} = L$ ya que $\langle \omega_{F_L} | x^n \rangle = \langle L | x^n \rangle  \qedhere$
-      \end{itemize} 
+      La linealidad de $\phi$ es inmediata. Basta con ver la biyectividad.
+      Por un lado, tenemos que $F(T) \xlongrightarrow{\phi^{-1}} \omega_F \xlongrightarrow{\phi} F_{\omega_F}(T)$ y $\langle \omega_F(T) | x^n\rangle = n! \cdot a_n$. Por lo que $F_{\omega_F}(T) = \sum_{k=0}^\infty \frac{k! \cdot a_k}{k!} T^k = F(T)$. Luego, $\phi \circ \phi^{-1} = \text{Id}$.
+      \bigbreak
+      Por otro lado, $L \xlongrightarrow{\phi} F_L(T) \xlongrightarrow{\phi^{-1}} \omega_{F_L}$. Y ya que $\langle \omega_{F_L} | x^n \rangle = \langle L | x^n \rangle \qedhere$, se tiene que $\omega_{F_L} = L$. Con lo que, $\phi^{-1} \circ \phi = \text{Id}$.
     \end{demo}
-    $\phi$ \underline{no} es isomorfismo de álgebras. No obstante, inducirá un nuevo producto en $\poly^*$, distinto del producto usual de funcionales.
+  \end{frame}
+
+  \begin{frame}{El álgebra umbral}
+    $\phi$ \underline{no} es isomorfismo de álgebras (con la estructura clásica). Podemos entonces considerar un nuevo producto.
+    \begin{equation*}
+      \phi(L) \cdot \phi(M) = \left(\sum_{n\geq0} \frac{ \langle L | x^n \rangle}{n!} T^n\right) \cdot \left(\sum_{n\geq0} \frac{ \langle M | x^n \rangle}{n!} T^n\right)
+    \end{equation*}
 
     \begin{definicion}
       Se llama \textbf{álgebra umbral} al espacio vectorial $\poly^*$ dotado de la estructura de $\field$-álgebra inducida por $\phi$, es decir, aquella definida por
         \begin{equation*}
         \langle L \cdot M | x^n \rangle = \sum_{k=0}^n\binom{n}{k}\langle L | x^k \rangle \langle M | x^{n-k} \rangle \quad \forall L, M \in \poly^*
-        \end{equation*}
+        \end{equation*} 
     \end{definicion}
   \end{frame}
 
   \begin{frame}{El álgebra umbral}
-    \begin{proposicion}
-      \begin{enumerate}
-        \item El funcional $e^{0T} = 1$ es la identidad para el producto del álgebra umbral.
-        \item $\langle L_1 \cdots L_m | x^n \rangle = \sum_{|i|=n}\binom{n}{i_1, \dots , i_m} \langle L_1| x^{i_1} \rangle \dots  \langle L_m | x^{i_m} \rangle$
-      \end{enumerate}
-    \end{proposicion}
-    Así pues, $\phi$ será un isomorfismo de álgebras entre el álgebra umbral y el álgebra de series formales. En particular, se tiene que
+    Ahora, $\phi$ será un isomorfismo de álgebras entre esta nueva álgebra umbral y el álgebra formal. En particular
     \begin{equation*}
       F(T) = G(T) \iff \phi^{-1}(F(T)) = \phi^{-1}(G(T)) \iff \omega_F = \omega_G
     \end{equation*}
 
-    \begin{block}{}
-      Con todo, $F(T)$ simbolizará a la serie formal y al funcional $\omega_F$ asociado.
+    \begin{block}{Notación}
+      $F(T)$ simbolizará a la serie formal y al funcional $\omega_F$ asociado.
       \begin{align*}
         F(T) & \colon \poly \longrightarrow \field \\
         & p(x) \mapsto \langle F(T)| p(x)\rangle
@@ -722,7 +717,7 @@
 \end{frame}
 
 \begin{frame}{Los polinomios de Bernoulli}
-  Con toda esta teoría desarrollada, varios de los resultados conocidos son inmediatos.
+  Varios resultados se vuelven inmediatos.
   \begin{itemize}
     \item \textbf{Caracterización diferencial:} \begin{equation*}
       \rboxed{\left(B_n^{(r)}(x)\right)' = n B_{n-1}^{(r)}(x)}

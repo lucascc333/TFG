@@ -18,7 +18,7 @@
     Se llaman \textbf{números de Bernoulli de orden $r$} a los escalares $B_n^{(r)}(0)$ y se simbolizan como $B_n^{(r)}$. Si $r=1$, se llaman simplemente \textbf{números de Bernoulli} y se escriben como $B_n$.
 \end{definicion}
 
-Con esta definición, toda la teoría desarrollada nos da muchas de las fórmulas cocnocidas. Por ejemplo, la caracterización \ref{caracterizacion diferencial} y el teorema \ref{funcion generadora appell y asociada} para sucesiones de Appell, nos proporcionan su caracterización diferencial y su función generadora, respectivamente, de forma trivial. 
+Con esta definición, toda la teoría desarrollada nos da muchas de las fórmulas conoocidas. Por ejemplo, la caracterización \ref{caracterizacion diferencial} y el teorema \ref{funcion generadora appell y asociada} para sucesiones de Appell, nos proporcionan su caracterización diferencial y su función generadora, respectivamente, de forma trivial. 
 
 \begin{proposicion}[ecuación diferencial]\label{recurrencia bernoulli}
     Los polinomios de Bernoulli de orden $r$ cumplen que $T B_n^{(r)}(x)= B_n^{(r)}(x)' = n B_{n-1}^{(r)}(x)$
@@ -321,7 +321,7 @@ La relación con la sucesión asociada \ref{relacion sheffer y asociada} nos da 
 
 Usando este resultado y la caracterización \ref{caracterizacion diferencial} llegamos a ver que estos polinomios verifican la relación de recurrencia siguiente.
 
-\begin{proposicion}[ecuación de recurrencia] \label{recurrencia diferencial laguerre}
+\begin{proposicion} \label{recurrencia diferencial laguerre}
     Los polinomios $L_n^{(r)}(x)$ verifican la ecuación
     \begin{equation*}
         (L_n^{(r)}(x))' = -n L_{n-1}^{(r+1)}(x)
@@ -349,7 +349,7 @@ La fórmula de recurrencia \ref{recurrencia sheffer} nos da un resultado muy út
     donde la última igualdad se debe nuevamente a la proposición \ref{laguerre orden r+s funcion orden r}.
 \end{demo}
 
-A partir de este resultado, obtenemos la ecuación diferencial que estos polinomios cumplen y que suele darse como definición de los mismos.
+A partir de este resultado obtenemos la ecuación diferencial que estos polinomios cumplen y que suele darse como definición de los mismos.
 
 \begin{teorema}[ecuación diferencial de Laguerre]
     Los polinomios $L_n^{(r)}(x)$ cumplen la ecuación diferencial
@@ -368,7 +368,7 @@ A partir de este resultado, obtenemos la ecuación diferencial que estos polinom
     de donde, reorganizando, se llega al resultado.
 \end{demo}
 
-Una fórmula explícita de estos polinomios se puede obtener mediante las fórmulas de transferencia.
+Una fórmula explícita se puede obtener mediante las fórmulas de transferencia.
 
 \begin{teorema}\label{formula explicita laguerre}
     Para todo $r \neq 1$, los polinomios $L_n^{(r)}(x)$ se escriben como
@@ -379,7 +379,6 @@ Una fórmula explícita de estos polinomios se puede obtener mediante las fórmu
     \begin{equation*}
         L_n(x) = \sum_{k=1}^{n} \binom{n-1}{k-1} \frac{n!}{k!} (-x)^{k}
     \end{equation*}
-    A los números $L(n,k) = \binom{n-1}{k-1} \frac{n!}{k!}$ se los conoce como \textbf{números de Lah}.
 \end{teorema}
 
 \begin{demo}
@@ -397,25 +396,39 @@ Una fórmula explícita de estos polinomios se puede obtener mediante las fórmu
 y el resultado se sigue de una forma similar a lo hecho antes.
 \end{demo}
 
-\begin{teorema}[fórmula de Rodrigues]
-    Los polinomios de Laguerre de orden $r$ se pueden excribir como
+\begin{definicion}
+    Se llaman \textbf{números de Lah} a los números
     \begin{equation*}
-        L_n^{(r)}(x) = (M(e^x x^{-r}) \circ T^n \circ M(e^{-x})) x^{n+r}
+        L(n, k) = \binom{n-1}{k-1}\frac{n!}{k!}
+    \end{equation*}
+    que aparecen en el desarrollo anterior. 
+\end{definicion}
+
+Para finalizar esta sección, veamos como el cálculo umbral también permite obtener una de las fórmulas más importantes para el cómputo de estos polinomios.
+
+\begin{teorema}[fórmula de Rodrigues]
+    Los polinomios de Laguerre de orden $r$ se pueden escribir como
+    \begin{equation*}
+        L_n^{(r)}(x) = [M(e^x x^{-r}) \circ T^n \circ M(e^{-x})] x^{n+r}
     \end{equation*}
 \end{teorema}
 
 \begin{demo}
-    Hemos visto en la demostración anterior que $L_n^{(r)}(x) = (-1)^n (1+T)^{r+n} x^n$. Además, se tiene que
+    En la demostración anterior ya hemos probado que 
+    \begin{equation}\tag{A}
+        L_n^{(r)}(x) = (-1)^n (1+T)^{r+n} x^n
+    \end{equation}
+    Por otro lado, se tiene que
     \begin{equation*}
-        (M(-e^x) \circ T \circ M(e^{-x}))x^n = M(-e^x)[(Tx^{n}) \cdot e^{-x}-e^{-x} \cdot x^n] = (1 - T) x^n
+        [M(-e^x) \circ T \circ M(e^{-x})] x^n = M(-e^x)[(Tx^{n}) \cdot e^{-x}-e^{-x} \cdot x^n] = (1 - T) x^n
     \end{equation*}
-    y por lo tanto
-    \begin{equation*}
-        1 - T = M(-e^x) \circ T \circ M(e^{-x}) \implies (1-T)^n = (-1)^n M(e^x) \circ T^n \circ M(e^{-x})
-    \end{equation*}
-    Por otro lado, se verifica además que
+    y por lo tanto $1 - T = M(-e^x) \circ T \circ M(e^{-x})$, de donde vemos que
+    \begin{equation}\tag{B}
+        (1-T)^n = (-1)^n M(e^x) \circ T^n \circ M(e^{-x})
+    \end{equation}
+    Así mismo, se verifica además que
     \begin{align*}
-        (M(x^{-r}) \circ (1-T)^n) x^{r+n} & = M(x^{-r}) \circ \sum_{k=0}^n \binom{n}{k} (-1)^k T^k x^{r+n} \\
+        [M(x^{-r}) \circ (1-T)^n] x^{r+n} & = M(x^{-r}) \circ \sum_{k=0}^n \binom{n}{k} (-1)^k T^k x^{r+n} \\
         & = \sum_{k=0}^n \binom{n}{k} (-1)^k (r+n)_k M(x^r)x^{r+n-k}\\ 
         & = \sum_{k=0}^n \binom{n}{k} (-1)^k (r+n)_k x^{n-k}
     \end{align*}
@@ -423,17 +436,16 @@ y el resultado se sigue de una forma similar a lo hecho antes.
     \begin{equation*}
         (1-T)^{r+n} x^n = \sum_{k=0}^\infty \binom{n+r}{k}(-1)^k T^k x^n = \sum_{k=0}^n \binom{n+r}{k}(-1)^k (n)_k x^{n-k}
     \end{equation*}
-    Ahora bien, de la propia definición uno ve que $\binom{n+r}{k} (n)_k = \binom{n}{k} (n+r)_k$, con lo que se tiene que
-    \begin{equation*}
-        (M(x^{-r}) \circ (1-T)^n) x^{r+n} = (1-T)^{r+n} x^n 
-    \end{equation*}
-    Uniendo todo esto, obtenemos
+    Ahora bien, de la propia definición uno ve que $\binom{n+r}{k} (n)_k = \binom{n}{k} (n+r)_k$, con lo que
+    \begin{equation}\tag{C}
+        [M(x^{-r}) \circ (1-T)^n] x^{r+n} = (1-T)^{r+n} x^n 
+    \end{equation}
+    Uniendo estas tres igualdades, obtenemos el resultado
     \begin{align*}
-        L_n^{(r)}(x) = (-1)^n (1+T)^{r+n} x^n & = (-1)^n (M(x^{-r}) \circ (1-T)^n) x^{r+n} \\
-        & = (M(x^{-r}) \circ M(e^x) \circ T^n \circ M(e^{-x})) x^{r+n} \\
-        & = (M(x^{-r}e^x) \circ T^n \circ M(e^{-x})) x^{r+n} 
+        L_n^{(r)}(x) \stackrel{\textnormal{(A)}}{=} (-1)^n (1+T)^{r+n} x^n & \stackrel{\textnormal{(C)}}{=} (-1)^n [M(x^{-r}) \circ (1-T)^n] x^{r+n} \\
+        & \stackrel{\textnormal{(B)}}{=} [M(x^{-r}) \circ M(e^x) \circ T^n \circ M(e^{-x})] x^{r+n} \\
+        & = [M(x^{-r}e^x) \circ T^n \circ M(e^{-x})] x^{r+n} \qedhere
     \end{align*}
-    que era lo que queríamos ver.
 \end{demo}
 
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -446,7 +458,7 @@ y el resultado se sigue de una forma similar a lo hecho antes.
 \section{Problemas de conexión de constantes}
 
 \begin{definicion}
-    Sean $\{s_n(x)\}_{n \geq 0}$ y $\{r_n(x)\}_{n \geq 0}$ dos sucesiones de polinomios. Resolver el \textbf{problema de conexión de constantes de $s_n(x)$ con $r_n(x)$} equivale a encontrar escalares $c_{n,k} \in \field$ tales que
+    Sean $\{s_n(x)\}_{n \geq 0}$ y $\{r_n(x)\}_{n \geq 0}$ dos sucesiones de polinomios. Se llama \textbf{problema de conexión de constantes de $s_n(x)$ con $r_n(x)$} al problema que equivale a encontrar escalares $c_{n,k} \in \field$ tales que
     \begin{equation}\label{conexion constantes}
         s_n(x) = \sum_{k=0}^n c_{n,k}r_k(x)
     \end{equation} 
@@ -454,7 +466,7 @@ y el resultado se sigue de una forma similar a lo hecho antes.
 \end{definicion}
 
 \begin{ej}
-    Uno puede ver que los numeros de Stirling de segunda especie ${n \brace k}$ cumplen que $x^n = \sum_{k=0}^n {n \brace k}(x)_k$ y por tanto estos son las constantes de conexión que cumplen la identidad $(x^n, (x)_n)$.
+    Uno puede ver que los numeros de Stirling de segunda especie ${n \brace k}$ cumplen que $x^n = \sum_{k=0}^n {n \brace k}(x)_k$ y por tanto estos son las constantes de conexión que cumplen la identidad $(x^n, (x)_n)$\footnote{De hecho, en algunos textos es esta la definición que se da de estos números.}.
 \end{ej}
 
 No es fácil encontrar una solución general al problema de conexión de constantes. Sin embargo, y para nuestra suerte, es relativamente sencillo ver como el cálculo umbral proporciona una solución para el caso en el que ambas sucesiones son de Sheffer.
@@ -485,7 +497,7 @@ No es fácil encontrar una solución general al problema de conexión de constan
     tal y como queríamos ver. 
 \end{demo}
 
-\begin{ej}
+\begin{ej} Los siguientes ejemplos han sido extraidos de \cite{roman1} y \cite{kim3}, respectivamente.
     \begin{enumerate}
         \item Los \textbf{\textit{polinomios de Euler}} se definen como la sucesión de polinomios $E_n(x)$ que es Appell para $G(T) = \frac{e^T +1}{2}$. En particular, estos poseen la función generadora
         \begin{equation*}
@@ -502,7 +514,7 @@ No es fácil encontrar una solución general al problema de conexión de constan
             & = \frac{2}{n+1} (\frac{e^T + 1}{2}- 1)E_{n+1}(x) = \frac{2}{n+1}(x^{n+1} - E_{n+1}(x)) \\
             & = \sum_{k=0}^n \binom{n+1}{k} \frac{-2}{n+1} E_{n+1-k}(0)x^k
         \end{align*}
-        donde la penúltima igualdad se debe nuevamente a \ref{relacion appell y asociada} y la última se debe a la igualdad \eqref{appell identidad euler}. Obtenemos así los valores de las constantes $c_{n,k}$, que nos muestran como escribir los polinomios de Euler en función de los de Bernoulli
+        donde la penúltima igualdad se debe nuevamente a \ref{relacion appell y asociada} y la última se debe a la igualdad \eqref{appell identidad euler}. Obtenemos así los valores de las constantes $c_{n,k}$, que nos muestran como escribir los polinomios de Euler en función de los de Bernoulli:
         \begin{equation*}
             E_n(x) = \sum_{k=0}^n \binom{n+1}{k} \frac{-2}{n+1} E_{n+1-k}(0)B_k(x)
         \end{equation*}
@@ -511,9 +523,9 @@ No es fácil encontrar una solución general al problema de conexión de constan
             c_{n,k} = \frac{1}{k!} \left\langle \left(\frac{T}{T-1}\right)^k | x^n \right\rangle & = \frac{1}{k!} \left \langle T^k | (-1)^k (1-T)^{-k} x^n \right \rangle \\
             & = \frac{(-1)^k}{k!} \left\langle T^k | \sum_{l=0}^\infty \binom{-k}{l} (-T)^l x^n \right\rangle \\
             & = \frac{(-1)^k}{k!} \left\langle T^k | \sum_{l=0}^\infty \binom{k + l -1}{l} T^l x^n \right\rangle \\
-            & = \frac{(-1)^k}{k!} \sum_{l=0}^\infty \binom{k + l -1}{l}\langle T^{k+l} | x^n \rangle = (-1)^k \frac{n!}{k!} \binom{n-1}{k-1}
+            & = \frac{(-1)^k}{k!} \sum_{l=0}^{n-k} \binom{k + l -1}{l}\langle T^{k+l} | x^n \rangle = (-1)^k \frac{n!}{k!} \binom{n-1}{n-k}
         \end{align*}
-        donde hemos usado que $\binom{-k}{l} = (-1)^k \binom{k + l -1}{l}$. Así pues, obtenemos que las potencias $x^n$ se escriben como
+        donde hemos usado que $\binom{-k}{l} = (-1)^k \binom{k + l -1}{l}$. Así pues, ya que $\binom{n-1}{n-k} = \binom{n-1}{k-1}$ y $L(n,k) = \frac{n!}{k!} \binom{n-1}{k-1}$, llegamos a que las potencias $x^n$ se escriben como
         \begin{equation*}
             x^n = \sum_{k=0}^{n} (-1)^k L(n,k) L_k(x)
         \end{equation*}
