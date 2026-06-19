@@ -28,6 +28,12 @@
 % Si usas una barra lateral o bloques que aún se vean grises:
 \setbeamercolor{structure}{fg=black!80}
 
+\setbeamercolor{item}{fg=red!70!black}
+\setbeamercolor{subitem}{fg=red!70!black}
+\setbeamercolor{item projected}{bg=red!70!black, fg=white}
+
+\setbeamertemplate{itemize item}[circle]
+\setbeamertemplate{itemize subitem}[circle]
 
 %: PAQUETES DE LATEX
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -44,7 +50,6 @@
 \usepackage[utf8]{inputenc} % Para la codificación unicode
 \usepackage[T1]{fontenc} %Para la codificación unicode
 \usepackage[spanish]{babel} % Para trabajar en castellano
-\usepackage{enumitem} % Para enumerar casos
 \usepackage{graphicx} % Para insertar imágenes
 \usepackage{csquotes} % Para las citas de la bibliografía
 
@@ -118,6 +123,7 @@
 }{
   \end{tcolorbox}
 }
+
 
 \let\demo\undefined
 \let\enddemo\undefined
@@ -238,7 +244,7 @@
 
 
 \titlegraphic{
-    \includegraphics[width=4cm, decodearray = {1 0 1 0 1 0}]{usal logo negro.png}
+    \includegraphics[width=5cm, decodearray = {1 0 1 0 1 0}]{usal logo negro.png}
 }
 \definecolor{granate}{RGB}{100, 0, 0}
 
@@ -263,10 +269,10 @@
 \section{¿Qué es el cálculo umbral?}
   \begin{frame}{Origen de la disciplina}
     \begin{block}{John Blissard}
-      En 1861 publica el artículo \textbf{\textit{Theory of generic equations}}, donde se habla de una \textit{notación simbólica}. En años posteriores, publica otros 9 artículos donde da aplicaciones de esta teoría. Por primera vez aparecen las ideas umbrales.
+      En 1861 publica el artículo \textbf{\textit{Theory of generic equations}}, donde se habla de una \textit{notación simbólica}. En años posteriores, publica otros 9 artículos donde da aplicaciones de esta teoría.
     \end{block}
     \begin{block}{Édouard Lucas}
-      15 años después, recupera las ideas de Blissard y les da una mayor visibilidad, aunque sigue habiendo escepticismo sobre su validez.
+      15 años después recupera las ideas de Blissard y les da una mayor visibilidad, aunque sigue habiendo escepticismo sobre su validez.
     \end{block}
 
     \begin{center}
@@ -334,12 +340,14 @@
   \end{frame}
 
   \begin{frame}
-    \begin{center}
       \Large
-      \textbf{¿A qué se deben estas aparentes coincidencias?}\\[1em]
-      \textbf{¿Por qué funcionan estas manipulaciones?}\\[1em]
-      \textbf{¿Se pueden generalizar los resultados a más sucesiones de polinomios?}
-    \end{center}
+      \begin{block}{}
+        \begin{center}
+          \textbf{¿A qué se deben estas aparentes coincidencias?}\\[1em]
+          \textbf{¿Por qué funcionan estas manipulaciones?}\\[1em]
+          \textbf{¿Se pueden generalizar los resultados a más sucesiones de polinomios?}
+        \end{center}
+      \end{block}
   \end{frame}
 
   \begin{frame}{El cálculo umbral moderno}
@@ -404,11 +412,11 @@
       Se llama \textbf{funcional} a cada elemento de $\poly^*$, donde $\poly \equiv \field[x]$.
     \end{definicion}
 
-    \begin{itemize}
+    \begin{enumerate}
       \item Dado $L \in \poly^*$, $\langle L | p(x) \rangle$ simboliza su acción sobre el polinomio $p(x)$.
       \item Los funcionales están completamente determinados por una base; si $\{p_n(x)\}_{n\geq0}$ es una base de $\poly$, entonces las constantes $\langle L | p_n(x) \rangle$ definen al funcional.
-      \item En particular, para todas las sucesiones $\{p_n(x)\}_{n\geq0}$ tales que $\gr(p_n) = n$ para todo $n$.
-    \end{itemize}
+      \item En particular, todas las sucesiones $\{p_n(x)\}_{n\geq0}$ tales que $\gr(p_n) = n$ para todo $n$ determinan a los funcionales.
+    \end{enumerate}
   \end{frame}
 
   \begin{frame}{Correspondencia entre series formales y funcionales}
@@ -428,17 +436,8 @@
     \end{teorema}
   \end{frame}
 
-  \begin{frame}{Correspondencia entre series formales y funcionales}
-    \begin{demo}
-      La linealidad de $\phi$ es inmediata. Basta con ver la biyectividad.
-      Por un lado, tenemos que $F(T) \xlongrightarrow{\phi^{-1}} \omega_F \xlongrightarrow{\phi} F_{\omega_F}(T)$ y $\langle \omega_F(T) | x^n\rangle = n! \cdot a_n$. Por lo que $F_{\omega_F}(T) = \sum_{k=0}^\infty \frac{k! \cdot a_k}{k!} T^k = F(T)$. Luego, $\phi \circ \phi^{-1} = \text{Id}$.
-      \bigbreak
-      Por otro lado, $L \xlongrightarrow{\phi} F_L(T) \xlongrightarrow{\phi^{-1}} \omega_{F_L}$. Y ya que $\langle \omega_{F_L} | x^n \rangle = \langle L | x^n \rangle \qedhere$, se tiene que $\omega_{F_L} = L$. Con lo que, $\phi^{-1} \circ \phi = \text{Id}$.
-    \end{demo}
-  \end{frame}
-
   \begin{frame}{El álgebra umbral}
-    $\phi$ \underline{no} es isomorfismo de álgebras (con la estructura clásica). Podemos entonces considerar un nuevo producto.
+    $\phi$ \underline{no} es isomorfismo de álgebras (con la estructura clásica). Un nuevo producto aparece en $\poly^*$:
     \begin{equation*}
       \phi(L) \cdot \phi(M) = \left(\sum_{n\geq0} \frac{ \langle L | x^n \rangle}{n!} T^n\right) \cdot \left(\sum_{n\geq0} \frac{ \langle M | x^n \rangle}{n!} T^n\right)
     \end{equation*}
@@ -489,7 +488,7 @@
   \end{frame}
 
   \begin{frame}{Propiedades de las series como funcionales}
-    \begin{proposicion}
+    \begin{proposicion}[(desarrollos de Taylor)]
     Sean $F(T) \in \F$ y $p(x) \in \poly$. Se tiene que
     \begin{enumerate}
         \item $\begin{aligned}[t]
@@ -507,35 +506,26 @@
 \end{frame}
 
 \begin{frame}{Propiedades de las series como funcionales}
-  \begin{proposicion}
-    Sea $\{ F_k(T) \}_{k\geq0}$ sucesión de series formales tal que $\ord(F_k) \rightarrow \infty$ cuando $k\rightarrow \infty$. Entonces, $\sum_{k}a_kF_k(T)$ converge en la topología formal y además se verifica que
-    \begin{equation*}
-        \left\langle \sum_{k=0}^\infty a_k F_k(T)| p(x)\right\rangle = \sum_{k=0}^\infty a_k \left\langle F_k(T)| p(x) \right\rangle
-    \end{equation*}
-    para todo $p(x) \in \poly$. En particular, se cumple cuando $\ord(F_k) = k$
-  \end{proposicion}
-
-  \begin{demo}
-    
-  \end{demo}
-\end{frame}
-
-\begin{frame}{Propiedades de las series como funcionales}
-  \begin{proposicion}
+  \begin{proposicion}[(adjunción de derivada formal)]
       \begin{equation*}
         \langle \partial F(T) | p(x) \rangle = \langle F(T) | x \cdot p(x)\rangle \quad \forall F(T) \in \F, p(x) \in \poly
       \end{equation*}
     \end{proposicion}
     \begin{demo}
-      
+      Por la linealidad, basta verlo para $p(x) = x^n$. En ese caso 
+        \begin{align*}
+            \langle \partial F(T)| x^n\rangle & = \sum_{k=1}^\infty ka_k\langle T^{k-1}| x^n\rangle = \sum_{k=0}^\infty (k+1)a_{k+1}\langle T^{k}| x^n\rangle \\
+            & = \sum_{k=0}^\infty (k+1)a_{k+1}k! \delta_{n,k} = (n+1)!a_{n+1}\\ 
+            & = \langle F(T)| x^{n+1}\rangle = \langle F(T)| x\cdot x^n\rangle \qedhere
+        \end{align*}
     \end{demo}
 \end{frame}
 
 \begin{frame}{Series como operadores}
   \begin{definicion}
-    Llamaremos \textbf{operador} a cada elemento de $\End(\poly)$. Además, dado $\Lambda \in \poly^*$ simbolizaremos su acción sobre un polinomio $p(x)$ simplemente como $\Lambda p(x)$.
+    Llamaremos \textbf{operador} a cada elemento de $\End(\poly)$. Además, dado operador $\Lambda \in \poly^*$ simbolizaremos su acción sobre un polinomio $p(x)$ simplemente como $\Lambda p(x)$.
   \end{definicion}
-  Igual que con los funcionales, podemos asignar la variable formal $T$ a la derivada formal. Por linealidad, se extiende a la aplicación $\varphi$ siguiente.
+  Igual que con los funcionales, podemos asignar la variable formal $T$ a la derivada formal. Por linealidad, se extiende a la aplicación $\varphi$ siguiente:
     \begin{align*}
       T \mapsto \partial \implies \varphi \colon & \F \longrightarrow \End(\poly)\\
       & \sum_{k\geq0} \frac{a_k}{k!}T^k \mapsto \sum_{k \geq 0} \frac{a_k}{k!} \partial^k = \varphi(F(T))
@@ -543,42 +533,74 @@
 \end{frame}
 
 \begin{frame}{Series como operadores}
-  Con esta idea, \underline{$F(T)$ simbolizará también al funcional asociado $\varphi(F(T))$}
-  \begin{block}{}
+  \begin{block}{Notación}
+    $F(T)$ simbolizará también al funcional asociado $\varphi(F(T))$.
     \begin{align*}
     \varphi(F(T)) \equiv F(T) \colon & \poly \longrightarrow \poly \nonumber \\
     & x^n \mapsto F(T)x^n = \sum_k \binom{n}{k}a_k x^{n-k}
     \end{align*}
   \end{block}
 
+  \begin{enumerate}
+    \item Se verifica que $\varphi$ es un morfismo de álgebras, es decir, se verifica que $\varphi(F(T) \cdot G(T)) = \varphi(F(T)) \circ \varphi(G(T))$
+    \item Con esta notación, esto se corresponde con 
+      \begin{equation*}
+        \rboxed{F(T) \cdot G(T) = F(T) \circ G(T)}
+      \end{equation*}
+  \end{enumerate}
+\end{frame}
+
+
+
+\begin{frame}
   \begin{teorema}[(estructura de módulo)]
     El producto definido por
     \begin{align*}
-        \cdot \colon & \F \times \poly \longrightarrow \poly\\
-        & (F(T), p(x)) \mapsto F(T) \cdot p(x) \equiv F(T) p(x)
+        \star \colon & \F \times \poly \longrightarrow \poly\\
+        & (F(T), p(x)) \mapsto F(T) \star p(x) \equiv F(T) p(x)
     \end{align*}
-    dota a $\poly$ de una estructura de $\F$-módulo fiel.
+    dota a $\poly$ de una estructura de $\F$-módulo. Además, es un módulo \textbf{fiel}.
   \end{teorema}
 \end{frame}
 
 \begin{frame}{Ejemplos de operadores}
   \begin{enumerate}
-      \item \textbf{Funcionales derivada k-ésima}
-      \item \textbf{Funcional evaluación en $\lambda$}
-      \item \textbf{Funcional diferencia con $\lambda$}
-      \item \textbf{Funcional de Abel en $\lambda$}
+      \item \textbf{Operadores derivada k-ésima}, $T^k$:
+        \begin{equation*}
+          \rboxed{T^k p(x) = p^{(k)}(x)}        
+        \end{equation*}
+      \item \textbf{Operador traslación con $\lambda$}, $E_{\lambda}$:
+        \begin{equation*}
+            E_{\lambda} x^n = \sum_{k=0}^\infty \frac{\lambda^k}{k!} T^kx^n = (x+ \lambda )^n \implies \rboxed{E_{\lambda} p(x) = p(x+\lambda)}
+        \end{equation*} 
+      \item \textbf{Operador diferencia con $\lambda$}, $\Delta_{\lambda}$:
+      \begin{equation*}
+        \rboxed{\Delta_{\lambda} p(x) = p(x+ \lambda) - p(x)}
+      \end{equation*}
+      \item \textbf{Operador de Abel en $\lambda$}, $TE_{\lambda}$:
+      \begin{equation*}
+        \rboxed{TE_{\lambda}p(x) = p'(x+ \lambda)}
+      \end{equation*}
     \end{enumerate}
 \end{frame}
 
 \begin{frame}{Propiedades de los operadores}
-  Estos operadores verifican resultados análogos a los de los funcionales. También están relacionados con ellos.
-  \begin{teorema}
+  \begin{enumerate}
+    \item Los operadores verifican resultados análogos a los de los funcionales.
+    \item Se relacionan con los funcionales mediante adjunción.
+  \end{enumerate}
+  \begin{teorema}[(adjunción operadores y funcionales)]
     Sean $F(T), G(T) \in \F$ y $p(x) \in \poly$. Entonces
     \begin{equation*}
-        \langle F(T)G(T) | p(x) \rangle = \langle F(T) | G(T)p(x) \rangle 
+        \langle F(T) \cdot G(T) | p(x) \rangle = \langle F(T) | G(T)p(x) \rangle 
     \end{equation*}
   \end{teorema}
+
+  \begin{demo}
+    Por linealidad, se reduce al caso trivial de las potencias $T^n$.
+  \end{demo}
 \end{frame}
+
 
 \begin{frame}{Series como operadores}
   \begin{demo}
@@ -737,8 +759,12 @@
 \end{frame}
 
 \subsection{Interpolación binomial}
+
 \begin{frame}
-  
+  \begin{center}
+    \large\textbf{Gracias por vuestra atención.}\\[1cm]
+    \includegraphics[width=5cm]{math07.png}
+  \end{center}
 \end{frame}
   
 \end{document}

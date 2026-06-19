@@ -389,6 +389,21 @@ llegamos a que para cada $F(T) \in \F$ obtenemos el operador
 \end{align*}
 Es importante destacar que hemos escrito los elementos de $\F$ en notación exponencial (es decir, con un factor $\frac{1}{k!}$). Esto es así puesto que nos resultará más conveniente lidiar con los coeficientes binomiales que con los factoriales descendentes y en lo que sigue esta será la convención que utilizaremos.\footnote{Esta constante se puede cambiar por otra y obtener una teoría similar. Es de especial importancia el cálculo q-umbral. Véase \cite{roman3} y \cite{roman4}.}
 
+\begin{proposicion}
+    La aplicación $\varphi \colon \F \longrightarrow \End(\poly)$ anterior es un morfismo de álgebras; es decir, para toda $F(T), G(T) \in \F$ se cumple que
+    \begin{equation*}
+        \varphi(F(T) \cdot G(T)) = \varphi(F(T)) \circ \varphi(G(T))
+    \end{equation*}
+\end{proposicion}
+
+\begin{demo}
+    Que es un morfismo lineal y que $\varphi(1) = 1$ es trivial por su definición. Así mismo, para ver que respeta el producto basta con probarlo para las potencias $T^n$, es decir, basta con ver
+    \begin{equation*}
+        \varphi(T^{i} \cdot T^{j}) = \varphi(T^{i}) \circ \varphi(T^{j}) \iff \partial_x^{i+j} = \partial_x^{i} \circ \partial_x^{j}
+    \end{equation*}
+    lo cual es cierto evidentemente.
+\end{demo}
+
 De forma similar a lo que hacíamos con los funcionales, utilizaremos el símbolo $T$ para hablar tanto de la variable formal como del operador $\partial_{x}$, con lo que escribiremos siempre $F(T)$ en lugar del operador asociado $\varphi(F(T))$. En caso de no indicarlo, simplemente el contexto ha de servir para diferenciar como se está considerando.
 
 En resumen, dada $F(T)$ la escribiremos como $F(T) = \sum_k \frac{a_k}{k!}T^k$ y esta actúa sobre $\poly$ como
@@ -396,6 +411,14 @@ En resumen, dada $F(T)$ la escribiremos como $F(T) = \sum_k \frac{a_k}{k!}T^k$ y
     F(T) \colon & \poly \longrightarrow \poly \nonumber \\
     & x^n \mapsto F(T)x^n = \sum_k \binom{n}{k}a_kx^{n-k}
 \end{align}
+
+\begin{obs}
+    En particular, con esta notación la proposición anterior se traduce a que, como operadores
+    \begin{equation*}
+        F(T) \cdot G(T) = F(T) \circ G(T) \quad \forall F(T), G(T) \in \F
+    \end{equation*} 
+    Así pues, simbolizaremos a cualquiera de estos por la habitual omisión del símbolo correspondiente (\textit{i.e:.} $F(T)G(T)$) y no deberá existir confusión.
+\end{obs}
 
 Con todo, podemos ya enunciar y probar el resultado principal de la sección.
 
@@ -429,14 +452,6 @@ Con todo, podemos ya enunciar y probar el resultado principal de la sección.
     \end{align*}
     de donde vemos que $a_0 = a_1 = \cdots = a_n = \cdots = 0$ y se concluye.
 \end{demo}
-
-\begin{obs}
-    Hemos de advertir aquí además que, bajo esta nueva concepción de las series formales como operadores, como consecuencia de que $T^{i} \cdot T^{j} = T^{i} \circ T^{j}$ y la linealidad, \textbf{el operador asociado al producto de series formales se corresponde con el operador resultado de la composición de los operadores asociados}; es decir, como operadores
-    \begin{equation*}
-        F(T) \cdot G(T) = F(T) \circ G(T) \quad \forall F(T), G(T) \in \F
-    \end{equation*} 
-    Así pues, simbolizaremos a cualquiera de estos por la habitual omisión del símbolo correspondiente (\textit{i.e:.} $F(T)G(T)$) y no deberá existir confusión.
-\end{obs}
 
 Los operadores lineales $F(T)$ cumplirán propiedades análogas a la de los funcionales. Listamos algunas de estas, aunque no damos su demostración puesto que son muy similares a las dadas para estos útlimos.
 
@@ -601,7 +616,7 @@ Recuperamos ahora los ejemplos de funcionales dados con anterioridad con el obje
         \end{equation}
         \item El \textbf{operador traslación} $E_\lambda$ cumple que
         \begin{equation*}
-            E_{\lambda} x^n = \sum_{k=0}^\infty \frac{\lambda^k}{k!}x^n = \sum_{k=0}^n \binom{n}{k}\lambda^k x^{n-k} = (x+ \lambda )^n
+            E_{\lambda} x^n = \sum_{k=0}^\infty \frac{\lambda^k}{k!} T^k x^n = \sum_{k=0}^n \binom{n}{k}\lambda^k x^{n-k} = (x+ \lambda )^n
         \end{equation*} 
         Con lo que, para un polinomio genérico $p(x)$
         \begin{equation} \label{operador traslacion}

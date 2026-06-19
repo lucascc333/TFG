@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.2.26)  12 JUN 2026 18:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.2.26)  19 JUN 2026 16:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -625,25 +625,17 @@ Package babel Info: Making . an active character on input line 675.
 Package babel Info: Making < an active character on input line 722.
 Package babel Info: Making > an active character on input line 722.
 ))
-LaTeX Encoding Info:    Redeclaring text command \guillemotleft (encoding OT1) on input line 47.
-LaTeX Encoding Info:    Redeclaring text command \guillemotright (encoding OT1) on input line 47.
- (C:\Users\lucas\AppData\Local\Programs\MiKTeX\tex/latex/enumitem\enumitem.sty
-Package: enumitem 2025/02/06 v3.11 Customized lists
-\labelindent=\skip67
-\enit@outerparindent=\dimen316
-\enit@toks=\toks51
-\enit@inbox=\box83
-\enit@count@id=\count370
-\enitdp@description=\count371
-) (C:\Users\lucas\AppData\Local\Programs\MiKTeX\tex/latex/csquotes\csquotes.sty
+LaTeX Encoding Info:    Redeclaring text command \guillemotleft (encoding OT1) on input line 53.
+LaTeX Encoding Info:    Redeclaring text command \guillemotright (encoding OT1) on input line 53.
+ (C:\Users\lucas\AppData\Local\Programs\MiKTeX\tex/latex/csquotes\csquotes.sty
 Package: csquotes 2024-04-04 v5.2o context-sensitive quotations (JAW)
-\csq@reset=\count372
-\csq@gtype=\count373
-\csq@glevel=\count374
-\csq@qlevel=\count375
-\csq@maxlvl=\count376
-\csq@tshold=\count377
-\csq@ltx@everypar=\toks52
+\csq@reset=\count370
+\csq@gtype=\count371
+\csq@glevel=\count372
+\csq@qlevel=\count373
+\csq@maxlvl=\count374
+\csq@tshold=\count375
+\csq@ltx@everypar=\toks51
  (C:\Users\lucas\AppData\Local\Programs\MiKTeX\tex/latex/csquotes\csquotes.def
 File: csquotes.def 2024-04-04 v5.2o csquotes generic definitions (JAW)
 )
@@ -655,30 +647,30 @@ File: csquotes.cfg
 Package: mathtools 2024/10/04 v1.31 mathematical typesetting tools
  (C:\Users\lucas\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty
 Package: calc 2025/03/01 v4.3b Infix arithmetic (KKT,FJ)
-\calc@Acount=\count378
-\calc@Bcount=\count379
-\calc@Adimen=\dimen317
-\calc@Bdimen=\dimen318
-\calc@Askip=\skip68
-\calc@Bskip=\skip69
+\calc@Acount=\count376
+\calc@Bcount=\count377
+\calc@Adimen=\dimen316
+\calc@Bdimen=\dimen317
+\calc@Askip=\skip67
+\calc@Bskip=\skip68
 LaTeX Info: Redefining \setlength on input line 86.
 LaTeX Info: Redefining \addtolength on input line 87.
-\calc@Ccount=\count380
-\calc@Cskip=\skip70
+\calc@Ccount=\count378
+\calc@Cskip=\skip69
 ) (C:\Users\lucas\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mhsetup.sty
 Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
 )
-\g_MT_multlinerow_int=\count381
-\l_MT_multwidth_dim=\dimen319
-\origjot=\skip71
-\l_MT_shortvdotswithinadjustabove_dim=\dimen320
-\l_MT_shortvdotswithinadjustbelow_dim=\dimen321
-\l_MT_above_intertext_sep=\dimen322
-\l_MT_below_intertext_sep=\dimen323
-\l_MT_above_shortintertext_sep=\dimen324
-\l_MT_below_shortintertext_sep=\dimen325
-\xmathstrut@box=\box84
-\xmathstrut@dim=\dimen326
+\g_MT_multlinerow_int=\count379
+\l_MT_multwidth_dim=\dimen318
+\origjot=\skip70
+\l_MT_shortvdotswithinadjustabove_dim=\dimen319
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen320
+\l_MT_above_intertext_sep=\dimen321
+\l_MT_below_intertext_sep=\dimen322
+\l_MT_above_shortintertext_sep=\dimen323
+\l_MT_below_shortintertext_sep=\dimen324
+\xmathstrut@box=\box83
+\xmathstrut@dim=\dimen325
 ) (C:\Users\lucas\AppData\Local\Programs\MiKTeX\tex/latex/jknappen\mathrsfs.sty
 Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
 \symrsfs=\mathgroup6
@@ -689,14 +681,14 @@ LaTeX Font Info:    Overwriting symbol font `stmry' in version `bold'
 (Font)                  U/stmry/m/n --> U/stmry/b/n on input line 89.
 ) (C:\Users\lucas\AppData\Local\Programs\MiKTeX\tex/latex/cases\cases.sty
 Package: cases 2020/03/29 ver 3.2
-\numc@numwid=\dimen327
+\numc@numwid=\dimen326
 ) (C:\Users\lucas\AppData\Local\Programs\MiKTeX\tex/latex/framed\framed.sty
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
-\OuterFrameSep=\skip72
-\fb@frw=\dimen328
-\fb@frh=\dimen329
-\FrameRule=\dimen330
-\FrameSep=\dimen331
+\OuterFrameSep=\skip71
+\fb@frw=\dimen327
+\fb@frh=\dimen328
+\FrameRule=\dimen329
+\FrameSep=\dimen330
 ) (C:\Users\lucas\AppData\Local\Programs\MiKTeX\tex/latex/tikz-cd\tikz-cd.sty
 Package: tikz-cd 2021/05/04 v1.0 Commutative diagrams with TikZ
  (C:\Users\lucas\AppData\Local\Programs\MiKTeX\tex/latex/tikz-cd\tikzlibrarycd.code.tex (C:\Users\lucas\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarymatrix.code.tex
@@ -705,10 +697,10 @@ File: tikzlibrarymatrix.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 File: tikzlibraryquotes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ) (C:\Users\lucas\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibraryarrows.meta.code.tex
 File: pgflibraryarrows.meta.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfarrowinset=\dimen332
-\pgfarrowlength=\dimen333
-\pgfarrowwidth=\dimen334
-\pgfarrowlinewidth=\dimen335
+\pgfarrowinset=\dimen331
+\pgfarrowlength=\dimen332
+\pgfarrowwidth=\dimen333
+\pgfarrowlinewidth=\dimen334
 ))) (C:\Users\lucas\AppData\Local\Programs\MiKTeX\tex/latex/relsize\relsize.sty
 Package: relsize 2013/03/29 ver 4.1
 ) (C:\Users\lucas\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarybabel.code.tex
@@ -719,66 +711,66 @@ File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
 Package: tcolorbox 2025/11/28 version 6.9.0 text color boxes
  (C:\Users\lucas\AppData\Local\Programs\MiKTeX\tex/latex/tools\verbatim.sty
 Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks53
-\verbatim@line=\toks54
+\every@verbatim=\toks52
+\verbatim@line=\toks53
 \verbatim@in@stream=\read4
 ) (C:\Users\lucas\AppData\Local\Programs\MiKTeX\tex/latex/environ\environ.sty
 Package: environ 2014/05/04 v0.3 A new way to define environments
  (C:\Users\lucas\AppData\Local\Programs\MiKTeX\tex/latex/trimspaces\trimspaces.sty
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 ))
-\tcb@titlebox=\box85
-\tcb@upperbox=\box86
-\tcb@lowerbox=\box87
-\tcb@phantombox=\box88
-\c@tcbbreakpart=\count382
-\c@tcblayer=\count383
-\c@tcolorbox@number=\count384
-\l__tcobox_tmpa_box=\box89
-\l__tcobox_tmpa_dim=\dimen336
+\tcb@titlebox=\box84
+\tcb@upperbox=\box85
+\tcb@lowerbox=\box86
+\tcb@phantombox=\box87
+\c@tcbbreakpart=\count380
+\c@tcblayer=\count381
+\c@tcolorbox@number=\count382
+\l__tcobox_tmpa_box=\box88
+\l__tcobox_tmpa_dim=\dimen335
+\tcb@temp=\box89
 \tcb@temp=\box90
 \tcb@temp=\box91
 \tcb@temp=\box92
-\tcb@temp=\box93
 )
-\eqheight=\skip73
-LaTeX Font Info:    Trying to load font information for U+msa on input line 212.
+\eqheight=\skip72
+LaTeX Font Info:    Trying to load font information for U+msa on input line 218.
  (C:\Users\lucas\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 212.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 218.
  (C:\Users\lucas\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 212.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 218.
  (C:\Users\lucas\AppData\Local\Programs\MiKTeX\tex/latex/jknappen\ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for U+stmry on input line 212.
+LaTeX Font Info:    Trying to load font information for U+stmry on input line 218.
  (C:\Users\lucas\AppData\Local\Programs\MiKTeX\tex/latex/stmaryrd\ustmry.fd)
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 245.
+(hyperref)                removing `math shift' on input line 251.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@@underline' on input line 245.
+(hyperref)                removing `\@@underline' on input line 251.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hbox' on input line 245.
+(hyperref)                removing `\hbox' on input line 251.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathsurround' on input line 245.
+(hyperref)                removing `\mathsurround' on input line 251.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 245.
+(hyperref)                removing `\z@' on input line 251.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 245.
+(hyperref)                removing `math shift' on input line 251.
 
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
@@ -786,7 +778,7 @@ Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'spanish'.
 (C:\Users\lucas\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count385
+\l__color_backend_stack_int=\count383
 ) (beamer.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
@@ -795,24 +787,24 @@ Package babel Info: 'spanish' activates 'spanish' shorthands.
 )
 \openout1 = `beamer.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 245.
-LaTeX Font Info:    ... okay on input line 245.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 245.
-LaTeX Font Info:    ... okay on input line 245.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 245.
-LaTeX Font Info:    ... okay on input line 245.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 245.
-LaTeX Font Info:    ... okay on input line 245.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 245.
-LaTeX Font Info:    ... okay on input line 245.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 245.
-LaTeX Font Info:    ... okay on input line 245.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 245.
-LaTeX Font Info:    ... okay on input line 245.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 245.
-LaTeX Font Info:    ... okay on input line 245.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 245.
-LaTeX Font Info:    ... okay on input line 245.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 251.
+LaTeX Font Info:    ... okay on input line 251.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 251.
+LaTeX Font Info:    ... okay on input line 251.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 251.
+LaTeX Font Info:    ... okay on input line 251.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 251.
+LaTeX Font Info:    ... okay on input line 251.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 251.
+LaTeX Font Info:    ... okay on input line 251.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 251.
+LaTeX Font Info:    ... okay on input line 251.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 251.
+LaTeX Font Info:    ... okay on input line 251.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 251.
+LaTeX Font Info:    ... okay on input line 251.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 251.
+LaTeX Font Info:    ... okay on input line 251.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -850,81 +842,81 @@ LaTeX Font Info:    ... okay on input line 245.
 
 (C:\Users\lucas\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count386
-\scratchdimen=\dimen337
-\scratchbox=\box94
-\nofMPsegments=\count387
-\nofMParguments=\count388
-\everyMPshowfont=\toks55
-\MPscratchCnt=\count389
-\MPscratchDim=\dimen338
-\MPnumerator=\count390
-\makeMPintoPDFobject=\count391
-\everyMPtoPDFconversion=\toks56
+\scratchcounter=\count384
+\scratchdimen=\dimen336
+\scratchbox=\box93
+\nofMPsegments=\count385
+\nofMParguments=\count386
+\everyMPshowfont=\toks54
+\MPscratchCnt=\count387
+\MPscratchDim=\dimen337
+\MPnumerator=\count388
+\makeMPintoPDFobject=\count389
+\everyMPtoPDFconversion=\toks55
 ) (C:\Users\lucas\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (C:\Users\lucas\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 245.
+Package hyperref Info: Link coloring OFF on input line 251.
  (beamer.out) (beamer.out)
 \@outlinefile=\write5
 \openout5 = `beamer.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 245.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 251.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 245.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 251.
 \symnumbers=\mathgroup8
 \sympureletters=\mathgroup9
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> T1/cmr/m/n on input line 245.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 245.
+(Font)                  OT1/cmss/m/n --> T1/cmr/m/n on input line 251.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 251.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> T1/cmss/b/n on input line 245.
+(Font)                  OT1/cmr/bx/n --> T1/cmss/b/n on input line 251.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> T1/cmss/b/n on input line 245.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 245.
+(Font)                  OT1/cmr/bx/n --> T1/cmss/b/n on input line 251.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 251.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> T1/cmss/m/n on input line 245.
+(Font)                  OT1/cmss/m/n --> T1/cmss/m/n on input line 251.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> T1/cmss/m/n on input line 245.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 245.
+(Font)                  OT1/cmss/bx/n --> T1/cmss/m/n on input line 251.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 251.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> T1/cmss/m/it on input line 245.
+(Font)                  OT1/cmr/m/it --> T1/cmss/m/it on input line 251.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> T1/cmss/m/it on input line 245.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 245.
+(Font)                  OT1/cmr/bx/it --> T1/cmss/m/it on input line 251.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 251.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 245.
+(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 251.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 245.
+(Font)                  OT1/cmtt/m/n --> T1/cmtt/m/n on input line 251.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  T1/cmss/m/n --> T1/cmss/b/n on input line 245.
+(Font)                  T1/cmss/m/n --> T1/cmss/b/n on input line 251.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  T1/cmss/m/it --> T1/cmss/b/it on input line 245.
+(Font)                  T1/cmss/m/it --> T1/cmss/b/it on input line 251.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/b/n --> T1/cmr/b/n on input line 245.
+(Font)                  OT1/cmss/b/n --> T1/cmr/b/n on input line 251.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  T1/cmss/b/n --> T1/cmss/b/n on input line 245.
+(Font)                  T1/cmss/b/n --> T1/cmss/b/n on input line 251.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  T1/cmss/m/n --> T1/cmss/b/n on input line 245.
+(Font)                  T1/cmss/m/n --> T1/cmss/b/n on input line 251.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  T1/cmss/m/it --> T1/cmss/b/it on input line 245.
+(Font)                  T1/cmss/m/it --> T1/cmss/b/it on input line 251.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  T1/cmtt/m/n --> T1/cmtt/b/n on input line 245.
-LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 245.
+(Font)                  T1/cmtt/m/n --> T1/cmtt/b/n on input line 251.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 251.
 LaTeX Font Info:    Encoding `T1' has changed to `OT1' for symbol font
-(Font)              `pureletters' in the math version `normal' on input line 245.
+(Font)              `pureletters' in the math version `normal' on input line 251.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
-(Font)                  T1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 245.
+(Font)                  T1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 251.
 LaTeX Font Info:    Encoding `T1' has changed to `OT1' for symbol font
-(Font)              `pureletters' in the math version `bold' on input line 245.
+(Font)              `pureletters' in the math version `bold' on input line 251.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  T1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 245.
+(Font)                  T1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 251.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on input line 245.
+(Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on input line 251.
  (C:\Users\lucas\AppData\Local\Programs\MiKTeX\tex/latex/translator\translator-basic-dictionary-English.dict
 Dictionary: translator-basic-dictionary, Language: English 
 ) (C:\Users\lucas\AppData\Local\Programs\MiKTeX\tex/latex/translator\translator-bibliography-dictionary-English.dict
@@ -938,30 +930,30 @@ Dictionary: translator-numbers-dictionary, Language: English
 ) (C:\Users\lucas\AppData\Local\Programs\MiKTeX\tex/latex/translator\translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Info: Redefining \. on input line 245.
-LaTeX Info: Redefining \% on input line 245.
+LaTeX Info: Redefining \. on input line 251.
+LaTeX Info: Redefining \% on input line 251.
  (beamer.nav)
 
 LaTeX Font Warning: Font shape `T1/cmss/m/sc' in size <14.4> not available
-(Font)              Font shape `T1/cmr/m/sc' tried instead on input line 256.
+(Font)              Font shape `T1/cmr/m/sc' tried instead on input line 262.
 
-LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 256.
+LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 262.
 (C:\Users\lucas\AppData\Local\Programs\MiKTeX\tex/latex/sansmathaccent\ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mathkerncmss.
 )
 
 LaTeX Font Warning: Font shape `T1/cmss/m/sc' in size <10.95> not available
-(Font)              Font shape `T1/cmr/m/sc' tried instead on input line 256.
+(Font)              Font shape `T1/cmr/m/sc' tried instead on input line 262.
 
 
 LaTeX Font Warning: Font shape `T1/cmss/m/sc' in size <9> not available
-(Font)              Font shape `T1/cmr/m/sc' tried instead on input line 256.
+(Font)              Font shape `T1/cmr/m/sc' tried instead on input line 262.
 
 <usal logo negro.png, id=54, decode=[1 0 1 0 1 0], 2987.8827pt x 825.3234pt>
 File: usal logo negro.png Graphic file (type png)
 <use usal logo negro.png>
-Package pdftex.def Info: usal logo negro.png  used on input line 256.
-(pdftex.def)             Requested size: 113.81102pt x 31.43314pt.
+Package pdftex.def Info: usal logo negro.png  used on input line 262.
+(pdftex.def)             Requested size: 142.26378pt x 39.29141pt.
 [1
 
 {C:/Users/lucas/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./usal logo negro.png>] (beamer.toc
@@ -975,7 +967,7 @@ LaTeX Info: Redefining \% on input line 1.
 <E_Lucas.png, id=141, 75.8835pt x 121.1727pt>
 File: E_Lucas.png Graphic file (type png)
 <use E_Lucas.png>
-Package pdftex.def Info: E_Lucas.png  used on input line 276.
+Package pdftex.def Info: E_Lucas.png  used on input line 282.
 (pdftex.def)             Requested size: 42.67912pt x 68.15022pt.
  [4
 
@@ -990,15 +982,15 @@ Package pdftex.def Info: E_Lucas.png  used on input line 276.
 ] [9
 
 ]
-<Rota.jpg, id=246, 416.04082pt x 332.05135pt>
+<Rota.jpg, id=258, 416.04082pt x 332.05135pt>
 File: Rota.jpg Graphic file (type jpg)
 <use Rota.jpg>
-Package pdftex.def Info: Rota.jpg  used on input line 364.
+Package pdftex.def Info: Rota.jpg  used on input line 372.
 (pdftex.def)             Requested size: 59.75095pt x 47.68767pt.
-<roman.jpeg, id=247, 154.5775pt x 182.6825pt>
+<roman.jpeg, id=259, 154.5775pt x 182.6825pt>
 File: roman.jpeg Graphic file (type jpg)
 <use roman.jpeg>
-Package pdftex.def Info: roman.jpeg  used on input line 364.
+Package pdftex.def Info: roman.jpeg  used on input line 372.
 (pdftex.def)             Requested size: 48.36958pt x 57.16339pt.
  [10
 
@@ -1036,25 +1028,25 @@ Package pdftex.def Info: roman.jpeg  used on input line 364.
 
 ] [27
 
-] [28
-
 ]
 
-LaTeX Warning: Command \textexclamdown invalid in math mode on input line 611.
+LaTeX Warning: Command \textexclamdown invalid in math mode on input line 633.
 
 Missing character: There is no ½ in font cmss10!
-[29
+[28
+
+] [29
 
 ] [30
 
-] [31
-
 ]
-Overfull \hbox (7.29222pt too wide) detected at line 650
+Overfull \hbox (7.29222pt too wide) detected at line 672
 []
  []
 
-[32
+[31
+
+] [32
 
 ] [33
 
@@ -1066,21 +1058,25 @@ Overfull \hbox (7.29222pt too wide) detected at line 650
 
 ] [37
 
-] [38
-
 ]
-Overfull \vbox (9.4265pt too high) detected at line 717
+Overfull \vbox (9.4265pt too high) detected at line 739
  []
 
-[39
+[38
+
+] [39
 
 ] [40
 
-] [41
-
-] [42
-
 ]
+<math07.png, id=547, 351.3125pt x 399.4925pt>
+File: math07.png Graphic file (type png)
+<use math07.png>
+Package pdftex.def Info: math07.png  used on input line 768.
+(pdftex.def)             Requested size: 142.26378pt x 161.77528pt.
+ [41
+
+ <./math07.png>]
 \tf@nav=\write6
 \openout6 = `beamer.nav'.
 
@@ -1099,20 +1095,20 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `beamer.out' has not changed.
-(rerunfilecheck)             Checksum: E82F5E46D2926D5E11787AFAA31C018F;1575.
+(rerunfilecheck)             Checksum: A48EDB0CE05EC541714E7AD34B2918D3;1575.
  ) 
 Here is how much of TeX's memory you used:
- 32159 strings out of 467867
- 657419 string characters out of 5418334
- 1045844 words of memory out of 5000000
- 60311 multiletter control sequences out of 15000+600000
- 659595 words of font info for 127 fonts, out of 8000000 for 9000
+ 31879 strings out of 467867
+ 653186 string characters out of 5418334
+ 1040454 words of memory out of 5000000
+ 60036 multiletter control sequences out of 15000+600000
+ 660366 words of font info for 128 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,16n,123p,424b,874s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx1095.pk> <C:\Users\lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss1000.pk> <C:\Users\lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx1440.pk> <C:\Users\lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss0900.pk> <C:\Users\lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsi1095.pk> <C:\Users\lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecso1095.pk> <C:\Users\lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss1200.pk> <C:\Users\lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss0600.pk> <C:\Users\lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss1095.pk> <C:\Users\lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss0800.pk> <C:\Users\lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss1440.pk> <C:\Users\lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc0900.pk> <C:\Users\lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1095.pk> <C:\Users\lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1440.pk><C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex9.pfb><C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi8.pfb><C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi9.pfb><C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/rsfs/rsfs10.pfb><C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/hoekwater/stmary10.pfb>
-Output written on beamer.pdf (42 pages, 1349893 bytes).
+ 128i,16n,123p,424b,873s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx1200.pk> <C:\Users\lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx1095.pk> <C:\Users\lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss1000.pk> <C:\Users\lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx1440.pk> <C:\Users\lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss0900.pk> <C:\Users\lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsi1095.pk> <C:\Users\lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecso1095.pk> <C:\Users\lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss1200.pk> <C:\Users\lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss0600.pk> <C:\Users\lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss1095.pk> <C:\Users\lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss0800.pk> <C:\Users\lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss1440.pk> <C:\Users\lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc0900.pk> <C:\Users\lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1095.pk> <C:\Users\lucas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1440.pk><C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex9.pfb><C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi8.pfb><C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi9.pfb><C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/rsfs/rsfs10.pfb><C:/Users/lucas/AppData/Local/Programs/MiKTeX/fonts/type1/public/hoekwater/stmary10.pfb>
+Output written on beamer.pdf (41 pages, 1372207 bytes).
 PDF statistics:
- 1049 PDF objects out of 1200 (max. 8388607)
- 92 named destinations out of 1000 (max. 500000)
- 593 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1075 PDF objects out of 1200 (max. 8388607)
+ 90 named destinations out of 1000 (max. 500000)
+ 634 words of extra memory for PDF output out of 10000 (max. 10000000)
 
