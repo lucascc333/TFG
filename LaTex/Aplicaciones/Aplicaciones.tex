@@ -478,7 +478,7 @@ No es fácil encontrar una solución general al problema de conexión de constan
     \end{equation*}
     Además, se tiene que
     \begin{equation*}
-        t_n(x) = \sum_{k=0}^n c_{n,k}x^n \sim \left(\frac{G(F^{-1}(T))}{H(F^{-1}(T))}, F(L^{-1}(T))\right)
+        t_n(x) = \sum_{k=0}^n c_{n,k}x^n \sim \left(\frac{G(L^{-1}(T))}{H(L^{-1}(T))}, F(L^{-1}(T))\right)
     \end{equation*}
 \end{teorema}
 
@@ -544,7 +544,7 @@ No es fácil encontrar una solución general al problema de conexión de constan
 El cálculo umbral también permite obtener ciertas fórmulas de interpolación destinadas a construir polinomios que aproximen a una función definida en un intervalo $[a,b]$. Damos aquí tan solo un teorema de interpolación, basado en la teoría de las sucesiones asociadas y el cual generaliza varias de las interpolaciones clásicas conocidas. No obstante, para un extenso desarrollo de esta teoría, junto con varios ejemplos, se puede consultar \cite{costabile}. 
 
 \begin{lema}[de Peano]
-    Sea $\Lambda$ un operador definido sobre el anillo de funciones continuas en un intervalo $[a,b]$ tal que $\Lambda p(x) = 0$ para todo $p(x) \in \poly$ con $\gr(p(x)) \leq n$. Entonces, para toda $f \in \mathcal{C}^{n+1}[a,b]$
+    Sea $\Lambda$ un operador definido sobre el anillo de funciones continuas en un intervalo $[a,b]$ tal que $\Lambda p(x) = 0$ para todo $p(x) \in \poly$ con $\gr(p) \leq n$. Entonces, para toda $f \in \mathcal{C}^{n+1}[a,b]$
     \begin{equation*}
         \Lambda f(x) = \int_{a}^{b} f^{(n+1)}(t)K(t) dt
     \end{equation*}

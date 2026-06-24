@@ -282,27 +282,35 @@
   \end{frame}
 
   \begin{frame}{¿Qué es el cálculo umbral?}
-      La idea básica sobre que la giraban todas estas publicaciones era la de estudiar el comportamiento tan particular que ciertas sucesiones de números y polinomios poseen. 
+      El objetivo era estudiar el comportamiento tan particular que ciertas sucesiones de números y polinomios poseen. 
 
-      \begin{block}{Idea fundacional}
+      \begin{block}{\textbf{Idea fundacional}}
         \begin{align*}
         \text{Subíndices} & \leftrightarrow \text{Exponentes}\\
-        b_0, b_1, \dots, b_n & \leftrightarrow b^0, b^1, \dots, b^n
+        a_0, a_1, \dots, a_n & \leftrightarrow a^0, a^1, \dots, a^n
         \end{align*}
       \end{block}
 
-      Para ello, utilizaremos la notación $b_k \equiv b^k$ para simbolizar este intercambio. 
+      \begin{enumerate}
+        \item La notación $a_k \equiv a^k$ se usa para simbolizar este intercambio. 
+        \item No todas las manipulaciones son válidas. Se ha de tener cuidado.
+        
+        Por ejemplo:
+        \begin{equation*}
+          a^2 \cdot a^2 \equiv a^4 \nRightarrow (a_2)^2 = a_2 \cdot a_2 = a_4
+        \end{equation*}
+      \end{enumerate}
 
   \end{frame}
 
-  \begin{frame}{Un ejemplo clásico}
+  \begin{frame}{El ejemplo clásico}
     Los números de Bernoulli $B_n$ suelen definirse a través de la función generadora
       \begin{equation*}
         \frac{x}{e^x - 1} = \sum_{n=0}^\infty B_n \frac{x^n}{n!}
       \end{equation*} 
       Con esta convención, podemos obtener lo siguiente
       \begin{align*}
-        e^{B \cdot x} = \sum_{n=0}^\infty (B \cdot x)^n \frac{x^n}{n!} \equiv \sum_{n=0}^\infty B_n \frac{x^n}{n!} = \frac{x}{e^x - 1} \implies e^{B \cdot x} \equiv \frac{x}{e^x - 1}\\
+        e^{B \cdot x} = \sum_{n=0}^\infty B^n \frac{x^n}{n!} \equiv \sum_{n=0}^\infty B_n \frac{x^n}{n!} = \frac{x}{e^x - 1} \implies e^{B \cdot x} \equiv \frac{x}{e^x - 1}\\
         \implies e^{-Bx} \equiv \frac{-x}{e^{-x}-1} = \frac{xe^x}{e^x-1} \equiv e^{(B+1) \cdot x} \implies (B+1)^n = (-B)^n
       \end{align*}
       Y de aquí se llega a la prueba del conocido resultado
@@ -313,30 +321,23 @@
       \end{block}
   \end{frame}
 
-  \begin{frame}{Un ejemplo clásico}
-    Lo mismo se puede hacer con los polinomios de Bernoulli $B_n(x)$. Su función generadora es
+  \begin{frame}{El ejemplo clásico}
+    \begin{enumerate}
+      \item Lo mismo se puede hacer con los polinomios de Bernoulli $B_n(x)$. 
+      
+      Su función generadora es
       \begin{equation*}
         \frac{zx}{e^{zx} - 1} = \sum_{n=0}^\infty B_n(x) \frac{z^n}{n!}
       \end{equation*}
-      Por lo ya visto, esto lleva a que
-      \begin{equation*}
-        e^{(B + x)z} \equiv \sum_{n=0}^\infty B_n(x)\frac{z^n}{n!} \implies B_n(x) \equiv (B + x)^n
-      \end{equation*}
-     y se llega así a la clásica fórmula
-     \begin{block}{}
-      \begin{equation*}
-        B_n(x) = \sum_{k=0}^{n} \binom{n}{k} B_{n-k} x^k
-      \end{equation*}
-     \end{block}
-  \end{frame}
-
-  \begin{frame}{Un ejemplo clásico}
-    Otras tantas fórmulas conocidas apoyan esta idea.
-    \begin{align*}
-      &B_n(x + y) = \sum_{k=0}^n \binom{n}{k} B_{n-k}(y)x^k \leftrightarrow (x + y)^n = \sum_{k=0}^n \binom{n}{k} y^{n-k}x^k\\
-      &B_n'(x) = nB_{n-1}(x) \leftrightarrow (x^n)' = nx^{n-1}\\
-      &\int_{x}^{y} B_n(u) du = \frac{B_{n+1}(x) - B_{n+1}(y)}{n+1} \leftrightarrow \int_{x}^{y} u^n du = \frac{x^{n+1} - y^{n+1}}{n+1}
-    \end{align*}
+      \item Otras tantas fórmulas conocidas apoyan esta idea.
+      \begin{block}{}
+        \begin{align*}
+        &B_n(x + y) = \sum_{k=0}^n \binom{n}{k} B_{n-k}(y)x^k \leftrightarrow (x + y)^n = \sum_{k=0}^n \binom{n}{k} y^{n-k}x^k\\
+        &B_n'(x) = nB_{n-1}(x) \leftrightarrow (x^n)' = nx^{n-1}\\
+        &\int_{x}^{y} B_n(u) du = \frac{B_{n+1}(x) - B_{n+1}(y)}{n+1} \leftrightarrow \int_{x}^{y} u^n du = \frac{x^{n+1} - y^{n+1}}{n+1}
+        \end{align*}
+      \end{block}
+    \end{enumerate}
   \end{frame}
 
   \begin{frame}
@@ -367,11 +368,12 @@
       \footnotesize Steven Roman
     \end{minipage}
   \end{center}
-  Todo se reduce al estudio y tratamiento de una clase especial de sucesiones de polinomios en 1 variable.
-
   \end{frame}
 
 \begin{frame}{El cálculo umbral moderno}
+  Todo se reduce al estudio y tratamiento de una clase especial de sucesiones de polinomios en 1 variable.
+
+  \bigbreak \textbf{A grandes rasgos:}
 \begin{center}
   \begin{tikzpicture}
     % Los tres recuadros de la izquierda
@@ -421,16 +423,16 @@
 
   \begin{frame}{Correspondencia entre series formales y funcionales}
     En consecuencia, podemos definir las asignaciones siguientes
-    \begin{itemize}
+    \begin{enumerate}
       \item $T^k \longrightarrow \omega_{T^k} \text{ con } \langle \omega_{T^k} | x^n \rangle = n! \delta_{n,k}$. Por linealidad, $F(T) \longrightarrow \omega_{F}$.
       \item $L \longrightarrow F_L(T) = \sum_{k=0}^\infty \frac{ \langle L | x^k \rangle}{k!} T^k $
-    \end{itemize}
+    \end{enumerate}
 
     \begin{teorema}[(isomorfismo canónico umbral)]
       La aplicación $\phi \colon  \poly^* \xrightarrow{\sim} \F$ definida por
     \begin{align*}
-        L & \mapsto \phi (L) = F_L(T) = \sum_{k=0}^\infty \frac{ \langle L | x^k \rangle}{k!} T^k\\
-        \omega_F = \phi^{-1}(F(T)) & \mapsfrom F(T) = \sum_{k=0}^\infty a_k T^k
+        L & \mapsto F_L(T) = \sum_{k=0}^\infty \frac{ \langle L | x^k \rangle}{k!} T^k\\
+        \omega_F & \mapsfrom F(T) = \sum_{k=0}^\infty a_k T^k
     \end{align*}
     donde el funcional $\omega_F$ viene dado por $\langle \omega_F | x^n \rangle = n! \cdot a_n$, es un isomorfismo lineal.
     \end{teorema}
@@ -439,13 +441,13 @@
   \begin{frame}{El álgebra umbral}
     $\phi$ \underline{no} es isomorfismo de álgebras (con la estructura clásica). Un nuevo producto aparece en $\poly^*$:
     \begin{equation*}
-      \phi(L) \cdot \phi(M) = \left(\sum_{n\geq0} \frac{ \langle L | x^n \rangle}{n!} T^n\right) \cdot \left(\sum_{n\geq0} \frac{ \langle M | x^n \rangle}{n!} T^n\right)
+      \phi(L) \cdot \phi(M) = \sum_{n = 0}^\infty \frac{1}{n!} \left( \sum_{k=0}^{n} \binom{n}{k} \langle L | x^k\rangle \langle M | x^{n-k} \rangle\right) T^n
     \end{equation*}
 
     \begin{definicion}
       Se llama \textbf{álgebra umbral} al espacio vectorial $\poly^*$ dotado de la estructura de $\field$-álgebra inducida por $\phi$, es decir, aquella definida por
         \begin{equation*}
-        \langle L \cdot M | x^n \rangle = \sum_{k=0}^n\binom{n}{k}\langle L | x^k \rangle \langle M | x^{n-k} \rangle \quad \forall L, M \in \poly^*
+        \langle L \cdot M | x^n \rangle = \sum_{k=0}^n \binom{n}{k}\langle L | x^k \rangle \langle M | x^{n-k} \rangle \quad \forall L, M \in \poly^*
         \end{equation*} 
     \end{definicion}
   \end{frame}
@@ -459,7 +461,7 @@
     \begin{block}{Notación}
       $F(T)$ simbolizará a la serie formal y al funcional $\omega_F$ asociado.
       \begin{align*}
-        F(T) & \colon \poly \longrightarrow \field \\
+        F(T) \equiv \omega_F & \colon \poly \longrightarrow \field \\
         & p(x) \mapsto \langle F(T)| p(x)\rangle
       \end{align*}
     \end{block}
@@ -525,34 +527,37 @@
   \begin{definicion}
     Llamaremos \textbf{operador} a cada elemento de $\End(\poly)$. Además, dado operador $\Lambda \in \poly^*$ simbolizaremos su acción sobre un polinomio $p(x)$ simplemente como $\Lambda p(x)$.
   \end{definicion}
-  Igual que con los funcionales, podemos asignar la variable formal $T$ a la derivada formal. Por linealidad, se extiende a la aplicación $\varphi$ siguiente:
+  \begin{enumerate}
+    \item Como con los funcionales, podemos asignar la variable formal $T$ a la derivada formal: $T \mapsto \partial$.
+    \item Por linealidad, se extiende a la aplicación $\varphi$ siguiente:
+  \end{enumerate}
+  \begin{block}{}
     \begin{align*}
-      T \mapsto \partial \implies \varphi \colon & \F \longrightarrow \End(\poly)\\
-      & \sum_{k\geq0} \frac{a_k}{k!}T^k \mapsto \sum_{k \geq 0} \frac{a_k}{k!} \partial^k = \varphi(F(T))
+      \varphi \colon \F & \longrightarrow \End(\poly)\\
+      \sum_{k = 0}^\infty \frac{a_k}{k!}T^k & \mapsto \sum_{k = 0}^\infty \frac{a_k}{k!} \partial^k = \varphi(F(T))
     \end{align*}
+  \end{block}
 \end{frame}
 
 \begin{frame}{Series como operadores}
   \begin{block}{Notación}
     $F(T)$ simbolizará también al funcional asociado $\varphi(F(T))$.
     \begin{align*}
-    \varphi(F(T)) \equiv F(T) \colon & \poly \longrightarrow \poly \nonumber \\
-    & x^n \mapsto F(T)x^n = \sum_k \binom{n}{k}a_k x^{n-k}
+    F(T) \equiv \varphi(F(T)) \colon & \poly \longrightarrow \poly \nonumber \\
+    & x^n \mapsto F(T)x^n = \sum_{k=0}^n \binom{n}{k}a_k x^{n-k}
     \end{align*}
   \end{block}
 
   \begin{enumerate}
     \item Se verifica que $\varphi$ es un morfismo de álgebras, es decir, se verifica que $\varphi(F(T) \cdot G(T)) = \varphi(F(T)) \circ \varphi(G(T))$
-    \item Con esta notación, esto se corresponde con 
+    \item Con esta notación, esto se corresponde con que
       \begin{equation*}
         \rboxed{F(T) \cdot G(T) = F(T) \circ G(T)}
       \end{equation*}
   \end{enumerate}
 \end{frame}
 
-
-
-\begin{frame}
+\begin{frame}{$\poly$ como $\F$-módulo}
   \begin{teorema}[(estructura de módulo)]
     El producto definido por
     \begin{align*}
@@ -563,7 +568,64 @@
   \end{teorema}
 \end{frame}
 
-\begin{frame}{Ejemplos de operadores}
+\begin{frame}{Series, operadores y funcionales}
+  \textbf{En resumen, $F(T)$ simboliza tres objetos distintos:}
+
+  \begin{center}
+  \begin{tikzpicture}[
+    box/.style={
+        draw=red!70!black, thick, rounded corners,
+        fill=red!25,
+        minimum width=3cm, minimum height=1.8cm,
+        align=center, font=\small, inner sep=4pt
+    },
+    arrowstyle/.style={<->, >=Latex, thick}
+]
+
+% Caja superior (centrada)
+\node[box] (A) at (0,2.2) {
+    \textbf{Serie formal}\\[4pt]
+    $\displaystyle F(T)=\sum_{k=0}^{\infty}\frac{a_k}{k!}T^k$
+};
+
+% Cajas inferiores (simétricas respecto al eje vertical de A)
+\node[box] (B) at (-3.2,0) {
+    \textbf{Funcional}\\[4pt]
+    $\displaystyle \langle F(T)|x^n\rangle = a_n$
+};
+
+\node[box] (C) at (3.2,0) {
+    \textbf{Operador}\\[4pt]
+    $\displaystyle F(T)x^n=\sum_{k=0}^{n}\binom{n}{k}a_kx^k$
+};
+
+% Flechas saliendo ambas de la caja superior
+\draw[arrowstyle] (-1.5, 2) -- (B.north);
+\draw[->] (1.5, 2) -- (C.north);
+
+\end{tikzpicture}
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Forma de serie formal}
+  \begin{enumerate}
+    \item $\gr(T p(x)) \equiv \gr(\partial_x p) \leq \gr(p) \implies \gr(F(T)p(x)) \leq \gr(p)$
+    \item EL operador $M \colon x \rightarrow x \cdot p(x)$ cumple que $\gr(Mp(x)) \geq\gr(p)$, luego $M \neq F(T)$ para ninguna serie formal $F(T) \in \F$
+    \item Esto prueba que $\varphi$ \textbf{no es una biyección} (no es epiyectiva).
+  \end{enumerate}
+
+  \begin{definicion}
+    Diremos que un operador $L \in \End(\poly)$ tiene \textbf{forma de serie formal} si $L \in \text{Im}(\varphi)$.
+  \end{definicion}
+  \begin{teorema}[(caracterización $\Im(\varphi)$)]
+    Un operador $\lambda \in \End(\poly)$ tiene forma de serie formal si y solo si conmuta con algún operador de traslación $E_{\lambda}(T)$ con $\lambda \neq 0$
+  \end{teorema}
+\end{frame}
+
+
+
+\begin{frame}{Ejemplos anteriores como operadores}
   \begin{enumerate}
       \item \textbf{Operadores derivada k-ésima}, $T^k$:
         \begin{equation*}
@@ -584,9 +646,24 @@
     \end{enumerate}
 \end{frame}
 
+\begin{frame}{Operador de Bernoulli}
+  \begin{enumerate}[5]
+    \item Otro ejemplo importante es el operador $\frac{\Delta_{\lambda}}{T}$
+      \begin{align*}
+          \frac{\Delta_{\lambda}}{T}x^n & = \left(\sum_{k=0}^\infty \frac{\lambda^{k+1}}{(k+1)!}T^k\right) x^n = \sum_{k=0}^n \binom{n+1}{k+1} \frac{\lambda^{k+1}}{(n+1)}x^{n-k}\\
+          & = \frac{1}{n+1}\sum_{k=1}^{n+1} \binom{n+1}{k} \lambda^k x^{n+1-k} = \frac{1}{n+1}((x+ \lambda )^{n+1} - x^{n+1})\\ 
+          & = \int\limits_{x}^{x+ \lambda} u^n \, du
+      \end{align*}
+        Por tanto, para un polinomio genérico $p(x)$
+        \begin{equation*}
+          \rboxed{\displaystyle \frac{\Delta_{\lambda}}{T}p(x) = \int\limits_{x}^{x+ \lambda} p(u) \, du}
+        \end{equation*}
+  \end{enumerate}
+\end{frame}
+
 \begin{frame}{Propiedades de los operadores}
   \begin{enumerate}
-    \item Los operadores verifican resultados análogos a los de los funcionales.
+    \item Los operadores verifican propiedades análogas a las de los funcionales.
     \item Se relacionan con los funcionales mediante adjunción.
   \end{enumerate}
   \begin{teorema}[(adjunción operadores y funcionales)]
@@ -597,32 +674,48 @@
   \end{teorema}
 
   \begin{demo}
-    Por linealidad, se reduce al caso trivial de las potencias $T^n$.
-  \end{demo}
-\end{frame}
-
-
-\begin{frame}{Series como operadores}
-  \begin{demo}
-   
+    Por linealidad, se reduce al caso trivial de las series $T^k$.
+    \begin{align*}
+        \langle T^k T^j | p(x) \rangle  = \langle T^{k+j} | p(x) \rangle = p^{(k+j)}(0) = (\partial^j p)^{(k)}(0) & = (T^j p)^{(k)}(0) \\
+        & = \langle T^k | T^j p(x) \rangle \qedhere
+    \end{align*}
   \end{demo}
 \end{frame}
 
 \section{Sucesiones de Sheffer}
-  \begin{frame}{La existencia de las sucesiones}
-    \begin{teorema}
-      Sea $F(T) \in \F^{\delta}$ una serie delta y $G(T) \in \F^*$ una serie invertible. Existe una única sucesion de polinomios $s_n(x)$ con $\gr(s_n) = n$ tal que para todo entero $k \geq 0$ verifica que
-      \begin{equation*}
-        \langle G(T)F^k(T)| s_n(x) \rangle = n!\delta_{n,k}
-      \end{equation*}
-    \end{teorema}
 
-    \begin{demo}
-      
-    \end{demo}
+  \begin{frame}{Series $\delta$ e invertibles}
+    \begin{definicion}
+      Una serie formal $F(T)$ es una \textbf{serie delta} (o \textbf{$\delta$-serie}) si $F(T)$ es un invertible respecto de la composición.
+    \end{definicion}
+
+    \begin{definicion}
+     Un funcional $L \in \poly^*$ es un \textbf{funcional delta} (o \textbf{$\delta$-funcional}) si como serie es una serie delta y es un \textbf{funcional invertible} si como serie es una serie invertible. Análogamente, un operador $F(T) \in \text{Im}(\varphi)$ es un \textbf{operador delta} (o \textbf{$\delta$-operador}) si como serie es una serie delta y es un \textbf{operador invertible} si como serie es una serie invertible. 
+    \end{definicion}
+
   \end{frame}
 
-  \begin{frame}{Definiciones}
+  \begin{frame}{Sucesiones de Sheffer}
+    \begin{enumerate}
+      \item Por construcción, ya sabemos que $\langle T^k | x^n\rangle = n! \cdot \delta_{n,k}$
+      \item Buscamos responder a la pregunta siguiente:\\
+      \begin{center}
+        \textbf{¿se puede generalizar este hecho?}
+      \end{center}
+      Es decir, encontrar serie $H(T)$ y sucesión $\{r_n(x)\}_{n \geq 0}$ tales que 
+      \begin{equation*}
+        \langle H^k(T) | r_n(x) \rangle = n! \cdot \delta_{n,k}
+      \end{equation*}
+    \end{enumerate}
+    \begin{teorema}[(de existencia de las sucesiones de Sheffer)]
+      Sea $F(T) \in \F^{\delta}$ una serie delta y $G(T) \in \F^*$ una serie invertible. Existe una \textbf{única} sucesion de polinomios $s_n(x)$ con $\gr(s_n) = n$ tal que para todo entero $k \geq 0$ verifica que
+      \begin{equation*}
+        \langle G(T)F^k(T)| s_n(x) \rangle = n! \cdot \delta_{n,k}
+      \end{equation*}
+    \end{teorema}
+  \end{frame}
+
+  \begin{frame}{Sucesiones de Sheffer}
     \begin{definicion}
       Se llama \textbf{sucesión de Sheffer asociada a $(¡G(T), F(T))$} a la sucesión de polinomios $s_n(x)$ anterior. Se simboliza por la notación $s_n(x) \sim (G(T), F(T))$ y $\Sh$ es el conjunto de estas sucesioness.
     \end{definicion}
@@ -632,33 +725,50 @@
     \end{definicion}
   \end{frame}
 
-  \begin{frame}{El teorema de expansión para series formales}
-    \begin{teorema}
+  \begin{frame}{Comportamiento de las sucesiones}
+      \begin{enumerate}
+        \item \textbf{Ejemplo:} $p_n(x) = x^n \sim F(T) = T$ puesto que $\langle T^k| x^n\rangle = nª \cdot \delta_{n,k}$
+        \item Es natural entonces preguntarse si las sucesiones de Sheffer generalizan más comportamientos de las potencias $x^n$. 
+      \begin{block}{}
+        \begin{align*}
+          p(x) = \sum_{k \geq 0} \frac{p^{(k)}(0)}{k!}x^k \leftrightarrow p(x) = \sum_{k \geq 0} a_k s_k(x) \text{ con } a_k = \text{ ?}\\
+          (x+y)^n = \sum_{k=0}^{n} \binom{n}{k} x^k y^{n-k} \leftrightarrow s_n(x+y) = \text{ ?} \\
+          Tx^n = (x^n)' = nx^{n-1} \leftrightarrow F(T)s_n(x) = \text{ ?}
+        \end{align*}
+      \end{block}
+      \end{enumerate}
+  \end{frame}
+
+  \begin{frame}{Los teoremas de expansión}
+    \begin{teorema}[(de expansión para series formales)]
       Sea $s_n(x) \sim (G(T), F(T))$. Entonces
       \begin{equation*}
         H(T) = \sum_{k = 0}^\infty \frac{\langle H(T)| s_k(x)\rangle}{k!}G(T)F^k(T) \quad \forall H(T) \in \F
       \end{equation*}
     \end{teorema}
 
-    \begin{demo}
-      
-    \end{demo}
-  \end{frame}
-
-  \begin{frame}{El teorema de expansión polinómico}
-    \begin{teorema}
+    \begin{teorema}[(de expansión para polinomios)]
       Sea $s_n(x) \sim (G(T), F(T))$. Entonces
       \begin{equation*}
         p(x) = \sum_{k \geq 0} \frac{\langle G(T)F^k(T) | p(x) \rangle}{k!}s_k(x) \quad \forall p(x) \in \poly
       \end{equation*}
     \end{teorema}
+  \end{frame}
 
-    \begin{demo}
-      
+  \begin{frame}{Los teoremas de expansión}
+    \begin{demo} Al aplicarlo a la base $\{ s_n(x)\}_{n \geq 0}$:
+        \small{$\displaystyle \left\langle \sum_{k \geq 0} \frac{\langle H(T)| s_k(x) \rangle}{k!}G(T)F^k(T) | s_n(x) \right\rangle = \sum_{k \geq 0} \frac{\langle H(T)| s_k(x) \rangle}{k!} \langle G(T)F^k(T) | s_n(x) \rangle$\\
+        $ \displaystyle = \sum_{k \geq 0} \frac{\langle H(T)| s_k(x) \rangle}{k!} n!\delta_{n,k} = \langle H(T)| s_n(x) \rangle$}
+        
+        lo que prueba el primer teorema de expansión.
+
+        \bigbreak Análogamente, al aplicar cada potencia $G(T)F^n(T)$:
+        \small{$\displaystyle \left\langle G(T)F^n(T) | \sum_{k \geq 0} \frac{\langle G(T)F^k(T) | p(x) \rangle}{k!}s_k(x) \right\rangle = \sum_{k \geq 0} \frac{\langle G(T)F^k(T) | p(x) \rangle}{k!}k! \delta_{k,n}$\\
+        $ \displaystyle = \langle G(T)F^n(T) | p(x) \rangle$}, lo que prueba el segundo teorema de expansión.
     \end{demo}
   \end{frame}
 
-  \begin{frame}{¿Cómo caracterizar a estas sucesiones?}
+  \begin{frame}{Caracterizaciones}
     \begin{teorema}[(función generadora)]
       \begin{align*}
         s_n(x) \sim (G(T), F(T)) \iff \frac{1}{G(F^{-1}(T))}E_{\xi} (F^{-1}(T)) = & \sum_{k=0}^\infty \frac{s_k(\xi)}{k!}T^k \\ 
@@ -667,50 +777,26 @@
     \end{teorema}
 
     \begin{demo}
-      
+      Si $s_n(x) \sim (G(T), F(T))$, entonces la serie $E_{\xi}$ es\\
+      \small{$\displaystyle E_{\xi}(T) = \sum_{k=0}^\infty \frac{s_k(\xi)}{k!}G(T)F^k(T)$}. Despejando se llega al resultado.
+
+      Recíprocamente, si $r_n(x) \sim (G(T), F(T))$, entonces hemos visto que se da la igualdad del enunciado para $r_n(x)$. Con lo que $r_n(\xi) = s_n(\xi)$ y se concluye.
     \end{demo}
   \end{frame}
 
-  \begin{frame}{¿Cómo caracterizar a estas sucesiones?}
+  \begin{frame}{Caracterizaciones}
     \begin{teorema}[(caracterización diferencial)]
       \begin{equation*}
         s_n(x) \sim (G(T), F(T)) \iff F(T)s_{n}(x) = ns_{n-1}(x) \quad \forall n \geq 0
       \end{equation*}
     \end{teorema}
-  \begin{demo}
-    
-  \end{demo}
-  \end{frame}
 
-  \begin{frame}{¿Cómo caracterizar a estas sucesiones?}
-    \begin{teorema}[(representación conjugada)]
-      \footnotesize
-      \begin{equation*}
-      s_n(x) \sim (G(T), F(T)) \iff s_n(x) = \sum_{k=0}^n \frac{1}{k!} \left\langle \frac{1}{G(F^{-1}(T))}(F^{-1}(T))^k | x^n \right\rangle x^k
-      \end{equation*}
-    \end{teorema}
-    \normalsize
-
-    \begin{demo}
-      
-    \end{demo}
-  \end{frame}
-
-  \begin{frame}{¿Cómo caracterizar a estas sucesiones?}
     \begin{teorema}[(identidad de Sheffer)]
       Sea $p_n(x) \sim F(T)$. Entonces
       \begin{equation*}
         s_n(x) \sim (G(T), F(T)) \iff s_n (x+y) = \sum_{k=0}^n \binom{n}{k} p_k (y) s_{n-k}(x)
       \end{equation*}
     \end{teorema}
-
-    \begin{demo}
-      
-    \end{demo}
-  \end{frame}
-
-  \begin{frame}{Propiedades de las sucesiones de Sheffer}
-    
   \end{frame}
 
   \begin{frame}{Propiedades de las sucesiones de Sheffer}
@@ -720,17 +806,119 @@
       \end{equation*}
     \end{teorema}
   \end{frame}
+
+\section{Operadores de especial interés}
+
+\begin{frame}{Operadores adjuntos}
+  \begin{definicion}
+    Dado un operador $\Lambda \in \End(\poly)$ llamaremos \textbf{operador adjunto de $\Lambda$} al operador lineal $\Lambda^* \in \End(\poly^*)$ tal que para cada $p(x) \in \poly$
+    \begin{equation*}
+        \langle \Lambda^* F(T) | p(x) \rangle = \langle F(T) | \Lambda p(x) \rangle
+    \end{equation*}
+  \end{definicion}
+
+  Se verifican las siguientes propiedades:
+  \begin{enumerate}
+    \item $(\Lambda + \Omega)^* = \Lambda^* + \Omega^*$
+    \item $(\lambda \cdot \Lambda)^* = \lambda \cdot \Lambda^*$
+    \item $(\Lambda \circ \Omega)^* = \Omega^* \circ \Lambda^*$
+    \item $(\Lambda^{-1})^* = (\Lambda^*)^{-1}$
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Operadores de Sheffer}
+  \begin{definicion}
+    Dada $s_n(x) \sim (G(T), F(T))$, se llama \textbf{operador de Sheffer asociado a $s_n(x)$ o a $(G(T), F(T))$} al operador $\Lambda_{G,F} \in \End(\poly)$ dado por
+    \begin{equation*}
+        \Lambda_{G,F} x^n = s_n(x)
+    \end{equation*}
+    En el caso de que $p_n(x)$ sea la sucesión asociada a $F(T)$ decimos que $\Lambda_{1, F} \equiv \Lambda_{F}$ es simplemente el \textbf{operador umbral asociado a $p_n(x) $ o a $F(T)$} y se simbolizarán a ambos conjuntos por $\End_{\mathrm{Sh}}(\poly)$ y $\End_{\mathrm{Umb}}(\poly)$, respectivamente.
+  \end{definicion}
+\end{frame}
+
+\begin{frame}{Operadores de Sheffer}
+  \begin{proposicion}
+     Dado $\Lambda_{G,F} \in \End_{\mathrm{Sh}}(\poly)$ se verifica que $\Lambda_{G,F} = \frac{1}{G(T)} \circ \Lambda_{F}$
+  \end{proposicion}
+\end{frame}
+
+\begin{frame}{Operadores de Sheffer}
+  \begin{teorema}[(caracterización operadores umbrales)]
+    Se tiene la igualdad de conjuntos $\mu_{\mathcal{C}}^{-1}(\Aut(\poly^*)) = \End_{umb}(\poly)$. Además, para todo operador umbral $\Lambda_F \in \End_{umb}(\poly)$ y todo funcional $G(T) \in \poly^*$ se verifica que
+    \begin{equation*}
+        \Lambda_F^*G(T) = G(F^{-1}(T))
+    \end{equation*}
+  \end{teorema}
+
+  \begin{enumerate}
+    \item Como corolario, se tiene que $\mu_{\mathcal{C}}(\End_{\mathrm{Sh}}(\poly)) = \Aut(\poly^*) \cup M^*(\poly^*)$
+    \item Además, se tiene que 
+      \begin{block}{}
+        \begin{equation*}
+          \Lambda_{G,F}^*H(T) = \frac{1}{G(F^{-1}(T))} H(F^{-1}(T)) 
+        \end{equation*}
+      \end{block}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Operadores de Sheffer}
+  
+  \begin{teorema}
+    $\End_{\mathrm{Umb}}(\poly)$ es un grupo bajo la ley de grupo dada por la composición de aplicaciones. Concretamente $\Lambda_F \circ \Lambda_G = \Lambda_{G \circ F} \text{ y } \Lambda_F^{-1} = \Lambda_{F^{-1}}$
+  \end{teorema}
+
+  \begin{demo}
+    \begin{align*}
+        (\Lambda_F \circ \Lambda_G)^*H(T) = \Lambda_G^* H(F^{-1}(T)) = H(F^{-1}(G^{-1}(T))) & = H((G \circ F)^{-1}(T)) \\
+        & = \Lambda_{G \circ F}^*H(T)
+    \end{align*}
+    \begin{align*}
+      \implies (\Lambda_F \circ \Lambda_G)^* = \Lambda_{G \circ F}^* \implies \Lambda_F \circ \Lambda_G = \Lambda_{G \circ F}
+    \end{align*}
+    De igual forma se ve para $\Lambda_F^{-1}$.
+  \end{demo}
+  \begin{enumerate}
+    \item Como corolario, $\End_{\mathrm{Sh}}(\poly)$ es también un grupo con la composición.
+    \item Concretamente, $\rboxed{\Lambda_{G,F} \circ \Lambda_{H,L} = \Lambda_{G \cdot H \circ F, L \circ F} \text{ y } \Lambda_{G, F}^{-1} = \Lambda_{1/(G \circ F^{-1}), F^{-1}}}$
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Composición umbral}
+  \begin{definicion}
+    Dadas $s_n(x) \sim (G(T), F(T))$ y $r_n(x) \sim (H(T), L(T))$ se define la $\textbf{composición umbral}$ de $r_n(x) = \displaystyle \sum_{k=0}^n r_{n,k}x^k$ con $s_n(x)$ como
+    \begin{equation*}
+        r_n(\mathbf{s(x)}) = \sum_{k=0}^n r_{n,k}s_k(x)
+    \end{equation*} 
+\end{definicion}
+Los operadores de Sheffer definen la composición umbral
+  \begin{align*}
+    \Lambda_{G,F}r_n(x) & = \Lambda_{G,F} \left[\sum_{k=0}^n r_{n,k}x^k \right] = \sum_{k=0}^n r_{n,k}s_k(x)\\
+    \implies & \rboxed{r_n(\mathbf{s(x)}) = \Lambda_{G,F}r_n(x)}
+  \end{align*}
+\end{frame}
+
+\begin{frame}{Composición umbral}
+  En consecuencia, tendremos estructura de grupo en $\Sh$.
+  \begin{teorema}
+    $\Sh$ es un grupo con la ley de grupo dada por la composición umbral. En particular
+    \begin{enumerate}
+        \item Si $s_n(x) \sim (G(T), F(T))$ y  $r_n(x) \sim (H(T), L(T))$, entonces la sucesión de la composición umbral es $r_n(\mathbf{s(x)}) \sim (G(T)H(F(T)), L(F(T)))$ 
+        \item $x^n$ es la identidad 
+        \item Si $s_n(x) \sim (G(T), F(T))$,entonces $s_n^{-1}(x) = q_n(x)$ para $q_n(x) \sim (G(F^{-1}(T)), F^{-1}(T))$
+    \end{enumerate}
+  \end{teorema}
+\end{frame}
   
 \section{Aplicaciones de toda esta teoría}
 
-\subsection{Los polinomios de Bernoulli y los de Laguerre}
+\subsection{Los polinomios de Bernoulli}
   \begin{frame}{Los polinomios de Bernoulli}
     \begin{definicion}
-      Se llaman \textbf{polinomios de Bernoulli de orden $r$} a los polinomios $B_n^{(r)}(x)$ tales que forman las sucesión de Appell para
+      Se llaman \textbf{polinomios de Bernoulli de orden $r$} a los polinomios $B_n^{(r)}(x)$ que forman la sucesión de Appell para
     \begin{equation*}
         G(T) \equiv \left(\frac{e^T - 1}{T}\right)^r \equiv \left(\frac{\Delta}{T}\right)^r \quad \text{ con } r \in \field^*
     \end{equation*}
-    En el caso de que $r = 1$, se llaman simplemente \textbf{polinomios de Bernoulli} y se escriben como $B_n(x)$.
+    Para $r = 1$, se llaman solo \textbf{polinomios de Bernoulli} y son $B_n(x)$.
     \end{definicion}
 
     \begin{definicion}
@@ -739,32 +927,178 @@
 \end{frame}
 
 \begin{frame}{Los polinomios de Bernoulli}
-  Varios resultados se vuelven inmediatos.
-  \begin{itemize}
+  Varios resultados conocidos se vuelven inmediatos.
+  \begin{enumerate}
     \item \textbf{Caracterización diferencial:} \begin{equation*}
       \rboxed{\left(B_n^{(r)}(x)\right)' = n B_{n-1}^{(r)}(x)}
     \end{equation*}
     \item \textbf{Función generadora:} \begin{equation*}
-      \rboxed{\sum_{k=0}^\infty \frac{B_k^{(r)}(x)}{k!} T^k = \left(\frac{T}{e^T - 1}\right)^r e^{x T}}
+      \rboxed{\displaystyle \sum_{k=0}^\infty \frac{B_k^{(r)}(x)}{k!} T^k = \left(\frac{T}{e^T - 1}\right)^r e^{x T}}
     \end{equation*}
     \item \textbf{Identidad de Appell:} \begin{equation*}
-      \rboxed{B_n^{(r)}(x + y) = \sum_{k=0}^n \binom{n}{k} B_k^{(r)}(y)x^{n-k}}
+      \rboxed{\displaystyle B_n^{(r)}(x + y) = \sum_{k=0}^n \binom{n}{k} B_k^{(r)}(y)x^{n-k}}
     \end{equation*}
-  \end{itemize}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Los polinomios de Bernoulli}
+  \begin{block}{Caracterización integral}
+    \begin{equation*}
+        \int_{x}^{x + y} B_n^{(r)}(u) du = \frac{B_{n+1}^{(r)}(x + y) - B_{n+1}^{(r)}(x)}{n+1}, \forall x, y \in \field
+    \end{equation*}
+  \end{block}
+
+  \begin{demo}
+    \begin{align*}
+        & \int_{x}^{x + y} B_n^{(r)}(u) du = \left(\frac{\Delta_y}{T}\right) B_n^{(r)}(x) = \sum_{k=1}^{\infty} \frac{y^k}{k!} T^{k-1}B_{n}^{(r)}(x)\\ 
+        & = \sum_{k=1}^{n+1} \frac{y^k}{k!} (n)_{k-1}B_{(n+1) - k}^{(r)}(x) = \frac{1}{n+1} \sum_{k=1}^{n+1} \binom{n+1}{k} y^k B_{(n+1) - k}^{(r)}(x)\\
+        & = \frac{1}{n+1} (B_{n+1}^{(r)}(x + y) - B_{n+1}^{(r)}(x)) \qedhere
+    \end{align*}
+  \end{demo}
+\end{frame}
+
+\begin{frame}{Los polinomios de Bernoulli}
+  \begin{block}{Ecuación de recurrencia de orden $r$}
+    \begin{enumerate}
+      \item $\displaystyle B_n^{(r)}(x +1) = B_n^{(r)}(x) + nB_{n-1}^{(r-1)}(x), (r \neq 1)$
+      \item $\displaystyle B_n(x+1) = B_n(x) + nx^{n-1}$
+    \end{enumerate}
+  \end{block}
+
+  \begin{demo}
+      
+    \small{$ \displaystyle B_n^{(r)}(x+1) - B_n^{(r)}(x) = \Delta B_n^{(r)}(x) = \Delta \left(\frac{T}{\Delta}\right)^r x^n = \left(\frac{T}{\Delta}\right)^{r-1} T x^n = nB_{n-1}^{(r-1)}(x)$}
+  \end{demo}
+
+  \begin{enumerate}
+    \item De aquí se sigue que $B_n(1) = B_n$
+    \item Como corolario, $\sum_{k=0}^n k^p = \sum_{k=0}^n \frac{B_{p+1}(k+1) - B_{p+1}(k)}{p+1}$, luego
+    \begin{equation*}
+      \rboxed{\displaystyle \sum_{k=0}^n k^p =  \frac{B_{p+1}(n+1) - B_{p+1}}{p+1}}
+    \end{equation*}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Los polinomios de Bernoulli}
+  \begin{teorema}[(sumación de Euler-Maclaurin para polinomios)]
+    Dado $p(x) \in \poly$ se verifica que
+    \begin{equation*}
+        \sum_{i=0}^{m-1} p(n+i) = \int_{n}^{n + m} p(u)du + \sum_{k = 1}^\infty \frac{B_k}{k!}\left(p^{(k-1)}(n + m) - p^{(k-1)}(n) \right)
+    \end{equation*}
+    para todo $n, m \in \Z \text{ tal que } n < m$
+  \end{teorema}
+\end{frame}
+
+\begin{frame}{Los polinomios de Bernoulli}
+  \begin{demo}
+    El teorema de expansión aplicado a la traslación $E_y$ con los polinomios de Bernoulli da que
+    \begin{equation*}
+        E_y(T) = \frac{\Delta}{T} + \sum_{k=1}^\infty \frac{B_k(y)}{k!} (e^T - 1) T^{k-1} 
+    \end{equation*}
+    Aplicado a un polinomio genérico $p(x) \in \poly$ esto es
+    \begin{equation*}
+        p(x+y) = \int_{x}^{x+1} p(u)du + \sum_{k=1}^\infty \frac{B_k(y)}{k!} \left(p^{(k-1)}(x+1) - p^{(k-1)}(x)\right)
+    \end{equation*}
+    Con $y = 0$ y $x = n, n + 1, \dots, n + m -1$, llegamos a las $m$ ecuaciones:
+    \begin{equation*}
+        p(n + i) = \int_{n+i}^{n + i + 1} p(u)du + \sum_{k=1}^\infty \frac{B_k}{k!} \left(p^{(k-1)}(n + i + 1) - p^{(k-1)}(n + i)\right)
+    \end{equation*}
+    y sumando todas ellas llegamos al resultado buscado.
+  \end{demo}
 \end{frame}
 
 \subsection{Problemas de conexión de constantes}
-\begin{frame}
-  
+\begin{frame}{Problemas de conexión de constantes}
+  \begin{definicion}
+    Sean $\{s_n(x)\}_{n \geq 0}$ y $\{r_n(x)\}_{n \geq 0}$ dos sucesiones de polinomios. Resolver el \textbf{problema de conexión de constantes de $s_n(x)$ con $r_n(x)$} equivale a encontrar escalares $c_{n,k} \in \field$ tales que
+    \begin{equation*}
+        s_n(x) = \sum_{k=0}^n c_{n,k}r_k(x)
+    \end{equation*} 
+  \end{definicion}
+
+  Si $s_n(x), r_n(x)$ son de Sheffer, el problema se puede reescribir como
+    \begin{equation*}
+      s_n(x) = (\sum_{k=0}^n c_{n,k} x^k)(\mathbf{r(x)}) = \Lambda_{H,L}\sum_{k=0}^n c_{n,k} x^k
+    \end{equation*}
+\end{frame}
+
+\begin{frame}{Problemas de conexión de constantes}
+  \begin{teorema}[(de solución para sucesiones de Sheffer)]
+    Las constantes de conexión $c_{n,k}$ que resuelven el problema de conexión de constantes de $s_n(x)$ con $r_n(x)$ vienen dadas por
+    \begin{equation*}
+        c_{n,k} = \frac{1}{k!} \left\langle \frac{H(F^{-1}(T))}{G(F^{-1}(T))} L^k(F^{-1}(T))| x^n \right\rangle
+    \end{equation*}
+    Además,  $\displaystyle t_n(x) = \sum_{k=0}^n c_{n,k}x^n \sim \left(\frac{G(L^{-1}(T))}{H(L^{-1}(T))}, F(L^{-1}(T))\right)$
+\end{teorema}
+\end{frame}
+
+\begin{frame}{Problemas de conexión de constantes}
+  \begin{demo}
+    \bigbreak \small{$ \displaystyle \sum_{k=0}^n c_{n,k}x^k = \Lambda_{H, L}^{-1}s_n(x) = \Lambda_{H, L}^{-1} \circ \Lambda_{G,F}x^n = \Lambda_{H \circ L^{-1}, L^{-1}} \circ \Lambda_{G,F}x^n = \Lambda_{\frac{G \circ L^{-1}}{H \circ L^{-1}}, F \circ L^{-1}} x^n$}
+
+    de donde vemos que $ \displaystyle t_n(x) = \sum_{k=0}^n c_{n,k}x^k \sim (\frac{G \circ L^{-1}}{H \circ L^{-1}}, F \circ L^{-1})$. 
+    
+    Por otro lado, usando esta igualdad junto a la adjunción de los operadores de Sheffer
+    \begin{align*}
+        c_{n,k} & = \frac{1}{k!} \left\langle T^k | \sum_{k=0}^n c_{n,k}x^k\right\rangle = \frac{1}{k!} \left\langle T^k | \Lambda_{\frac{G \circ L^{-1}}{H \circ L^{-1}}, F \circ L^{-1}} x^n\right\rangle \\
+        & = \frac{1}{k!} \left\langle \Lambda_{\frac{G \circ L^{-1}}{H \circ L^{-1}}, F \circ L^{-1}}^* T^k | x^n \right\rangle = \frac{1}{k!} \left\langle \frac{H(F^{-1}(T))}{G(F^{-1}(T))} L^k(F^{-1}(T))| x^n \right\rangle
+    \end{align*}
+\end{demo}
 \end{frame}
 
 \subsection{Interpolación binomial}
+\begin{frame}{Interpolación binomial}
+  \begin{lema}[(de Peano)]
+    Sea $\Lambda$ un operador definido sobre el anillo de funciones continuas en un intervalo $[a,b]$ tal que $\Lambda p(x) = 0$ para todo $p(x) \in \poly$ con $\gr(p) \leq n$. Entonces, para toda $f \in \mathcal{C}^{n+1}[a,b]$
+    \begin{equation*}
+        \Lambda f(x) = \int_{a}^{b} f^{(n+1)}(t)K(t) dt
+    \end{equation*}
+    donde aquí $K(t) = \frac{1}{n!}\Lambda_x [(x-t)_{+}^n]$, siendo $$(x-t)_{+}^n = \begin{dcases}
+            (x-t)^n & x \geq t \\
+            0 & x < t
+    \end{dcases}$$
+    y $\Lambda_x$ el operador $\Lambda$ pensado como una función de $x$. 
+\end{lema}
+\end{frame}
+
+\begin{frame}{Interpolación binomial}
+  \begin{teorema}[(de interpolación binomial)]
+    Sea $G(T) \in \F^\delta$ un operador delta con sucesión asociada $p_n(x)$ y $f \in \mathcal{C}^{n+1}[a,b]G(T)$. Entonces, el polinomio
+    \begin{equation*}
+        B_n[f](x) = \sum_{k=0}^n \frac{(G^k(T)f(x))(0)}{k!} p_k(x)
+    \end{equation*}
+    verifica que
+    \begin{equation*}
+        (G^m(T)B_n[f](x))(0) = (G^m(T)f(x))(0) \text{ y } f(x) = B_n[f](x) + R_n[f](x)
+    \end{equation*}
+    para $0 \leq m \leq n$ y donde $R_n[f](x) = \int_{a}^{b} f^{(n+1)}(t)K_n(x,t) dt $, siendo esta función la dada por $K_n(x,t) = \frac{1}{n!}[(x-t)_{+}^n - \sum_{k=0}^n \frac{[G^k(T)(x-t)_{+}^n](0)}{k!} p_k(x)]$
+\end{teorema}
+\end{frame}
+
+\begin{frame}{Interpolación binomial}
+  \begin{demo}
+  
+        \scriptsize{$ \displaystyle G^m(T)B_n[f](x) = \sum_{k=0}^n \frac{(G^k(T)f(x))(0)}{k!} G^m(T)p_k(x) = \sum_{k=0}^m \frac{(G^k(T)f(x))(0)}{k!} (k)_m p_{k-m}(x)$}\\
+        \scriptsize{$ \displaystyle \implies (G^m(T)B_n[f](x))(0) = \sum_{k=0}^m \frac{(G^k(T)f(x))(0)}{k!} (k)_m p_{k-m}(0) = (G^m(T)f(x))(0)$}
+  
+  \normalsize \bigbreak Por otro lado, como $R_n g(x) \equiv R_n[g](x) = g(x) - B_n[g](x)$ cumple que
+  \begin{equation*}
+    R_n p(x) = p(x) - B_n[p](x) = 0, \forall p(x) \in \poly : \gr(p) \leq n
+  \end{equation*}
+  este verifica las condiciones del lema de Peano. De ahí se obtiene la segunda igualdad. 
+  \end{demo}
+\end{frame}
+
 
 \begin{frame}
   \begin{center}
     \large\textbf{Gracias por vuestra atención.}\\[1cm]
     \includegraphics[width=5cm]{math07.png}
   \end{center}
+\end{frame}
+
+\begin{frame}{Bibliografía}
+  
 \end{frame}
   
 \end{document}

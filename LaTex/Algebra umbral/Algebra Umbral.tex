@@ -409,7 +409,7 @@ De forma similar a lo que hacíamos con los funcionales, utilizaremos el símbol
 En resumen, dada $F(T)$ la escribiremos como $F(T) = \sum_k \frac{a_k}{k!}T^k$ y esta actúa sobre $\poly$ como
 \begin{align}\label{serie como operador}
     F(T) \colon & \poly \longrightarrow \poly \nonumber \\
-    & x^n \mapsto F(T)x^n = \sum_k \binom{n}{k}a_kx^{n-k}
+    & x^n \mapsto F(T)x^n = \sum_{k=0}^n \binom{n}{k}a_kx^{n-k}
 \end{align}
 
 \begin{obs}
@@ -496,7 +496,7 @@ Uno de los resultados claves en lo que a estos operadores respecta es el de la r
         \begin{align*}
             \langle F(T) | p'(x)\rangle = \langle T\cdot F(T)| p(x)\rangle
        \end{align*}
-    Equivalentemente, se verifica que $\langle F(T) | p(x)\rangle = \langle T\cdot F(T)| \int p(x)\rangle$
+    Equivalentemente, se verifica que $\langle F(T) | p(x)\rangle = \left\langle T\cdot F(T)| \int p(x) \right\rangle$
 \end{corolario}
 
 \begin{corolario}
