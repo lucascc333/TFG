@@ -151,10 +151,6 @@ Además de esta particular estructura algebraica, al espacio de funcionales tamb
     \end{itemize} 
 \end{demo}
 
-\begin{teorema}\label{topologia formal equivalente a topologia de estabilizacion}
-    La topología de estabilización de $\poly^*$ se corresponde con la topología inicial del i.c.u.
-\end{teorema}
-
 Por otro lado, como corolario del teorema \ref{icu homeomorfismo}, conviene tener presente lo siguiente.
 
 \begin{corolario}
@@ -351,7 +347,7 @@ Dos familias de funcionales son de especial importancia: estos son los \textit{f
 %%%%%%%%%%%%%%%%%%%%%
 
 %: OPERADORES LINEALES
-\section{La relación con los operadores lineales}
+\section{Relación con los operadores lineales}
 
 \begin{definicion}
     Sea $V$ un espacio vectorial cualquiera. Llamamos \textbf{operador lineal} de $V$ a todo elemento $\Lambda$ de $\End(V)$.
@@ -564,7 +560,7 @@ Nos interesa ahora, por lo tanto, dar una caracterización de la imagen de este 
     \begin{equation*}
         F(T) = \sum_{k=0}^\infty \frac{\langle 1| \Lambda x^k\rangle}{k!}T^k
     \end{equation*}
-    Por el lema previo tenemos que $\gr(\Lambda x^n) \leq n$. En consecuencia, el desarrollo de Taylor de \ref{taylor analogo} nos da que $\Lambda x^n = \sum_{k=0}^n \frac{\langle T^k| \Lambda x^n\rangle}{k!}x^k$. Utilizando ahora las propiedades demostradas previamente junto a la hipótesis de conmutación con $T$, vemos entonces que $\Lambda x^n$ cumple que $\langle T^k| \Lambda x^n\rangle = \langle 1| (T^k \circ \Lambda) x^n\rangle = \langle 1| (\Lambda \circ T^k) x^n\rangle = \langle 1| \Lambda [(n)_k x^{n-k}]\rangle = (n)_k \langle 1| \Lambda x^{n-k}\rangle$. Por tanto, podemos reescribir a este polinomio como
+    Por el lema previo tenemos que $\gr(\Lambda x^n) \leq n$. En consecuencia, el desarrollo de Taylor de \ref{taylor analogo} nos da que $ \displaystyle \Lambda x^n = \sum_{k=0}^n \frac{\langle T^k| \Lambda x^n\rangle}{k!}x^k$. Utilizando ahora las propiedades demostradas previamente junto a la hipótesis de conmutación con $T$, vemos entonces que $\Lambda x^n$ cumple que $\langle T^k| \Lambda x^n\rangle = \langle 1| (T^k \circ \Lambda) x^n\rangle = \langle 1| (\Lambda \circ T^k) x^n\rangle = \langle 1| \Lambda [(n)_k x^{n-k}]\rangle = (n)_k \langle 1| \Lambda x^{n-k}\rangle$. Por tanto, podemos reescribir a este polinomio como
     \begin{equation*}
         \Lambda x^n = \sum_{k=0}^n \frac{(n)_k}{k!}\langle 1| \Lambda x^{n-k}\rangle x^k = \sum_{k=0}^n \binom{n}{k}\langle 1| \Lambda x^{n-k}\rangle x^k = \sum_{k=0}^n \binom{n}{k}\langle 1| \Lambda x^{k}\rangle x^{n-k} = F(T)x^n 
     \end{equation*}
@@ -576,7 +572,7 @@ Nos interesa ahora, por lo tanto, dar una caracterización de la imagen de este 
 \end{corolario}
 
 \begin{demo}
-    Si $\Lambda$ tiene forma de serie formal entonces conmuta con toda serie formal, en particular con $G(T)$. Recíprocamente, si $\Lambda \circ G(T) = G(T) \circ \Lambda$, como $G(T)$ es un operador delta, las series formales $G^k(T)$ forman una pseudobase de $\F$. En concreto, existen escalares $a_k \in \F$ tales que $T = \sum_{k = 0}^\infty a_k G^k(T)$. Por lo tanto, la conmutatividad implica que
+    Si $\Lambda$ tiene forma de serie formal entonces conmuta con toda serie formal, en particular con $G(T)$. Recíprocamente, si $\Lambda \circ G(T) = G(T) \circ \Lambda$, como $G(T)$ es un operador delta, las series formales $G^k(T)$ forman una pseudobase de $\F$. En concreto, existen escalares $a_k \in \F$ tales que $\displaystyle T = \sum_{k = 0}^\infty a_k G^k(T)$. Por lo tanto, la conmutatividad implica que
     \begin{align*}
         \Lambda (T x^n) & = \Lambda\left(\sum_{k=0}^\infty a_k G^k(T) x^n\right) = \Lambda \left(\sum_{k=0}^n a_k G^k(T) x^n\right) = \sum_{k=0}^n a_k (\Lambda \circ G^k(T)) x^n\\
         & = \sum_{k=0}^n a_k (G^k(T) \circ \Lambda) x^n = \left(\sum_{k=0}^\infty a_k G^k(T)\right) (\Lambda x^n) = T (\Lambda x^n)
@@ -600,10 +596,6 @@ Por otro lado, conviene que dotemos al espacio de operadores de una estructura, 
 
 \begin{proposicion}
     Con la topología formal y la topología de estabilización, la aplicación $\varphi$ que asigna a cada serie formal su operador asociado es continua.
-\end{proposicion}
-
-\begin{proposicion}
-    La topología de estabilización en $\End(\poly)$ se corresponde con la topología inicial de la aplicación $\varphi$.
 \end{proposicion}
 
 Recuperamos ahora los ejemplos de funcionales dados con anterioridad con el objetivo de dar su intepretación como operadores y cerramos así esta sección, junto al primer capítulo.

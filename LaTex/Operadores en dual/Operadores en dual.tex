@@ -72,7 +72,7 @@ Lo más importante en cuanto a estos nos conciernen es que los automorfismos de 
     Es consecuencia inmediata del teorema anterior.
 \end{demo}
 
-Otra clase de operadores lineales sobre $\poly^*$ son de especial relevancia: estas son las derivaciones.
+Otra clase de operadores lineales sobre $\poly^*$ que son de especial relevancia son las derivaciones.
 
 \begin{definicion}
     Dada una $\field$-álgebra $A$, se dice que un operador lineal $F \in \End(A)$ es una \textbf{derivación} si verifica que
@@ -187,10 +187,10 @@ Más especifícamente, nos interesará la correspondecia existente entre un subc
 \begin{demo}
     \begin{itemize}
         \item Inyectividad: Si $\Lambda^* = 0$, entonces $\langle F(T)| \Lambda p(x) \rangle = \langle \Lambda^* F(T)| p(x) \rangle = 0$ para toda serie formal $F(T)$ y todo polinomio $p(x)$. Con lo que $\Lambda = 0$ necesariamente.
-        \item Epiyectividad: Sea $\alpha \in \End_{\mathcal{C}}(\poly^*)$. Dado un $n > 0$, por ser continuo, $\ord(\alpha T^k) > n$ para un $k$ suficientemente grande. Así pues, podemos considerar el operador $\Lambda_{\alpha}$ que viene definido por $\Lambda_{\alpha} x^n = \sum_{k=0}^\infty \frac{\langle \alpha T^k | x^n \rangle}{k!}x^k$. Este operador cumplirá que $\mu_{\mathcal{C}}(\Lambda_{\alpha}) = \Lambda_{\alpha}^* = \alpha$:
+        \item Epiyectividad: Sea $\alpha \in \End_{\mathcal{C}}(\poly^*)$. Dado un $n > 0$, por ser continuo, $\ord(\alpha T^k) > n$ para un $k$ suficientemente grande. Así pues, podemos considerar el operador $\Lambda_{\alpha}$ que viene definido por $\displaystyle \Lambda_{\alpha} x^n = \sum_{k=0}^\infty \frac{\langle \alpha T^k | x^n \rangle}{k!}x^k$. Este operador cumplirá que $\mu_{\mathcal{C}}(\Lambda_{\alpha}) = \Lambda_{\alpha}^* = \alpha$. En efecto:
         \begin{align*}
             & \langle \Lambda_{\alpha}^* T^m | x^n \rangle =  \langle T^m | \Lambda_{\alpha}x^n \rangle = \sum_{k=0}^\infty \frac{\langle \alpha T^k | x^n \rangle}{k!}\langle T^m | x^k \rangle = \langle \alpha T^m | x^n \rangle\\
-            & \implies \Lambda_{\alpha}^* T^m = \alpha T^m \implies \alpha = \Lambda_{\alpha}^*
+            & \implies \Lambda_{\alpha}^* T^m = \alpha T^m \implies \Lambda_{\alpha}^* = \alpha
         \end{align*}
         donde la última implicación se debe a la continuidad de los operadores. \qedhere
     \end{itemize}

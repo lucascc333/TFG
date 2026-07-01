@@ -9,7 +9,7 @@
 \begin{definicion}
     Se llaman \textbf{polinomios de Bernoulli de orden $r$} a los polinomios $B_n^{(r)}(x)$ tales que forman las sucesión de Appell para
     \begin{equation*}
-        G(T) \equiv \left(\frac{e^T - 1}{T}\right)^r \equiv \left(\frac{\Delta}{T}\right)^r \quad r \in \field^*
+        G(T) = \left(\frac{e^T - 1}{T}\right)^r \equiv \left(\frac{\Delta}{T}\right)^r \quad r \in \field^*
     \end{equation*}
     Es decir, $B_n^{(r)}(x) \sim (T, (\frac{e^T - 1}{T})^r)$. En el caso de que $r = 1$, se llaman simplemente \textbf{polinomios de Bernoulli} y se escriben como $B_n(x)$.
 \end{definicion}
@@ -201,9 +201,8 @@ Que $B_3 = 0$ no es ninguna casualidad. Si uno continúa calculando los números
     Usando \ref{producto escalares} vemos que $\langle (\frac{e^{-T} - 1}{-T})^r| B_n^{(r)}(-x)\rangle = \langle (\frac{e^{T} - 1}{T})^r| B_n^{(r)}(x)\rangle = n! \delta_{n,k}$ con lo que $B_n^{(r)}(-x) \sim ((\frac{e^{-T} - 1}{-T})^r, -T)$. Ya que $(-x)^n \sim (-T)$, la proposición \ref{relacion sheffer y asociada} nos da
     \begin{align*}
         B_n^{(r)}(-x) = \left(\frac{-T}{e^{-T} - 1}\right)^r (-x^n) & = e^{r T} \left(\frac{T}{e^T - 1}\right)^r (-x^n) \\
-        & = (-1)^n E_r B_n^{(r)}(x) = (-1)^n B_n^{(r)}(x + r)
+        & = (-1)^n E_r B_n^{(r)}(x) = (-1)^n B_n^{(r)}(x + r) \qedhere
     \end{align*}
-    que era lo que queríamos ver.
 \end{demo}
 
 \begin{corolario}
@@ -221,11 +220,7 @@ Que $B_3 = 0$ no es ninguna casualidad. Si uno continúa calculando los números
 \begin{proposicion}[caracterización integral]\label{caracterizacion integral bernoulli}
     Los polinomios de Bernoulli de orden $r$ satisfacen la ecuación integral
     \begin{equation*}
-        \int_{x}^{x + y} B_n^{(r)}(u) du = \frac{B_{n+1}^{(r)}(x + y) - B_{n+1}^{(r)}(x)}{n+1}
-    \end{equation*}
-    para todo $x, y \in \field$. En particular, para todo $x \in \field$
-    \begin{equation*}
-        \int_{0}^{x} B_n^{(r)}(u) du = \frac{B_{n+1}^{(r)}(x) - B_{n+1}^{(r)}}{n+1}
+        \int_{x}^{x + y} B_n^{(r)}(u) du = \frac{B_{n+1}^{(r)}(x + y) - B_{n+1}^{(r)}(x)}{n+1} \quad \forall x,y \in \field
     \end{equation*}
 \end{proposicion}
 
@@ -260,10 +255,7 @@ Por último, la teoría umbral aplicada sobre los números de Bernoulli puede se
 \end{definicion}
 
 \begin{proposicion}
-    Los $k$-ésimos números de Stirling de segunda especie vienen dados por los números de Bernoulli de orden $-k$ a través de la fórmula
-    \begin{equation*}
-        {n \brace k} = \binom{n}{k}B_{n-k}^{(-k)}
-    \end{equation*}
+    Los $k$-ésimos números de Stirling de segunda especie vienen dados por los números de Bernoulli de orden $-k$ a través de la fórmula $\displaystyle {n \brace k} = \binom{n}{k}B_{n-k}^{(-k)}$
 \end{proposicion}
 
 \begin{demo}
@@ -322,10 +314,7 @@ La relación con la sucesión asociada \ref{relacion sheffer y asociada} nos da 
 Usando este resultado y la caracterización \ref{caracterizacion diferencial} llegamos a ver que estos polinomios verifican la relación de recurrencia siguiente.
 
 \begin{proposicion} \label{recurrencia diferencial laguerre}
-    Los polinomios $L_n^{(r)}(x)$ verifican la ecuación
-    \begin{equation*}
-        (L_n^{(r)}(x))' = -n L_{n-1}^{(r+1)}(x)
-    \end{equation*}
+    Los polinomios $L_n^{(r)}(x)$ verifican la ecuación $(L_n^{(r)}(x))' = -n L_{n-1}^{(r+1)}(x)$
 \end{proposicion}
 
 \begin{demo} Tenemos que $\frac{T}{T-1} L_n^{(r)}(x) = n L_{n-1}^{(r)}(x) \implies T L_n^{(r)}(x) = -n (1-T) L_{n-1}^{(r)}(x)$ Usando la proposición anterior se concluye.
@@ -407,10 +396,10 @@ y el resultado se sigue de una forma similar a lo hecho antes.
 Para finalizar esta sección, veamos como el cálculo umbral también permite obtener una de las fórmulas más importantes para el cómputo de estos polinomios.
 
 \begin{teorema}[fórmula de Rodrigues]
-    Los polinomios de Laguerre de orden $r$ se pueden escribir como
+    Los polinomios de Laguerre de orden $r$ se pueden escribir como\footnote{Aquí extendemos las nociones del operador multiplicación asociado $M(f(x))$ y de serie formal como operador al anillo de funciones $\mathcal{C}^\infty$; el operador $T$ se corresponde entonces con la derivada clásica de funciones en una variable, como hacíamos con polinomios.}
     \begin{equation*}
         L_n^{(r)}(x) = [M(e^x x^{-r}) \circ T^n \circ M(e^{-x})] x^{n+r}
-    \end{equation*}
+    \end{equation*} 
 \end{teorema}
 
 \begin{demo}
@@ -559,7 +548,7 @@ El cálculo umbral también permite obtener ciertas fórmulas de interpolación 
 \end{demo}
 
 \begin{teorema}[de interpolación binomial]
-    Sea $G(T) \in \F^\delta$ un operador delta\footnote{Aquí, extendemos la noción de serie formal como operador al anillo de funciones continuas. El operador $T$ se corresponde entonces con la derivada clásica de funciones en una variable, como hacíamos con polinomios.} con sucesión asociada $p_n(x)$ y $f \in \mathcal{C}^{n+1}[a,b]G(T)$, siendo este conjunto el definido como $\mathcal{C}^{n+1}[a,b]G(T) = \{ f \in \mathcal{C}^{n+1}[a,b] \colon G^k(T)f(x) \in \mathcal{C}^{n+1}[a,b], k = 0, 1, \dots, n\}$. Entonces, el polinomio
+    Sea $G(T) \in \F^\delta$ un operador delta\footnote{Nuevamente, entendiéndolo como operador sobre el anillo de funciones $\mathcal{C}^\infty$} con sucesión asociada $p_n(x)$ y $f \in \mathcal{C}^{n+1}[a,b]G(T)$, siendo este conjunto el definido como $\mathcal{C}^{n+1}[a,b]G(T) = \{ f \in \mathcal{C}^{n+1}[a,b] \colon G^k(T)f(x) \in \mathcal{C}^{n+1}[a,b], k = 0, 1, \dots, n\}$. Entonces, el polinomio
     \begin{equation*}
         B_n[f](x) = \sum_{k=0}^n \frac{(G^k(T)f(x))(0)}{k!} p_k(x)
     \end{equation*}
