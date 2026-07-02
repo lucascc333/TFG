@@ -463,10 +463,10 @@ INPUT .\Algebra umbral\Algebra Umbral.tex
 INPUT .\Algebra umbral\Algebra Umbral.tex
 INPUT Algebra umbral\Algebra Umbral.tex
 INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecbi1200.tfm
-INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecti0800.tfm
-INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecti0600.tfm
-INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecbx0800.tfm
 INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecrm0600.tfm
+INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecti0800.tfm
+INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecbx0800.tfm
+INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecti0600.tfm
 INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecbx0600.tfm
 INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\ueuf.fd
 INPUT C:\Users\lucas\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\ueuf.fd

@@ -16,7 +16,7 @@ Comenzamos recordando que $\poly^*$ es un espacio topológico con la topología 
 
     $\boxed{\implies}$ Sea $p(x) \in \poly$ y $m \geq 0$. En este caso
     \begin{equation*}
-        \left\langle \alpha \sum_{k=0}^\infty a_k F_k(T) | p(x) \right\rangle = \left\langle \alpha \sum_{k=0}^m a_k F_k(T) | p(x) \right\rangle + \left\langle \alpha \sum_{k=m+1}^\infty a_k F_k(T) | p(x) \right\rangle
+        \left\langle \alpha \sum_{k=0}^\infty a_k F_k(T) \biggm| p(x) \right\rangle = \left\langle \alpha \sum_{k=0}^m a_k F_k(T) \biggm| p(x) \right\rangle + \left\langle \alpha \sum_{k=m+1}^\infty a_k F_k(T) \biggm| p(x) \right\rangle
     \end{equation*}
     Ahora, como la sucesión formada por las $F_n(T)$ es convergente se tiene que la sucesión $\{\sum_{k=m+1}^\infty a_k F_k(T)\}_{m \geq 0}$ también es convergente. Luego, como $\alpha$ es continuo sabemos que $\{ \alpha \sum_{k=m+1}^\infty a_k F_k(T)\}_{m \geq 0}$ es convergente y, por tanto, podemos tomar $m$ lo suficentemente grande como para que el segundo término se anule y $\ord(\alpha F_k(T)) > \gr(p(x))$ para todo entero $k > m$. Así pues, obtenemos la igualdad $\langle \alpha \sum_{k=0}^\infty a_k F_k(T) | p(x) \rangle = \langle \alpha \sum_{k=0}^m a_k F_k(T) | p(x) \rangle = \langle \sum_{k=0}^m a_k \alpha F_k(T) | p(x) \rangle = \langle \sum_{k=0}^\infty a_k \alpha F_k(T) | p(x) \rangle$, que es lo que buscábamos.
 \end{demo}
@@ -46,7 +46,7 @@ Lo más importante en cuanto a estos nos conciernen es que los automorfismos de 
     \begin{equation*}
         F(T) \left(\alpha^{-1} \frac{1}{\alpha F(T)}\right) = \left(\alpha^{-1}(\alpha F(T))\right) \left(\alpha^{-1} \frac{1}{\alpha F(T)}\right) = \alpha^{-1}\left(\alpha F(T) \frac{1}{\alpha F(T)}\right) = \alpha^{-1}1 = 1
     \end{equation*}
-    Con lo que $\frac{1}{F(T)} = \alpha^{-1} \frac{1}{\alpha F(T)}$ y se concluye.
+    Con lo que $\displaystyle \frac{1}{F(T)} = \alpha^{-1} \frac{1}{\alpha F(T)}$ y se concluye.
 \end{demo}
 
 \begin{teorema}
@@ -420,7 +420,7 @@ Aprovechando lo hecho para los operadores de Sheffer, podemos definir una operac
 \begin{corolario}
     Si $s_n(x) \sim (G(T), F(T))$, entonces para todo $q(x) \in \poly$ y toda serie formal $H(T) \in \F$ se tiene que $ \langle H(T) | q(\mathbf{s(x)}) \rangle = \langle \frac{1}{G(F^{-1}(T))}H(F^{-1}(T)) | q(x) \rangle $. En particular,  se tiene que 
     \begin{align*}
-        \langle H(T) | s_n(x) \rangle = \left\langle \frac{1}{G(F^{-1}(T))}H(F^{-1}(T)) | x^n \right\rangle
+        \langle H(T) | s_n(x) \rangle = \left\langle \frac{1}{G(F^{-1}(T))}H(F^{-1}(T)) \biggm| x^n \right\rangle
     \end{align*}
 \end{corolario}
 
@@ -559,11 +559,11 @@ Cerramos este capítulo mostrando como las fórmulas de transferencia pueden apr
 \begin{teorema}[fórmula de inversión de Lagrange]
     Sean $F(T) \in \F^\delta$ y $G(T) \in \F^*$. Parar todo entero $n \geq 1$ se verifica que
     \begin{equation*}
-        \langle G(F^{-1}(T)) | x^n \rangle = \left\langle G'(T)\left(\frac{T}{F(T)}\right)^{n}| x^{n-1} \right\rangle
+        \langle G(F^{-1}(T)) | x^n \rangle = \left\langle G'(T)\left(\frac{T}{F(T)}\right)^{n} \biggm| x^{n-1} \right\rangle
     \end{equation*} 
     En particular, para $G(T) = T$ se tiene que
     \begin{equation*}
-        \langle F^{-1}(T) | x^n \rangle = \left\langle \left(\frac{T}{F(T)}\right)^{n}| x^{n-1} \right\rangle
+        \langle F^{-1}(T) | x^n \rangle = \left\langle \left(\frac{T}{F(T)}\right)^{n} \biggm| x^{n-1} \right\rangle
     \end{equation*}
 \end{teorema}
 
@@ -571,7 +571,7 @@ Cerramos este capítulo mostrando como las fórmulas de transferencia pueden apr
     Utilizando la segunda fórmula de transferencia obtenemos el resultado
     \begin{align*}
         \langle G(F^{-1}(T)) | x^n \rangle & = \langle \Lambda_F^*G(T) | x^n \rangle = \langle G(T) | \Lambda_F x^n \rangle = \langle G(T) | p_n(x) \rangle \\
-        & = \left\langle G(T) | M \circ \left(\frac{T}{F(T)}\right)^{n} x^{n-1} \right\rangle = \left\langle G'(T) \left(\frac{T}{F(T)}\right)^{n}| x^{n-1} \right\rangle
+        & = \left\langle G(T) \biggm| M \circ \left(\frac{T}{F(T)}\right)^{n} x^{n-1} \right\rangle = \left\langle G'(T) \left(\frac{T}{F(T)}\right)^{n} \biggm| x^{n-1} \right\rangle
     \end{align*}
     donde hemos usado nuevamente que el operador adjunto de $M$ es $\partial$.
 \end{demo}

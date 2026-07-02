@@ -727,7 +727,8 @@
 
   \begin{frame}{Comportamiento de las sucesiones}
       \begin{enumerate}
-        \item \textbf{Ejemplo:} $p_n(x) = x^n \sim F(T) = T$ puesto que $\langle T^k| x^n\rangle = nª \cdot \delta_{n,k}$
+        \item \textbf{Ejemplo:} $x^n \sim T$ puesto que $\langle T^k| x^n\rangle = n! \cdot \delta_{n,k}$.
+        \item \textbf{Ejemplo:} $(x)_n = x(x-1)\cdots (x-n+1) \sim \Delta$
         \item Es natural entonces preguntarse si las sucesiones de Sheffer generalizan más comportamientos de las potencias $x^n$. 
       \begin{block}{}
         \begin{align*}
@@ -753,19 +754,6 @@
         p(x) = \sum_{k \geq 0} \frac{\langle G(T)F^k(T) | p(x) \rangle}{k!}s_k(x) \quad \forall p(x) \in \poly
       \end{equation*}
     \end{teorema}
-  \end{frame}
-
-  \begin{frame}{Los teoremas de expansión}
-    \begin{demo} Al aplicarlo a la base $\{ s_n(x)\}_{n \geq 0}$:
-        \small{$\displaystyle \left\langle \sum_{k \geq 0} \frac{\langle H(T)| s_k(x) \rangle}{k!}G(T)F^k(T) | s_n(x) \right\rangle = \sum_{k \geq 0} \frac{\langle H(T)| s_k(x) \rangle}{k!} \langle G(T)F^k(T) | s_n(x) \rangle$\\
-        $ \displaystyle = \sum_{k \geq 0} \frac{\langle H(T)| s_k(x) \rangle}{k!} n!\delta_{n,k} = \langle H(T)| s_n(x) \rangle$}
-        
-        lo que prueba el primer teorema de expansión.
-
-        \bigbreak Análogamente, al aplicar cada potencia $G(T)F^n(T)$:
-        \small{$\displaystyle \left\langle G(T)F^n(T) | \sum_{k \geq 0} \frac{\langle G(T)F^k(T) | p(x) \rangle}{k!}s_k(x) \right\rangle = \sum_{k \geq 0} \frac{\langle G(T)F^k(T) | p(x) \rangle}{k!}k! \delta_{k,n}$\\
-        $ \displaystyle = \langle G(T)F^n(T) | p(x) \rangle$}, lo que prueba el segundo teorema de expansión.
-    \end{demo}
   \end{frame}
 
   \begin{frame}{Caracterizaciones}
@@ -799,13 +787,6 @@
     \end{teorema}
   \end{frame}
 
-  \begin{frame}{Propiedades de las sucesiones de Sheffer}
-    \begin{teorema}[(de multiplicación)]
-      \begin{equation*}
-        s_n(x) \sim (G(T), F(T)) \implies s_n(\lambda x) = \lambda^n \frac{G(T)}{G(T/\lambda)} s_n(x) \quad \forall \lambda \in \field^*
-      \end{equation*}
-    \end{teorema}
-  \end{frame}
 
 \section{Operadores de especial interés}
 
@@ -818,12 +799,18 @@
   \end{definicion}
 
   Se verifican las siguientes propiedades:
-  \begin{enumerate}
-    \item $(\Lambda + \Omega)^* = \Lambda^* + \Omega^*$
-    \item $(\lambda \cdot \Lambda)^* = \lambda \cdot \Lambda^*$
-    \item $(\Lambda \circ \Omega)^* = \Omega^* \circ \Lambda^*$
-    \item $(\Lambda^{-1})^* = (\Lambda^*)^{-1}$
-  \end{enumerate}
+  \begin{tabular}{@{}ll@{}}
+        1. $(\Lambda + \Omega)^* = \Lambda^* + \Omega^*$ & 
+        \quad 3. $(\Lambda \circ \Omega)^* = \Omega^* \circ \Lambda^*$ \\[6pt]
+        2. $(\lambda \cdot \Lambda)^* = \lambda \cdot \Lambda^*$ & 
+        \quad 4. $(\Lambda^{-1})^* = (\Lambda^*)^{-1}$
+  \end{tabular}
+  \begin{block}{Ejemplos}
+    \begin{enumerate}
+      \item $\langle F(T) \cdot G(T) | p(x) \rangle = \langle G(T) | F(T)p(x) \rangle \implies F(T)^* = M^*(F)$ donde $M^*(F) \colon G(T) \mapsto F(T) \cdot G(T)$
+      \item $\langle \partial F(T) | p(x) \rangle = \langle F(T) | x \cdot p(x)\rangle \implies M^* = \partial, M \colon p(x) \mapsto x \cdot p(x)$
+    \end{enumerate}
+  \end{block}
 \end{frame}
 
 \begin{frame}{Operadores de Sheffer}
@@ -877,10 +864,12 @@
     \end{align*}
     De igual forma se ve para $\Lambda_F^{-1}$.
   \end{demo}
-  \begin{enumerate}
-    \item Como corolario, $\End_{\mathrm{Sh}}(\poly)$ es también un grupo con la composición.
-    \item Concretamente, $\rboxed{\Lambda_{G,F} \circ \Lambda_{H,L} = \Lambda_{G \cdot H \circ F, L \circ F} \text{ y } \Lambda_{G, F}^{-1} = \Lambda_{1/(G \circ F^{-1}), F^{-1}}}$
-  \end{enumerate}
+  \begin{block}{}
+    \begin{enumerate}
+      \item Como corolario, $\End_{\mathrm{Sh}}(\poly)$ es también un grupo con la composición.
+      \item Concretamente, $\Lambda_{G,F} \circ \Lambda_{H,L} = \Lambda_{G \cdot H \circ F, L \circ F} \text{ y } \Lambda_{G, F}^{-1} = \Lambda_{1/(G   \circ F^{-1}), F^{-1}}$
+    \end{enumerate}
+  \end{block}
 \end{frame}
 
 \begin{frame}{Composición umbral}
@@ -898,7 +887,7 @@ Los operadores de Sheffer definen la composición umbral
 \end{frame}
 
 \begin{frame}{Composición umbral}
-  En consecuencia, tendremos estructura de grupo en $\Sh$.
+  Es natural entonces pensar que tendremos estructura de grupo en $\Sh$.
   \begin{teorema}
     $\Sh$ es un grupo con la ley de grupo dada por la composición umbral. En particular
     \begin{enumerate}
@@ -924,6 +913,22 @@ Los operadores de Sheffer definen la composición umbral
     \begin{definicion}
     Se llaman \textbf{números de Bernoulli de orden $r$} a los escalares $B_n^{(r)}(0)$ y se simbolizan como $B_n^{(r)}$. Si $r=1$, se llaman simplemente \textbf{números de Bernoulli} y se escriben como $B_n$.
 \end{definicion}
+\end{frame}
+
+\begin{frame}{Los polinomios de Bernoulli}
+  Los números de Bernoulli aparecen en multitud de áreas matemáticas.
+  Fundamental es su relación con la \textbf{función zeta de Riemann}:
+  \begin{block}{}
+    \begin{equation*}
+      \zeta(2k) = (-1)^{k-1}B_{2k}\frac{2^{2k-1}}{(2k)!}\pi^{2k}
+    \end{equation*}
+  \end{block}
+  Incluso, para la más general \textbf{función zeta de Hurtwiz}:
+  \begin{block}{}
+    \begin{equation*}
+      \zeta (-n, a) = -\frac{B_{n+1}(a)}{n+1} \implies \zeta (-n) = - \frac{B_{n+1}}{n+1}
+    \end{equation*}
+  \end{block}
 \end{frame}
 
 \begin{frame}{Los polinomios de Bernoulli}
@@ -1020,30 +1025,6 @@ Los operadores de Sheffer definen la composición umbral
     \begin{equation*}
       s_n(x) = (\sum_{k=0}^n c_{n,k} x^k)(\mathbf{r(x)}) = \Lambda_{H,L}\sum_{k=0}^n c_{n,k} x^k
     \end{equation*}
-\end{frame}
-
-\begin{frame}{Problemas de conexión de constantes}
-  \begin{teorema}[(de solución para sucesiones de Sheffer)]
-    Las constantes de conexión $c_{n,k}$ que resuelven el problema de conexión de constantes de $s_n(x)$ con $r_n(x)$ vienen dadas por
-    \begin{equation*}
-        c_{n,k} = \frac{1}{k!} \left\langle \frac{H(F^{-1}(T))}{G(F^{-1}(T))} L^k(F^{-1}(T))| x^n \right\rangle
-    \end{equation*}
-    Además,  $\displaystyle t_n(x) = \sum_{k=0}^n c_{n,k}x^n \sim \left(\frac{G(L^{-1}(T))}{H(L^{-1}(T))}, F(L^{-1}(T))\right)$
-\end{teorema}
-\end{frame}
-
-\begin{frame}{Problemas de conexión de constantes}
-  \begin{demo}
-    \bigbreak \small{$ \displaystyle \sum_{k=0}^n c_{n,k}x^k = \Lambda_{H, L}^{-1}s_n(x) = \Lambda_{H, L}^{-1} \circ \Lambda_{G,F}x^n = \Lambda_{H \circ L^{-1}, L^{-1}} \circ \Lambda_{G,F}x^n = \Lambda_{\frac{G \circ L^{-1}}{H \circ L^{-1}}, F \circ L^{-1}} x^n$}
-
-    de donde vemos que $ \displaystyle t_n(x) = \sum_{k=0}^n c_{n,k}x^k \sim (\frac{G \circ L^{-1}}{H \circ L^{-1}}, F \circ L^{-1})$. 
-    
-    Por otro lado, usando esta igualdad junto a la adjunción de los operadores de Sheffer
-    \begin{align*}
-        c_{n,k} & = \frac{1}{k!} \left\langle T^k | \sum_{k=0}^n c_{n,k}x^k\right\rangle = \frac{1}{k!} \left\langle T^k | \Lambda_{\frac{G \circ L^{-1}}{H \circ L^{-1}}, F \circ L^{-1}} x^n\right\rangle \\
-        & = \frac{1}{k!} \left\langle \Lambda_{\frac{G \circ L^{-1}}{H \circ L^{-1}}, F \circ L^{-1}}^* T^k | x^n \right\rangle = \frac{1}{k!} \left\langle \frac{H(F^{-1}(T))}{G(F^{-1}(T))} L^k(F^{-1}(T))| x^n \right\rangle
-    \end{align*}
-\end{demo}
 \end{frame}
 
 \subsection{Interpolación binomial}

@@ -2,8 +2,8 @@
 \beamer@sectionintoc {1}{¿Qué es el cálculo umbral?}{3}{0}{1}
 \beamer@sectionintoc {2}{Series formales como funcionales y operadores}{11}{0}{2}
 \beamer@sectionintoc {3}{Sucesiones de Sheffer}{27}{0}{3}
-\beamer@sectionintoc {4}{Operadores de especial interés}{37}{0}{4}
-\beamer@sectionintoc {5}{Aplicaciones de toda esta teoría}{45}{0}{5}
-\beamer@subsectionintoc {5}{1}{Los polinomios de Bernoulli}{46}{0}{5}
-\beamer@subsectionintoc {5}{2}{Problemas de conexión de constantes}{52}{0}{5}
-\beamer@subsectionintoc {5}{3}{Interpolación binomial}{55}{0}{5}
+\beamer@sectionintoc {4}{Operadores de especial interés}{35}{0}{4}
+\beamer@sectionintoc {5}{Aplicaciones de toda esta teoría}{43}{0}{5}
+\beamer@subsectionintoc {5}{1}{Los polinomios de Bernoulli}{44}{0}{5}
+\beamer@subsectionintoc {5}{2}{Problemas de conexión de constantes}{51}{0}{5}
+\beamer@subsectionintoc {5}{3}{Interpolación binomial}{52}{0}{5}

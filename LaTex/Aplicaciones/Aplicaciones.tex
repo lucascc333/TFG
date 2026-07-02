@@ -241,7 +241,7 @@ Aplicando el teorema de multiplicación para sucesiones de Appell \ref{teorema d
 \begin{teorema}[de multiplicación para los polinomios de Bernoulli]
     Para todo entero $m \geq 0$ se verifica
     \begin{equation*}
-        B_n(mx) = m^{n-1} \sum_{k=0}^{m-1} B_n(x + \frac{k}{m})
+        B_n(mx) = m^{n-1} \sum_{k=0}^{m-1} B_n \left(x + \frac{k}{m} \right)
     \end{equation*}
 \end{teorema}
 
@@ -261,7 +261,7 @@ Por último, la teoría umbral aplicada sobre los números de Bernoulli puede se
 \begin{demo}
     Usando \ref{polinomio bernoulli operador sobre x^n} obtenemos el resultado
     \begin{align*}
-        {n \brace k} = \frac{\langle \Delta^k | x^n \rangle}{k!} = \frac{\langle \frac{\Delta^k}{T^k} T^k | x^n \rangle}{k!} = \frac{\langle (\frac{\Delta}{T})^k | T^k x^n \rangle}{k!} = \binom{n}{k} \left\langle 1 | \left(\frac{T}{\Delta}\right)^{-k} x^{n-k} \right\rangle = \binom{n}{k}B_{n-k}^{(-k)}
+        {n \brace k} = \frac{\langle \Delta^k | x^n \rangle}{k!} = \frac{\langle \frac{\Delta^k}{T^k} T^k | x^n \rangle}{k!} = \frac{\langle (\frac{\Delta}{T})^k | T^k x^n \rangle}{k!} = \binom{n}{k} \left\langle 1 \biggm| \left(\frac{T}{\Delta}\right)^{-k} x^{n-k} \right\rangle = \binom{n}{k}B_{n-k}^{(-k)}
     \end{align*}
 \end{demo}
 
@@ -463,7 +463,7 @@ No es fácil encontrar una solución general al problema de conexión de constan
 \begin{teorema}
     Sean $s_n(x) \sim (G(T), F(T))$ y $r_n(x) \sim (H(T), L(T))$ dos sucesiones de Sheffer. Las constantes de conexión $c_{n,k}$ que resuelven el problema de conexión de constantes de $s_n(x)$ con $r_n(x)$ vienen dadas por
     \begin{equation*}
-        c_{n,k} = \frac{1}{k!} \left\langle \frac{H(F^{-1}(T))}{G(F^{-1}(T))} L^k(F^{-1}(T))| x^n \right\rangle
+        c_{n,k} = \frac{1}{k!} \left\langle \frac{H(F^{-1}(T))}{G(F^{-1}(T))} L^k(F^{-1}(T)) \biggm| x^n \right\rangle
     \end{equation*}
     Además, se tiene que
     \begin{equation*}
@@ -479,9 +479,9 @@ No es fácil encontrar una solución general al problema de conexión de constan
     \end{align*}
     de donde vemos que $t_n(x) = \sum_{k=0}^n c_{n,k}x^k \sim (\frac{G \circ L^{-1}}{H \circ L^{-1}}, F \circ L^{-1})$. Por otro lado, usando esta igualdad junto a la adjunción de los operadores de Sheffer obtenemos
     \begin{align*}
-        c_{n,k} = \frac{1}{k!} \left\langle T^k | \sum_{k=0}^n c_{n,k}x^k\right\rangle & = \frac{1}{k!} \left\langle T^k | \Lambda_{\frac{G \circ L^{-1}}{H \circ L^{-1}}, F \circ L^{-1}} x^n\right\rangle \\
-        & = \frac{1}{k!} \left\langle \Lambda_{\frac{G \circ L^{-1}}{H \circ L^{-1}}, F \circ L^{-1}}^* T^k | x^n \right\rangle \\
-        & = \frac{1}{k!} \left\langle \frac{H(F^{-1}(T))}{G(F^{-1}(T))} L^k(F^{-1}(T))| x^n \right\rangle
+        c_{n,k} = \frac{1}{k!} \left\langle T^k \biggm| \sum_{k=0}^n c_{n,k}x^k\right\rangle & = \frac{1}{k!} \left\langle T^k \biggm| \Lambda_{\frac{G \circ L^{-1}}{H \circ L^{-1}}, F \circ L^{-1}} x^n\right\rangle \\
+        & = \frac{1}{k!} \left\langle \Lambda_{\frac{G \circ L^{-1}}{H \circ L^{-1}}, F \circ L^{-1}}^* T^k \biggm| x^n \right\rangle \\
+        & = \frac{1}{k!} \left\langle \frac{H(F^{-1}(T))}{G(F^{-1}(T))} L^k(F^{-1}(T)) \biggm| x^n \right\rangle
     \end{align*}
     tal y como queríamos ver. 
 \end{demo}
@@ -550,7 +550,7 @@ El cálculo umbral también permite obtener ciertas fórmulas de interpolación 
 \begin{teorema}[de interpolación binomial]
     Sea $G(T) \in \F^\delta$ un operador delta\footnote{Nuevamente, entendiéndolo como operador sobre el anillo de funciones $\mathcal{C}^\infty$} con sucesión asociada $p_n(x)$ y $f \in \mathcal{C}^{n+1}[a,b]G(T)$, siendo este conjunto el definido como $\mathcal{C}^{n+1}[a,b]G(T) = \{ f \in \mathcal{C}^{n+1}[a,b] \colon G^k(T)f(x) \in \mathcal{C}^{n+1}[a,b], k = 0, 1, \dots, n\}$. Entonces, el polinomio
     \begin{equation*}
-        B_n[f](x) = \sum_{k=0}^n \frac{(G^k(T)f(x))(0)}{k!} p_k(x)
+        B_n[f](x) = \sum_{k=0}^n \frac{\langle G^k(T) | f(x) \rangle}{k!} p_k(x)
     \end{equation*}
     verifica que
     \begin{equation*}
@@ -562,7 +562,7 @@ El cálculo umbral también permite obtener ciertas fórmulas de interpolación 
 \begin{demo}
     Tenemos que
     \begin{equation*}
-        G^m(T)B_n[f](x) = \sum_{k=0}^n \frac{(G^k(T)f(x))(0)}{k!} G^m(T)p_k(x) = \sum_{k=0}^m \frac{(G^k(T)f(x))(0)}{k!} (k)_m p_{k-m}(x)
+        G^m(T)B_n[f](x) = \sum_{k=0}^n \frac{\langle G^k(T) | f(x) \rangle}{k!} G^m(T)p_k(x) = \sum_{k=0}^m \frac{(G^k(T)f(x))(0)}{k!} (k)_m p_{k-m}(x)
     \end{equation*}
     de donde obtenemos
     \begin{equation*}
