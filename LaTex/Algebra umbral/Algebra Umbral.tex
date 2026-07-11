@@ -259,7 +259,7 @@ A partir de las definiciones dadas y de las igualdades \ref{funcional derivada} 
     Sean $F(T) \in \F$ y $p(x) \in \poly$. Se tiene que
     \begin{enumerate}
         \item $\begin{aligned}[t]
-            F(T) = \sum_{k \geq 0} \frac{ \langle F(T) | x^k \rangle}{k!}T^k \quad \textnormal{\textbf{(desarrollo de Taylor para funcionales)}}
+            F(T) = \sum_{k = 0}^\infty \frac{ \langle F(T) | x^k \rangle}{k!}T^k \quad \textnormal{\textbf{(desarrollo de Taylor para funcionales)}}
         \end{aligned}$ 
         \item $\begin{aligned}
             p(x) = \sum_{k \geq 0} \frac{ \langle T^k| p(x) \rangle}{k!}x^k \quad \textnormal{\textbf{(desarrollo de Taylor clásico)}}
@@ -299,7 +299,7 @@ Sea $m$ tal que $\ord(F_k) > \gr(p)$ para todo $k > m$. Por la proposición \ref
     Para $(\lambda x)^k$ vemos que $\langle T^n| (\lambda x)^k \rangle = \lambda^k n! \delta_{n,k} = \lambda^n n! \delta_{n,k} = \langle (\lambda T)^n| x^k\rangle$, con lo que el resultado es cierto. Para un polinomio $p(x) = \sum_{k=0}^m b_k x^k$, siendo $m = \gr(p)$, y una serie $F(T) = \sum_{k = 0}^\infty a_k T^k$ cualesquiera, usando las dos proposiciones anteriores y la linealidad vemos el resultado general
     \begin{align*}
         \langle F(T) | p(\lambda x) \rangle & = \left\langle \sum_{k=0}^\infty a_k T^k \biggm | \sum_{n=0}^{m} b_n (\lambda x)^n \right\rangle = \sum_{k=0}^m a_k\left(\sum_{n=0}^m b_n\langle T^n| (\lambda x)^k\rangle \right) \\
-        & = \sum_{k=0}^m a_k\left(\sum_{n=0}^m b_n\langle T^n| (\lambda x)^k\rangle \right) = \langle F(\lambda T) | p(x)\rangle \qedhere
+        & = \sum_{k=0}^m a_k\left(\sum_{n=0}^m b_n\langle (\lambda T)^n| x^k\rangle \right) = \langle F(\lambda T) | p(x)\rangle \qedhere
     \end{align*}
 \end{demo}
 

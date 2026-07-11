@@ -1,0 +1,11 @@
+\frametitle{Relación entre operadores y funcionales}
+\begin{teorema}[(adjunción operadores y funcionales)]
+    Sean $F(T), G(T) \in \F$ y $p(x) \in \poly$. Entonces
+    \begin{equation*}
+        \langle F(T) \cdot G(T) | p(x) \rangle = \langle F(T) | G(T)p(x) \rangle
+    \end{equation*}
+  \end{teorema}
+
+  \begin{demo}
+    Por linealidad, se reduce al caso trivial de las series $T^k$
+  \end{demo}

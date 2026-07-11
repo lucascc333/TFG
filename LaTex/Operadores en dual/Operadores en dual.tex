@@ -223,7 +223,7 @@ Una vez visto que la aplicación $\mu_{\mathcal{C}}$ es un isomorfismo, junto a 
 \end{demo}
 
 \begin{teorema}[caracterización de los operadores umbrales]
-    Se tiene la igualdad de conjuntos $\mu_{\mathcal{C}}^{-1}(\Aut(\poly^*)) = \End_{umb}(\poly)$, es decir, un operador es un operador umbral si y solo si su operador adjunto es un automorfismo de $\poly^*$. Además, para todo operador umbral $\Lambda_F \in \End_{umb}(\poly)$ y todo funcional $G(T) \in \poly^*$ se verifica que
+    Se tiene la igualdad de conjuntos $\mu_{\mathcal{C}}^{-1}(\Aut(\poly^*)) = \End_{\mathrm{Umb}}(\poly)$, es decir, un operador es un operador umbral si y solo si su operador adjunto es un automorfismo de $\poly^*$. Además, para todo operador umbral $\Lambda_F \in \End_{\mathrm{Umb}}(\poly)$ y todo funcional $G(T) \in \poly^*$ se verifica que
     \begin{equation*}
         \Lambda_F^*G(T) = G(F^{-1}(T))
     \end{equation*}
@@ -232,17 +232,17 @@ Una vez visto que la aplicación $\mu_{\mathcal{C}}$ es un isomorfismo, junto a 
 \begin{demo}
     El teorema equivale a probar las inclusiones $\Aut(\poly^*) \supseteq \mu_{\mathcal{C}}(\End_{umb}(\poly))$ y $\mu_{\mathcal{C}}^{-1}(\Aut(\poly^*)) \subseteq \End_{umb}(\poly)$.
 
-    $\boxed{\Aut(\poly^*) \supseteq \mu_{\mathcal{C}}(\End_{umb}(\poly))}$ Si la igualdad del enunciado se diera, entonces
+    $\boxed{\Aut(\poly^*) \supseteq \mu_{\mathcal{C}}(\End_{\mathrm{Umb}}(\poly))}$ Si la igualdad del enunciado se diera, entonces
     \begin{equation*}
         \Lambda_{F}^*(G(T)H(T)) = G(F^{-1}(T))H(F^{-1}(T)) = (\Lambda^*_{F}G(T))\cdot (\Lambda^*_{F}H(T)) 
     \end{equation*}
     y $\Lambda_{F}^*$ sería, por tanto, un automorfismo. Basta con ver entonces que se tiene dicha igualdad. Por las definiciones dadas tendremos que 
 \begin{align*}
-    \langle \Lambda_{F}^* F^k(T)| x^n\rangle =  \langle F^k(T) | \Lambda_{F} x^n\rangle & =  \langle F^k(T) | p_n(x)\rangle = n!\delta_{n,k} = \langle T^k | x^n \rangle
+    \langle \Lambda_{F}^* F^k(T)| x^n\rangle =  \langle F^k(T) | \Lambda_{F} x^n\rangle & =  \langle F^k(T) | p_n(x)\rangle = n! \cdot \delta_{n,k} = \langle T^k | x^n \rangle
 \end{align*}
 Luego, $\Lambda_{F}^* F^k(T) =T^k$. Y por tanto, $\Lambda_{F}^*G(F(T)) = G(T)$ para toda $G(T) \in \poly^*$, ya que los operadores adjuntos son continuos. En particular, para $G(T) = (F^{-1}(T))^k$ tenemos que $\Lambda_{F}^*T^k = (F^{-1}(T))^k$, de donde se obtiene la igualdad del enunciado. 
 
-$\boxed{\mu_{\mathcal{C}}^{-1}(\Aut(\poly^*)) \subseteq \End_{umb}(\poly)}$ Sea $\alpha \in \Aut(\poly^*)$ un automorfismo. Por conservar los automorfismos el orden y ser biyecciones, habrá un único funcional delta $F(T) \in \poly^*$ tal que $\alpha F(T) = T$. En particular, por ser morfismo de álgebras será $\alpha F^k(T) = T^k$. Sea ahora $p_n(x)$ la sucesión asociada al funcional delta $F(T)$. Tenemos que
+$\boxed{\mu_{\mathcal{C}}^{-1}(\Aut(\poly^*)) \subseteq \End_{\mathrm{Umb}}(\poly)}$ Sea $\alpha \in \Aut(\poly^*)$ un automorfismo. Por conservar los automorfismos el orden y ser biyecciones, habrá un único funcional delta $F(T) \in \poly^*$ tal que $\alpha F(T) = T$. En particular, por ser morfismo de álgebras será $\alpha F^k(T) = T^k$. Sea ahora $p_n(x)$ la sucesión asociada al funcional delta $F(T)$. Tenemos que
 \begin{align*}
     \langle F^k(T) | \mu_{\mathcal{C}}^{-1}(\alpha) x^n \rangle & = \langle (\mu_{\mathcal{C}}^{-1}(\alpha))^* F^k(T) | x^n \rangle = \langle \alpha F^k(T) | x^n \rangle\\
     & = \langle T^k | x^n \rangle = n! \delta_{n,k} = \langle F^k(T) | p_n(x) \rangle
